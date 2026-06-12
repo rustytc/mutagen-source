@@ -1,6 +1,8 @@
 # mutagen-source
 The public source code of the Mutagen: Lock and Load RPG game.
 
+Copyright (C) Rusty Tincan 2026
+
 ## Introduction:
 Mutagen: Lock and Load is an unfinished* and prototypical* Godot hobby project which I have been passively working on since roughly February 2025. It is a 2D turn-based RPG which leans towards strategy rather than pure RNG.
 Its source code has been publicized on this repo as of June 2026. I am doing so because I want this game to be truly free to the public. I have chosen GPL V3.0 as the license for which protects its code assets. It's art assets, including music, sounds, sprites, dialogue, etc. are proprietary, and cannot be used elsewhere without my explicit permission.
