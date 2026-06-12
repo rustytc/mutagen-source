@@ -66,7 +66,7 @@ It's a thing you can do. And it's also a thing that's pretty easy to do.
 <img width="548" height="199" alt="image" src="https://github.com/user-attachments/assets/60c8a2e0-82f4-4047-a7cb-ce2fc7672b06" />
 <img width="262" height="258" alt="image" src="https://github.com/user-attachments/assets/9291f47e-3c06-48a1-8488-bfea8533cdef" />
 <img width="180" height="72" alt="image" src="https://github.com/user-attachments/assets/3ceb74f5-f4cd-45d0-a225-76ae6c1eae14" />
-Like any Godot game with Godot Modloader support, edit the game in Godot, pick what changes you want made and put export them in a resource pack (.pck), and then throw that thing into the /mods folder.
+Like any Godot game with Godot Modloader support, edit the game in Godot, pick what changes you want made and export them in a resource pack (.pck), and then throw that thing into the /mods folder.
 
 ## Contributors
 If you'd like to submit contributions to the source code/game project (for bug fixes or feature completions), you can. It's not guaranteed that I'll approve them, but if they're good, I just might. And if you ever get mugged, I'll be there. Waiting. To defend you. Also, you will be credited if I merge from your pull.
