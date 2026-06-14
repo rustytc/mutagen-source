@@ -69,6 +69,7 @@ Courtesy of <https://www.reddit.com/r/godot/comments/14m8d03/how_to_chroma_key_a
 # Plugins / External Code:
 ## Godot Mod Loader
 Creator: Godot Modloader team
+
 Licensed under Creative Commons 0 1.0 Universal
 
 Courtesy of <https://github.com/GodotModding/godot-mod-loader>
