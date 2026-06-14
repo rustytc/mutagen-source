@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd8hfepjfwvfi"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/deathGlitch.gdshader" id="1_7dluy"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/Effects/death_effect.gd" id="1_k5uxf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mmv07"]
+shader = ExtResource("1_7dluy")
+shader_parameter/shake_power = 0.0
+shader_parameter/shake_rate = 0.0
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[node name="deathEffect" type="Node2D" groups=["Death Effect"]]
+visible = false
+script = ExtResource("1_k5uxf")
+
+[node name="glitch" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_mmv07")
+offset_right = 640.0
+offset_bottom = 360.0

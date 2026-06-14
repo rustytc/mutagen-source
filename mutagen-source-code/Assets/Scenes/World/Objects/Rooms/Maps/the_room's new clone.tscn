@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5bflgrp4doqo"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Overworld/Maps/Test Level/testLevel.gd" id="1_4dumc"]
+[ext_resource type="PackedScene" uid="uid://b46pil1mndjda" path="res://Assets/Scenes/World/Objects/Player/player.tscn" id="2_1l63n"]
+[ext_resource type="PackedScene" uid="uid://dlmbrnt6h3nxm" path="res://Assets/Scenes/World/Objects/NPCs/Enemies/Common/enemy_base.tscn" id="3_d4s2g"]
+[ext_resource type="PackedScene" uid="uid://dp2i8n7uoed5d" path="res://Assets/Scenes/World/Objects/Rooms/Walls/walls.tscn" id="4_oc4h1"]
+[ext_resource type="PackedScene" uid="uid://cyxt6ioiyej4" path="res://Assets/Scenes/World/Triggers/pathfinding_zone.tscn" id="5_bq6qm"]
+[ext_resource type="PackedScene" uid="uid://dtmiaklh4rvt3" path="res://Assets/Scenes/World/Objects/NPCs/Interactable/NPC Base/npc_base.tscn" id="6_sk2ch"]
+
+[node name="the room" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_4dumc")
+metadata/_edit_vertical_guides_ = [-295.0]
+
+[node name="Player" parent="." instance=ExtResource("2_1l63n")]
+position = Vector2(1754, 1230)
+
+[node name="Walls" parent="." instance=ExtResource("4_oc4h1")]
+y_sort_enabled = true
+position = Vector2(-3, 0)
+
+[node name="PathfindingZone0" parent="." instance=ExtResource("5_bq6qm")]
+position = Vector2(806, 1547)
+
+[node name="PathfindingZone1" parent="." instance=ExtResource("5_bq6qm")]
+position = Vector2(2246, 1052)
+ID = 2
+
+[node name="PathfindingZone2" parent="." instance=ExtResource("5_bq6qm")]
+position = Vector2(1076, 1988)
+ID = 3
+
+[node name="PathfindingZone3" parent="." instance=ExtResource("5_bq6qm")]
+position = Vector2(2662, 1979)
+ID = 4
+
+[node name="PathfindingZone4" parent="." instance=ExtResource("5_bq6qm")]
+position = Vector2(2699, 1074)
+ID = 5
+
+[node name="the idler" parent="." instance=ExtResource("3_d4s2g")]
+position = Vector2(908, 1522)
+
+[node name="CharacterBody2D" parent="the idler" index="0"]
+ID = 3
+canRandomizeZone = false
+
+[node name="npc_base" parent="." instance=ExtResource("6_sk2ch")]
+y_sort_enabled = true
+position = Vector2(1879, 1482)
+
+[node name="npc_base2" parent="." instance=ExtResource("6_sk2ch")]
+position = Vector2(1983, 1722)
+
+[node name="npc_base3" parent="." instance=ExtResource("6_sk2ch")]
+position = Vector2(1830, 1696)
+
+[editable path="the idler"]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://br3a6cyvqbono"]
+
+[ext_resource type="Texture2D" uid="uid://dm4bpj4di18d6" path="res://Assets/Images/Sprites/UI/Menu/UI Elements/dial.png" id="1_iysfj"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/Reusable UI Elements/dial.gd" id="1_pt4j8"]
+[ext_resource type="Texture2D" uid="uid://dabyg18p1uuci" path="res://Assets/Images/Sprites/UI/Menu/UI Elements/knob.png" id="2_hscrg"]
+
+[node name="Dial" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pt4j8")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 128.0
+offset_right = 368.0
+offset_bottom = 224.0
+texture = ExtResource("1_iysfj")
+
+[node name="Knob" type="Node2D" parent="."]
+position = Vector2(320, 175)
+rotation = -6.28319
+
+[node name="knobTexButton" type="TextureButton" parent="Knob"]
+offset_left = -48.0
+offset_top = -47.0
+offset_right = 48.0
+offset_bottom = 49.0
+texture_normal = ExtResource("2_hscrg")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="holdDownTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="button_down" from="Knob/knobTexButton" to="." method="_on_knob_tex_button_button_down"]
+[connection signal="button_up" from="Knob/knobTexButton" to="." method="_on_knob_tex_button_button_up"]
+[connection signal="pressed" from="Knob/knobTexButton" to="." method="_on_knob_pressed"]
+[connection signal="timeout" from="holdDownTimer" to="." method="_on_hold_down_timer_timeout"]

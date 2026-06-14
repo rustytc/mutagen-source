@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bkeoyp5twv32i"
+path="res://.godot/imported/Man01 A.mp3-b9c9f323247d753cfe39604e9d9d112d.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/NPC/Voices/Man01 A.mp3"
+dest_files=["res://.godot/imported/Man01 A.mp3-b9c9f323247d753cfe39604e9d9d112d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

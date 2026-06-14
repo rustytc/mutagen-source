@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://badmtc5yan44h"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/overworld_battle_fizz_effect_noise.gdshader" id="3_7l0h2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nf1p5"]
+shader = ExtResource("3_7l0h2")
+shader_parameter/intensity = 0.0
+shader_parameter/darkness = 0.0
+shader_parameter/color_bleed_strength = 0.0
+
+[node name="Overworld Battle Fizz Effect" type="Node2D"]
+
+[node name="Noise" type="ColorRect" parent="."]
+z_index = 4
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_nf1p5")
+offset_left = -718.0
+offset_top = -467.0
+offset_right = 1585.0
+offset_bottom = 998.0

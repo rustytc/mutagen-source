@@ -1,0 +1,416 @@
+[gd_scene load_steps=28 format=3 uid="uid://c1rd7o7u2x8me"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/UI/Options/options.gd" id="1_jyh6m"]
+[ext_resource type="StyleBox" uid="uid://m4w6emihgxlm" path="res://Assets/Skins/UI/dialogue_box.tres" id="2_3q83v"]
+[ext_resource type="FontFile" uid="uid://bndr2qb2kcow1" path="res://Assets/Fonts/Mx437 IBM VGA 8x14 MODIFIED.ttf" id="3_12la5"]
+[ext_resource type="StyleBox" uid="uid://3rkmav1h7ok3" path="res://Assets/Skins/UI/button2.tres" id="4_1twkt"]
+[ext_resource type="Texture2D" uid="uid://5v2ecdvyq1jl" path="res://Assets/Images/Sprites/UI/Menu/Navigation/grabber.png" id="5_4avcc"]
+[ext_resource type="Texture2D" uid="uid://ule47wde8f1v" path="res://Assets/Images/Sprites/UI/Menu/UI Elements/checkbox.png" id="6_f4cj6"]
+[ext_resource type="Texture2D" uid="uid://cvjpe5am5bvyo" path="res://Assets/Images/Sprites/UI/Menu/UI Elements/checkboxChecked.png" id="7_qk0ya"]
+[ext_resource type="StyleBox" uid="uid://bmawbl7e0nhtm" path="res://Assets/Skins/UI/button.tres" id="8_5ad34"]
+[ext_resource type="StyleBox" uid="uid://bsoj78fjjdt7h" path="res://Assets/Skins/UI/buttonHovered.tres" id="9_brgxh"]
+
+[sub_resource type="Theme" id="Theme_k6pey"]
+default_font = ExtResource("3_12la5")
+
+[sub_resource type="Theme" id="Theme_6cady"]
+default_font = ExtResource("3_12la5")
+
+[sub_resource type="Theme" id="Theme_j6byr"]
+default_font = ExtResource("3_12la5")
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_854ds"]
+color = Color(0, 0.184314, 0, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_vksml"]
+color = Color(9.62615e-08, 0.822991, 1.15514e-06, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_5ec4k"]
+color = Color(0, 1, 0, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1510q"]
+bg_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kbddn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mswl2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_accvx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o5abh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h2rs0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mavho"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x4hil"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jpllp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yj1ff"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ysyat"]
+
+[sub_resource type="Theme" id="Theme_uh2sp"]
+default_font = ExtResource("3_12la5")
+
+[node name="options" type="Node2D"]
+script = ExtResource("1_jyh6m")
+
+[node name="mainOptions" type="Panel" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 624.0
+offset_bottom = 344.0
+theme_override_styles/panel = ExtResource("2_3q83v")
+
+[node name="optionsTitle" type="RichTextLabel" parent="mainOptions"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 608.0
+offset_bottom = 28.0
+theme = SubResource("Theme_k6pey")
+bbcode_enabled = true
+text = "[center]OPTIONS"
+
+[node name="toggleTitles" type="RichTextLabel" parent="mainOptions"]
+layout_mode = 0
+offset_right = 608.0
+offset_bottom = 324.0
+theme = SubResource("Theme_k6pey")
+bbcode_enabled = true
+text = "
+  Graphics Renderer
+
+
+
+  Text Speed
+
+
+
+  Music Volume
+
+
+
+  Sound Volume
+
+
+
+
+  Enable Mods (!)"
+
+[node name="renderer" type="OptionButton" parent="mainOptions"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 14.0
+offset_right = 244.0
+offset_bottom = 32.0
+theme = SubResource("Theme_6cady")
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("9_brgxh")
+theme_override_styles/disabled_mirrored = ExtResource("4_1twkt")
+theme_override_styles/disabled = ExtResource("4_1twkt")
+theme_override_styles/hover_pressed_mirrored = ExtResource("4_1twkt")
+theme_override_styles/hover_pressed = ExtResource("4_1twkt")
+theme_override_styles/hover_mirrored = ExtResource("4_1twkt")
+theme_override_styles/hover = ExtResource("4_1twkt")
+theme_override_styles/pressed_mirrored = ExtResource("4_1twkt")
+theme_override_styles/pressed = ExtResource("4_1twkt")
+theme_override_styles/normal_mirrored = ExtResource("4_1twkt")
+theme_override_styles/normal = ExtResource("4_1twkt")
+selected = 0
+item_count = 3
+popup/item_0/text = "OpenGL"
+popup/item_1/text = "Direct3D"
+popup/item_1/id = 1
+popup/item_2/text = "Vulkan"
+popup/item_2/id = 2
+
+[node name="battleLogSpeed" type="OptionButton" parent="mainOptions"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 68.0
+offset_right = 244.0
+offset_bottom = 86.0
+theme = SubResource("Theme_6cady")
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("9_brgxh")
+theme_override_styles/disabled_mirrored = ExtResource("4_1twkt")
+theme_override_styles/disabled = ExtResource("4_1twkt")
+theme_override_styles/hover_pressed_mirrored = ExtResource("4_1twkt")
+theme_override_styles/hover_pressed = ExtResource("4_1twkt")
+theme_override_styles/hover_mirrored = ExtResource("4_1twkt")
+theme_override_styles/hover = ExtResource("4_1twkt")
+theme_override_styles/pressed_mirrored = ExtResource("4_1twkt")
+theme_override_styles/pressed = ExtResource("4_1twkt")
+theme_override_styles/normal_mirrored = ExtResource("4_1twkt")
+theme_override_styles/normal = ExtResource("4_1twkt")
+selected = 0
+item_count = 2
+popup/item_0/text = "Fast"
+popup/item_1/text = "Slow"
+popup/item_1/id = 1
+
+[node name="musicVolume" type="HSlider" parent="mainOptions"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 124.0
+offset_right = 528.0
+offset_bottom = 140.0
+theme = SubResource("Theme_j6byr")
+theme_override_icons/grabber = ExtResource("5_4avcc")
+theme_override_icons/grabber_highlight = ExtResource("5_4avcc")
+theme_override_icons/grabber_disabled = ExtResource("5_4avcc")
+theme_override_styles/slider = SubResource("StyleBoxLine_854ds")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_vksml")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_5ec4k")
+value = 100.0
+
+[node name="soundVolume" type="HSlider" parent="mainOptions"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 180.0
+offset_right = 528.0
+offset_bottom = 196.0
+theme = SubResource("Theme_j6byr")
+theme_override_icons/grabber = ExtResource("5_4avcc")
+theme_override_icons/grabber_highlight = ExtResource("5_4avcc")
+theme_override_icons/grabber_disabled = ExtResource("5_4avcc")
+theme_override_styles/slider = SubResource("StyleBoxLine_854ds")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_vksml")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_5ec4k")
+value = 100.0
+
+[node name="modsEnabled" type="CheckBox" parent="mainOptions"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 248.0
+offset_right = 160.0
+offset_bottom = 264.0
+theme_override_colors/font_disabled_color = Color(0.105882, 0.854902, 0.145098, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.105882, 0.854902, 0.145098, 1)
+theme_override_colors/font_hover_color = Color(0.105882, 0.854902, 0.145098, 1)
+theme_override_colors/font_pressed_color = Color(0.105882, 0.854902, 0.145098, 1)
+theme_override_colors/font_focus_color = Color(0.105882, 0.854902, 0.145098, 1)
+theme_override_colors/font_color = Color(0.105882, 0.854902, 0.145098, 1)
+theme_override_colors/font_outline_color = Color(0.105882, 0.854902, 0.145098, 1)
+theme_override_colors/icon_normal_color = Color(0.105882, 0.854902, 0.145098, 1)
+theme_override_colors/icon_focus_color = Color(0.105882, 0.854902, 0.145098, 1)
+theme_override_colors/icon_pressed_color = Color(0.105882, 0.854902, 0.145098, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0.105882, 0.517647, 0.145098, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_1510q")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_kbddn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mswl2")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_accvx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_o5abh")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_h2rs0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mavho")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x4hil")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jpllp")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_yj1ff")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ysyat")
+theme_override_icons/checked = ExtResource("7_qk0ya")
+theme_override_icons/unchecked = ExtResource("6_f4cj6")
+theme_override_icons/radio_checked = ExtResource("7_qk0ya")
+theme_override_icons/radio_unchecked = ExtResource("6_f4cj6")
+
+[node name="back" type="Button" parent="mainOptions"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 300.0
+offset_right = 88.0
+offset_bottom = 318.0
+theme = SubResource("Theme_uh2sp")
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("9_brgxh")
+theme_override_styles/disabled_mirrored = ExtResource("4_1twkt")
+theme_override_styles/disabled = ExtResource("4_1twkt")
+theme_override_styles/hover_pressed_mirrored = ExtResource("4_1twkt")
+theme_override_styles/hover_pressed = ExtResource("4_1twkt")
+theme_override_styles/hover_mirrored = ExtResource("4_1twkt")
+theme_override_styles/hover = ExtResource("8_5ad34")
+theme_override_styles/pressed_mirrored = ExtResource("4_1twkt")
+theme_override_styles/pressed = ExtResource("4_1twkt")
+theme_override_styles/normal_mirrored = ExtResource("4_1twkt")
+theme_override_styles/normal = ExtResource("4_1twkt")
+text = "< Back"
+
+[node name="modsWarning" type="Panel" parent="."]
+visible = false
+offset_left = 160.0
+offset_top = 16.0
+offset_right = 480.0
+offset_bottom = 344.0
+theme_override_styles/panel = ExtResource("2_3q83v")
+
+[node name="warningTitle" type="RichTextLabel" parent="modsWarning"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 320.0
+offset_bottom = 28.0
+theme = SubResource("Theme_k6pey")
+bbcode_enabled = true
+text = "[center][color=salmon]! WARNING !"
+
+[node name="warningText" type="RichTextLabel" parent="modsWarning"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -8.0
+offset_right = 304.0
+offset_bottom = 316.0
+theme = SubResource("Theme_k6pey")
+bbcode_enabled = true
+text = "
+
+[center] Enabling mods comes with the risk of running potentially harmful code on your device.
+
+If you do not know what a mod
+does, do not run it. Only run software from sources that you trust.
+
+The creator of this game is not liable for damages caused by unauthorized modifications.
+
+If you do not trust the mods for which you have placed in the 
+'/mods' folder, press cancel, exit the game, and delete them. Otherwise, press 'confirm' and mods will be enabled.
+"
+
+[node name="Cancel" type="Button" parent="modsWarning"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 300.0
+offset_right = 144.0
+offset_bottom = 318.0
+theme = SubResource("Theme_uh2sp")
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("9_brgxh")
+theme_override_styles/disabled_mirrored = ExtResource("4_1twkt")
+theme_override_styles/disabled = ExtResource("4_1twkt")
+theme_override_styles/hover_pressed_mirrored = ExtResource("4_1twkt")
+theme_override_styles/hover_pressed = ExtResource("4_1twkt")
+theme_override_styles/hover_mirrored = ExtResource("4_1twkt")
+theme_override_styles/hover = ExtResource("8_5ad34")
+theme_override_styles/pressed_mirrored = ExtResource("4_1twkt")
+theme_override_styles/pressed = ExtResource("4_1twkt")
+theme_override_styles/normal_mirrored = ExtResource("4_1twkt")
+theme_override_styles/normal = ExtResource("4_1twkt")
+text = "Cancel"
+
+[node name="Confirm" type="Button" parent="modsWarning"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 300.0
+offset_right = 248.0
+offset_bottom = 318.0
+theme = SubResource("Theme_uh2sp")
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("9_brgxh")
+theme_override_styles/disabled_mirrored = ExtResource("4_1twkt")
+theme_override_styles/disabled = ExtResource("4_1twkt")
+theme_override_styles/hover_pressed_mirrored = ExtResource("4_1twkt")
+theme_override_styles/hover_pressed = ExtResource("4_1twkt")
+theme_override_styles/hover_mirrored = ExtResource("4_1twkt")
+theme_override_styles/hover = ExtResource("8_5ad34")
+theme_override_styles/pressed_mirrored = ExtResource("4_1twkt")
+theme_override_styles/pressed = ExtResource("4_1twkt")
+theme_override_styles/normal_mirrored = ExtResource("4_1twkt")
+theme_override_styles/normal = ExtResource("4_1twkt")
+text = "Confirm"
+
+[node name="restartPrompt" type="Panel" parent="."]
+visible = false
+offset_left = 160.0
+offset_top = 116.0
+offset_right = 480.0
+offset_bottom = 240.0
+theme_override_styles/panel = ExtResource("2_3q83v")
+
+[node name="warningTitle" type="RichTextLabel" parent="restartPrompt"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 320.0
+offset_bottom = 28.0
+theme = SubResource("Theme_k6pey")
+bbcode_enabled = true
+text = "[center][color=wheat]SYSTEM"
+
+[node name="warningText" type="RichTextLabel" parent="restartPrompt"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 304.0
+offset_bottom = 92.0
+theme = SubResource("Theme_k6pey")
+bbcode_enabled = true
+text = "
+
+[center] Applying these changes requires the game to be restarted. Would you like to restart Mutagen: Lock and Load?
+"
+
+[node name="Yes" type="Button" parent="restartPrompt"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 100.0
+offset_right = 136.0
+offset_bottom = 118.0
+theme = SubResource("Theme_uh2sp")
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("9_brgxh")
+theme_override_styles/disabled_mirrored = ExtResource("4_1twkt")
+theme_override_styles/disabled = ExtResource("4_1twkt")
+theme_override_styles/hover_pressed_mirrored = ExtResource("4_1twkt")
+theme_override_styles/hover_pressed = ExtResource("4_1twkt")
+theme_override_styles/hover_mirrored = ExtResource("4_1twkt")
+theme_override_styles/hover = ExtResource("8_5ad34")
+theme_override_styles/pressed_mirrored = ExtResource("4_1twkt")
+theme_override_styles/pressed = ExtResource("4_1twkt")
+theme_override_styles/normal_mirrored = ExtResource("4_1twkt")
+theme_override_styles/normal = ExtResource("4_1twkt")
+text = "Yes"
+
+[node name="No" type="Button" parent="restartPrompt"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 100.0
+offset_right = 248.0
+offset_bottom = 118.0
+theme = SubResource("Theme_uh2sp")
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("9_brgxh")
+theme_override_styles/disabled_mirrored = ExtResource("4_1twkt")
+theme_override_styles/disabled = ExtResource("4_1twkt")
+theme_override_styles/hover_pressed_mirrored = ExtResource("4_1twkt")
+theme_override_styles/hover_pressed = ExtResource("4_1twkt")
+theme_override_styles/hover_mirrored = ExtResource("4_1twkt")
+theme_override_styles/hover = ExtResource("8_5ad34")
+theme_override_styles/pressed_mirrored = ExtResource("4_1twkt")
+theme_override_styles/pressed = ExtResource("4_1twkt")
+theme_override_styles/normal_mirrored = ExtResource("4_1twkt")
+theme_override_styles/normal = ExtResource("4_1twkt")
+text = "No"
+
+[connection signal="item_selected" from="mainOptions/renderer" to="." method="_on_renderer_item_selected"]
+[connection signal="item_selected" from="mainOptions/battleLogSpeed" to="." method="_on_battle_log_speed_item_selected"]
+[connection signal="changed" from="mainOptions/musicVolume" to="." method="_on_music_volume_changed"]
+[connection signal="drag_ended" from="mainOptions/musicVolume" to="." method="_on_music_volume_drag_ended"]
+[connection signal="value_changed" from="mainOptions/musicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="mainOptions/soundVolume" to="." method="_on_sound_volume_value_changed"]
+[connection signal="toggled" from="mainOptions/modsEnabled" to="." method="_on_mods_enabled_toggled"]
+[connection signal="pressed" from="mainOptions/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="modsWarning/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="modsWarning/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="restartPrompt/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="restartPrompt/No" to="." method="_on_no_pressed"]

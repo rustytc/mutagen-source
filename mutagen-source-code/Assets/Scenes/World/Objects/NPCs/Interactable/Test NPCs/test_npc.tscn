@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://vlxplwlw7ht0"]
+
+[ext_resource type="PackedScene" uid="uid://dtmiaklh4rvt3" path="res://Assets/Scenes/World/Objects/NPCs/Interactable/NPC Base/npc_base.tscn" id="1_k5j3p"]
+[ext_resource type="Texture2D" uid="uid://cfgavuojw6y1h" path="res://Assets/Images/Sprites/World Objects/NPCs/Interactable/Test/test/idle forwards.png" id="2_c3ivm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jgkve"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c3ivm")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c3ivm")
+}],
+"loop": true,
+"name": &"Talking",
+"speed": 8.5
+}]
+
+[node name="npc_base" instance=ExtResource("1_k5j3p")]
+dialogueJsonPath = "res://Assets/Data/Dialogue/World/Test/NPC/test/test.json"
+characterName = "test"
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_jgkve")
+frame_progress = 0.57621

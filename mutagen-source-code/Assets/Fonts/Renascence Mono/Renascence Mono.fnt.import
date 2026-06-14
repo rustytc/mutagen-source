@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://cjn2hsmktinwv"
+path="res://.godot/imported/Renascence Mono.fnt-f627edd0ca21d47236269bf2035f8e0a.fontdata"
+
+[deps]
+
+source_file="res://Assets/Fonts/Renascence Mono/Renascence Mono.fnt"
+dest_files=["res://.godot/imported/Renascence Mono.fnt-f627edd0ca21d47236269bf2035f8e0a.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2

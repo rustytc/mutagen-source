@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bbhxadycot0ww"
+path="res://.godot/imported/Iron Titan.ogg-85ce0e662bb7a67900fe1f3b6297015a.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Music/Iron Titan.ogg"
+dest_files=["res://.godot/imported/Iron Titan.ogg-85ce0e662bb7a67900fe1f3b6297015a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

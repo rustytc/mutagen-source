@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://turofjd8yipc"]
+
+[ext_resource type="PackedScene" uid="uid://xwp1k61fdj12" path="res://Assets/Scenes/UI/Dialogue System/dialogue_box.tscn" id="1_celbx"]
+[ext_resource type="PackedScene" uid="uid://bd8hfepjfwvfi" path="res://Assets/Scenes/UI/Effects/death_effect.tscn" id="1_rjyi2"]
+[ext_resource type="PackedScene" uid="uid://d2uqlpkdkop6b" path="res://Assets/Scenes/UI/Effects/radiation_effect.tscn" id="2_h4noc"]
+[ext_resource type="PackedScene" uid="uid://b1dq3c7ss46gy" path="res://Assets/Scenes/UI/Reusable UI Elements/help_menu.tscn" id="2_vop60"]
+[ext_resource type="PackedScene" uid="uid://divx66usm4iyr" path="res://Assets/Scenes/UI/Overworld/healthHeart.tscn" id="3_ne8aa"]
+[ext_resource type="PackedScene" uid="uid://ci6s1ji3n3f84" path="res://Assets/Scenes/UI/Overworld/radiationMeter.tscn" id="4_wb4y1"]
+[ext_resource type="PackedScene" uid="uid://bjq8lcxbirke3" path="res://Assets/Scenes/Battle/Battle Screen/UI/actionLog.tscn" id="5_3fuq4"]
+
+[node name="Overworld UI" type="CanvasLayer" groups=["Overworld UI"]]
+process_mode = 3
+follow_viewport_enabled = true
+
+[node name="deathEffect" parent="." instance=ExtResource("1_rjyi2")]
+
+[node name="radiationEffect" parent="." instance=ExtResource("2_h4noc")]
+
+[node name="dialogueBox" parent="." instance=ExtResource("1_celbx")]
+
+[node name="helpMenu" parent="." instance=ExtResource("2_vop60")]
+
+[node name="HealthHeart" parent="." instance=ExtResource("3_ne8aa")]
+offset_left = 598.0
+offset_top = 48.0
+offset_right = 598.0
+offset_bottom = 48.0
+
+[node name="GeigerMeter" parent="." instance=ExtResource("4_wb4y1")]
+offset_left = 56.0
+offset_top = 48.0
+offset_right = 56.0
+offset_bottom = 48.0
+
+[node name="actionLog" parent="." instance=ExtResource("5_3fuq4")]

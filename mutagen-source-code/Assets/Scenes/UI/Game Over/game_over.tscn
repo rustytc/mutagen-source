@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://lfhxtap3m62l"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/UI/Game Over/game_over.gd" id="1_cejub"]
+[ext_resource type="Texture2D" uid="uid://c0iq24w8vb1to" path="res://Assets/Images/Sprites/UI/Game Over/game over.png" id="2_02hj2"]
+[ext_resource type="Shader" path="res://Assets/Shaders/heat.gdshader" id="2_jqksi"]
+[ext_resource type="AudioStream" uid="uid://u8rtu3esyb5f" path="res://Assets/Sounds/Music/Passacaglia.ogg" id="3_1lxyw"]
+
+[sub_resource type="Gradient" id="Gradient_0ab5a"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kilqo"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rgysx"]
+color_ramp = SubResource("Gradient_0ab5a")
+noise = SubResource("FastNoiseLite_kilqo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4em5e"]
+shader = ExtResource("2_jqksi")
+shader_parameter/strength = 0.002
+shader_parameter/speed = Vector2(0.05, 0)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_rgysx")
+
+[node name="gameOver" type="Node2D"]
+visible = false
+script = ExtResource("1_cejub")
+
+[node name="colorRect" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 640.0
+offset_bottom = 368.0
+color = Color(0, 0, 0, 1)
+
+[node name="gameOver" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(320, 120)
+texture = ExtResource("2_02hj2")
+
+[node name="visibleOnScreenNotifier2d" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1lxyw")
+volume_db = -15.097
+
+[node name="heat" type="ColorRect" parent="."]
+visible = false
+texture_filter = 1
+material = SubResource("ShaderMaterial_4em5e")
+offset_right = 640.0
+offset_bottom = 360.0
+
+[connection signal="visibility_changed" from="visibleOnScreenNotifier2d" to="." method="_on_visible_on_screen_notifier_2d_visibility_changed"]

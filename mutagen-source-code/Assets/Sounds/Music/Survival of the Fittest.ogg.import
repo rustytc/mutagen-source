@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://lv2mxvcitvwd"
+path="res://.godot/imported/Survival of the Fittest.ogg-87b753dfa4be119a98ab8424a29f7e05.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Music/Survival of the Fittest.ogg"
+dest_files=["res://.godot/imported/Survival of the Fittest.ogg-87b753dfa4be119a98ab8424a29f7e05.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

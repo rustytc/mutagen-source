@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bego4o30xy40x"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Overworld/Maps/Test Level/testLevel.gd" id="1_u08ry"]
+[ext_resource type="PackedScene" uid="uid://b46pil1mndjda" path="res://Assets/Scenes/World/Objects/Player/player.tscn" id="2_ng6da"]
+[ext_resource type="PackedScene" uid="uid://dp2i8n7uoed5d" path="res://Assets/Scenes/World/Objects/Rooms/Walls/walls.tscn" id="4_vy5uu"]
+[ext_resource type="PackedScene" uid="uid://cyxt6ioiyej4" path="res://Assets/Scenes/World/Triggers/pathfinding_zone.tscn" id="5_as5ak"]
+[ext_resource type="PackedScene" uid="uid://dtmiaklh4rvt3" path="res://Assets/Scenes/World/Objects/NPCs/Interactable/NPC Base/npc_base.tscn" id="6_crv5k"]
+
+[node name="the room" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_u08ry")
+
+[node name="Player" parent="." instance=ExtResource("2_ng6da")]
+position = Vector2(1754, 1230)
+
+[node name="Walls" parent="." instance=ExtResource("4_vy5uu")]
+y_sort_enabled = true
+position = Vector2(-3, 0)
+
+[node name="PathfindingZone0" parent="." instance=ExtResource("5_as5ak")]
+position = Vector2(806, 1547)
+
+[node name="PathfindingZone1" parent="." instance=ExtResource("5_as5ak")]
+position = Vector2(2246, 1052)
+ID = 2
+
+[node name="PathfindingZone2" parent="." instance=ExtResource("5_as5ak")]
+position = Vector2(1076, 1988)
+ID = 3
+
+[node name="PathfindingZone3" parent="." instance=ExtResource("5_as5ak")]
+position = Vector2(2662, 1979)
+ID = 4
+
+[node name="PathfindingZone4" parent="." instance=ExtResource("5_as5ak")]
+position = Vector2(2699, 1074)
+ID = 5
+
+[node name="npc_base" parent="." instance=ExtResource("6_crv5k")]
+y_sort_enabled = true
+position = Vector2(1904, 1586)

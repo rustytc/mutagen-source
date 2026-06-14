@@ -1,0 +1,114 @@
+[gd_scene load_steps=12 format=3 uid="uid://ci6s1ji3n3f84"]
+
+[ext_resource type="Texture2D" uid="uid://bykl1n5yggow6" path="res://Assets/Images/Sprites/UI/Status/radiation empty.png" id="1_djwhc"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/Status/radiation_meter.gd" id="1_l2cxd"]
+[ext_resource type="Texture2D" uid="uid://55n04y7jnbob" path="res://Assets/Images/Sprites/UI/Status/radiation full.png" id="2_3f1qw"]
+[ext_resource type="FontFile" uid="uid://bndr2qb2kcow1" path="res://Assets/Fonts/Mx437 IBM VGA 8x14 MODIFIED.ttf" id="7_jlpt2"]
+[ext_resource type="FontFile" uid="uid://dbibrg3b1b5mh" path="res://Assets/Fonts/pixeloid.sans.ttf" id="8_725jm"]
+[ext_resource type="FontFile" uid="uid://y21aom2shmhk" path="res://Assets/Fonts/pixeloid.sans-bold.ttf" id="9_kxaus"]
+
+[sub_resource type="FontVariation" id="FontVariation_86ufx"]
+base_font = ExtResource("7_jlpt2")
+
+[sub_resource type="Animation" id="Animation_6jek0"]
+resource_name = "Blink"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c4m21"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ktais"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wosyh"]
+_data = {
+"Blink": SubResource("Animation_6jek0"),
+"Idle": SubResource("Animation_c4m21"),
+"RESET": SubResource("Animation_ktais")
+}
+
+[node name="GeigerMeter" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l2cxd")
+
+[node name="Geiger" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = -31.0
+offset_top = -33.0
+offset_right = 33.0
+offset_bottom = 31.0
+pivot_offset = Vector2(32, 32)
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("1_djwhc")
+texture_progress = ExtResource("2_3f1qw")
+
+[node name="Percentage" type="RichTextLabel" parent="Geiger"]
+process_mode = 3
+texture_filter = 1
+layout_mode = 0
+offset_left = 16.0
+offset_top = 26.0
+offset_right = 49.0
+offset_bottom = 41.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_86ufx")
+theme_override_fonts/mono_font = ExtResource("8_725jm")
+theme_override_fonts/bold_font = ExtResource("9_kxaus")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "[center]100%"
+scroll_active = false
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wosyh")
+}
+autoplay = "Blink"

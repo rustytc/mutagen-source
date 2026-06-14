@@ -1,0 +1,122 @@
+[gd_scene load_steps=16 format=3 uid="uid://divx66usm4iyr"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/UI/Status/health_heart.gd" id="1_onj4s"]
+[ext_resource type="Texture2D" uid="uid://bs3jvqw1rf86f" path="res://Assets/Images/Sprites/UI/Status/heart1.png" id="1_q4eeh"]
+[ext_resource type="Texture2D" uid="uid://iygu1im2smf" path="res://Assets/Images/Sprites/UI/Status/heart2.png" id="2_101a2"]
+[ext_resource type="Texture2D" uid="uid://bmvl2og3kpluj" path="res://Assets/Images/Sprites/UI/Status/heart3.png" id="3_hbtgm"]
+[ext_resource type="Texture2D" uid="uid://bls006h8m53x7" path="res://Assets/Images/Sprites/UI/Status/heart4.png" id="4_2id0v"]
+[ext_resource type="Texture2D" uid="uid://7s0clk71jwc4" path="res://Assets/Images/Sprites/UI/Status/heart5.png" id="5_0vord"]
+[ext_resource type="Texture2D" uid="uid://dqp4laq8hixfk" path="res://Assets/Images/Sprites/UI/Status/heart6.png" id="6_6u51v"]
+[ext_resource type="FontFile" uid="uid://bndr2qb2kcow1" path="res://Assets/Fonts/Mx437 IBM VGA 8x14 MODIFIED.ttf" id="7_aygtj"]
+[ext_resource type="FontFile" uid="uid://dbibrg3b1b5mh" path="res://Assets/Fonts/pixeloid.sans.ttf" id="8_nbpj1"]
+[ext_resource type="FontFile" uid="uid://y21aom2shmhk" path="res://Assets/Fonts/pixeloid.sans-bold.ttf" id="9_he3f8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n6vfq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_q4eeh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_101a2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbtgm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2id0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0vord")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6u51v")
+}],
+"loop": true,
+"name": &"Pulsate",
+"speed": 5.0
+}]
+
+[sub_resource type="FontVariation" id="FontVariation_86ufx"]
+base_font = ExtResource("7_aygtj")
+
+[sub_resource type="Animation" id="Animation_f63lf"]
+resource_name = "Pulse"
+length = 0.9
+loop_mode = 1
+step = 0.3333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heart:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.422989),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.4, 1.2), Vector2(1.4, 1.4)]
+}
+
+[sub_resource type="Animation" id="Animation_thuh5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heart:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ulhx"]
+_data = {
+"Pulse": SubResource("Animation_f63lf"),
+"RESET": SubResource("Animation_thuh5")
+}
+
+[node name="HealthHeart" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_onj4s")
+
+[node name="Heart" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n6vfq")
+animation = &"Pulsate"
+autoplay = "Pulsate"
+frame_progress = 0.208046
+
+[node name="Percentage" type="RichTextLabel" parent="Heart"]
+process_mode = 3
+texture_filter = 1
+offset_left = -17.554
+offset_top = -7.18116
+offset_right = 15.446
+offset_bottom = 7.81884
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_86ufx")
+theme_override_fonts/mono_font = ExtResource("8_nbpj1")
+theme_override_fonts/bold_font = ExtResource("9_he3f8")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "[center]100%"
+scroll_active = false
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="Pulsation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0ulhx")
+}
+autoplay = "Pulse"

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckqpgjf0mv18m"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/static_effect.gdshader" id="1_7k7s8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x5qvk"]
+shader = ExtResource("1_7k7s8")
+shader_parameter/amount = 40.0
+
+[node name="staticEffect" type="Node2D" groups=["Death Effect"]]
+
+[node name="static" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_x5qvk")
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 0)

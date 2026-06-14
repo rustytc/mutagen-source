@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtmiaklh4rvt3"]
+
+[ext_resource type="Texture2D" uid="uid://cfgavuojw6y1h" path="res://Assets/Images/Sprites/World Objects/NPCs/Interactable/Test/test/idle forwards.png" id="1_4hqmj"]
+[ext_resource type="Script" path="res://Assets/Scripts/Overworld/NPCs/NPC Base/npc_base.gd" id="1_6ncuw"]
+[ext_resource type="Texture2D" uid="uid://b00xvvdji0qat" path="res://Assets/Images/Sprites/World Objects/NPCs/Interactable/Test/test/wink.png" id="3_l0jo4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4b44n"]
+size = Vector2(19, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ep3m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4hqmj")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_l0jo4")
+}],
+"loop": true,
+"name": &"Wink",
+"speed": 5.0
+}]
+
+[node name="npc_base" type="Node2D" groups=["Overworld Non-Player Character", "Talkative NPC"]]
+process_mode = 3
+script = ExtResource("1_6ncuw")
+dialogueJsonPath = "res://Assets/Data/Dialogue/World/Test/NPC/test/test.json"
+characterName = "test"
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["Overworld Non-Player Character"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+y_sort_enabled = true
+position = Vector2(-0.5, -12)
+shape = SubResource("RectangleShape2D_4b44n")
+
+[node name="lineOfSightArea" type="Area2D" parent="CharacterBody2D"]
+
+[node name="lineOfSightRange" type="CollisionPolygon2D" parent="CharacterBody2D/lineOfSightArea"]
+polygon = PackedVector2Array(-1, -21, 0, -21, 58, 16, 1, 84, -58, 17)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -17)
+sprite_frames = SubResource("SpriteFrames_7ep3m")
+animation = &"Idle"
+autoplay = "Idle"
+
+[connection signal="body_entered" from="CharacterBody2D/lineOfSightArea" to="." method="_on_line_of_sight_area_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/lineOfSightArea" to="." method="_on_line_of_sight_area_body_exited"]

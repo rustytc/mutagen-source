@@ -1,0 +1,27 @@
+{
+	"nodes": [
+		{
+			"commands": [],
+			"editor_name": "Node_1",
+			"end": false,
+			"id": "0",
+			"next": "1",
+			"npc": "Metalmouth",
+			"options": [],
+			"text": "I am Metalmouth. My mouth is made of metal.",
+			"tone": "neutral"
+		},
+		{
+			"commands": [],
+			"editor_name": "Node_2",
+			"end": true,
+			"id": "1",
+			"npc": "Metalmouth",
+			"options": [],
+			"text": "Face my metally mouthy wrath",
+			"tone": "angry"
+		}
+	],
+	"npc": "Metalmouth",
+	"start_node": "0"
+}

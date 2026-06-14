@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://01ehrelh7leo"
+path="res://.godot/imported/Man01 C.mp3-43e5f64dae8e0fe784c44bdd032e6ff8.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/NPC/Voices/Man01 C.mp3"
+dest_files=["res://.godot/imported/Man01 C.mp3-43e5f64dae8e0fe784c44bdd032e6ff8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

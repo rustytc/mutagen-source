@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://bocqps2rdajfn"]
+
+[ext_resource type="StyleBox" uid="uid://d0k1dj4jxtqex" path="res://Assets/Skins/UI/dialogue_box_nontrans.tres" id="2_s45m6"]
+[ext_resource type="FontFile" uid="uid://bndr2qb2kcow1" path="res://Assets/Fonts/Mx437 IBM VGA 8x14 MODIFIED.ttf" id="3_rl2ys"]
+[ext_resource type="FontFile" uid="uid://dbibrg3b1b5mh" path="res://Assets/Fonts/pixeloid.sans.ttf" id="4_bl0ti"]
+[ext_resource type="FontFile" uid="uid://y21aom2shmhk" path="res://Assets/Fonts/pixeloid.sans-bold.ttf" id="5_x7o54"]
+
+[sub_resource type="FontVariation" id="FontVariation_pk50g"]
+base_font = ExtResource("3_rl2ys")
+
+[node name="statDisplay" type="Control" groups=["Action Log"]]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = 624.0
+offset_top = 232.0
+offset_right = 624.0
+offset_bottom = 232.0
+
+[node name="Panel" type="Panel" parent="."]
+process_mode = 3
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -608.0
+offset_top = 16.0
+offset_bottom = 112.0
+grow_horizontal = 0
+theme_override_styles/panel = ExtResource("2_s45m6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 600.0
+offset_bottom = 104.0
+theme_override_constants/separation = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2"]
+process_mode = 3
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/HBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="Text" type="RichTextLabel" parent="Panel/VBoxContainer/HBoxContainer"]
+process_mode = 3
+texture_filter = 1
+custom_minimum_size = Vector2(580, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_pk50g")
+theme_override_fonts/mono_font = ExtResource("4_bl0ti")
+theme_override_fonts/bold_font = ExtResource("5_x7o54")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+scroll_active = false
+scroll_following = true
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false

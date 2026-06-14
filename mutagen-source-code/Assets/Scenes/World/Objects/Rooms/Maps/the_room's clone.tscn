@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c16vpmj54yqli"]
+
+[ext_resource type="PackedScene" uid="uid://buamukxvqtnih" path="res://Assets/Scenes/World/Objects/Rooms/Maps/the_room.tscn" id="1_468lc"]
+[ext_resource type="PackedScene" uid="uid://turofjd8yipc" path="res://Assets/Scenes/UI/Overworld/overworld_ui.tscn" id="2_jfn16"]
+
+[node name="the room" instance=ExtResource("1_468lc")]
+
+[node name="Overworld UI2" parent="." index="19" instance=ExtResource("2_jfn16")]
+
+[editable path="EnemyBase"]
+[editable path="EnemyBase2"]
+[editable path="EnemyBase3"]
+[editable path="the idler"]
+[editable path="EnemyBase4"]
+[editable path="EnemyBase5"]
+[editable path="EnemyBase6"]
+[editable path="EnemyBase7"]
+[editable path="EnemyBase8"]

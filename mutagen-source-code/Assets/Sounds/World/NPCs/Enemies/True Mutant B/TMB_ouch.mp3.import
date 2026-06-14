@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ccvmveo0jbgnh"
+path="res://.godot/imported/TMB_ouch.mp3-a0a40a9a9dee0d3247f9876ac98d3203.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/World/NPCs/Enemies/True Mutant B/TMB_ouch.mp3"
+dest_files=["res://.godot/imported/TMB_ouch.mp3-a0a40a9a9dee0d3247f9876ac98d3203.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

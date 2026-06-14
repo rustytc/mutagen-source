@@ -1,0 +1,1217 @@
+[gd_scene load_steps=63 format=3 uid="uid://b1dq3c7ss46gy"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/UI/Reusable UI Elements/help_menu.gd" id="1_8cej4"]
+[ext_resource type="PackedScene" uid="uid://ci323t6l7lanx" path="res://Assets/Scenes/UI/Reusable UI Elements/pointer.tscn" id="2_rgwt0"]
+[ext_resource type="StyleBox" uid="uid://m4w6emihgxlm" path="res://Assets/Skins/UI/dialogue_box.tres" id="3_stoll"]
+[ext_resource type="FontFile" uid="uid://cgksoyoaqim15" path="res://Assets/Fonts/Mx437_IBM_VGA_8x14.ttf" id="4_lixpl"]
+[ext_resource type="FontFile" uid="uid://dbibrg3b1b5mh" path="res://Assets/Fonts/pixeloid.sans.ttf" id="5_7l4xm"]
+[ext_resource type="FontFile" uid="uid://y21aom2shmhk" path="res://Assets/Fonts/pixeloid.sans-bold.ttf" id="6_qk375"]
+[ext_resource type="StyleBox" uid="uid://b7ahlinqn4x0o" path="res://Assets/Skins/UI/dialogue_box_option_selected.tres" id="7_j7o0i"]
+[ext_resource type="Theme" uid="uid://bni18g0j42jpe" path="res://Assets/Skins/UI/Tab Theme.tres" id="8_sdhse"]
+[ext_resource type="StyleBox" uid="uid://gtaxl4cahoxi" path="res://Assets/Skins/UI/tab_box.tres" id="9_oc37u"]
+[ext_resource type="StyleBox" uid="uid://om4tr8esh6nv" path="res://Assets/Skins/UI/tab_box_unselect.tres" id="10_tqelc"]
+[ext_resource type="StyleBox" uid="uid://cqlbnkaeg2bwy" path="res://Assets/Skins/UI/dialogue_box_flat.tres" id="11_s2u4x"]
+[ext_resource type="FontFile" uid="uid://bndr2qb2kcow1" path="res://Assets/Fonts/Mx437 IBM VGA 8x14 MODIFIED.ttf" id="12_ian20"]
+[ext_resource type="Theme" uid="uid://yl5cepm7d83k" path="res://Assets/Skins/UI/listNoScrollbar.tres" id="13_phsoy"]
+[ext_resource type="PackedScene" uid="uid://br3a6cyvqbono" path="res://Assets/Scenes/UI/Reusable UI Elements/Dial.tscn" id="14_vsvj7"]
+[ext_resource type="StyleBox" uid="uid://c7v42b37ndda1" path="res://Assets/Skins/UI/button_selected.tres" id="15_eoey8"]
+[ext_resource type="StyleBox" uid="uid://bmawbl7e0nhtm" path="res://Assets/Skins/UI/button.tres" id="16_s4yqb"]
+
+[sub_resource type="FontVariation" id="FontVariation_4pann"]
+base_font = ExtResource("4_lixpl")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dgnst"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hcj2s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6nr2a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c757c"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_grpcu"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_srfk6"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_65g5d"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_t71hb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b7plc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j3fcu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bs6p8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5tc3n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i3gro"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dk8bc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23xis"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kerh8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a78ej"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_achri"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ae1t8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x3jwp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b5dg7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_674qs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_knebt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uvpft"]
+
+[sub_resource type="Theme" id="Theme_dsrig"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_x3jwp")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_b5dg7")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_674qs")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_knebt")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_uvpft")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jqmeh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rldoc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxtiy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c1oo0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4cm0"]
+
+[sub_resource type="Theme" id="Theme_jcfv5"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_jqmeh")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_rldoc")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_rxtiy")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_c1oo0")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_c4cm0")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_683mk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e21sa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5w175"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jr4f3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_isq1a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c5y31"]
+
+[sub_resource type="Animation" id="Animation_ipls0"]
+resource_name = "Hidden"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 200)]
+}
+
+[sub_resource type="Animation" id="Animation_4pmxg"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_aat88"]
+resource_name = "PanIn"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(0.267944, 1),
+"update": 0,
+"values": [Vector2(0, 200), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1e-05, 3.15936e-05),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_8cu8f"]
+resource_name = "PanOut"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 50), Vector2(0, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.166667),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_whlyd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_t0s60"]
+resource_name = "SwitchLeft"
+length = 0.12
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.054929, 0.110115),
+"transitions": PackedFloat32Array(1, 2.2974, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vsudw"]
+resource_name = "SwitchRight"
+length = 0.12
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0549, 0.110115),
+"transitions": PackedFloat32Array(1, 2.2974, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gxnl7"]
+_data = {
+"Hidden": SubResource("Animation_ipls0"),
+"Idle": SubResource("Animation_4pmxg"),
+"PanIn": SubResource("Animation_aat88"),
+"PanOut": SubResource("Animation_8cu8f"),
+"RESET": SubResource("Animation_whlyd"),
+"SwitchLeft": SubResource("Animation_t0s60"),
+"SwitchRight": SubResource("Animation_vsudw")
+}
+
+[node name="helpMenu" type="Control" groups=["Help Menu"]]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_8cej4")
+
+[node name="Pointer" parent="." instance=ExtResource("2_rgwt0")]
+
+[node name="actionMenu" type="Panel" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+layout_mode = 2
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_top = 72.0
+offset_right = 40.0
+offset_bottom = 168.0
+grow_horizontal = 0
+theme_override_styles/panel = ExtResource("3_stoll")
+
+[node name="actionsTab" type="Control" parent="actionMenu"]
+anchors_preset = 0
+offset_right = 96.0
+offset_bottom = 96.0
+
+[node name="DOWHAT" type="RichTextLabel" parent="actionMenu/actionsTab"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 80.0
+offset_bottom = 24.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_4pann")
+theme_override_fonts/mono_font = ExtResource("5_7l4xm")
+theme_override_fonts/bold_font = ExtResource("6_qk375")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "Do what?"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="decisionsList" type="ItemList" parent="actionMenu/actionsTab"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 32.0
+offset_right = 88.0
+offset_bottom = 88.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_lixpl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dgnst")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hcj2s")
+theme_override_styles/hovered = ExtResource("7_j7o0i")
+theme_override_styles/selected = ExtResource("7_j7o0i")
+theme_override_styles/selected_focus = ExtResource("7_j7o0i")
+theme_override_styles/cursor_unfocused = SubResource("StyleBoxEmpty_6nr2a")
+theme_override_styles/cursor = SubResource("StyleBoxEmpty_c757c")
+allow_search = false
+auto_height = true
+item_count = 3
+item_0/text = "> Equip"
+item_1/text = "> Reload"
+item_2/text = "< Back"
+
+[node name="Tabs" type="TabContainer" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 216.0
+offset_right = 800.0
+offset_bottom = 352.0
+mouse_filter = 2
+theme = ExtResource("8_sdhse")
+theme_override_colors/font_disabled_color = Color(0.67451, 0.67451, 0.67451, 1)
+theme_override_colors/font_unselected_color = Color(0.67451, 0.67451, 0.67451, 1)
+theme_override_colors/font_hovered_color = Color(0.67451, 0.67451, 0.67451, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/side_margin = 0
+theme_override_fonts/font = ExtResource("4_lixpl")
+theme_override_icons/decrement_highlight = SubResource("ImageTexture_grpcu")
+theme_override_icons/decrement = SubResource("ImageTexture_srfk6")
+theme_override_icons/increment_highlight = SubResource("ImageTexture_65g5d")
+theme_override_icons/increment = SubResource("ImageTexture_t71hb")
+theme_override_styles/tab_focus = ExtResource("9_oc37u")
+theme_override_styles/tab_disabled = ExtResource("10_tqelc")
+theme_override_styles/panel = ExtResource("11_s2u4x")
+theme_override_styles/tab_selected = ExtResource("9_oc37u")
+theme_override_styles/tab_hovered = ExtResource("10_tqelc")
+theme_override_styles/tab_unselected = ExtResource("10_tqelc")
+current_tab = 7
+clip_tabs = false
+
+[node name="Description" type="Control" parent="Tabs"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+metadata/_tab_index = 0
+
+[node name="descriptionName" type="RichTextLabel" parent="Tabs/Description"]
+layout_mode = 2
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 214.0
+offset_bottom = 24.0
+theme_override_fonts/normal_font = ExtResource("12_ian20")
+bbcode_enabled = true
+text = "objectname"
+scroll_active = false
+
+[node name="descriptionText" type="RichTextLabel" parent="Tabs/Description"]
+layout_mode = 2
+offset_left = 14.0
+offset_top = 32.0
+offset_right = 580.0
+offset_bottom = 96.0
+theme_override_fonts/normal_font = ExtResource("12_ian20")
+bbcode_enabled = true
+text = "...It's an object and it does something![p][rainbow]this isn't supposed to be here! [wave]tell tom about this[/wave][/rainbow]"
+scroll_active = false
+
+[node name="underline" type="ColorRect" parent="Tabs/Description"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 24.0
+offset_right = 590.0
+offset_bottom = 25.0
+
+[node name="Action" type="Control" parent="Tabs"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+metadata/_tab_index = 1
+
+[node name="actionTitle" type="RichTextLabel" parent="Tabs/Action"]
+texture_filter = 1
+custom_minimum_size = Vector2(580, 80)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 594.0
+offset_bottom = 88.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_4pann")
+theme_override_fonts/mono_font = ExtResource("5_7l4xm")
+theme_override_fonts/bold_font = ExtResource("6_qk375")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "Actions"
+scroll_active = false
+scroll_following = true
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="actionList" type="ItemList" parent="Tabs/Action"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 24.0
+offset_right = 582.0
+offset_bottom = 135.0
+mouse_filter = 2
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hovered_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("12_ian20")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b7plc")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_j3fcu")
+theme_override_styles/hovered = SubResource("StyleBoxEmpty_bs6p8")
+theme_override_styles/selected = SubResource("StyleBoxEmpty_5tc3n")
+theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_i3gro")
+theme_override_styles/cursor_unfocused = SubResource("StyleBoxEmpty_dk8bc")
+theme_override_styles/cursor = SubResource("StyleBoxEmpty_23xis")
+allow_search = false
+item_count = 4
+item_0/text = "Attack"
+item_1/text = "Advance"
+item_2/text = "Block"
+item_3/text = "Flee"
+
+[node name="attackWho" type="Control" parent="Tabs"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+metadata/_tab_index = 2
+
+[node name="attackTitle" type="RichTextLabel" parent="Tabs/attackWho"]
+texture_filter = 1
+custom_minimum_size = Vector2(580, 80)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 594.0
+offset_bottom = 88.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_4pann")
+theme_override_fonts/mono_font = ExtResource("5_7l4xm")
+theme_override_fonts/bold_font = ExtResource("6_qk375")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "Attack Who?"
+scroll_active = false
+scroll_following = true
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="enemyList" type="ItemList" parent="Tabs/attackWho"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 24.0
+offset_right = 582.0
+offset_bottom = 104.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+mouse_filter = 2
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hovered_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("12_ian20")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b7plc")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_j3fcu")
+theme_override_styles/hovered = SubResource("StyleBoxEmpty_bs6p8")
+theme_override_styles/selected = SubResource("StyleBoxEmpty_5tc3n")
+theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_i3gro")
+theme_override_styles/cursor_unfocused = SubResource("StyleBoxEmpty_dk8bc")
+theme_override_styles/cursor = SubResource("StyleBoxEmpty_23xis")
+allow_search = false
+item_count = 1
+item_0/text = "< Back"
+
+[node name="limbPicker" type="Control" parent="Tabs"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+metadata/_tab_index = 3
+
+[node name="limbTitle" type="RichTextLabel" parent="Tabs/limbPicker"]
+texture_filter = 1
+custom_minimum_size = Vector2(580, 80)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 594.0
+offset_bottom = 88.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_4pann")
+theme_override_fonts/mono_font = ExtResource("5_7l4xm")
+theme_override_fonts/bold_font = ExtResource("6_qk375")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "Pick a Limb."
+scroll_active = false
+scroll_following = true
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="limbList" type="ItemList" parent="Tabs/limbPicker"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 24.0
+offset_right = 582.0
+offset_bottom = 104.0
+mouse_filter = 2
+theme = ExtResource("13_phsoy")
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hovered_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("12_ian20")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b7plc")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_j3fcu")
+theme_override_styles/hovered = SubResource("StyleBoxEmpty_bs6p8")
+theme_override_styles/selected = SubResource("StyleBoxEmpty_5tc3n")
+theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_i3gro")
+theme_override_styles/cursor_unfocused = SubResource("StyleBoxEmpty_dk8bc")
+theme_override_styles/cursor = SubResource("StyleBoxEmpty_23xis")
+allow_search = false
+item_count = 5
+item_0/text = "< Back"
+item_1/text = "A"
+item_2/text = "B"
+item_3/text = "C"
+item_4/text = "D"
+
+[node name="distancePicker" type="Control" parent="Tabs"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+metadata/_tab_index = 4
+
+[node name="distanceTitle" type="RichTextLabel" parent="Tabs/distancePicker"]
+texture_filter = 1
+custom_minimum_size = Vector2(580, 80)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 594.0
+offset_bottom = 88.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_4pann")
+theme_override_fonts/mono_font = ExtResource("5_7l4xm")
+theme_override_fonts/bold_font = ExtResource("6_qk375")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "Advance which way?"
+scroll_active = false
+scroll_following = true
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="distanceList" type="ItemList" parent="Tabs/distancePicker"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 24.0
+offset_right = 582.0
+offset_bottom = 104.0
+mouse_filter = 2
+theme = ExtResource("13_phsoy")
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hovered_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("12_ian20")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b7plc")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_j3fcu")
+theme_override_styles/hovered = SubResource("StyleBoxEmpty_bs6p8")
+theme_override_styles/selected = SubResource("StyleBoxEmpty_5tc3n")
+theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_i3gro")
+theme_override_styles/cursor_unfocused = SubResource("StyleBoxEmpty_dk8bc")
+theme_override_styles/cursor = SubResource("StyleBoxEmpty_23xis")
+allow_search = false
+item_count = 3
+item_0/text = "< Back"
+item_1/text = "Forwards"
+item_2/text = "Backwards"
+
+[node name="Weapons" type="Control" parent="Tabs"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+metadata/_tab_index = 5
+
+[node name="weaponsTitle" type="RichTextLabel" parent="Tabs/Weapons"]
+texture_filter = 1
+custom_minimum_size = Vector2(580, 80)
+layout_mode = 2
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 594.0
+offset_bottom = 88.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_4pann")
+theme_override_fonts/mono_font = ExtResource("5_7l4xm")
+theme_override_fonts/bold_font = ExtResource("6_qk375")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "Munitions"
+scroll_active = false
+scroll_following = true
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="weaponsList" type="Tree" parent="Tabs/Weapons"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 808.0
+offset_bottom = 104.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme = ExtResource("13_phsoy")
+theme_override_fonts/font = ExtResource("4_lixpl")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kerh8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a78ej")
+theme_override_styles/selected = SubResource("StyleBoxEmpty_achri")
+theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_ae1t8")
+columns = 2
+allow_search = false
+enable_recursive_folding = false
+scroll_horizontal_enabled = false
+
+[node name="Items" type="Control" parent="Tabs"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+metadata/_tab_index = 6
+
+[node name="itemsTitle" type="RichTextLabel" parent="Tabs/Items"]
+texture_filter = 1
+custom_minimum_size = Vector2(580, 80)
+layout_mode = 2
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 594.0
+offset_bottom = 88.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_4pann")
+theme_override_fonts/mono_font = ExtResource("5_7l4xm")
+theme_override_fonts/bold_font = ExtResource("6_qk375")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "Consumables"
+scroll_active = false
+scroll_following = true
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="itemsList" type="Tree" parent="Tabs/Items"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 600.0
+offset_bottom = 104.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme = SubResource("Theme_dsrig")
+theme_override_fonts/font = ExtResource("4_lixpl")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kerh8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a78ej")
+theme_override_styles/selected = SubResource("StyleBoxEmpty_achri")
+theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_ae1t8")
+columns = 3
+allow_search = false
+enable_recursive_folding = false
+scroll_horizontal_enabled = false
+
+[node name="Armor" type="Control" parent="Tabs"]
+layout_mode = 2
+mouse_filter = 2
+metadata/_tab_index = 7
+
+[node name="headArmorTitle" type="RichTextLabel" parent="Tabs/Armor"]
+texture_filter = 1
+custom_minimum_size = Vector2(580, 80)
+layout_mode = 2
+offset_left = 126.0
+offset_top = 8.0
+offset_right = 706.0
+offset_bottom = 88.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_4pann")
+theme_override_fonts/mono_font = ExtResource("5_7l4xm")
+theme_override_fonts/bold_font = ExtResource("6_qk375")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "Head"
+scroll_active = false
+scroll_following = true
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="bodyArmorTitle" type="RichTextLabel" parent="Tabs/Armor"]
+texture_filter = 1
+custom_minimum_size = Vector2(580, 80)
+layout_mode = 2
+offset_left = 438.0
+offset_top = 8.0
+offset_right = 1018.0
+offset_bottom = 88.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_4pann")
+theme_override_fonts/mono_font = ExtResource("5_7l4xm")
+theme_override_fonts/bold_font = ExtResource("6_qk375")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "Body"
+scroll_active = false
+scroll_following = true
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="headArmorList" type="Tree" parent="Tabs/Armor"]
+layout_mode = 2
+offset_top = 24.0
+offset_right = 294.0
+offset_bottom = 104.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath("../bodyArmorList")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme = ExtResource("13_phsoy")
+theme_override_fonts/font = ExtResource("4_lixpl")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kerh8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a78ej")
+theme_override_styles/selected = SubResource("StyleBoxEmpty_achri")
+theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_ae1t8")
+allow_search = false
+enable_recursive_folding = false
+
+[node name="bodyArmorList" type="Tree" parent="Tabs/Armor"]
+layout_mode = 2
+offset_left = 326.0
+offset_top = 24.0
+offset_right = 630.0
+offset_bottom = 104.0
+focus_neighbor_left = NodePath("../headArmorList")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme = ExtResource("13_phsoy")
+theme_override_fonts/font = ExtResource("4_lixpl")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kerh8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a78ej")
+theme_override_styles/selected = SubResource("StyleBoxEmpty_achri")
+theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_ae1t8")
+allow_search = false
+enable_recursive_folding = false
+
+[node name="Gear" type="Control" parent="Tabs"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+metadata/_tab_index = 8
+
+[node name="gearTitle" type="RichTextLabel" parent="Tabs/Gear"]
+texture_filter = 1
+custom_minimum_size = Vector2(580, 80)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 594.0
+offset_bottom = 104.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_4pann")
+theme_override_fonts/mono_font = ExtResource("5_7l4xm")
+theme_override_fonts/bold_font = ExtResource("6_qk375")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "Gear Items"
+scroll_active = false
+scroll_following = true
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="gearList" type="Tree" parent="Tabs/Gear"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 24.0
+offset_right = 598.0
+offset_bottom = 104.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme = SubResource("Theme_dsrig")
+theme_override_fonts/font = ExtResource("4_lixpl")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kerh8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a78ej")
+theme_override_styles/selected = SubResource("StyleBoxEmpty_achri")
+theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_ae1t8")
+columns = 3
+allow_search = false
+enable_recursive_folding = false
+scroll_horizontal_enabled = false
+
+[node name="Stats" type="Control" parent="Tabs"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+metadata/_tab_index = 9
+
+[node name="statsTitle" type="RichTextLabel" parent="Tabs/Stats"]
+texture_filter = 1
+custom_minimum_size = Vector2(580, 80)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 594.0
+offset_bottom = 104.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_4pann")
+theme_override_fonts/mono_font = ExtResource("5_7l4xm")
+theme_override_fonts/bold_font = ExtResource("6_qk375")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "Current Player Status"
+scroll_active = false
+scroll_following = true
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="statsList" type="ItemList" parent="Tabs/Stats"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 25.0
+offset_right = 611.0
+offset_bottom = 104.0
+scale = Vector2(0.991365, 1)
+theme = SubResource("Theme_jcfv5")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("12_ian20")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_683mk")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_j3fcu")
+theme_override_styles/hovered = SubResource("StyleBoxEmpty_e21sa")
+theme_override_styles/selected = SubResource("StyleBoxEmpty_5w175")
+theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_jr4f3")
+theme_override_styles/cursor_unfocused = SubResource("StyleBoxEmpty_isq1a")
+theme_override_styles/cursor = SubResource("StyleBoxEmpty_c5y31")
+allow_search = false
+item_count = 12
+
+[node name="Radio" type="Control" parent="Tabs"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+metadata/_tab_index = 10
+
+[node name="radioTitle" type="RichTextLabel" parent="Tabs/Radio"]
+texture_filter = 1
+custom_minimum_size = Vector2(580, 80)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 594.0
+offset_bottom = 88.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_4pann")
+theme_override_fonts/mono_font = ExtResource("5_7l4xm")
+theme_override_fonts/bold_font = ExtResource("6_qk375")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "Radio"
+scroll_active = false
+scroll_following = true
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="radioList" type="ItemList" parent="Tabs/Radio"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 24.0
+offset_right = 582.0
+offset_bottom = 104.0
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hovered_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("12_ian20")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b7plc")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_j3fcu")
+theme_override_styles/hovered = SubResource("StyleBoxEmpty_bs6p8")
+theme_override_styles/selected = SubResource("StyleBoxEmpty_5tc3n")
+theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_i3gro")
+theme_override_styles/cursor_unfocused = SubResource("StyleBoxEmpty_dk8bc")
+theme_override_styles/cursor = SubResource("StyleBoxEmpty_23xis")
+allow_search = false
+item_count = 2
+item_0/text = "Sgt. Tessmann"
+item_1/text = "Evelyn Furrier"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="escapeCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="tossSlider" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 200.0
+offset_top = 16.0
+offset_right = 456.0
+offset_bottom = 192.0
+theme_override_styles/panel = ExtResource("3_stoll")
+
+[node name="HOWMANY" type="RichTextLabel" parent="tossSlider"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 80.0
+offset_top = 3.0
+offset_right = 176.0
+offset_bottom = 19.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_4pann")
+theme_override_fonts/mono_font = ExtResource("5_7l4xm")
+theme_override_fonts/bold_font = ExtResource("6_qk375")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "[center]How many?"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="tossQuantity" type="RichTextLabel" parent="tossSlider"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 88.0
+offset_top = 128.0
+offset_right = 168.0
+offset_bottom = 144.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_4pann")
+theme_override_fonts/mono_font = ExtResource("5_7l4xm")
+theme_override_fonts/bold_font = ExtResource("6_qk375")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "[center]0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="Dial" parent="tossSlider" instance=ExtResource("14_vsvj7")]
+layout_mode = 1
+offset_left = -192.0
+offset_top = -104.0
+offset_right = -192.0
+offset_bottom = -104.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../tossConfirm")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+
+[node name="tossConfirm" type="Button" parent="tossSlider"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 144.0
+offset_right = 168.0
+offset_bottom = 168.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme_override_fonts/font = ExtResource("12_ian20")
+theme_override_styles/focus = ExtResource("15_eoey8")
+theme_override_styles/hover = ExtResource("15_eoey8")
+theme_override_styles/normal = ExtResource("16_s4yqb")
+text = "Confirm"
+
+[node name="ammoSlider" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 200.0
+offset_top = 16.0
+offset_right = 456.0
+offset_bottom = 192.0
+theme_override_styles/panel = ExtResource("3_stoll")
+
+[node name="HOWMANY" type="RichTextLabel" parent="ammoSlider"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 80.0
+offset_top = 3.0
+offset_right = 176.0
+offset_bottom = 19.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_4pann")
+theme_override_fonts/mono_font = ExtResource("5_7l4xm")
+theme_override_fonts/bold_font = ExtResource("6_qk375")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "[center]How many?"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="reloadQuantity" type="RichTextLabel" parent="ammoSlider"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 88.0
+offset_top = 128.0
+offset_right = 168.0
+offset_bottom = 144.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_4pann")
+theme_override_fonts/mono_font = ExtResource("5_7l4xm")
+theme_override_fonts/bold_font = ExtResource("6_qk375")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "[center]0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="Dial" parent="ammoSlider" instance=ExtResource("14_vsvj7")]
+layout_mode = 1
+offset_left = -192.0
+offset_top = -104.0
+offset_right = -192.0
+offset_bottom = -104.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../reloadConfirm")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+
+[node name="reloadConfirm" type="Button" parent="ammoSlider"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 144.0
+offset_right = 168.0
+offset_bottom = 168.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme_override_fonts/font = ExtResource("12_ian20")
+theme_override_styles/focus = ExtResource("15_eoey8")
+theme_override_styles/hover = ExtResource("15_eoey8")
+theme_override_styles/normal = ExtResource("16_s4yqb")
+text = "Confirm"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gxnl7")
+}
+autoplay = "Hidden"
+
+[connection signal="visibility_changed" from="actionMenu" to="." method="_on_action_menu_visibility_changed"]
+[connection signal="item_activated" from="actionMenu/actionsTab/decisionsList" to="." method="_on_decisions_list_item_activated"]
+[connection signal="item_clicked" from="actionMenu/actionsTab/decisionsList" to="." method="_on_decisions_list_item_clicked"]
+[connection signal="item_selected" from="actionMenu/actionsTab/decisionsList" to="." method="_on_decisions_list_item_selected"]
+[connection signal="focus_entered" from="Tabs" to="." method="_on_tabs_focus_entered"]
+[connection signal="tab_changed" from="Tabs" to="." method="_on_tabs_tab_changed"]
+[connection signal="tab_selected" from="Tabs" to="." method="_on_tabs_tab_selected"]
+[connection signal="resized" from="Tabs/Description/descriptionName" to="." method="_on_description_name_resized"]
+[connection signal="item_activated" from="Tabs/Action/actionList" to="." method="_on_action_list_item_activated"]
+[connection signal="item_activated" from="Tabs/attackWho/enemyList" to="." method="_on_enemy_list_item_activated"]
+[connection signal="item_activated" from="Tabs/limbPicker/limbList" to="." method="_on_limb_list_item_activated"]
+[connection signal="item_selected" from="Tabs/limbPicker/limbList" to="." method="_on_limb_list_item_selected"]
+[connection signal="item_activated" from="Tabs/distancePicker/distanceList" to="." method="_on_distance_list_item_activated"]
+[connection signal="focus_exited" from="Tabs/Weapons/weaponsList" to="." method="hidePointer"]
+[connection signal="item_activated" from="Tabs/Weapons/weaponsList" to="." method="_on_weapons_list_item_activated"]
+[connection signal="focus_exited" from="Tabs/Items/itemsList" to="." method="hidePointer"]
+[connection signal="item_activated" from="Tabs/Items/itemsList" to="." method="_on_items_list_item_activated"]
+[connection signal="cell_selected" from="Tabs/Armor/headArmorList" to="." method="_on_head_armor_list_cell_selected"]
+[connection signal="focus_entered" from="Tabs/Armor/headArmorList" to="." method="_on_head_armor_list_focus_entered"]
+[connection signal="focus_exited" from="Tabs/Armor/headArmorList" to="." method="hidePointer"]
+[connection signal="gui_input" from="Tabs/Armor/headArmorList" to="." method="_on_head_armor_list_gui_input"]
+[connection signal="item_activated" from="Tabs/Armor/headArmorList" to="." method="_on_armor_list_item_activated"]
+[connection signal="item_selected" from="Tabs/Armor/headArmorList" to="." method="_on_head_armor_list_item_selected"]
+[connection signal="cell_selected" from="Tabs/Armor/bodyArmorList" to="." method="_on_body_armor_list_cell_selected"]
+[connection signal="focus_entered" from="Tabs/Armor/bodyArmorList" to="." method="_on_body_armor_list_focus_entered"]
+[connection signal="focus_exited" from="Tabs/Armor/bodyArmorList" to="." method="hidePointer"]
+[connection signal="item_activated" from="Tabs/Armor/bodyArmorList" to="." method="_on_armor_list_item_activated"]
+[connection signal="item_selected" from="Tabs/Armor/bodyArmorList" to="." method="_on_body_armor_list_item_selected"]
+[connection signal="focus_exited" from="Tabs/Gear/gearList" to="." method="hidePointer"]
+[connection signal="item_activated" from="Tabs/Gear/gearList" to="." method="_on_gear_list_item_activated"]
+[connection signal="focus_exited" from="Tabs/Stats/statsList" to="." method="hidePointer"]
+[connection signal="focus_exited" from="Tabs/Radio/radioList" to="." method="hidePointer"]
+[connection signal="visibility_changed" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_visibility_changed"]
+[connection signal="pressed" from="tossSlider/tossConfirm" to="." method="_on_toss_confirm_pressed"]
+[connection signal="pressed" from="ammoSlider/reloadConfirm" to="." method="_on_reload_confirm_pressed"]

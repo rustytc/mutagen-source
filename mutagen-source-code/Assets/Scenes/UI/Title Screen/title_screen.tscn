@@ -1,0 +1,264 @@
+[gd_scene load_steps=24 format=3 uid="uid://ha72g734gld0"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/UI/Title Screen/title_screen.gd" id="1_6aywb"]
+[ext_resource type="Texture2D" uid="uid://dxdxfkxo28su1" path="res://Assets/Images/Branding/goodbye.png" id="2_1cefv"]
+[ext_resource type="Texture2D" uid="uid://dcx4vkg4kkfqk" path="res://Assets/Images/Branding/mgtnlnl.png" id="2_1q3rb"]
+[ext_resource type="PackedScene" uid="uid://ckqpgjf0mv18m" path="res://Assets/Scenes/UI/Effects/static_effect.tscn" id="2_f8of8"]
+[ext_resource type="Shader" path="res://Assets/Shaders/chromaKey.gdshader" id="3_5lk5v"]
+[ext_resource type="AudioStream" uid="uid://bcy8gc2ewv0e2" path="res://Assets/Sounds/Music/Mutagen.ogg" id="3_8yer2"]
+[ext_resource type="AudioStream" uid="uid://cdcsgkrv1vliu" path="res://Assets/Sounds/UI/technigames_tune.mp3" id="4_6jj11"]
+[ext_resource type="FontFile" uid="uid://bndr2qb2kcow1" path="res://Assets/Fonts/Mx437 IBM VGA 8x14 MODIFIED.ttf" id="4_lm03k"]
+[ext_resource type="StyleBox" uid="uid://m4w6emihgxlm" path="res://Assets/Skins/UI/dialogue_box.tres" id="6_0x8i7"]
+[ext_resource type="PackedScene" uid="uid://ci323t6l7lanx" path="res://Assets/Scenes/UI/Reusable UI Elements/pointer.tscn" id="6_kvmbx"]
+[ext_resource type="FontFile" uid="uid://cjn2hsmktinwv" path="res://Assets/Fonts/Renascence Mono/Renascence Mono.fnt" id="7_q36u2"]
+[ext_resource type="StyleBox" uid="uid://bsoj78fjjdt7h" path="res://Assets/Skins/UI/buttonHovered.tres" id="9_dpu16"]
+[ext_resource type="StyleBox" uid="uid://vligttslt6kh" path="res://Assets/Skins/UI/button_disabled.tres" id="10_7ha8m"]
+[ext_resource type="StyleBox" uid="uid://3rkmav1h7ok3" path="res://Assets/Skins/UI/button2.tres" id="11_ad40v"]
+[ext_resource type="PackedScene" uid="uid://bd8hfepjfwvfi" path="res://Assets/Scenes/UI/Effects/death_effect.tscn" id="12_j3jeb"]
+[ext_resource type="PackedScene" uid="uid://c1rd7o7u2x8me" path="res://Assets/Scenes/UI/Options/options.tscn" id="14_2lsb0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qf3vq"]
+shader = ExtResource("3_5lk5v")
+shader_parameter/transparent_color = Color(0, 0, 0, 1)
+shader_parameter/pickup_range = 0.0
+shader_parameter/fade_amount = 0.0
+shader_parameter/on = false
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_s3tl2"]
+file = "res://Assets/Videos/Menu Screens/titleScreen.ogv"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l50nv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1cefv")
+}],
+"loop": true,
+"name": &"Goodbye",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1q3rb")
+}],
+"loop": true,
+"name": &"Mutagen",
+"speed": 1.0
+}]
+
+[sub_resource type="Theme" id="Theme_kx3w3"]
+default_font = ExtResource("7_q36u2")
+
+[sub_resource type="Theme" id="Theme_vjvag"]
+default_font = ExtResource("4_lm03k")
+
+[sub_resource type="Theme" id="Theme_fui67"]
+
+[sub_resource type="Theme" id="Theme_km00h"]
+default_font = ExtResource("4_lm03k")
+
+[node name="Title Screen" type="Node2D"]
+script = ExtResource("1_6aywb")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+material = SubResource("ShaderMaterial_qf3vq")
+custom_minimum_size = Vector2(640, 360)
+layout_direction = 1
+offset_right = 640.0
+offset_bottom = 360.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+stream = SubResource("VideoStreamTheora_s3tl2")
+autoplay = true
+expand = true
+loop = true
+
+[node name="staticEffect" parent="VideoStreamPlayer" instance=ExtResource("2_f8of8")]
+
+[node name="background" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+
+[node name="Logo" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(344, 72)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_l50nv")
+animation = &"Goodbye"
+autoplay = "Mutagen"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8yer2")
+volume_db = -80.0
+bus = &"BGM"
+
+[node name="technigamesTune" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6jj11")
+
+[node name="Pointer" parent="." instance=ExtResource("6_kvmbx")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(268, 232)
+
+[node name="agamebytomcat" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 168.0
+offset_right = 616.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kx3w3")
+bbcode_enabled = true
+text = "[center]A game by Rusty Tincan"
+fit_content = true
+scroll_active = false
+
+[node name="timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="menu" type="VBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 268.0
+offset_top = 240.0
+offset_right = 372.0
+offset_bottom = 346.0
+
+[node name="continue" type="Button" parent="menu"]
+visible = false
+layout_mode = 2
+focus_neighbor_top = NodePath("../quit")
+focus_neighbor_bottom = NodePath("../newGame")
+theme = SubResource("Theme_vjvag")
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("9_dpu16")
+theme_override_styles/disabled_mirrored = ExtResource("10_7ha8m")
+theme_override_styles/disabled = ExtResource("10_7ha8m")
+theme_override_styles/hover_pressed_mirrored = ExtResource("11_ad40v")
+theme_override_styles/hover_pressed = ExtResource("11_ad40v")
+theme_override_styles/hover_mirrored = ExtResource("11_ad40v")
+theme_override_styles/hover = ExtResource("11_ad40v")
+theme_override_styles/pressed_mirrored = ExtResource("11_ad40v")
+theme_override_styles/pressed = ExtResource("11_ad40v")
+theme_override_styles/normal_mirrored = ExtResource("11_ad40v")
+theme_override_styles/normal = ExtResource("11_ad40v")
+text = "Continue"
+
+[node name="newGame" type="Button" parent="menu"]
+visible = false
+layout_mode = 2
+focus_neighbor_top = NodePath("../continue")
+focus_neighbor_bottom = NodePath("../options")
+theme = SubResource("Theme_vjvag")
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("9_dpu16")
+theme_override_styles/disabled_mirrored = ExtResource("10_7ha8m")
+theme_override_styles/disabled = ExtResource("10_7ha8m")
+theme_override_styles/hover_pressed_mirrored = ExtResource("11_ad40v")
+theme_override_styles/hover_pressed = ExtResource("11_ad40v")
+theme_override_styles/hover_mirrored = ExtResource("11_ad40v")
+theme_override_styles/hover = ExtResource("11_ad40v")
+theme_override_styles/pressed_mirrored = ExtResource("11_ad40v")
+theme_override_styles/pressed = ExtResource("11_ad40v")
+theme_override_styles/normal_mirrored = ExtResource("11_ad40v")
+theme_override_styles/normal = ExtResource("11_ad40v")
+text = "New Game"
+
+[node name="options" type="Button" parent="menu"]
+visible = false
+layout_mode = 2
+focus_neighbor_top = NodePath("../newGame")
+focus_neighbor_bottom = NodePath("../mods")
+theme = SubResource("Theme_vjvag")
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("9_dpu16")
+theme_override_styles/disabled_mirrored = ExtResource("10_7ha8m")
+theme_override_styles/disabled = ExtResource("10_7ha8m")
+theme_override_styles/hover_pressed_mirrored = ExtResource("11_ad40v")
+theme_override_styles/hover_pressed = ExtResource("11_ad40v")
+theme_override_styles/hover_mirrored = ExtResource("11_ad40v")
+theme_override_styles/hover = ExtResource("11_ad40v")
+theme_override_styles/pressed_mirrored = ExtResource("11_ad40v")
+theme_override_styles/pressed = ExtResource("11_ad40v")
+theme_override_styles/normal_mirrored = ExtResource("11_ad40v")
+theme_override_styles/normal = ExtResource("11_ad40v")
+text = "Options"
+
+[node name="mods" type="Button" parent="menu"]
+visible = false
+layout_mode = 2
+focus_neighbor_top = NodePath("../options")
+focus_neighbor_bottom = NodePath("../quit")
+theme = SubResource("Theme_vjvag")
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("9_dpu16")
+theme_override_styles/disabled_mirrored = ExtResource("10_7ha8m")
+theme_override_styles/disabled = ExtResource("10_7ha8m")
+theme_override_styles/hover_pressed_mirrored = ExtResource("11_ad40v")
+theme_override_styles/hover_pressed = ExtResource("11_ad40v")
+theme_override_styles/hover_mirrored = ExtResource("11_ad40v")
+theme_override_styles/hover = ExtResource("11_ad40v")
+theme_override_styles/pressed_mirrored = ExtResource("11_ad40v")
+theme_override_styles/pressed = ExtResource("11_ad40v")
+theme_override_styles/normal_mirrored = ExtResource("11_ad40v")
+theme_override_styles/normal = ExtResource("11_ad40v")
+text = "Mods"
+
+[node name="quit" type="Button" parent="menu"]
+visible = false
+layout_mode = 2
+focus_neighbor_top = NodePath("../mods")
+focus_neighbor_bottom = NodePath("../continue")
+theme = SubResource("Theme_vjvag")
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = ExtResource("9_dpu16")
+theme_override_styles/disabled_mirrored = ExtResource("10_7ha8m")
+theme_override_styles/disabled = ExtResource("10_7ha8m")
+theme_override_styles/hover_pressed_mirrored = ExtResource("11_ad40v")
+theme_override_styles/hover_pressed = ExtResource("11_ad40v")
+theme_override_styles/hover_mirrored = ExtResource("11_ad40v")
+theme_override_styles/hover = ExtResource("11_ad40v")
+theme_override_styles/pressed_mirrored = ExtResource("11_ad40v")
+theme_override_styles/pressed = ExtResource("11_ad40v")
+theme_override_styles/normal_mirrored = ExtResource("11_ad40v")
+theme_override_styles/normal = ExtResource("11_ad40v")
+text = "Quit
+"
+
+[node name="saveMenu" type="VBoxContainer" parent="."]
+visible = false
+offset_left = 176.0
+offset_top = 44.0
+offset_right = 464.0
+offset_bottom = 284.0
+alignment = 1
+
+[node name="panel" type="Panel" parent="saveMenu"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme = SubResource("Theme_fui67")
+theme_override_styles/panel = ExtResource("6_0x8i7")
+
+[node name="title" type="RichTextLabel" parent="saveMenu/panel"]
+custom_minimum_size = Vector2(300, 16)
+layout_mode = 2
+offset_top = 8.0
+offset_right = 300.0
+offset_bottom = 24.0
+theme = SubResource("Theme_km00h")
+bbcode_enabled = true
+text = "[center]Saves:"
+
+[node name="deathEffect" parent="." instance=ExtResource("12_j3jeb")]
+
+[node name="options" parent="." instance=ExtResource("14_2lsb0")]
+visible = false
+
+[connection signal="pressed" from="menu/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="menu/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="menu/quit" to="." method="_on_quit_pressed"]

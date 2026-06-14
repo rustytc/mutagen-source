@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ckgv7ipr4ejd"
+path="res://.godot/imported/Metalmouth A.mp3-eed1327604b4825096ec45d2c2d9e65b.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/NPC/Voices/Metalmouth A.mp3"
+dest_files=["res://.godot/imported/Metalmouth A.mp3-eed1327604b4825096ec45d2c2d9e65b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bh4i43nvimxw8"
+path="res://.godot/imported/TMB_hello.mp3-d5955c3d228949a3b41691be3d173d66.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/World/NPCs/Enemies/True Mutant B/TMB_hello.mp3"
+dest_files=["res://.godot/imported/TMB_hello.mp3-d5955c3d228949a3b41691be3d173d66.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

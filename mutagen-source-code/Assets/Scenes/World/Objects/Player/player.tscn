@@ -1,0 +1,310 @@
+[gd_scene load_steps=38 format=3 uid="uid://b46pil1mndjda"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Overworld/Player/player.gd" id="1_qco1t"]
+[ext_resource type="Texture2D" uid="uid://crowegtc15jt1" path="res://Assets/Images/Sprites/World Objects/Player/Mask On/Walk Backwards/walk_backwards1.png" id="2_x7bc0"]
+[ext_resource type="Texture2D" uid="uid://camm1l8bmn6ju" path="res://Assets/Images/Sprites/World Objects/Player/Mask Off/Walk Backwards/walk_backwards_NoMask1.png" id="3_6lg18"]
+[ext_resource type="Texture2D" uid="uid://jh44n6vfdfgd" path="res://Assets/Images/Sprites/World Objects/Player/Mask On/Walk Forwards/walk_forwards1.png" id="3_754g4"]
+[ext_resource type="Texture2D" uid="uid://cj6vmi4j4fuv4" path="res://Assets/Images/Sprites/World Objects/Player/Mask On/Walk Sideways/walk_sideways1.png" id="4_wonxg"]
+[ext_resource type="Texture2D" uid="uid://dlqvwv5w6cmgf" path="res://Assets/Images/Sprites/World Objects/Player/Mask Off/Walk Forwards/walk_forwards_NoMask1.png" id="5_8io4c"]
+[ext_resource type="Texture2D" uid="uid://5xmdmypj4wwx" path="res://Assets/Images/Sprites/World Objects/Player/Mask On/Walk Backwards/walk_backwards2.png" id="5_ea57f"]
+[ext_resource type="Texture2D" uid="uid://bqns3ls2abyh5" path="res://Assets/Images/Sprites/World Objects/Player/Mask On/Walk Backwards/walk_backwards3.png" id="6_2vnr3"]
+[ext_resource type="Texture2D" uid="uid://cjtenrn2h4bo7" path="res://Assets/Images/Sprites/World Objects/Player/Mask Off/Walk Sideways/walk_sideways_NoMask1.png" id="7_7mlyo"]
+[ext_resource type="Texture2D" uid="uid://c2btear2cxqbp" path="res://Assets/Images/Sprites/World Objects/Player/Mask On/Walk Backwards/walk_backwards4.png" id="7_c0g8l"]
+[ext_resource type="Texture2D" uid="uid://b812wh5dav241" path="res://Assets/Images/Sprites/World Objects/Player/Mask On/Walk Forwards/walk_forwards2.png" id="8_lu1wj"]
+[ext_resource type="Texture2D" uid="uid://bohajpndydqfb" path="res://Assets/Images/Sprites/World Objects/Player/Mask On/Walk Forwards/walk_forwards3.png" id="9_fog2g"]
+[ext_resource type="Texture2D" uid="uid://c3uvcssnryqjk" path="res://Assets/Images/Sprites/World Objects/Player/Mask On/Walk Forwards/walk_forwards4.png" id="10_ol82e"]
+[ext_resource type="Texture2D" uid="uid://bjrmbn4pb6d01" path="res://Assets/Images/Sprites/World Objects/Player/Mask On/Walk Sideways/walk_sideways2.png" id="11_6pib6"]
+[ext_resource type="Texture2D" uid="uid://4yko5ului74s" path="res://Assets/Images/Sprites/World Objects/Player/Mask Off/Walk Backwards/walk_backwards_NoMask2.png" id="11_qanh1"]
+[ext_resource type="Texture2D" uid="uid://be16oddqyjwt6" path="res://Assets/Images/Sprites/World Objects/Player/Mask On/Walk Sideways/walk_sideways3.png" id="12_87lp6"]
+[ext_resource type="Texture2D" uid="uid://7pvlwi34yic" path="res://Assets/Images/Sprites/World Objects/Player/Mask Off/Walk Backwards/walk_backwards_NoMask4.png" id="12_lmbb1"]
+[ext_resource type="Texture2D" uid="uid://vtwphffpvjrw" path="res://Assets/Images/Sprites/World Objects/Player/Mask Off/Walk Backwards/walk_backwards_NoMask3.png" id="13_4ewjw"]
+[ext_resource type="Texture2D" uid="uid://duoqylcgtkjca" path="res://Assets/Images/Sprites/World Objects/Player/Mask On/Walk Sideways/walk_sideways4.png" id="13_r4egc"]
+[ext_resource type="Script" path="res://Assets/Scripts/Overworld/Player/world camera.gd" id="14_6ltr4"]
+[ext_resource type="PackedScene" uid="uid://badmtc5yan44h" path="res://Assets/Scenes/UI/Effects/overworld_battle_fizz_effect.tscn" id="15_bevj5"]
+[ext_resource type="PackedScene" uid="uid://turofjd8yipc" path="res://Assets/Scenes/UI/Overworld/overworld_ui.tscn" id="16_cwft2"]
+[ext_resource type="Texture2D" uid="uid://kfro70cte6wa" path="res://Assets/Images/Sprites/World Objects/Player/Mask Off/Walk Forwards/walk_forwards_NoMask2.png" id="17_0p5ld"]
+[ext_resource type="Texture2D" uid="uid://bo1p02m65r8d" path="res://Assets/Images/Sprites/World Objects/Player/Mask Off/Walk Forwards/walk_forwards_NoMask4.png" id="18_uua4l"]
+[ext_resource type="Texture2D" uid="uid://dvsrsm6t4l220" path="res://Assets/Images/Sprites/World Objects/Player/Mask Off/Walk Forwards/walk_forwards_NoMask3.png" id="19_ane5f"]
+[ext_resource type="Texture2D" uid="uid://b64spueap3sln" path="res://Assets/Images/Sprites/World Objects/Player/Mask Off/Walk Sideways/walk_sideways_NoMask2.png" id="23_whep4"]
+[ext_resource type="Texture2D" uid="uid://djb3nliotp4c1" path="res://Assets/Images/Sprites/World Objects/Player/Mask Off/Walk Sideways/walk_sideways_NoMask4.png" id="24_nv6ms"]
+[ext_resource type="Texture2D" uid="uid://cfmu4qwen31kj" path="res://Assets/Images/Sprites/World Objects/Player/Mask Off/Walk Sideways/walk_sideways_NoMask3.png" id="25_hduwg"]
+[ext_resource type="AudioStream" uid="uid://plrovipophj1" path="res://Assets/Sounds/Music/howl.ogg" id="29_y365f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ac2jo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x7bc0")
+}],
+"loop": true,
+"name": &"Idle Backwards",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6lg18")
+}],
+"loop": true,
+"name": &"Idle Backwards Unmask",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_754g4")
+}],
+"loop": true,
+"name": &"Idle Forwards",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_8io4c")
+}],
+"loop": true,
+"name": &"Idle Forwards Unmask",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wonxg")
+}],
+"loop": true,
+"name": &"Idle Sideways",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_7mlyo")
+}],
+"loop": true,
+"name": &"Idle Sideways Unmask",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ea57f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2vnr3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c0g8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_x7bc0")
+}],
+"loop": true,
+"name": &"Walk Backwards",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_qanh1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6lg18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_lmbb1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4ewjw")
+}],
+"loop": true,
+"name": &"Walk Backwards Unmask",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_lu1wj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fog2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ol82e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_754g4")
+}],
+"loop": true,
+"name": &"Walk Forwards",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_0p5ld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8io4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_uua4l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ane5f")
+}],
+"loop": true,
+"name": &"Walk Forwards Unmask",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_6pib6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_87lp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_r4egc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wonxg")
+}],
+"loop": true,
+"name": &"Walk Sideways",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_whep4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7mlyo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_nv6ms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_hduwg")
+}],
+"loop": true,
+"name": &"Walk Sideways Unmask",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbhe2"]
+size = Vector2(29, 10)
+
+[sub_resource type="Animation" id="Animation_d77ch"]
+resource_name = "Earthquake"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.000677601, 0.0340109, 0.0673443, 0.100678, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.332656, 0.365989),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, -5), Vector2(33, -25), Vector2(-25, -4), Vector2(2, -47), Vector2(-47, -44), Vector2(0, 0), Vector2(10, -5), Vector2(-83, 13), Vector2(57, 26), Vector2(2, -47), Vector2(-47, -44)]
+}
+
+[sub_resource type="Animation" id="Animation_w5shs"]
+resource_name = "Normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m7qcj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m1qmi"]
+_data = {
+"Earthquake": SubResource("Animation_d77ch"),
+"Normal": SubResource("Animation_w5shs"),
+"RESET": SubResource("Animation_m7qcj")
+}
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_vesi3"]
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_i6510"]
+format = 1
+mix_rate = 48000
+stereo = true
+
+[node name="Player" type="Node2D" groups=["Overworld Player"]]
+y_sort_enabled = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["playerBody"]]
+script = ExtResource("1_qco1t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" groups=["playerBody"]]
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_ac2jo")
+animation = &"Idle Forwards"
+autoplay = "Idle Forwards"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" groups=["playerBody"]]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_rbhe2")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" groups=["World Camera", "playerBody"]]
+process_mode = 3
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("14_6ltr4")
+
+[node name="Overworld Battle Fizz Effect" parent="CharacterBody2D/Camera2D" instance=ExtResource("15_bevj5")]
+position = Vector2(-417, -208)
+
+[node name="Overworld UI" parent="CharacterBody2D/Camera2D" instance=ExtResource("16_cwft2")]
+follow_viewport_enabled = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D/Camera2D"]
+libraries = {
+"": SubResource("AnimationLibrary_m1qmi")
+}
+autoplay = "Normal"
+
+[node name="Sounds" type="AudioStreamPlayer" parent="CharacterBody2D"]
+process_mode = 3
+stream = SubResource("AudioStreamWAV_vesi3")
+bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="CharacterBody2D"]
+process_mode = 3
+stream = SubResource("AudioStreamWAV_i6510")
+bus = &"BGM"
+
+[node name="pauseMusic" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("29_y365f")
+volume_db = -8.0
+bus = &"BGM"
+
+[node name="Timer" type="Timer" parent="CharacterBody2D"]
+process_mode = 3
+one_shot = true
+
+[node name="iframesTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="iframesTimer" to="CharacterBody2D" method="_on_iframes_timer_timeout"]

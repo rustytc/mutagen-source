@@ -1,0 +1,156 @@
+[gd_scene load_steps=18 format=3 uid="uid://fs1ahfltlwur"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Battle Screen/Main Scene Script/battle_screen.gd" id="1_ywgsd"]
+[ext_resource type="PackedScene" uid="uid://b1dq3c7ss46gy" path="res://Assets/Scenes/UI/Reusable UI Elements/help_menu.tscn" id="2_sqka1"]
+[ext_resource type="AudioStream" uid="uid://dvr870xbf366r" path="res://Assets/Sounds/Music/Remorse.ogg" id="2_wbx6r"]
+[ext_resource type="PackedScene" uid="uid://bjq8lcxbirke3" path="res://Assets/Scenes/Battle/Battle Screen/UI/actionLog.tscn" id="3_p80tw"]
+[ext_resource type="PackedScene" uid="uid://ckqpgjf0mv18m" path="res://Assets/Scenes/UI/Effects/static_effect.tscn" id="4_8m1v7"]
+[ext_resource type="PackedScene" uid="uid://divx66usm4iyr" path="res://Assets/Scenes/UI/Overworld/healthHeart.tscn" id="4_347u6"]
+[ext_resource type="PackedScene" uid="uid://ci6s1ji3n3f84" path="res://Assets/Scenes/UI/Overworld/radiationMeter.tscn" id="5_3crxo"]
+[ext_resource type="PackedScene" uid="uid://bd8hfepjfwvfi" path="res://Assets/Scenes/UI/Effects/death_effect.tscn" id="6_64bbp"]
+[ext_resource type="PackedScene" uid="uid://bocqps2rdajfn" path="res://Assets/Scenes/Battle/Battle Screen/UI/statDisplay.tscn" id="7_g4krt"]
+[ext_resource type="PackedScene" uid="uid://d2uqlpkdkop6b" path="res://Assets/Scenes/UI/Effects/radiation_effect.tscn" id="8_t5cep"]
+[ext_resource type="PackedScene" uid="uid://8x6kiywcva5o" path="res://Assets/Scenes/UI/Overworld/upgradeMenu.tscn" id="10_qci0r"]
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_706yu"]
+format = 1
+loop_mode = 1
+mix_rate = 48000
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_o1bkf"]
+file = "res://Assets/Videos/Battle Screens/Enemies/marauder.ogv"
+
+[sub_resource type="Animation" id="Animation_f2lsh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sbsua"]
+resource_name = "fadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.62451, 2.21914),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xs5sp"]
+resource_name = "transparent"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1iiqa"]
+_data = {
+"RESET": SubResource("Animation_f2lsh"),
+"fadeIn": SubResource("Animation_sbsua"),
+"transparent": SubResource("Animation_xs5sp")
+}
+
+[node name="battle screen" type="Node2D" groups=["Battle Screen"]]
+script = ExtResource("1_ywgsd")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamWAV_706yu")
+autoplay = true
+bus = &"BGM"
+
+[node name="LHMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wbx6r")
+bus = &"LHMusic"
+
+[node name="helpMenu" parent="." instance=ExtResource("2_sqka1")]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+z_index = -1
+custom_minimum_size = Vector2(640, 360)
+layout_direction = 1
+offset_right = 640.0
+offset_bottom = 360.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+stream = SubResource("VideoStreamTheora_o1bkf")
+autoplay = true
+expand = true
+loop = true
+
+[node name="staticEffect" parent="VideoStreamPlayer" instance=ExtResource("4_8m1v7")]
+
+[node name="radiationEffect" parent="." instance=ExtResource("8_t5cep")]
+
+[node name="EnemyRow" type="HFlowContainer" parent="."]
+z_index = -1
+offset_top = 112.0
+offset_right = 320.0
+offset_bottom = 170.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+alignment = 1
+
+[node name="battleLog" parent="." instance=ExtResource("3_p80tw")]
+offset_top = 232.0
+offset_bottom = 232.0
+mouse_filter = 2
+
+[node name="HealthHeart" parent="." instance=ExtResource("4_347u6")]
+offset_left = 576.0
+offset_top = 160.0
+offset_right = 576.0
+offset_bottom = 160.0
+scale = Vector2(1.2, 1.2)
+mouse_filter = 2
+
+[node name="GeigerMeter" parent="." instance=ExtResource("5_3crxo")]
+offset_left = 72.0
+offset_top = 160.0
+offset_right = 72.0
+offset_bottom = 160.0
+mouse_filter = 2
+
+[node name="deathEffect" parent="." instance=ExtResource("6_64bbp")]
+
+[node name="statDisplay" parent="." instance=ExtResource("7_g4krt")]
+visible = false
+offset_top = -8.0
+offset_bottom = -8.0
+
+[node name="upgradeMenu" parent="." instance=ExtResource("10_qci0r")]
+
+[node name="fadeTransition" type="ColorRect" parent="."]
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 648.0
+offset_bottom = 368.0
+color = Color(0, 0, 0, 1)
+
+[node name="animationPlayer" type="AnimationPlayer" parent="fadeTransition"]
+libraries = {
+"": SubResource("AnimationLibrary_1iiqa")
+}
+autoplay = "transparent"

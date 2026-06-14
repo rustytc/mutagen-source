@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyxt6ioiyej4"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Overworld/Triggers/pathfinding_zone.gd" id="1_unc7j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8dba"]
+
+[node name="PathfindingZone" type="Node2D"]
+script = ExtResource("1_unc7j")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Pathfinding Zone"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_i8dba")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

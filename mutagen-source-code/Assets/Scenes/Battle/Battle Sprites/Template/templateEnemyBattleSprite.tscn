@@ -1,0 +1,213 @@
+[gd_scene load_steps=12 format=3 uid="uid://dd5a2agn0cunu"]
+
+[ext_resource type="Texture2D" uid="uid://d2oayr86rjbov" path="res://Assets/Images/Sprites/Battle/True Mutant Beta/tmb_battle.png" id="1_xc6st"]
+[ext_resource type="Script" path="res://Assets/Scripts/Battle Screen/Sprites/Battle Sprites/template_enemy_battle_sprite.gd" id="2_axrwa"]
+[ext_resource type="Texture2D" uid="uid://clm52b7nmkdoi" path="res://Assets/Images/Sprites/UI/Battle Screen/scope.png" id="2_c5ol2"]
+[ext_resource type="Texture2D" uid="uid://bluhgsw7j0sun" path="res://Assets/Images/Sprites/Battle/True Mutant Beta/tmb_battleDmg.png" id="4_vfj8m"]
+[ext_resource type="AudioStream" uid="uid://c47nqv6u1u6vb" path="res://Assets/Sounds/Battle/kill.mp3" id="5_cpxlj"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_qnele"]
+frame_0/texture = ExtResource("1_xc6st")
+
+[sub_resource type="Animation" id="Animation_acfdt"]
+resource_name = "Death"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_vfj8m")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("deathSFX:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_f1m3m"]
+resource_name = "Hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_vfj8m")]
+}
+
+[sub_resource type="Animation" id="Animation_4pbna"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AnimatedTexture_qnele")]
+}
+
+[sub_resource type="Animation" id="Animation_h8xfo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AnimatedTexture_qnele")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("deathSFX:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_blum7"]
+_data = {
+"Death": SubResource("Animation_acfdt"),
+"Hurt": SubResource("Animation_f1m3m"),
+"Idle": SubResource("Animation_4pbna"),
+"RESET": SubResource("Animation_h8xfo")
+}
+
+[node name="enemyBattleSprite" type="TextureRect"]
+offset_right = 1.0
+offset_bottom = 1.0
+mouse_filter = 2
+texture = SubResource("AnimatedTexture_qnele")
+stretch_mode = 5
+script = ExtResource("2_axrwa")
+
+[node name="Limbs" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+
+[node name="Head" type="TextureRect" parent="Limbs"]
+visible = false
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 39.0
+offset_bottom = 36.0
+texture = ExtResource("2_c5ol2")
+
+[node name="Torso" type="TextureRect" parent="Limbs"]
+visible = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 22.0
+offset_right = 40.0
+offset_bottom = 54.0
+texture = ExtResource("2_c5ol2")
+
+[node name="Left Arm" type="TextureRect" parent="Limbs"]
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = 25.0
+offset_right = 48.0
+offset_bottom = 57.0
+texture = ExtResource("2_c5ol2")
+
+[node name="Right Arm" type="TextureRect" parent="Limbs"]
+visible = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = 25.0
+offset_right = 31.0
+offset_bottom = 57.0
+texture = ExtResource("2_c5ol2")
+
+[node name="Left Leg" type="TextureRect" parent="Limbs"]
+visible = false
+layout_mode = 0
+offset_left = 19.0
+offset_top = 31.0
+offset_right = 51.0
+offset_bottom = 63.0
+texture = ExtResource("2_c5ol2")
+
+[node name="Right Leg" type="TextureRect" parent="Limbs"]
+visible = false
+layout_mode = 0
+offset_left = -4.0
+offset_top = 31.0
+offset_right = 28.0
+offset_bottom = 63.0
+texture = ExtResource("2_c5ol2")
+
+[node name="Tail" type="TextureRect" parent="Limbs"]
+visible = false
+layout_mode = 0
+offset_left = 51.0
+offset_top = 10.0
+offset_right = 83.0
+offset_bottom = 42.0
+texture = ExtResource("2_c5ol2")
+
+[node name="animationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_blum7")
+}
+autoplay = "Idle"
+
+[node name="deathSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_cpxlj")
+
+[connection signal="animation_finished" from="animationPlayer" to="." method="_on_animation_player_animation_finished"]

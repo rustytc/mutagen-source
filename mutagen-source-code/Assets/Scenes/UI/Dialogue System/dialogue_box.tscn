@@ -1,0 +1,215 @@
+[gd_scene load_steps=12 format=3 uid="uid://xwp1k61fdj12"]
+
+[ext_resource type="FontFile" uid="uid://dbibrg3b1b5mh" path="res://Assets/Fonts/pixeloid.sans.ttf" id="1_hss2k"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/Dialogue System/dialogue_box.gd" id="1_t0t6r"]
+[ext_resource type="StyleBox" uid="uid://d0k1dj4jxtqex" path="res://Assets/Skins/UI/dialogue_box_nontrans.tres" id="2_b08hf"]
+[ext_resource type="FontFile" uid="uid://y21aom2shmhk" path="res://Assets/Fonts/pixeloid.sans-bold.ttf" id="3_5t3ey"]
+[ext_resource type="FontFile" uid="uid://bndr2qb2kcow1" path="res://Assets/Fonts/Mx437 IBM VGA 8x14 MODIFIED.ttf" id="4_e3olp"]
+[ext_resource type="StyleBox" uid="uid://b7ahlinqn4x0o" path="res://Assets/Skins/UI/dialogue_box_option_selected.tres" id="6_c3rtf"]
+
+[sub_resource type="FontVariation" id="FontVariation_pk50g"]
+base_font = ExtResource("4_e3olp")
+
+[sub_resource type="Animation" id="Animation_x7l6k"]
+resource_name = "Normal"
+
+[sub_resource type="Animation" id="Animation_64fme"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(624, 232)]
+}
+
+[sub_resource type="Animation" id="Animation_kbqxf"]
+resource_name = "Slide_In"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(624, 376), Vector2(624, 344), Vector2(624, 232)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fm56p"]
+_data = {
+"Normal": SubResource("Animation_x7l6k"),
+"RESET": SubResource("Animation_64fme"),
+"Slide_In": SubResource("Animation_kbqxf")
+}
+
+[node name="dialogueBox" type="Control" groups=["Dialogue Box"]]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = 624.0
+offset_top = 232.0
+offset_right = 624.0
+offset_bottom = 232.0
+script = ExtResource("1_t0t6r")
+
+[node name="Panel" type="Panel" parent="."]
+process_mode = 3
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -608.0
+offset_bottom = 112.0
+grow_horizontal = 0
+theme_override_styles/panel = ExtResource("2_b08hf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 600.0
+offset_bottom = 104.0
+theme_override_constants/separation = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2"]
+process_mode = 3
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="Name" type="RichTextLabel" parent="Panel/VBoxContainer/HBoxContainer2"]
+process_mode = 3
+texture_filter = 1
+custom_minimum_size = Vector2(502, 12)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/normal_font = ExtResource("3_5t3ey")
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "John Wolfmann"
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/HBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="Text" type="RichTextLabel" parent="Panel/VBoxContainer/HBoxContainer"]
+process_mode = 3
+texture_filter = 1
+custom_minimum_size = Vector2(580, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_pk50g")
+theme_override_fonts/mono_font = ExtResource("1_hss2k")
+theme_override_fonts/bold_font = ExtResource("3_5t3ey")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "Humano, ten cuidado, hablar español me hace malvado. ¡Cuidado! ¡Corre! [wave]¡Corre! ¡Corre! [/wave] [color=red]¡Te voy a matar! ¡Te voy a destruir! ¡Deberías entrar en esa habitación, es muy segura! No, mejor aún, acércate porque te voy a tocar. Ni siquiera como un toque normal, como si fuera a molestarte, porque ahora soy malvado. No corras porque entonces te escaparás de mí y sobrevivirás. No sobrevivas. Muere. [color=white]
+.
+GAH! BURGER! FREEDOM! oh... I'm back to normal."
+scroll_active = false
+scroll_following = true
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="decisionMaker" type="PanelContainer" parent="."]
+process_mode = 3
+visible = false
+texture_filter = 1
+layout_mode = 2
+offset_left = -600.0
+offset_top = 58.0
+offset_right = -8.0
+offset_bottom = 104.0
+theme_override_styles/panel = ExtResource("2_b08hf")
+
+[node name="Choices" type="VBoxContainer" parent="decisionMaker"]
+process_mode = 3
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="decisionMaker/Choices"]
+process_mode = 3
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="decisionMaker/Choices/HBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Option1" type="Button" parent="decisionMaker/Choices/HBoxContainer/VBoxContainer2"]
+process_mode = 3
+layout_mode = 2
+focus_neighbor_top = NodePath("../Option3")
+focus_neighbor_bottom = NodePath("../Option2")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("1_hss2k")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/focus = ExtResource("6_c3rtf")
+text = "> A"
+alignment = 0
+
+[node name="Option2" type="Button" parent="decisionMaker/Choices/HBoxContainer/VBoxContainer2"]
+process_mode = 3
+layout_mode = 2
+focus_neighbor_top = NodePath("../Option1")
+focus_neighbor_bottom = NodePath("../Option3")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("1_hss2k")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/focus = ExtResource("6_c3rtf")
+text = "> B"
+alignment = 0
+
+[node name="Option3" type="Button" parent="decisionMaker/Choices/HBoxContainer/VBoxContainer2"]
+process_mode = 3
+layout_mode = 2
+focus_neighbor_top = NodePath("../Option2")
+focus_neighbor_bottom = NodePath("../Option1")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("1_hss2k")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/focus = ExtResource("6_c3rtf")
+text = "> C"
+alignment = 0
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 3
+wait_time = 0.03
+one_shot = true
+
+[node name="Voice" type="AudioStreamPlayer" parent="."]
+
+[node name="animationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fm56p")
+}
+autoplay = "Normal"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

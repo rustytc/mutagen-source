@@ -1,0 +1,277 @@
+[gd_scene load_steps=13 format=3 uid="uid://bjq8lcxbirke3"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Battle Screen/Battle Log/battle_log.gd" id="1_0f1wb"]
+[ext_resource type="StyleBox" uid="uid://d0k1dj4jxtqex" path="res://Assets/Skins/UI/dialogue_box_nontrans.tres" id="2_b1csi"]
+[ext_resource type="FontFile" uid="uid://y21aom2shmhk" path="res://Assets/Fonts/pixeloid.sans-bold.ttf" id="3_drc4x"]
+[ext_resource type="FontFile" uid="uid://bndr2qb2kcow1" path="res://Assets/Fonts/Mx437 IBM VGA 8x14 MODIFIED.ttf" id="4_it2l4"]
+[ext_resource type="FontFile" uid="uid://dbibrg3b1b5mh" path="res://Assets/Fonts/pixeloid.sans.ttf" id="5_nc37q"]
+
+[sub_resource type="FontVariation" id="FontVariation_pk50g"]
+base_font = ExtResource("4_it2l4")
+
+[sub_resource type="Animation" id="Animation_2yyvs"]
+resource_name = "Hidden"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hye7c"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(624, -8)]
+}
+
+[sub_resource type="Animation" id="Animation_5ubdn"]
+resource_name = "PanIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(624, -160), Vector2(624, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_gpsq2"]
+resource_name = "PanOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(624, -8), Vector2(624, -160)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_5uys3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(624, 232)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h8uml"]
+_data = {
+"Hidden": SubResource("Animation_2yyvs"),
+"Idle": SubResource("Animation_hye7c"),
+"PanIn": SubResource("Animation_5ubdn"),
+"PanOut": SubResource("Animation_gpsq2"),
+"RESET": SubResource("Animation_5uys3")
+}
+
+[node name="actionLog" type="Control" groups=["Action Log"]]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = 624.0
+offset_top = -8.0
+offset_right = 624.0
+offset_bottom = -8.0
+script = ExtResource("1_0f1wb")
+
+[node name="Panel" type="Panel" parent="."]
+process_mode = 3
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -608.0
+offset_top = 16.0
+offset_bottom = 112.0
+grow_horizontal = 0
+theme_override_styles/panel = ExtResource("2_b1csi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 600.0
+offset_bottom = 104.0
+theme_override_constants/separation = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/HBoxContainer2"]
+process_mode = 3
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/HBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="Text" type="RichTextLabel" parent="Panel/VBoxContainer/HBoxContainer"]
+process_mode = 3
+texture_filter = 1
+custom_minimum_size = Vector2(580, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_pk50g")
+theme_override_fonts/mono_font = ExtResource("5_nc37q")
+theme_override_fonts/bold_font = ExtResource("3_drc4x")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+scroll_active = false
+scroll_following = true
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 3
+wait_time = 0.03
+one_shot = true
+
+[node name="Voice" type="AudioStreamPlayer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h8uml")
+}
+autoplay = "Hidden"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

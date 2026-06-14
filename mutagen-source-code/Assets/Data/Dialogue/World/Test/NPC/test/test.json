@@ -1,0 +1,56 @@
+{
+	"nodes": [
+		{
+			"editor_name": "Node_0",
+			"end": false,
+			"endCommands": [],
+			"id": "0",
+			"next": "1",
+			"npc": "???",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "7 million people on Earth.",
+			"tone": "neutral",
+			"voice": "test"
+		},
+		{
+			"editor_name": "Node_1",
+			"end": true,
+			"endCommands": [
+				{
+					"action": "hideBox",
+					"args": []
+				},
+				{
+					"action": "setEncounterTheme",
+					"args": [
+						{
+							"type": "string",
+							"value": "res://Assets/Sounds/Music/Traumatizer.ogg"
+						}
+					]
+				},
+				{
+					"action": "initiateBattle",
+					"args": [
+						{
+							"type": "string",
+							"value": "True Mutant Beta"
+						}
+					]
+				}
+			],
+			"id": "1",
+			"npc": "???",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "...AND I WILL DEFEND THEM ALL!",
+			"tone": "angry",
+			"voice": "test"
+		}
+	],
+	"npc": "test",
+	"start_node": "0"
+}

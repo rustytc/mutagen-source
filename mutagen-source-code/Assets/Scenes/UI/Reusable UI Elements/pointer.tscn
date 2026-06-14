@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://ci323t6l7lanx"]
+
+[ext_resource type="Texture2D" uid="uid://crlewtwbhbs3k" path="res://Assets/Images/Sprites/UI/Menu/Navigation/arrow1.png" id="1_auvk8"]
+[ext_resource type="Texture2D" uid="uid://drbbe3lol8w0f" path="res://Assets/Images/Sprites/UI/Menu/Navigation/arrow2.png" id="2_0cnur"]
+[ext_resource type="Texture2D" uid="uid://bppdeumolwrb6" path="res://Assets/Images/Sprites/UI/Menu/Navigation/arrow3.png" id="3_dk4o3"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/Reusable UI Elements/pointer.gd" id="4_3lig0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n85dy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_auvk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0cnur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dk4o3")
+}],
+"loop": false,
+"name": &"horizontalIdle",
+"speed": 15.0
+}]
+
+[node name="Pointer" type="AnimatedSprite2D"]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_n85dy")
+animation = &"horizontalIdle"
+autoplay = "horizontalIdle"
+frame = 2
+frame_progress = 1.0
+script = ExtResource("4_3lig0")

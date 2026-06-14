@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://btkv7mdencl1s"
+path="res://.godot/imported/TMB_cry.mp3-7377da12b8740d8da66d94227e8d01e3.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/World/NPCs/Enemies/True Mutant B/TMB_cry.mp3"
+dest_files=["res://.godot/imported/TMB_cry.mp3-7377da12b8740d8da66d94227e8d01e3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b85wifm8w8tdw"
+path="res://.godot/imported/TMB_scream1.mp3-87941c462d0766d85c3cf9f48c62a2b6.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/World/NPCs/Enemies/True Mutant B/TMB_scream1.mp3"
+dest_files=["res://.godot/imported/TMB_scream1.mp3-87941c462d0766d85c3cf9f48c62a2b6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
