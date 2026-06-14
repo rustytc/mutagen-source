@@ -5,7 +5,7 @@ Copyright (C) Rusty Tincan 2026
 
 ## Introduction:
 Mutagen: Lock and Load is an unfinished* and prototypical* Godot hobby project which I have been passively working on since roughly February 2025. It is a 2D turn-based RPG which leans towards strategy rather than pure RNG.
-Its source code has been publicized on this repo as of June 2026. I am doing so because I want this game to be truly free to the public. I have chosen GPL V3.0 as the license for which protects its code assets. It's art assets, including music, sounds, sprites, dialogue, etc. are proprietary, and cannot be used elsewhere without my explicit permission.
+Its source code has been publicized on this repo as of June 2026. I am doing so because I want this game and project to be truly free to the public. I have chosen GPL v3.0 as the license for which protects its code assets. It's art assets, including music, sounds, sprites, dialogue, videos, etc. are proprietary, and cannot be used in other projects without my explicit permission.
 
 
 ## Modifying and Compiling
@@ -13,9 +13,6 @@ This game is made entirely in the Godot 4.3 engine. It is specifically frozen at
 
 
 Modifying this game's code is as simple as [downloading Godot 4.3](https://godotengine.org/download/archive/4.3-stable/) and opening this very source code up from its project.godot file. From there you can basically do anything. Compiling builds of this game is the same, just export it directly from Godot's exporter to whatever platform you desire. 
-
-
-**DO NOT COMPILE AND POST BUILDS OF THE GAME USING MY ASSETS WITHOUT EXPRESS PERMISSION!!! (If it's just a port, I won't do anything. But do not post them to app stores or attach price tags or I will do something about it!!! If finished, I actually do intend on making official releases of the game.)**
 
 
 ## Premise:
@@ -71,8 +68,7 @@ It's a thing you can do. And it's also a thing that's pretty easy to do.
 Like any Godot game with Godot Modloader support, edit the game in Godot, pick what changes you want made and export them in a resource pack (.pck), and then throw that thing into the /mods folder.
 
 ## Contributors
-If you'd like to submit contributions to the source code/game project (for bug fixes or feature completions), you can. It's not guaranteed that I'll approve them, but if they're good, I just might. And if you ever get mugged, I'll be there. Waiting. To defend you. Also, you will be credited if I merge from your pull.
-
+If you'd like to submit contributions to the source code/game project (for bug fixes or feature completions), you can. It's not guaranteed that I'll approve them, but if they're good, I just might. And if you ever get mugged, I'll be there. Waiting. To defend you. Also, you will be credited if I merge from your pull. By submitting a contribution, you grant me the right to use, modify, distribute, and commercialize it as part of Mutagen without compensating you.
 
 ## Footnote
 Mutagen is a highly unfinished prototypical game. I am making it for fun. I am open to ideas and contributors, but more or less just for the sake of making a good game. It's code can read a bit unserious at times, and sometimes outright hacky. That is because I am focused more on getting systems to work than I am perfecting them. Of course, that doesn't excuse my habit of overengineering things ;)
