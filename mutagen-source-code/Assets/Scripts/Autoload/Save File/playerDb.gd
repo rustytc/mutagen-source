@@ -187,6 +187,7 @@ func skillConfig(skill):
 		"survival":
 			stats["baseDefense"] = 5 + (stats["survival"] / 2)
 			stats["speed"] = 5 + (stats["survival"] / 5)
+			playerData["player"]["stats"]["compoundDefense"] = playerData["player"]["stats"]["headArmorDefense"] + playerData["player"]["stats"]["bodyArmorDefense"] + playerData["player"]["stats"]["baseDefense"]
 			var maxHealth = stats["maxHealth"]
 			var currentHealth = stats["currentHealth"]
 			var ratio = float(currentHealth) / float(maxHealth)
