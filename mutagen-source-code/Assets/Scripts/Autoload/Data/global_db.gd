@@ -322,15 +322,6 @@ var armorDatabase = {
 		"stackable": false,
 		"disposable" : false
 	},
-		"head_fedora": {
-		"name": "Fedora",
-		"description": "Clock strikes twelve... Midnight arrives! debugtextdebugtextdebugtextdebugtextdebugtextdebugtext",
-		"statDescription": "[color=orange]+10 Defense[/color]",
-		"type": "armorHead",
-		"defense" : 0,
-		"stackable": false,
-		"disposable" : false
-	},
 	
 	"body_oldLeatherJacket": {
 		"name": "Old Jacket",
@@ -338,15 +329,6 @@ var armorDatabase = {
 		"statDescription": "[color=orange]+15 Defense[/color]",
 		"type": "armorBody",
 		"defense" : 15,
-		"stackable": false,
-		"disposable" : false
-	},
-		"body_trenchcoat": {
-		"name": "Trenchcoat",
-		"description": "Cock your guns and SHARPEN your knives! debugtextdebugtextdebugtextdebugtextdebugtextdebugtextdebugtext",
-		"statDescription": "[color=orange]+15 Defense[/color]",
-		"type": "armorBody",
-		"defense" : 1,
 		"stackable": false,
 		"disposable" : false
 	},

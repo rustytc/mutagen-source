@@ -1,6 +1,6 @@
 extends Node2D
-@export var dialogueJsonPath = "res://Assets/Data/Dialogue/World/Test/NPC/John Wolfmann/John Wolfmann.json"
-@export var characterName = "John Wolfmann"
+@export var dialogueJsonPath = "res://Assets/Data/Dialogue/World/Test/NPC/test/test.json"
+@export var characterName = "test"
 @export var initialConversationID = "0"
 ## If enabled, interacting with this NPC will pause the player's surroundings. Ideal if there's enemies in the same area.
 @export var pauseToInteract = true

@@ -29,8 +29,6 @@ animations = [{
 [node name="npc_base" type="Node2D" groups=["Overworld Non-Player Character", "Talkative NPC"]]
 process_mode = 3
 script = ExtResource("1_6ncuw")
-dialogueJsonPath = "res://Assets/Data/Dialogue/World/Test/NPC/test/test.json"
-characterName = "test"
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["Overworld Non-Player Character"]]
 
