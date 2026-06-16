@@ -242,8 +242,8 @@ var weaponDatabase = {
 	"shotgun": {
 		"name": "Pump Action Shotgun",
 		"description": "Shoots further than you'd think.",
-		"statDescriptionPlaceholder": "Loading [color=red]buckshot[/color] or [color=cyan]slug[/color] dictates balance between [color=red]range[/color] and [color=cyan]power[/color]\n[color=red]x1.5 Hitrate Modifier for Buckshot,[/color] [color=cyan]x0.8 Hitrate Modifier for Slug[/color]\n[color=red]20 Base Damage for Buckshot,[/color][color=cyan]40 Base Damage for Slug[/color]\n[color=yellow][AMMOVALUE]" + "/4 rounds[/color]",
-		"statDescription": "Loading [color=red]buckshot[/color] or [color=cyan]slug[/color] dictates balance between [color=red]range[/color] and [color=cyan]power[/color]\n[color=red]x1.5 Hitrate Modifier for Buckshot,[/color] [color=cyan]x0.8 Hitrate Modifier for Slug[/color]\n[color=red]20 Base Damage for Buckshot,[/color][color=cyan]40 Base Damage for Slug[/color]\n[color=yellow][AMMOVALUE]" + "/4 rounds[/color]",
+		"statDescriptionPlaceholder": "Loading [color=red]buckshot[/color] or [color=cyan]slug[/color] dictates balance between [color=red]range[/color] and [color=cyan]power[/color]\n[color=red]x1.5 Hitrate Modifier for Buckshot,[/color] [color=cyan]x0.8 Hitrate Modifier for Slug[/color]\n[color=red]25 Base Damage for Buckshot,[/color][color=cyan]50 Base Damage for Slug[/color]\n[color=yellow][AMMOVALUE]" + "/4 rounds[/color]",
+		"statDescription": "Loading [color=red]buckshot[/color] or [color=cyan]slug[/color] dictates balance between [color=red]range[/color] and [color=cyan]power[/color]\n[color=red]x1.5 Hitrate Modifier for Buckshot,[/color] [color=cyan]x0.8 Hitrate Modifier for Slug[/color]\n[color=red]25 Base Damage for Buckshot,[/color][color=cyan]50 Base Damage for Slug[/color]\n[color=yellow][AMMOVALUE]" + "/4 rounds[/color]",
 		"reloadAnnouncement": "Flynn loads [AMMOVALUE] of his [AMMOTYPE]s into his pump action shotgun...",
 		"reloadAnnouncementSFX": "res://Assets/Sounds/Battle/shotgunReload.mp3",
 		"attackAnnouncement" : "Flynn peppers [TARGET]'s [LIMB] with some [AMMOTYPE]!",
@@ -253,8 +253,8 @@ var weaponDatabase = {
 		"type": "ranged",
 		"stackable": false,
 		"disposable" : false,
-		"damage": 20, # buckshot
-		"damageAlt": 40, # slug
+		"damage": 25, # buckshot
+		"damageAlt": 50, # slug
 		"modifier": 1.5, # buckshot
 		"modifierAlt": 0.8, # slug
 		"splashBack": false,
