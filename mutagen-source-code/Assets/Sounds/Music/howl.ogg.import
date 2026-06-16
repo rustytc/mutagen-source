@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/howl.ogg-87f148267929a743783c4eb7df63abd9.ogg
 [params]
 
 loop=true
-loop_offset=0.0
+loop_offset=3.0
 bpm=0.0
 beat_count=0
 bar_beats=4
