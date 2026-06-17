@@ -26,7 +26,7 @@ static func execute():
 				for condition in phaseChanges:
 					if phaseChanges[condition]["type"] == "healthLeq" and phaseChanges[condition]["amount"] >= health:
 						move = "phaseChange"
-						BattleSystem.phaseChange(user, phaseChanges[condition]["phaseChange"], condition)
+						BattleSystem.ENEMY_MOVES.changePhase(user, phaseChanges[condition]["phaseChange"], condition)
 						break
 				if move == "phaseChange":
 					continue
@@ -35,13 +35,13 @@ static func execute():
 			var surgeRoll = Global.rng.randi_range(0,100)
 			if (surgeRoll < surgeChance) and (stamina < maxStamina) and (telegraph == ""):
 				move = "surge"
-				BattleSystem.surgeAction(user)
+				BattleSystem.ENEMY_MOVES.surge(user)
 				continue
 			# deciding what the enemy is going to do for its turn
 		
 			# ENEMY ATTACK PICKING
 			if BattleSystem.enemyDict[i]["telegraph"] != "":
-				BattleSystem.enemyAttackAction(i, EnemyDb.enemies[BattleSystem.removeIdentifier(i)]["telegraphAttacks"][BattleSystem.enemyDict[i]["telegraph"]])
+				BattleSystem.ENEMY_MOVES.attack(i, EnemyDb.enemies[BattleSystem.removeIdentifier(i)]["telegraphAttacks"][BattleSystem.enemyDict[i]["telegraph"]])
 				BattleSystem.enemyDict[i]["telegraph"] = ""
 				continue
 			if stamina >= BattleSystem.enemyDict[i]["stats"]["minStaminaToAttack"]:
@@ -95,9 +95,9 @@ static func execute():
 								
 						chosenAttack = viableAttacks.pick_random()
 					
-				BattleSystem.enemyAttackAction(i, EnemyDb.enemies[BattleSystem.removeIdentifier(i)]["attacks"][chosenAttack])
+				BattleSystem.ENEMY_MOVES.attack(i, EnemyDb.enemies[BattleSystem.removeIdentifier(i)]["attacks"][chosenAttack])
 			else:
-				BattleSystem.restAction(user)
+				BattleSystem.ENEMY_MOVES.rest(user)
 				
 		else: # Player
 			if ActionProcessor.queuedActions.size() > 0:

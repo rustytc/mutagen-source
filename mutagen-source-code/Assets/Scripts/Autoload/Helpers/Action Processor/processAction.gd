@@ -105,7 +105,7 @@ static func execute(data):
 				if health > 0 and damage > 0:
 					BattleSystem.enemyDict[i]["stats"]["health"] = health
 				elif health <= 0:
-					BattleSystem.enemyDeath(i)
+					BattleSystem.ENEMY_MOVES.die(i)
 					
 					
 	if data["playerStatus"]["radiationInflict"] > 0:
