@@ -59,3 +59,29 @@ func useItem(item):
 			ActionProcessor.queueSpecificAction(action)
 			
 			
+func levelUp():
+	var player = Global.playerData["player"]
+	var levelsRemaining = max(player["levelCap"] - player["level"], 0)
+	for i in range(levelsRemaining):
+		if player["experience"]["current"] < player["experience"]["needed"]:
+			break
+		PlayerDb.levelUp()
+		
+		var action = ActionProcessor.actionTemplate.duplicate(true)
+		action["general"]["announcement"] = "Flynn has reached level " + str(player["level"]) + "!"
+		action["general"]["announcementSFX"] = "res://Assets/Sounds/UI/level_up.mp3"
+		action["general"]["type"] = "levelUp"
+		action["general"]["inputDependent"] = true
+		ActionProcessor.actions.append(action)
+
+
+
+func haveEpiphany(levelCap):
+	var action = ActionProcessor.actionTemplate.duplicate(true)
+	var player = Global.playerData["player"]
+	player["levelCap"] = levelCap
+	player["epiphany"] = player["epiphany"] + 1
+	action["general"]["announcement"] = "Flynn had an epiphany."
+	action["general"]["announcementSFX"] = "res://Assets/Sounds/UI/epiphany.ogg"
+	action["general"]["type"] = "epiphany"
+	ActionProcessor.actions.append(action)

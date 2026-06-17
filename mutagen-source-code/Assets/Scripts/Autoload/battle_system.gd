@@ -151,7 +151,7 @@ func winBattle(flee := false):
 	action["levelling"]["expGain"] = accumulatedExp
 	if PlayerDb.playerData["player"]["levelCap"] > PlayerDb.playerData["player"]["level"]:
 		if PlayerDb.playerData["player"]["experience"]["needed"] <= PlayerDb.playerData["player"]["experience"]["current"]:
-			ActionProcessor.queueLevelUp()
+			GameplayActions.levelUp()
 		else:
 			result = str(accumulatedExp) + " experience points gained. " + str(PlayerDb.playerData["player"]["experience"]["needed"] - PlayerDb.playerData["player"]["experience"]["current"]) + " exp until the next level."
 	else:

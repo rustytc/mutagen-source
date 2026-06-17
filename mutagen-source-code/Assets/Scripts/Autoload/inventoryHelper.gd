@@ -26,7 +26,7 @@ func getAmmoType(WEAPONNAME, alt = false):
 		true: return GlobalDb.weaponDatabase[WEAPONNAME]["ammoTypeAlt"]
 	
 
-func reload(WEAPONNAME, ammoType = null): # weapon's name must be provided! because of menus and stuff using different variables to check
+func reloadSystem(WEAPONNAME, ammoType = null): # weapon's name must be provided! because of menus and stuff using different variables to check
 	if GlobalDb.weaponDatabase[WEAPONNAME]["ammoAlternation"] == false:
 		if Global.currentScreen == "world":
 			UniversalAudio.playSpecialSound("res://Assets/Sounds/Battle/" + WEAPONNAME + "Reload.mp3")

@@ -725,13 +725,13 @@ func _on_decisions_list_item_activated(index):
 	elif "Reload" in ind:
 		if GlobalDb.weaponDatabase[weaponIDHolder]["ammoAlternation"] == true:
 			if $actionMenu/actionsTab/decisionsList.get_item_metadata(index)["type"] == "std":
-				call_reload("alt", "std")
+				callReload("alt", "std")
 				selectedAmmoType = "std"
 			else:
-				call_reload("alt", "alt")
+				callReload("alt", "alt")
 				selectedAmmoType = "alt"
 		else:
-			call_reload("std", "std")
+			callReload("std", "std")
 			selectedAmmoType = "std"
 	elif "Dump" in ind:
 		InventoryHelper.ammoDump(weaponIDHolder)
@@ -1109,33 +1109,33 @@ func _on_visible_on_screen_notifier_2d_visibility_changed(): # Be careful, if yo
 		
 # Helpers
 
-func call_reload(type, ammoType):
+func callReload(type, ammoType):
 	match Global.currentScreen: # sorry if this is formatted really weird I was trying super hard to keep it readable
 		"world":
 			match type:
 				"std":
-					InventoryHelper.reload(weaponIDHolder, InventoryHelper.getAmmoType(weaponIDHolder, false))
+					InventoryHelper.reloadSystem(weaponIDHolder, InventoryHelper.getAmmoType(weaponIDHolder, false))
 					updateWeaponDescriptions()
 				"alt":
 					match ammoType:
 						"std":
-							InventoryHelper.reload(weaponIDHolder, InventoryHelper.getAmmoType(weaponIDHolder, false))
+							InventoryHelper.reloadSystem(weaponIDHolder, InventoryHelper.getAmmoType(weaponIDHolder, false))
 							updateWeaponDescriptions()
 						"alt":
-							InventoryHelper.reload(weaponIDHolder, InventoryHelper.getAmmoType(weaponIDHolder, true))
+							InventoryHelper.reloadSystem(weaponIDHolder, InventoryHelper.getAmmoType(weaponIDHolder, true))
 							updateWeaponDescriptions()
 					
 		"battle":
 			match type:
 				"std":
-					ActionProcessor.queueReloadAction(weaponIDHolder, InventoryHelper.getAmmoType(weaponIDHolder, false), "std", null) # ammo refill is set to null because it isnt currently used for standard weapons
+					BattleSystem.PLAYER_MOVES.reloadWeapon(weaponIDHolder, InventoryHelper.getAmmoType(weaponIDHolder, false), "std", null) # ammo refill is set to null because it isnt currently used for standard weapons
 					BattleSystem.startTurns()
 				"alt":
 					match ammoType:
 						"std":
-							InventoryHelper.reload(weaponIDHolder, InventoryHelper.getAmmoType(weaponIDHolder, false))
+							InventoryHelper.reloadSystem(weaponIDHolder, InventoryHelper.getAmmoType(weaponIDHolder, false))
 						"alt":
-							InventoryHelper.reload(weaponIDHolder, InventoryHelper.getAmmoType(weaponIDHolder, true))
+							InventoryHelper.reloadSystem(weaponIDHolder, InventoryHelper.getAmmoType(weaponIDHolder, true))
 		
 func drop_tab_focus():
 	$actionMenu/actionsTab/decisionsList.focus_mode = Control.FOCUS_ALL
@@ -1487,7 +1487,7 @@ func _on_reload_confirm_pressed():
 				type = true
 			"std":
 				type = false
-		ActionProcessor.queueReloadAction(weaponIDHolder, InventoryHelper.getAmmoType(weaponIDHolder, type), "alt", (int($ammoSlider/Dial.currentTick)))
+		BattleSystem.PLAYER_MOVES.reloadWeapon(weaponIDHolder, InventoryHelper.getAmmoType(weaponIDHolder, type), "alt", (int($ammoSlider/Dial.currentTick)))
 		# ^^^ the third parameter must ALWAYS be "alt" or else reload() can incorrectly trigger and leave the reload menu open
 		BattleSystem.startTurns()
 

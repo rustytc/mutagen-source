@@ -201,3 +201,27 @@ static func die():
 	ActionProcessor.actions.clear()
 	ActionProcessor.queuedActions.clear()
 	ActionProcessor.queueSpecificAction(action)
+
+static func reloadWeapon(weaponName, ammoType, reloadType, ammoRefill):
+	var action = ActionProcessor.actionTemplate.duplicate(true) # can't just reference the variable,
+	#because dictionaries are objects and if you define a variable as another variable that is an object
+	# it will simply always point at the same memory address as that variable
+	# instead of making a copy
+	action["general"]["announcement"] = GlobalDb.weaponDatabase[weaponName]["reloadAnnouncement"]
+	action["general"]["announcementSFX"] = GlobalDb.weaponDatabase[weaponName]["reloadAnnouncementSFX"]
+	
+	action["general"]["name"] = "RELOAD " + weaponName
+	action["general"]["type"] = "reload"
+	action["general"]["user"] = "Player"
+	action["weaponData"]["weaponName"] = weaponName
+	action["weaponData"]["ammoType"] = ammoType
+	action["weaponData"]["reloadType"] = reloadType
+	match reloadType:
+		"std":
+			action["globalFunction"]["stdReload"] = true
+			action["weaponData"]["ammoRefill"] = ammoRefill
+			
+		"alt":
+			action["globalFunction"]["altReload"] = true
+			action["weaponData"]["ammoRefill"] = ammoRefill
+	ActionProcessor.queuedActions.append(action)

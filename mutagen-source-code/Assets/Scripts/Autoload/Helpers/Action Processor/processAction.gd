@@ -149,7 +149,7 @@ static func execute(data):
 	# Reload Action
 	if data["general"]["type"] == "reload":
 		if data["globalFunction"]["stdReload"] == true:
-			InventoryHelper.reload(data["weaponData"]["weaponName"], data["weaponData"]["ammoType"])
+			InventoryHelper.reloadSystem(data["weaponData"]["weaponName"], data["weaponData"]["ammoType"])
 		elif data["globalFunction"]["altReload"] == true:
 			InventoryHelper.confirmSpecialReload(data["weaponData"]["ammoRefill"])
 		await ActionProcessor.get_tree().create_timer(data["general"]["resultPause"]).timeout
