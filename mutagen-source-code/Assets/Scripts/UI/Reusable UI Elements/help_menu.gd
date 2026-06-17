@@ -1366,10 +1366,10 @@ func _on_action_list_item_activated(index):
 		else:
 			UniversalAudio._play_error()
 	if index == 2:
-		BattleSystem.playerBlockAction()
+		BattleSystem.PLAYER_MOVES.block()
 		BattleSystem.startTurns()
 	if index == 3:
-		BattleSystem.playerFleeAction()
+		BattleSystem.PLAYER_MOVES.flee()
 		BattleSystem.startTurns()
 
 func _on_enemy_list_item_activated(index):
@@ -1434,10 +1434,10 @@ func _on_distance_list_item_activated(index: int) -> void:
 		$Tabs.current_tab = 1
 		$Tabs/Action/actionList.grab_focus()
 	if index == 1: # advance
-		BattleSystem.playerAdvanceAction("forwards")
+		BattleSystem.PLAYER_MOVES.advance("forwards")
 		BattleSystem.startTurns()
 	if index == 2: #regress
-		BattleSystem.playerAdvanceAction("backwards")
+		BattleSystem.PLAYER_MOVES.advance("backwards")
 		BattleSystem.startTurns()
 		
 		
