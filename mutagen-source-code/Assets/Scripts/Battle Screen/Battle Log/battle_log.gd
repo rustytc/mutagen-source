@@ -16,7 +16,7 @@ func _process(delta):
 	if Global.currentScreen == "world":
 		if not visible and ActionProcessor.processing == true and $AnimationPlayer.current_animation != "PanIn":
 			panIn()
-		if visible and ActionProcessor.processing == false and $AnimationPlayer.current_animation != "PanOut" and Input.is_anything_pressed() and not Input.is_action_just_pressed("Blacklist") and ActionProcessor.actions.is_empty() and ActionProcessor.queuedActions.is_empty() and  $Panel/VBoxContainer/HBoxContainer/Text.get_parsed_text().length() == $Panel/VBoxContainer/HBoxContainer/Text.visible_characters:
+		if visible and ActionProcessor.processing == false and $AnimationPlayer.current_animation != "PanOut" and Input.is_action_just_pressed("Accept") and ActionProcessor.actions.is_empty() and ActionProcessor.queuedActions.is_empty() and  $Panel/VBoxContainer/HBoxContainer/Text.get_parsed_text().length() == $Panel/VBoxContainer/HBoxContainer/Text.visible_characters:
 			panOut()
 			if Global.helpMenu.currentMenu == "items":
 				Global.helpMenu.grab_item_list_focus()

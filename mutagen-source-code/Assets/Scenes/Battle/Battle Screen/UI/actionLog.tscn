@@ -194,9 +194,9 @@ process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_left = 624.0
-offset_top = -8.0
+offset_top = 232.0
 offset_right = 624.0
-offset_bottom = -8.0
+offset_bottom = 232.0
 script = ExtResource("1_0f1wb")
 
 [node name="Panel" type="Panel" parent="."]

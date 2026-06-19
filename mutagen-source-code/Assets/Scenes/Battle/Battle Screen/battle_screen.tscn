@@ -114,8 +114,6 @@ mouse_filter = 2
 alignment = 1
 
 [node name="battleLog" parent="." instance=ExtResource("3_p80tw")]
-offset_top = 232.0
-offset_bottom = 232.0
 mouse_filter = 2
 
 [node name="HealthHeart" parent="." instance=ExtResource("4_347u6")]

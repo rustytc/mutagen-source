@@ -2,7 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://bx72j86a1j2rn"
+uid="uid://b0yuapfnv5pud"
 path="res://.godot/imported/Vertigo.ogg-06f965766cb138e19f4e2d933ad95b0a.oggvorbisstr"
 
 [deps]
@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/Vertigo.ogg-06f965766cb138e19f4e2d933ad95b0a.
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

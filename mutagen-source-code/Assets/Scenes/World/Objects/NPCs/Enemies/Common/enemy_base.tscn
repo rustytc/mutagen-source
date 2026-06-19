@@ -220,6 +220,7 @@ safe_margin = 3.0
 script = ExtResource("1_qkpao")
 state = "prowl"
 enemyType = "True Mutant Beta"
+encounterTheme = "res://Assets/Sounds/Music/Vertigo.ogg"
 
 [node name="chaseMusic" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
 process_mode = 1
