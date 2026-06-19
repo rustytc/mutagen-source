@@ -1083,6 +1083,8 @@ func _process(delta):
 			exitActionMenu()
 
 func _on_tabs_tab_changed(tab):
+	if $AnimationPlayer.current_animation == "PanOut" or $AnimationPlayer.current_animation == "Hidden":
+		return # this hack prevents the tab bar from regaining focus when it shouldnt and then becoming visible when the game is unpaused
 	if Input.is_action_just_pressed("ui_left") or Input.is_action_pressed("ui_left"):
 		$AnimationPlayer.play("SwitchLeft")
 	if Input.is_action_just_pressed("ui_right") or Input.is_action_pressed("ui_right"):
