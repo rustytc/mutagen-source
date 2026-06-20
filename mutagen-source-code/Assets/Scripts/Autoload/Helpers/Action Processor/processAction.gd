@@ -201,8 +201,22 @@ static func execute(data):
 	if data["general"]["type"] == "levelUp":
 		ActionProcessor.pendingSkillUpgrade = true
 		
-
-
+	
+	# Status Effects
+	# Possibility of inflicting an effect per effect attack
+	for effect in data["combatData"]["statusEffects"]["inflict"]:
+		var list = data["combatData"]["statusEffects"]["inflict"]
+		if list[effect]["points"] > 0:
+			var chance = Global.rng.randi_range(1,100)
+			if list[effect]["chance"] < chance: # Success
+				if data["general"]["target"] == "Player":
+					PlayerDb.playerData["statusEffects"][effect]["points"] += list[effect]["points"]
+				else:
+					BattleSystem.enemyDict[data["general"]["target"]]["statusEffects"][effect]["points"] += list[effect]["points"]
+	
+	for effect in PlayerDb.playerData["statusEffects"]:
+		if effect["points"] > 0:
+			ActionProcessor.STATUS_MANAGER.applyEffect()
 
 
 	ActionProcessor.processing = false

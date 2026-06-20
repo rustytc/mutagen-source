@@ -117,8 +117,11 @@ var playerData := { # various important player variables stored in a dictionary
 			"active" : false,
 			"points" : 0,
 			"harming" : true,
+			
+			"announcementCure" : "Flynn's wounds dried up.",
+			"resultCure" : "He is no longer Bleeding.",
+			
 			"announcementInflict" : "[NAME] started bleeding.",
-			"announcementCure" : "[NAME] stopped bleeding.",
 			"announcementHarm" : ["[NAME] suffered blood loss.",],
 			"resultHarm" : "[NAME] took [AMOUNT] HP damage.",
 		},
@@ -126,8 +129,11 @@ var playerData := { # various important player variables stored in a dictionary
 			"active" : false,
 			"points" : 0,
 			"harming" : true,
+			
+			"announcementCure" : "Flynn started ignoring his illness.",
+			"resultCure" : "He is no longer Ill.",
+			
 			"announcementInflict" : "[NAME] got sick.",
-			"announcementCure" : "[NAME] is no longer sick.",
 			"announcementHarm" : ["[NAME] coughed.","[NAME] vomitted blood.","[NAME] is suffering from a headache.",],
 			"resultHarm" : "[NAME] took [AMOUNT] HP damage.",
 		},
@@ -135,22 +141,31 @@ var playerData := { # various important player variables stored in a dictionary
 			"active" : false,
 			"points" : 0,
 			"harming" : false,
+			
+			"announcementCure" :  "Flynn stopped caring about his injury.",
+			"resultCure" : "He is no longer Crippled.",
+			
 			"announcementInflict" : "[NAME] became crippled.",
-			"announcementCure" : "[NAME] is no longer crippled.",
 		},
 		"fatigue": {
 			"active" : false,
 			"points" : 0,
 			"harming" : false,
+			
+			"announcementCure" : "Flynn's circulation is kicking in.",
+			"resultCure" : "He is no longer Fatigued.",
+			
 			"announcementInflict" : "[NAME] is fatigued.",
-			"announcementCure" : "[NAME] is no longer fatigued.",
 		},
 		"berserk": {
 			"active" : false,
 			"points" : 0,
 			"harming" : false,
-			"announcementInflict" : "[color=red]FLYNN WENT BERSERK!!![/color]",
+			
 			"announcementCure" : "Flynn calmed down.",
+			"resultCure" : "He is no longer Berserk.",
+			
+			"announcementInflict" : "[color=red]FLYNN WENT BERSERK!!![/color]",
 			"announcementAttack" : ["[color=red]FLYNN PUNCHED [TARGET]![/color]","[color=red]FLYNN DOVE HEAD FIRST TO BITE [TARGET]![/color]","[color=red]FLYNN STRANGLED [TARGET]![/color]",],
 			"resultAttack" : "[color=red][TARGET] took [AMOUNT] HP damage.[/color]"
 		},
