@@ -121,7 +121,13 @@ static func attack(user, attack, priority = 1):
 			action["general"]["result"] = attack["result"]
 		if (attack["blockable"] == true and BattleSystem.playerDefending == false) or attack["blockable"] == false:
 			action["general"]["impactSFX"] = attack["sound"]
-		action["combatData"]["statusEffect"] = attack["statusEffect"]
+		
+		# status effect inflict
+		if attack["statusEffect"] != null:
+			action["combatData"]["statusEffects"][attack["statusEffect"]]["points"] = Global.rng.randi_range(attack["statusEffectPointsMin"],attack["statusEffectPointsMax"]) 
+			action["combatData"]["statusEffects"][attack["statusEffect"]]["chance"] = attack["statusEffectChance"]
+		
+		
 		var blocked : bool = (attack["blockable"] == true and BattleSystem.playerDefending == true)
 		if not blocked:
 			if BattleSystem.playerDefending == false:

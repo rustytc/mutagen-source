@@ -208,11 +208,12 @@ static func execute(data):
 		var list = data["combatData"]["statusEffects"]["inflict"]
 		if list[effect]["points"] > 0:
 			var chance = Global.rng.randi_range(1,100)
-			if list[effect]["chance"] < chance: # Success
-				if data["general"]["target"] == "Player":
-					PlayerDb.playerData["statusEffects"][effect]["points"] += list[effect]["points"]
+			if list[effect]["chance"] >= chance: # Success
+				if data["general"]["target"][0] == "Player":
+					PlayerDb.playerData["player"]["statusEffects"][effect]["points"] += list[effect]["points"]
 				else:
-					BattleSystem.enemyDict[data["general"]["target"]]["statusEffects"][effect]["points"] += list[effect]["points"]
+					for enemy in targets:
+						BattleSystem.enemyDict[enemy]["statusEffects"][effect]["points"] += list[effect]["points"]
 	
 	var playerFX = ActionProcessor.STATUS_MANAGER.checkPlayerStatusEffects()
 	var enemyFX = ActionProcessor.STATUS_MANAGER.checkEnemyStatusEffects()

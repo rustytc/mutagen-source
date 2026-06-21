@@ -25,10 +25,10 @@ static func applyEffect(effect, target):
 	var data = null
 	if target == "Player":
 		data = PlayerDb.playerData["player"]["statusEffects"][effect]
-		data["general"]["target"] = ["Player"]
+		action["general"]["target"] = ["Player"]
 	else:
 		data = BattleSystem.enemyDict[target]["statusEffects"][effect]
-		data["general"]["target"] = [target]
+		action["general"]["target"] = [target]
 	data["points"] -= 1
 		
 	# cure
@@ -44,6 +44,6 @@ static func applyEffect(effect, target):
 	if data["points"] > 0:
 		data["active"] = true
 		action["announcement"] = data["announcementInflict"]
-		action["announcement"] = data["resultInflict"]
+		action["result"] = data["resultInflict"]
 		action["type"] = "statusEffectInflict"
 	ActionProcessor.queueSpecificAction(action)
