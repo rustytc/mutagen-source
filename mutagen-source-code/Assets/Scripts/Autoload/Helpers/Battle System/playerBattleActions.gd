@@ -103,14 +103,10 @@ static func attack(targets, limbs, priority = 1):
 		action["general"]["impactSFX"] = GlobalDb["weaponDatabase"][weapon]["attackCritSound"]
 		action["general"]["announcementSFX"] = GlobalDb["weaponDatabase"][weapon]["critAnnouncementSound"]
 	action["general"]["priority"] = priority
-	# if the weapon has a status effect, the game will generate a number from
-	# 1 to 100, and if that number falls beneath or is equal to the weapon's "statusEffectChance"
-	# key, itll effect. this means a weapon with 40% likelihood to have a status
-	# effect apply will only have it if the effect roll is less than or equal to 40
-	var statusEffectChance := 0
-	statusEffectChance = Global.rng.randi_range(1, 100) # self reminder to use 1 as a starting value so it doesnt have 101 values NOTE
-	if statusEffectChance <= GlobalDb["weaponDatabase"][weapon]["statusEffectChance"]:
-		action["combatData"]["statusEffect"] = GlobalDb["weaponDatabase"][weapon]["statusEffect"]
+	
+	if GlobalDb["weaponDatabase"][weapon]["statusEffect"]["points"] > 0:
+		action["combatData"]["statusEffects"][GlobalDb["weaponDatabase"][weapon]["statusEffect"]]["points"] = Global.rng.randi_range(GlobalDb["weaponDatabase"][weapon]["statusEffectPointsMin"],GlobalDb["weaponDatabase"][weapon]["statusEffectPointsMax"]) 
+		action["combatData"]["statusEffects"][GlobalDb["weaponDatabase"][weapon]["statusEffect"]]["chance"] = GlobalDb["weaponDatabase"][weapon]["statusEffectChance"]
 		
 	if miss:
 		action["general"]["type"] = "attackMiss"
