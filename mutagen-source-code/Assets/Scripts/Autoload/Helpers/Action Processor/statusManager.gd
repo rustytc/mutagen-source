@@ -1,7 +1,7 @@
 extends Node
 
 
-func checkStatusEffects():
+static func checkPlayerStatusEffects():
 	var data : Dictionary = PlayerDb.playerData["player"]["statusEffects"]
 	var result := []
 	for effect in data:
@@ -9,13 +9,27 @@ func checkStatusEffects():
 			result.append(effect)
 	return result
 	
-func applyEffect(effect, target):
+static func checkEnemyStatusEffects():
+	var enemyDb : Dictionary = BattleSystem.enemyDict
+	var result := []
+	if enemyDb == {}:
+		return null
+	for enemy in enemyDb:
+		for effect in enemyDb[enemy]["statusEffects"]:
+			if enemyDb[enemy]["statusEffects"][effect]["points"] > 0:
+				result.append([effect, enemy])
+	return result
+	
+static func applyEffect(effect, target):
 	var action = ActionProcessor.actionTemplate.duplicate(true)
 	var data = null
 	if target == "Player":
 		data = PlayerDb.playerData["player"]["statusEffects"][effect]
 		data["general"]["target"] = ["Player"]
-		data["points"] -= 1
+	else:
+		data = BattleSystem.enemyDict[target]["statusEffects"][effect]
+		data["general"]["target"] = [target]
+	data["points"] -= 1
 		
 	# cure
 	if data["points"] == 0:

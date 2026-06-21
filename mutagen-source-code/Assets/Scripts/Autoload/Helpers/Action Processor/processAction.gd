@@ -214,10 +214,12 @@ static func execute(data):
 				else:
 					BattleSystem.enemyDict[data["general"]["target"]]["statusEffects"][effect]["points"] += list[effect]["points"]
 	
-	for effect in PlayerDb.playerData["statusEffects"]:
-		if effect["points"] > 0:
-			ActionProcessor.STATUS_MANAGER.applyEffect()
-
+	var playerFX = ActionProcessor.STATUS_MANAGER.checkPlayerStatusEffects()
+	var enemyFX = ActionProcessor.STATUS_MANAGER.checkEnemyStatusEffects()
+	for effect in playerFX:
+		ActionProcessor.STATUS_MANAGER.applyEffect(effect, "Player")
+	for i in enemyFX:
+		ActionProcessor.STATUS_MANAGER.applyEffect(i[0], i[1])
 
 	ActionProcessor.processing = false
 		
