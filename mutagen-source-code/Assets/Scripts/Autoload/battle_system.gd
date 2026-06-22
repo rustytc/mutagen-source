@@ -23,7 +23,7 @@ var accumulatedExp := 0
 
 
 # Battle Screen Global Variables
-var selectedEnemy = []
+var selectedEnemy := []
 var selectedLimb := ""
 var turnOrderArray := []
 var canAdvance := true
@@ -130,6 +130,7 @@ func sortAscending(a, b):
 
 		
 func startTurns():
+	ActionProcessor.STATUS_MANAGER.statusEffectPerRound()
 	TURN_PICKER.execute()
 	battleAdvance.emit()
 

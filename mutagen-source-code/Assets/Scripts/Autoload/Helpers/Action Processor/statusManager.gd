@@ -29,21 +29,42 @@ static func applyEffect(effect, target):
 	else:
 		data = BattleSystem.enemyDict[target]["statusEffects"][effect]
 		action["general"]["target"] = [target]
-	data["points"] -= 1
 		
 	# cure
 	if data["points"] == 0:
 		data["active"] = false
-		action["announcement"] = data["announcementCure"] # no need to replace '[NAME]' as the action processor script does this for us
-		action["result"] = data["resultCure"]
-		action["type"] = "statusEffectClear"
+		if data["announcementCure"].exists():
+			action["general"]["announcement"] = data["announcementCure"] # no need to replace '[NAME]' as the action processor script does this for us
+		if data["resultCure"].exists():
+			action["general"]["result"] = data["resultCure"]
+		action["general"]["type"] = "statusEffectClear"
 		action["combatData"]["statusEffects"]["cure"][effect] = true
+		ActionProcessor.queueSpecificAction(action)
 		return
 			
 	# inflict
 	if data["points"] > 0:
-		data["active"] = true
-		action["announcement"] = data["announcementInflict"]
-		action["result"] = data["resultInflict"]
-		action["type"] = "statusEffectInflict"
-	ActionProcessor.queueSpecificAction(action)
+		if data["active"] == false:
+			if data["announcementInflict"].exists():
+				action["general"]["announcement"] = data["announcementInflict"]
+			action["general"]["type"] = "statusEffectInflict"
+			ActionProcessor.queueSpecificAction(action)
+			data["active"] = true
+		else:
+			if data["announcementHarm"].exists():
+				action["general"]["announcement"] = data["announcementHarm"].pick_random()
+			if data["resultHarm"].exists():
+				action["general"]["result"] = data["resultHarm"]
+			action["general"]["type"] = "statusEffectHarm"
+			ActionProcessor.queueSpecificAction(action)
+	data["points"] -= 1
+
+static func statusEffectPerRound():
+	var playerFX = ActionProcessor.STATUS_MANAGER.checkPlayerStatusEffects()
+	var enemyFX = ActionProcessor.STATUS_MANAGER.checkEnemyStatusEffects()
+	if playerFX != null:
+		for effect in playerFX:
+			ActionProcessor.STATUS_MANAGER.applyEffect(effect, "Player")
+	if enemyFX != null:
+		for i in enemyFX:
+			ActionProcessor.STATUS_MANAGER.applyEffect(i[0], i[1])

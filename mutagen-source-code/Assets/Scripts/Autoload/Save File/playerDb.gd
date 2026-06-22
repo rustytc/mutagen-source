@@ -162,8 +162,8 @@ var playerData := { # various important player variables stored in a dictionary
 			"points" : 0,
 			"harming" : false,
 			
-			"announcementCure" : "Flynn calmed down.",
-			"resultCure" : "He is no longer Berserk.",
+			"announcementCure" : "!..",
+			"resultCure" : "Flynn is no longer berserk.",
 			
 			"announcementInflict" : "[color=red]FLYNN WENT BERSERK!!![/color]",
 			"announcementAttack" : ["[color=red]FLYNN PUNCHED [TARGET]![/color]","[color=red]FLYNN DOVE HEAD FIRST TO BITE [TARGET]![/color]","[color=red]FLYNN STRANGLED [TARGET]![/color]",],

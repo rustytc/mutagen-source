@@ -1,6 +1,5 @@
 extends Node
 
-
 static func execute(data):
 	
 	var targets := []
@@ -215,12 +214,6 @@ static func execute(data):
 					for enemy in targets:
 						BattleSystem.enemyDict[enemy]["statusEffects"][effect]["points"] += list[effect]["points"]
 	
-	var playerFX = ActionProcessor.STATUS_MANAGER.checkPlayerStatusEffects()
-	var enemyFX = ActionProcessor.STATUS_MANAGER.checkEnemyStatusEffects()
-	for effect in playerFX:
-		ActionProcessor.STATUS_MANAGER.applyEffect(effect, "Player")
-	for i in enemyFX:
-		ActionProcessor.STATUS_MANAGER.applyEffect(i[0], i[1])
 
 	ActionProcessor.processing = false
 		
