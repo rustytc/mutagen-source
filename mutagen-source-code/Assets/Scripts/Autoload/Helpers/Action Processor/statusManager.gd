@@ -5,7 +5,7 @@ static func checkPlayerStatusEffects():
 	var data : Dictionary = PlayerDb.playerData["player"]["statusEffects"]
 	var result := []
 	for effect in data:
-		if data[effect]["points"] > 0:
+		if data[effect]["points"] > 0 or data[effect]["active"] == true:
 			result.append(effect)
 	return result
 	
@@ -16,7 +16,7 @@ static func checkEnemyStatusEffects():
 		return null
 	for enemy in enemyDb:
 		for effect in enemyDb[enemy]["statusEffects"]:
-			if enemyDb[enemy]["statusEffects"][effect]["points"] > 0:
+			if enemyDb[enemy]["statusEffects"][effect]["points"] > 0 or enemyDb[enemy]["statusEffects"][effect]["active"] == true:
 				result.append([effect, enemy])
 	return result
 	
@@ -30,35 +30,40 @@ static func applyEffect(effect, target):
 		data = BattleSystem.enemyDict[target]["statusEffects"][effect]
 		action["general"]["target"] = [target]
 		
-	# cure
-	if data["points"] == 0:
-		data["active"] = false
-		if data["announcementCure"].exists():
-			action["general"]["announcement"] = data["announcementCure"] # no need to replace '[NAME]' as the action processor script does this for us
-		if data["resultCure"].exists():
-			action["general"]["result"] = data["resultCure"]
-		action["general"]["type"] = "statusEffectClear"
-		action["combatData"]["statusEffects"]["cure"][effect] = true
-		ActionProcessor.queueSpecificAction(action)
-		return
 			
 	# inflict
 	if data["points"] > 0:
+		if data["active"] == true: # this is put specifically here so that it doesnt subtract on the first round when nothing gets applied
+			data["points"] -= 1
 		if data["active"] == false:
-			if data["announcementInflict"].exists():
+			if data.has("announcementInflict"):
 				action["general"]["announcement"] = data["announcementInflict"]
 			action["general"]["type"] = "statusEffectInflict"
 			ActionProcessor.queueSpecificAction(action)
 			data["active"] = true
 		else:
-			if data["announcementHarm"].exists():
+			if data.has("announcementHarm"):
 				action["general"]["announcement"] = data["announcementHarm"].pick_random()
-			if data["resultHarm"].exists():
+			if data.has("resultHarm"):
 				action["general"]["result"] = data["resultHarm"]
 			action["general"]["type"] = "statusEffectHarm"
-			ActionProcessor.queueSpecificAction(action)
-	data["points"] -= 1
-
+			if data.has("announcementHarm") or data.has("resultHarm"): # this has to be here to prevent a blank action from queueing if an effect doesnt print anything
+				ActionProcessor.queueSpecificAction(action)
+		return
+		
+	# cure
+	if data["points"] == 0:
+		data["active"] = false
+		if data.has("announcementCure"):
+			action["general"]["announcement"] = data["announcementCure"] # no need to replace '[NAME]' as the action processor script does this for us
+		if data.has("resultCure"):
+			action["general"]["result"] = data["resultCure"]
+		action["general"]["type"] = "statusEffectClear"
+		action["combatData"]["statusEffects"]["cure"][effect] = true
+		ActionProcessor.queueSpecificAction(action)
+		return
+	
+	
 static func statusEffectPerRound():
 	var playerFX = ActionProcessor.STATUS_MANAGER.checkPlayerStatusEffects()
 	var enemyFX = ActionProcessor.STATUS_MANAGER.checkEnemyStatusEffects()
