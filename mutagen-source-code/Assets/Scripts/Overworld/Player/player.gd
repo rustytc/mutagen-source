@@ -257,4 +257,5 @@ func exitBattle():
 	Global.currentScreen = "world"
 	iframes = true
 	get_parent().get_node("iframesTimer").start(2)
+	Global.musicPlaying = true
 	

@@ -105,9 +105,8 @@ static func attack(targets, limbs, priority = 1):
 	action["general"]["priority"] = priority
 	
 	if GlobalDb["weaponDatabase"][weapon]["statusEffect"] != null:
-		action["combatData"]["statusEffects"][GlobalDb["weaponDatabase"][weapon]["statusEffect"]]["points"] = Global.rng.randi_range(GlobalDb["weaponDatabase"][weapon]["statusEffectPointsMin"],GlobalDb["weaponDatabase"][weapon]["statusEffectPointsMax"]) 
-		action["combatData"]["statusEffects"][GlobalDb["weaponDatabase"][weapon]["statusEffect"]]["chance"] = GlobalDb["weaponDatabase"][weapon]["statusEffectChance"]
-		
+		action["combatData"]["statusEffects"]["inflict"][GlobalDb["weaponDatabase"][weapon]["statusEffect"]]["points"] = Global.rng.randi_range(GlobalDb["weaponDatabase"][weapon]["statusEffectPointsMin"],GlobalDb["weaponDatabase"][weapon]["statusEffectPointsMax"]) 
+		action["combatData"]["statusEffects"]["inflict"][GlobalDb["weaponDatabase"][weapon]["statusEffect"]]["chance"] = GlobalDb["weaponDatabase"][weapon]["statusEffectChance"]
 	if miss:
 		action["general"]["type"] = "attackMiss"
 		action["general"]["result"] = GlobalDb["weaponDatabase"][weapon]["attackMissResult"]

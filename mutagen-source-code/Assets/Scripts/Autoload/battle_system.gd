@@ -23,7 +23,7 @@ var accumulatedExp := 0
 
 
 # Battle Screen Global Variables
-var selectedEnemy := []
+var selectedEnemy := ""
 var selectedLimb := ""
 var turnOrderArray := []
 var canAdvance := true
@@ -174,7 +174,7 @@ func exitBattle(flee = false):
 		battleLog = []
 		playerDefending = false
 		accumulatedExp = 0
-		selectedEnemy = []
+		selectedEnemy = ""
 		selectedLimb = ""
 		turnOrderArray = []
 		enemyDict = {}

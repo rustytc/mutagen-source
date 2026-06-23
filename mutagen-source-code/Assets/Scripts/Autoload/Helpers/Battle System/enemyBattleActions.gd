@@ -124,9 +124,8 @@ static func attack(user, attack, priority = 1):
 		
 		# status effect inflict
 		if attack["statusEffect"] != null:
-			action["combatData"]["statusEffects"][attack["statusEffect"]]["points"] = Global.rng.randi_range(attack["statusEffectPointsMin"],attack["statusEffectPointsMax"]) 
-			action["combatData"]["statusEffects"][attack["statusEffect"]]["chance"] = attack["statusEffectChance"]
-		
+			action["combatData"]["statusEffects"]["inflict"][attack["statusEffect"]]["points"] = Global.rng.randi_range(attack["statusEffectPointsMin"],attack["statusEffectPointsMax"]) 
+			action["combatData"]["statusEffects"]["inflict"][attack["statusEffect"]]["chance"] = attack["statusEffectChance"]
 		
 		var blocked : bool = (attack["blockable"] == true and BattleSystem.playerDefending == true)
 		if not blocked:

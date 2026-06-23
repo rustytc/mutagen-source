@@ -211,7 +211,7 @@ static func execute(data):
 				if data["general"]["target"][0] == "Player":
 					PlayerDb.playerData["player"]["statusEffects"][effect]["points"] += list[effect]["points"]
 				else:
-					for enemy in targets:
+					for enemy in data["general"]["target"]:
 						BattleSystem.enemyDict[enemy]["statusEffects"][effect]["points"] += list[effect]["points"]
 	
 

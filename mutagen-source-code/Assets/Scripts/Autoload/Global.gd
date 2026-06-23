@@ -7,7 +7,7 @@ var waitTimer := 0 # this variable exists as a buffer to execute code after ever
 var rng := RandomNumberGenerator.new()
 
 # Area Data
-@export var music := ""
+@export var music := "res://Assets/Sounds/Music/Survival of the Fittest.ogg"
 @export var musicVolume : float = 0
 @export var musicPlaying := true
 @export var musicCanPlay := true # this is an extra variable check to see if other music is playing. if you want a scene to be mute, I recommend not using this but rather using musicPlaying instead
