@@ -38,7 +38,6 @@ static func applyEffect(effect, target):
 			
 	# inflict
 	if data["points"] > 0:
-		print('inflict ran')
 		if data["active"] == true: # this is put specifically here so that it doesnt subtract on the first round when nothing gets applied
 			data["points"] -= 1
 		if data["active"] == false:
@@ -82,3 +81,24 @@ static func statusEffectPerRound():
 	if enemyFX != null:
 		for i in enemyFX:
 			ActionProcessor.STATUS_MANAGER.applyEffect(i[0], i[1])
+
+static func showEffectInitiation(effect, target):
+	var action = ActionProcessor.actionTemplate.duplicate(true)
+	var data = null
+	if target.size() == 1:
+		target = str(target[0])
+	if target == "Player":
+		data = PlayerDb.playerData["player"]["statusEffects"][effect]
+		action["general"]["target"] = ["Player"]
+	else:
+		data = BattleSystem.enemyDict[target]["statusEffects"][effect]
+		action["general"]["target"] = [target]
+	# inflict
+	if data["active"] == false:
+		if data.has("announcementInflict"):
+			action["general"]["announcement"] = data["announcementInflict"]
+		action["general"]["type"] = "statusEffectInflict"
+		action["general"]["user"] = target
+		ActionProcessor.queueSpecificAction(action)
+		data["active"] = true
+		print('inflicted')

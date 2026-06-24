@@ -210,11 +210,12 @@ static func execute(data):
 			if list[effect]["chance"] >= chance: # Success
 				if data["general"]["target"][0] == "Player":
 					PlayerDb.playerData["player"]["statusEffects"][effect]["points"] += list[effect]["points"]
+					ActionProcessor.STATUS_MANAGER.showEffectInitiation(effect, data["general"]["target"])
 				else:
 					for enemy in data["general"]["target"]:
 						BattleSystem.enemyDict[enemy]["statusEffects"][effect]["points"] += list[effect]["points"]
+						ActionProcessor.STATUS_MANAGER.showEffectInitiation(effect, data["general"]["target"])
 	
-
 	ActionProcessor.processing = false
 		
 		

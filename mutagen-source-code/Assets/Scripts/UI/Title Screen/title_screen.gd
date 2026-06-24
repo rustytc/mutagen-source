@@ -51,19 +51,20 @@ func _ready():
 	"a game by a rusty tin can",
 	"Thank you for playing <3", 
 	"These are pretty trendy!", 
+	"How'd you find me?", 
 	"This font is Open Source!", 
 	"Unfinished and broken!", 
 	"In progress since 2025!", 
-	"Da da da da duh duh", 
-	"Memory.ogg", 
-	"This is my theme song",
-	"I miss Renascence",
+	"Da da da da duh duh",  
 	"I hope this game gets finished.",
 	"And most importantly,\n\nTHANK YOU",
 	"With peculiar music taste.",
 	"No!!! Don't decompile my game!!!",
 	"Inspired by many games.",
 	"Issued under the GNU Public License v3.0.",
+	"[color=white]Don't get comfortable.[/color]",
+	"Hey, you!",
+	"Hope you're having a good day.",
 	]
 	
 	for i in range(50):
@@ -148,13 +149,13 @@ func _ready():
 		tomcatText = "[center]"+specialText
 		
 	# bbcode stuff
-	if time.hour == 3:
+	if time.hour == 3 and not tomcatText.contains("color"):
 		tomcatText = "[color=red][center]" + tomcatText
 		
-	if time.month == 6 or engineVersion["major"] < 4:
+	if ( time.month == 6 or engineVersion["major"] < 4 ) and not tomcatText.contains("color"):
 		tomcatText = "[rainbow freq=0.5 sat=1.0 val=0.8][center]" + tomcatText
 		
-	if time.month == 10:
+	if time.month == 10 and not tomcatText.contains("color"):
 		tomcatText = "[color=orange][center]" + tomcatText
 	
 	if time.month == 10 and time.day == 31:
@@ -178,7 +179,7 @@ func _ready():
 		"[center][color=red]H[/color][color=#404040]a[/color][color=green]p[/color][color=red]p[/color][color=#404040]y[/color] [color=green]K[/color][color=red]w[/color][color=#404040]a[/color][color=green]n[/color][color=red]z[/color][color=#404040]a[/color][color=green]a[/color][color=red]![/color]"
 		].pick_random()
 		
-	if distro.contains("Yellow"):
+	if distro.contains("Yellow") and not tomcatText.contains("color"):
 		tomcatText = "[color=yellow][center]" + tomcatText
 		
 	if distro.contains("Tails"):
@@ -197,6 +198,8 @@ func _ready():
 	if (time.hour == 11 or time.hour == 23) and time.minute == 11:
 		tomcatText = "[center]11:11, make a wish."
 		
+	if Global.rng.randi() % 1000 == 0:
+		$technigamesTune.stream = load("res://Assets/Sounds/Random/quack quack.ogg")
 	$agamebytomcat.text = tomcatText
 	
 	
