@@ -37,12 +37,12 @@ func reloadSystem(WEAPONNAME, ammoType = null): # weapon's name must be provided
 		else:
 			UniversalAudio._play_error()
 	if GlobalDb.weaponDatabase[WEAPONNAME]["ammoAlternation"] == true and ammoType == GlobalDb.weaponDatabase[WEAPONNAME]["ammoType"]:
-		CowTools.dial(clamp(playerData["player"]["ammo"][(GlobalDb.weaponDatabase[WEAPONNAME]["ammoType"])], 0, GlobalDb.weaponDatabase[WEAPONNAME]["maxAmmo"] - playerData["player"]["ammo"][(GlobalDb.weaponDatabase[WEAPONNAME]["ammoType"])]), helpMenu.get_node("ammoSlider/Dial"))
+		CowTools.dial(clamp(playerData["player"]["ammo"][(GlobalDb.weaponDatabase[WEAPONNAME]["ammoType"])], 0,  GlobalDb.weaponDatabase[WEAPONNAME]["maxAmmo"] - playerData["player"]["weapons"][WEAPONNAME]["ammo"]), helpMenu.get_node("ammoSlider/Dial"))
 		helpMenu.disable_decisionList()
 		helpMenu.enable_ammo_slider()
 		helpMenu.selectedAmmo = GlobalDb.weaponDatabase[WEAPONNAME]["ammoType"] # pulling from helpmenu could cause problems if another menu utilizes reloading
 	elif GlobalDb.weaponDatabase[WEAPONNAME]["ammoAlternation"] == true and ammoType == GlobalDb.weaponDatabase[WEAPONNAME]["ammoTypeAlt"]:
-		CowTools.dial(clamp(playerData["player"]["ammo"][(GlobalDb.weaponDatabase[WEAPONNAME]["ammoTypeAlt"])], 0, GlobalDb.weaponDatabase[WEAPONNAME]["maxAmmo"] - playerData["player"]["ammo"][(GlobalDb.weaponDatabase[WEAPONNAME]["ammoTypeAlt"])]), helpMenu.get_node("ammoSlider/Dial"))
+		CowTools.dial(clamp(playerData["player"]["ammo"][(GlobalDb.weaponDatabase[WEAPONNAME]["ammoTypeAlt"])], 0,  GlobalDb.weaponDatabase[WEAPONNAME]["maxAmmo"] - playerData["player"]["weapons"][WEAPONNAME]["ammo"]), helpMenu.get_node("ammoSlider/Dial"))
 		helpMenu.disable_decisionList()
 		helpMenu.enable_ammo_slider()
 		helpMenu.selectedAmmo = GlobalDb.weaponDatabase[WEAPONNAME]["ammoTypeAlt"]

@@ -205,7 +205,7 @@ static func execute(data):
 	# Possibility of inflicting an effect per effect attack
 	for effect in data["combatData"]["statusEffects"]["inflict"]:
 		var list = data["combatData"]["statusEffects"]["inflict"]
-		if list[effect]["points"] > 0:
+		if list[effect]["points"] > 0 and not data["general"]["type"] == "attackMiss":
 			var chance = Global.rng.randi_range(1,100)
 			if list[effect]["chance"] >= chance: # Success
 				if data["general"]["target"][0] == "Player":

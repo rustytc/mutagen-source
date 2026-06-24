@@ -93,8 +93,8 @@ var playerData := { # various important player variables stored in a dictionary
 			},
 		"ammo" : {
 			".357 Magnum" : 3, # THESE ARE PACKS
-			"buckshot" : 1, # THESE ARE INDIVIDUAL ROUNDS
-			"slug" : 2
+			"buckshot" : 30, # THESE ARE INDIVIDUAL ROUNDS
+			"slug" : 30
 			
 		},
 			
