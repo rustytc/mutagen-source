@@ -295,6 +295,7 @@ func loadSaveFiles():
 
 
 func _on_quit_pressed():
+	get_viewport().gui_get_focus_owner().release_focus()
 	$deathEffect.visible = true
 	$deathEffect.triggered = true
 	$Logo.play("Goodbye")
