@@ -102,3 +102,16 @@ static func showEffectInitiation(effect, target):
 		ActionProcessor.queueSpecificAction(action)
 		data["active"] = true
 		print('inflicted')
+		
+static func applyDamage(effect, target):
+	var action = ActionProcessor.actionTemplate.duplicate(true)
+	var data = null
+	if target == "Player":
+		data = PlayerDb.playerData["player"]["statusEffects"][effect]
+	else:
+		data = BattleSystem.enemyDict[target]["statusEffects"][effect]
+	match effect:
+		"bleeding" :
+			data["appliedDmg"] = data["baseDmg"] + data["appliedDmg"]
+		"illness": # illness is mostly a turn skip punishment and the damage effect is secondary
+			data["appliedDmg"] = data["baseDmg"] - Global.rng.randi_range(0, data["baseDmg"] - (data["baseDmg"] - 1))

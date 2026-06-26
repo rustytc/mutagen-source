@@ -93,8 +93,8 @@ var playerData := { # various important player variables stored in a dictionary
 			},
 		"ammo" : {
 			".357 Magnum" : 3, # THESE ARE PACKS
-			"buckshot" : 30, # THESE ARE INDIVIDUAL ROUNDS
-			"slug" : 30
+			"buckshot" : 3, # THESE ARE INDIVIDUAL ROUNDS
+			"slug" : 2,
 			
 		},
 			
@@ -117,6 +117,8 @@ var playerData := { # various important player variables stored in a dictionary
 			"active" : false,
 			"points" : 0,
 			"harming" : true,
+			"baseDmg" : 5,
+			"appliedDmg" : 5,
 			
 			"announcementCure" : "Flynn's wounds dried up.",
 			"resultCure" : "He is no longer Bleeding.",
@@ -129,6 +131,8 @@ var playerData := { # various important player variables stored in a dictionary
 			"active" : false,
 			"points" : 0,
 			"harming" : true,
+			"baseDmg" : 5,
+			"appliedDmg" : 5,
 			
 			"announcementCure" : "Flynn started ignoring his illness.",
 			"resultCure" : "He is no longer Ill.",
