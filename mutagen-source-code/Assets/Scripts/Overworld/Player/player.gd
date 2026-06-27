@@ -223,7 +223,7 @@ func _on_timer_timeout():
 		
 	if transition == false:
 		get_tree().paused = false # BEWARE THAT OBJECTS WITH PROCESS MODE AS "ALWAYS" SUCH AS THE TIMER AND AUDIOSTREAMPLAYER2D WONT BE AFFECTED
-		$Sounds.stream = load("res://Assets/Sounds/Random/guitar pick slide.wav")
+		$Sounds.stream = load("res://Assets/Sounds/Random/guitarPickSlide.wav")
 		$Sounds.play()
 		emit_signal("battleInitiated")
 		$"Camera2D/Overworld Battle Fizz Effect".visible = true

@@ -119,6 +119,7 @@ var playerData := { # various important player variables stored in a dictionary
 			"harming" : true,
 			"baseDmg" : 5,
 			"appliedDmg" : 5,
+			"turnSkip": false,
 			
 			"announcementCure" : "Flynn's wounds dried up.",
 			"resultCure" : "He is no longer Bleeding.",
@@ -133,6 +134,8 @@ var playerData := { # various important player variables stored in a dictionary
 			"harming" : true,
 			"baseDmg" : 5,
 			"appliedDmg" : 5,
+			"turnSkip": true,
+			"effectChance": 50, # 50% chance this effect will do something per turn
 			
 			"announcementCure" : "Flynn started ignoring his illness.",
 			"resultCure" : "He is no longer Ill.",
@@ -145,6 +148,7 @@ var playerData := { # various important player variables stored in a dictionary
 			"active" : false,
 			"points" : 0,
 			"harming" : false,
+			"turnSkip": false,
 			
 			"announcementCure" :  "Flynn stopped caring about his injury.",
 			"resultCure" : "He is no longer Crippled.",
@@ -155,6 +159,8 @@ var playerData := { # various important player variables stored in a dictionary
 			"active" : false,
 			"points" : 0,
 			"harming" : false,
+			"turnSkip": true,
+			"effectChance":10,
 			
 			"announcementCure" : "Flynn's circulation is kicking in.",
 			"resultCure" : "He is no longer Fatigued.",
@@ -165,6 +171,8 @@ var playerData := { # various important player variables stored in a dictionary
 			"active" : false,
 			"points" : 0,
 			"harming" : false,
+			"turnSkip": true,
+			"effectChance":100,
 			
 			"announcementCure" : "!..",
 			"resultCure" : "Flynn is no longer berserk.",

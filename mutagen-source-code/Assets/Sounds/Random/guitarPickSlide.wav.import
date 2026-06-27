@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://fp56l21o6u8m"
-path="res://.godot/imported/guitar pick slide.wav-7455e3db4b8f6197f99900c433a14dbd.sample"
+path="res://.godot/imported/guitarPickSlide.wav-44248d70a9fa182e878a57a1e5c45521.sample"
 
 [deps]
 
-source_file="res://Assets/Sounds/Random/guitar pick slide.wav"
-dest_files=["res://.godot/imported/guitar pick slide.wav-7455e3db4b8f6197f99900c433a14dbd.sample"]
+source_file="res://Assets/Sounds/Random/guitarPickSlide.wav"
+dest_files=["res://.godot/imported/guitarPickSlide.wav-44248d70a9fa182e878a57a1e5c45521.sample"]
 
 [params]
 

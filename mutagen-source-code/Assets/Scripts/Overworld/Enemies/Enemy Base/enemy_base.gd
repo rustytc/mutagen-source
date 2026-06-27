@@ -41,6 +41,8 @@ var lastKnownPlayerPosition := Vector2.ZERO
 ## The angle of which an "idle" mode enemy will set it's raycast to. Usually overridden by the zone it reaches
 @export var targetAngle := 0 # this tells idler enemies what angle to revert their line of sight to upon finishing a job
 var newTargetZone := 0
+## The distance which enemies account for by the player's velocity when choosing where to target. If you put this above 32, enemies will behave like cowards and run away from the player if they start chasing the enemy.
+@export var targetDistance := 32.0
 ## An integer value which determines how unlikely an enemy is to stop chasing the player when they exit its line of sight. There is a 1/decisiveness chance of this happening
 @export var decisiveness := 7000 # how unlikely the enemy is to disband when the player leaves their immediate LOS.
 ## Self explanatory. Lets the enemy randomize their targeted zone from the range provided by targetZoneRange
@@ -313,7 +315,7 @@ func prowlLastKnownPlayerPoint():
 	if useLastKnownPlayerPoint:
 		agent.target_position = lastKnownPlayerPosition
 	else:
-		agent.target_position = player.global_position + player.velocity.normalized() * 64.0
+		agent.target_position = player.global_position + player.velocity.normalized() * targetDistance
 	speed = prowlSpeed
 	state = "prowl"
 
@@ -324,7 +326,7 @@ func chase():
 		ActorHelper.targetters += 1
 		
 	if $pathfindingTimer.time_left == 0: # this prevents a lag spike especially when navigating corners. also fixes animation flickering. but be aware. the wait time will probably need to be adjusted for really fast enemies. #TODO: adjust the wait time for really fast enemies
-		agent.target_position = NavigationServer2D.map_get_closest_point(get_world_2d().navigation_map, player.global_position + player.velocity.normalized() * 64.0)
+		agent.target_position = NavigationServer2D.map_get_closest_point(get_world_2d().navigation_map, player.global_position + player.velocity.normalized() * targetDistance)
 		$pathfindingTimer.start()
 		
 	state = "chase"
@@ -416,7 +418,7 @@ func iHearYou():
 	if not caughtThePlayer and battleInitiated and state != "chase" and state != "wait": # hunting down the player when a battle is about to begin
 		state = "chase"
 		canSeePlayer = true
-		agent.target_position = player.global_position + player.velocity.normalized() * 64
+		agent.target_position = player.global_position
 		speed = alertSpeed
 
 func returnToWorldState():

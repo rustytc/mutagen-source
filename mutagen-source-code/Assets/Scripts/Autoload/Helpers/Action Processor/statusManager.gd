@@ -57,6 +57,10 @@ static func applyEffect(effect, target):
 			action["general"]["user"] = target
 			if data["harming"] == true:
 				action["combatData"]["damage"] = calcDamage(effect, target)
+			if data["turnSkip"] == true:
+				var chance = Global.rng.randi_range(1,100)
+				if chance <= data["effectChance"]:
+					applySpecialEffects(effect, target)
 			if data.has("announcementHarm") or data.has("resultHarm"): # this has to be here to prevent a blank action from queueing if an effect doesnt print anything
 				ActionProcessor.queueSpecificAction(action)
 		return
@@ -70,6 +74,7 @@ static func applyEffect(effect, target):
 			action["general"]["result"] = data["resultCure"]
 		action["general"]["type"] = "statusEffectClear"
 		action["combatData"]["statusEffects"]["cure"][effect] = true
+		action["general"]["user"] = target
 		ActionProcessor.queueSpecificAction(action)
 		return
 	
@@ -113,8 +118,25 @@ static func calcDamage(effect, target):
 		data = BattleSystem.enemyDict[target]["statusEffects"][effect]
 	match effect:
 		"bleeding" :
-			PlayerDb.playerData["player"]["statusEffects"][effect]["appliedDmg"] = data["baseDmg"] + data["appliedDmg"]
-			return(PlayerDb.playerData["player"]["statusEffects"][effect]["appliedDmg"])
+			data["appliedDmg"] = data["baseDmg"] + data["appliedDmg"]
+			return(data["appliedDmg"])
 		"illness": # illness is mostly a turn skip punishment and the damage effect is secondary
-			PlayerDb.playerData["player"]["statusEffects"][effect]["appliedDmg"] = data["baseDmg"] - Global.rng.randi_range(0, data["baseDmg"] - (data["baseDmg"] - 1))
-			return(PlayerDb.playerData["player"]["statusEffects"][effect]["appliedDmg"])
+			data["appliedDmg"] = data["baseDmg"] - Global.rng.randi_range(0, data["baseDmg"] - (data["baseDmg"] - 1))
+			return(data["appliedDmg"])
+
+static func applySpecialEffects(effect, target):
+	var data = null
+	if target == "Player":
+		data = PlayerDb.playerData["player"]["statusEffects"][effect]
+	else:
+		data = BattleSystem.enemyDict[target]["statusEffects"][effect]
+	if data["turnSkip"] == true:
+		for i in range(ActionProcessor.queuedActions.size() - 1, -1, -1):
+			var action = ActionProcessor.queuedActions[i]
+			if action["general"]["user"] == target:
+				ActionProcessor.queuedActions.remove_at(i)
+
+		for i in range(ActionProcessor.actions.size() - 1, -1, -1):
+			var action = ActionProcessor.actions[i]
+			if action["general"]["user"] == target:
+				ActionProcessor.actions.remove_at(i)

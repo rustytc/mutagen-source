@@ -199,7 +199,7 @@ func _ready():
 		tomcatText = "[center]11:11, make a wish."
 		
 	if Global.rng.randi() % 1000 == 0:
-		$technigamesTune.stream = load("res://Assets/Sounds/Random/quack quack.ogg")
+		$technigamesTune.stream = load("res://Assets/Sounds/Random/duck1.ogg")
 	$agamebytomcat.text = tomcatText
 	
 	
