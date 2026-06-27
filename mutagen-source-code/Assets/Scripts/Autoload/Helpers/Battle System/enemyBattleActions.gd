@@ -102,8 +102,9 @@ static func attack(user, attack, priority = 1):
 	if attack["type"] == "telegraphRadio":
 		action["general"]["type"] = "telegraphRadio"
 		BattleSystem.enemyDict[user]["telegraph"] = attack["telegraph"]
-		action["general"]["announcement"] = BattleSystem.enemyDict[user]["radioWarning"].pick_random()["text"]
-		action["general"]["announcementSFX"] = BattleSystem.enemyDict[user]["radioWarning"].pick_random()["sound"]
+		var radioWarning = BattleSystem.enemyDict[user]["radioWarning"].pick_random()
+		action["general"]["announcement"] = radioWarning["text"]
+		action["general"]["announcementSFX"] = radioWarning["sound"]
 		action["general"]["type"] = "telegraph"
 	action["general"]["priority"] = attack["priority"]
 	if priority != 1:
