@@ -220,6 +220,7 @@ safe_margin = 3.0
 script = ExtResource("1_qkpao")
 state = "prowl"
 enemyType = "True Mutant Beta"
+chaseTheme = "res://Assets/Sounds/Music/Forebode_B.ogg"
 encounterTheme = "res://Assets/Sounds/Music/Vertigo.ogg"
 
 [node name="chaseMusic" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
@@ -287,7 +288,7 @@ bus = &"SFX"
 radius = 48.0
 
 [node name="pathfindingTimer" type="Timer" parent="CharacterBody2D"]
-wait_time = 0.06
+wait_time = 0.2
 one_shot = true
 
 [connection signal="body_entered" from="CharacterBody2D/LineOfSight" to="CharacterBody2D" method="_on_line_of_sight_body_entered"]

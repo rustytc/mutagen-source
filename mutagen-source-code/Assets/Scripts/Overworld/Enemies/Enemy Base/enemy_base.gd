@@ -156,13 +156,13 @@ func _physics_process(delta):
 	if raycast.is_colliding() and not battleInitiated: # and not battleInitiated was added in retroactively so that the enemies dont stop chasing you if you alerted them all
 		if raycast.get_collider() == player and insideLineOfView:
 			canSeePlayer = true
-			lastKnownPlayerPosition = player.global_position
+			lastKnownPlayerPosition = NavigationServer2D.map_get_closest_point(get_world_2d().navigation_map, player.global_position)
 			if not telegraphed:
 				callout()
 				telegraphed = true
 		elif inVicinity:
 			canSeePlayer = true
-			lastKnownPlayerPosition = player.global_position
+			lastKnownPlayerPosition = NavigationServer2D.map_get_closest_point(get_world_2d().navigation_map, player.global_position)
 		else:
 			canSeePlayer = false
 				
@@ -313,7 +313,7 @@ func prowlLastKnownPlayerPoint():
 	if useLastKnownPlayerPoint:
 		agent.target_position = lastKnownPlayerPosition
 	else:
-		agent.target_position = player.global_position
+		agent.target_position = player.global_position + player.velocity.normalized() * 64.0
 	speed = prowlSpeed
 	state = "prowl"
 
@@ -324,7 +324,7 @@ func chase():
 		ActorHelper.targetters += 1
 		
 	if $pathfindingTimer.time_left == 0: # this prevents a lag spike especially when navigating corners. also fixes animation flickering. but be aware. the wait time will probably need to be adjusted for really fast enemies. #TODO: adjust the wait time for really fast enemies
-		agent.target_position = player.global_position
+		agent.target_position = NavigationServer2D.map_get_closest_point(get_world_2d().navigation_map, player.global_position + player.velocity.normalized() * 64.0)
 		$pathfindingTimer.start()
 		
 	state = "chase"
@@ -416,7 +416,7 @@ func iHearYou():
 	if not caughtThePlayer and battleInitiated and state != "chase" and state != "wait": # hunting down the player when a battle is about to begin
 		state = "chase"
 		canSeePlayer = true
-		agent.target_position = player.global_position
+		agent.target_position = player.global_position + player.velocity.normalized() * 64
 		speed = alertSpeed
 
 func returnToWorldState():
