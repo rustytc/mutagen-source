@@ -288,7 +288,7 @@ bus = &"SFX"
 radius = 48.0
 
 [node name="pathfindingTimer" type="Timer" parent="CharacterBody2D"]
-wait_time = 0.2
+wait_time = 0.01
 one_shot = true
 
 [connection signal="body_entered" from="CharacterBody2D/LineOfSight" to="CharacterBody2D" method="_on_line_of_sight_body_entered"]
