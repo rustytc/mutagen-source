@@ -269,7 +269,7 @@ var weaponDatabase = {
 		"attackAnnouncementSound" : "res://Assets/Sounds/Battle/youreUp.mp3",
 		"attackCritSound" : "res://Assets/Sounds/Battle/shotgunCrit.mp3",
 		"critAnnouncementSound" : "res://Assets/Sounds/Battle/critEagle.mp3",
-		"statusEffect" : "bleed",
+		"statusEffect" : "bleeding",
 		"statusEffectPointsMin" : 2,
 		"statusEffectPointsMax" : 4,
 		"statusEffectChance": 17,

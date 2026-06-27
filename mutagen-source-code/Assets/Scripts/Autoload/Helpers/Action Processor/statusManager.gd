@@ -55,6 +55,8 @@ static func applyEffect(effect, target):
 				action["general"]["result"] = data["resultHarm"]
 			action["general"]["type"] = "statusEffectHarm"
 			action["general"]["user"] = target
+			if data["harming"] == true:
+				action["combatData"]["damage"] = calcDamage(effect, target)
 			if data.has("announcementHarm") or data.has("resultHarm"): # this has to be here to prevent a blank action from queueing if an effect doesnt print anything
 				ActionProcessor.queueSpecificAction(action)
 		return
@@ -103,8 +105,7 @@ static func showEffectInitiation(effect, target):
 		data["active"] = true
 		print('inflicted')
 		
-static func applyDamage(effect, target):
-	var action = ActionProcessor.actionTemplate.duplicate(true)
+static func calcDamage(effect, target):
 	var data = null
 	if target == "Player":
 		data = PlayerDb.playerData["player"]["statusEffects"][effect]
@@ -112,6 +113,8 @@ static func applyDamage(effect, target):
 		data = BattleSystem.enemyDict[target]["statusEffects"][effect]
 	match effect:
 		"bleeding" :
-			data["appliedDmg"] = data["baseDmg"] + data["appliedDmg"]
+			PlayerDb.playerData["player"]["statusEffects"][effect]["appliedDmg"] = data["baseDmg"] + data["appliedDmg"]
+			return(PlayerDb.playerData["player"]["statusEffects"][effect]["appliedDmg"])
 		"illness": # illness is mostly a turn skip punishment and the damage effect is secondary
-			data["appliedDmg"] = data["baseDmg"] - Global.rng.randi_range(0, data["baseDmg"] - (data["baseDmg"] - 1))
+			PlayerDb.playerData["player"]["statusEffects"][effect]["appliedDmg"] = data["baseDmg"] - Global.rng.randi_range(0, data["baseDmg"] - (data["baseDmg"] - 1))
+			return(PlayerDb.playerData["player"]["statusEffects"][effect]["appliedDmg"])

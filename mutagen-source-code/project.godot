@@ -10,12 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Mutagen: Lock and Load"
+config/name="Mutagen: Lock N' Load"
 config/name_localized={
 "es": "Mutágeno: Armado y Listo",
 "id_ID": "Mutagen: Siap Tempur",
 "ja": "ミュータジェン：ロック＆ロード",
-"zh": "诱变剂：锁定与装填"
+"zh": "诱变剂"
 }
 config/description="A turn-based survival horror RPG game with strategic armed combat and player build customization.
 

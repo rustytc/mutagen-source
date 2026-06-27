@@ -21,7 +21,7 @@ var enemies := {
 		},
 		
 		"statusEffects": {
-		"bleed": {
+		"bleeding": {
 			"active" : false,
 			"points" : 0,
 			"harming" : true,
@@ -31,7 +31,7 @@ var enemies := {
 			"announcementCure" : "[NAME] licked its wound.",
 			"resultCure" : "[NAME] stopped bleeding.",
 			"announcementHarm" : ["[NAME] suffered blood loss.",],
-			"resultHarm" : "[NAME] took [AMOUNT] HP damage.",
+			"resultHarm" : "[NAME] took [DAMAGE] HP damage.",
 		},
 		"illness": {
 			"active" : false,
@@ -43,7 +43,7 @@ var enemies := {
 			"announcementCure" : "[NAME] stopped coughing.",
 			"resultCure" : "[NAME] is no longer sick.",
 			"announcementHarm" : ["[NAME] coughed.","[NAME] vomitted blood.","[NAME] is suffering from a headache.",],
-			"resultHarm" : "[NAME] took [AMOUNT] HP damage.",
+			"resultHarm" : "[NAME] took [DAMAGE] HP damage.",
 		},
 		"cripple": {
 			"active" : false,
@@ -69,7 +69,7 @@ var enemies := {
 			"announcementCure" : "!..",
 			"resultCure" : "[NAME] is no longer berserk.",
 			"announcementAttack" : ["[color=red][NAME] CLAWED AT [TARGET]![/color]","[color=red][NAME] DOVE HEAD FIRST TO BITE [TARGET]![/color]","[color=red][NAME] POKED [TARGET] IN THE EYES![/color]",],
-			"resultAttack" : "[color=red][TARGET] took [AMOUNT] HP damage.[/color]"
+			"resultAttack" : "[color=red][TARGET] took [DAMAGE] HP damage.[/color]"
 		},
 		},
 		

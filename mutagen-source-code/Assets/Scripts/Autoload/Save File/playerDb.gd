@@ -113,7 +113,7 @@ var playerData := { # various important player variables stored in a dictionary
 				},
 			},
 		"statusEffects": {
-		"bleed": {
+		"bleeding": {
 			"active" : false,
 			"points" : 0,
 			"harming" : true,
@@ -125,7 +125,7 @@ var playerData := { # various important player variables stored in a dictionary
 			
 			"announcementInflict" : "[NAME] started bleeding.",
 			"announcementHarm" : ["[NAME] suffered blood loss.",],
-			"resultHarm" : "[NAME] took [AMOUNT] HP damage.",
+			"resultHarm" : "[NAME] took [DAMAGE] HP damage.",
 		},
 		"illness": {
 			"active" : false,
@@ -139,7 +139,7 @@ var playerData := { # various important player variables stored in a dictionary
 			
 			"announcementInflict" : "[NAME] got sick.",
 			"announcementHarm" : ["[NAME] coughed.","[NAME] vomitted blood.","[NAME] is suffering from a headache.",],
-			"resultHarm" : "[NAME] took [AMOUNT] HP damage.",
+			"resultHarm" : "[NAME] took [DAMAGE] HP damage.",
 		},
 		"cripple": {
 			"active" : false,
@@ -171,7 +171,7 @@ var playerData := { # various important player variables stored in a dictionary
 			
 			"announcementInflict" : "[color=red]FLYNN WENT BERSERK!!![/color]",
 			"announcementAttack" : ["[color=red]FLYNN PUNCHED [TARGET]![/color]","[color=red]FLYNN DOVE HEAD FIRST TO BITE [TARGET]![/color]","[color=red]FLYNN STRANGLED [TARGET]![/color]",],
-			"resultAttack" : "[color=red][TARGET] took [AMOUNT] HP damage.[/color]"
+			"resultAttack" : "[color=red][TARGET] took [DAMAGE] HP damage.[/color]"
 		},
 		},
 		"flags": {

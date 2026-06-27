@@ -62,7 +62,7 @@ var actionTemplate := { "general" : {
 		"limb" : "",
 		"statusEffects" : {
 			"inflict" : {
-				"bleed" : {
+				"bleeding" : {
 					"points" : 0,
 					"chance": 0,
 				},
@@ -85,7 +85,7 @@ var actionTemplate := { "general" : {
 			},
 			
 			"cure" : {
-				"bleed" : false,
+				"bleeding" : false,
 				"illness" : false,
 				"cripple" : false,
 				"fatigue" : false,
