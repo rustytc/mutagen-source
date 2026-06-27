@@ -102,6 +102,7 @@ static func attack(targets, limbs, priority = 1):
 		action["general"]["announcement"] = GlobalDb["weaponDatabase"][weapon]["attackAnnouncementCritical"]
 		action["general"]["impactSFX"] = GlobalDb["weaponDatabase"][weapon]["attackCritSound"]
 		action["general"]["announcementSFX"] = GlobalDb["weaponDatabase"][weapon]["critAnnouncementSound"]
+		action["combatData"]["crit"] = true
 	action["general"]["priority"] = priority
 	
 	if GlobalDb["weaponDatabase"][weapon]["statusEffect"] != null:

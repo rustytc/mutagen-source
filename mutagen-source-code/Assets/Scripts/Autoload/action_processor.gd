@@ -57,6 +57,7 @@ var actionTemplate := { "general" : {
 		"isHeal" : null,
 		},
 	"combatData" : {
+		"crit" : false,
 		"atkBoost" : 0,
 		"damage" : 0,
 		"limb" : "",
