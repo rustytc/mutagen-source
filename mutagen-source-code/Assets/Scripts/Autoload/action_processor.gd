@@ -3,7 +3,7 @@ extends Node
 # Helpers
 const PROCESS_ACTION = preload("res://Assets/Scripts/Autoload/Helpers/Action Processor/processAction.gd")
 const STATUS_MANAGER = preload("res://Assets/Scripts/Autoload/Helpers/Action Processor/statusManager.gd")
-
+const PROCEDURES = preload("res://Assets/Scripts/Autoload/Helpers/Action Processor/actionProcedures.gd")
 signal levelUp
 
 var pendingSkillUpgrade := false

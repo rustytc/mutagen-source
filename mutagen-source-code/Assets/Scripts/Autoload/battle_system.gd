@@ -138,6 +138,7 @@ func endTurns():
 	playerDefending = false
 
 func winBattle(flee := false):
+	ActionProcessor.PROCEDURES.turnSkip("Player")
 	endBattleWin.emit()
 	get_viewport().gui_release_focus()
 	var action = ActionProcessor.actionTemplate.duplicate(true)

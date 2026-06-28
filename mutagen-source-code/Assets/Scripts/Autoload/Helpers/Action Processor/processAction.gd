@@ -68,7 +68,7 @@ static func execute(data):
 					var damage = data["combatData"]["damage"]
 					instance_from_id(BattleSystem.enemyDict[i]["battleSpriteID"]).hurtAnimation(clamp((damage / maxHealth) * 100, 5, 25),0.5,8)
 					if data["combatData"]["crit"] == true:
-						await hitstop(damage, maxHealth)
+						await ActionProcessor.PROCEDURES.hitstop(damage, maxHealth)
 		await ActionProcessor.waitForActionPause(data["general"]["impactPause"], data["general"]["inputDependent"])
 
 		
@@ -222,9 +222,3 @@ static func execute(data):
 		
 		
 		
-static func hitstop(dmg, maxHealth):
-	var duration = lerp(0.2, 2.0, clamp(float(dmg) / float(maxHealth), 0.0, 1.0))
-	var tree = ActionProcessor.get_tree()
-	tree.paused = true
-	await tree.create_timer(duration, true, false, true).timeout
-	tree.paused = false

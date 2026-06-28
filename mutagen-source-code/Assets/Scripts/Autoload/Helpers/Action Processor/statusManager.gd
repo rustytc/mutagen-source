@@ -131,12 +131,4 @@ static func applySpecialEffects(effect, target):
 	else:
 		data = BattleSystem.enemyDict[target]["statusEffects"][effect]
 	if data["turnSkip"] == true:
-		for i in range(ActionProcessor.queuedActions.size() - 1, -1, -1):
-			var action = ActionProcessor.queuedActions[i]
-			if action["general"]["user"] == target:
-				ActionProcessor.queuedActions.remove_at(i)
-
-		for i in range(ActionProcessor.actions.size() - 1, -1, -1):
-			var action = ActionProcessor.actions[i]
-			if action["general"]["user"] == target:
-				ActionProcessor.actions.remove_at(i)
+		ActionProcessor.PROCEDURES.turnSkip(target)
