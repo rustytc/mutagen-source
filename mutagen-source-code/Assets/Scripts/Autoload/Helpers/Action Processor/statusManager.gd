@@ -28,13 +28,16 @@ static func applyEffect(effect, target):
 	print('apply function ran')
 	var action = ActionProcessor.actionTemplate.duplicate(true)
 	var data = null
+	var chance = Global.rng.randi_range(1,100)
 	if target == "Player":
 		data = PlayerDb.playerData["player"]["statusEffects"][effect]
 		action["general"]["target"] = ["Player"]
 	else:
 		data = BattleSystem.enemyDict[target]["statusEffects"][effect]
 		action["general"]["target"] = [target]
-		
+	
+	if chance > data["effectChance"]:
+		return
 			
 	# inflict
 	if data["points"] > 0:
@@ -58,9 +61,7 @@ static func applyEffect(effect, target):
 			if data["harming"] == true:
 				action["combatData"]["damage"] = calcDamage(effect, target)
 			if data["turnSkip"] == true:
-				var chance = Global.rng.randi_range(1,100)
-				if chance <= data["effectChance"]:
-					applySpecialEffects(effect, target)
+				applySpecialEffects(effect, target)
 			if data.has("announcementHarm") or data.has("resultHarm"): # this has to be here to prevent a blank action from queueing if an effect doesnt print anything
 				ActionProcessor.queueSpecificAction(action)
 		return
@@ -132,3 +133,4 @@ static func applySpecialEffects(effect, target):
 		data = BattleSystem.enemyDict[target]["statusEffects"][effect]
 	if data["turnSkip"] == true:
 		ActionProcessor.PROCEDURES.turnSkip(target)
+		print('skipped ' + target)

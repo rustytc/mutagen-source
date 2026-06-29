@@ -21,6 +21,11 @@ static func execute(data):
 				data["weaponData"]["ammoCost"] = null
 				break
 
+	# Skipping turns
+	for loser in BattleSystem.turnSkips:
+		if loser == data["general"]["user"] and not data["general"]["type"] == "statusEffectInflict" and not data["general"]["type"] == "statusEffectClear" and not data["general"]["type"] == "statusEffectHarm":
+			ActionProcessor.processing = false
+			return
 	
 	# Stuff that applies to all actions
 	var textSpeed := 1

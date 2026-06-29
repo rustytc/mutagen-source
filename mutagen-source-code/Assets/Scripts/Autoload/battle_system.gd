@@ -11,6 +11,7 @@ var enemyDict := {}
 var identifiers := ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 var enemyQuantities := {}
 var enemyIDsKilled := []
+var turnSkips := []
 
 var battleLog := []
 
@@ -136,6 +137,7 @@ func startTurns():
 
 func endTurns():
 	playerDefending = false
+	turnSkips.clear()
 
 func winBattle(flee := false):
 	ActionProcessor.PROCEDURES.turnSkip("Player")

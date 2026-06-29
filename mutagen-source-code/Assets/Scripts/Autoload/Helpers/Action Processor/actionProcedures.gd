@@ -18,3 +18,4 @@ static func turnSkip(target):
 		var action = ActionProcessor.actions[i]
 		if action["general"]["user"] == target:
 			ActionProcessor.actions.remove_at(i)
+	BattleSystem.turnSkips.append(target)

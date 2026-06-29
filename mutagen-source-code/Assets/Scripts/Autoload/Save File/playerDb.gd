@@ -120,17 +120,19 @@ var playerData := { # various important player variables stored in a dictionary
 			"baseDmg" : 5,
 			"appliedDmg" : 5,
 			"turnSkip": false,
+			"effectChance": 100,
 			
 			"announcementCure" : "Flynn's wounds dried up.",
 			"resultCure" : "He is no longer Bleeding.",
 			
-			"announcementInflict" : "[NAME] started bleeding.",
-			"announcementHarm" : ["[NAME] suffered blood loss.",],
-			"resultHarm" : "[NAME] took [DAMAGE] HP damage.",
+			"announcementInflict" : "Flynn started bleeding.",
+			"announcementHarm" : ["Flynn suffered blood loss.",],
+			"resultHarm" : "Flynn took [DAMAGE] HP damage.",
+			
 		},
 		"illness": {
-			"active" : false,
-			"points" : 0,
+			"active" : true,
+			"points" : 10,
 			"harming" : true,
 			"baseDmg" : 5,
 			"appliedDmg" : 5,
@@ -140,9 +142,9 @@ var playerData := { # various important player variables stored in a dictionary
 			"announcementCure" : "Flynn started ignoring his illness.",
 			"resultCure" : "He is no longer Ill.",
 			
-			"announcementInflict" : "[NAME] got sick.",
-			"announcementHarm" : ["[NAME] coughed.","[NAME] vomitted blood.","[NAME] is suffering from a headache.",],
-			"resultHarm" : "[NAME] took [DAMAGE] HP damage.",
+			"announcementInflict" : "Flynn got sick.",
+			"announcementHarm" : ["Flynn coughed.","Flynn vomitted blood.","Flynn is suffering from a headache.",],
+			"resultHarm" : "Flynn took [DAMAGE] HP damage.",
 		},
 		"cripple": {
 			"active" : false,
@@ -153,7 +155,7 @@ var playerData := { # various important player variables stored in a dictionary
 			"announcementCure" :  "Flynn stopped caring about his injury.",
 			"resultCure" : "He is no longer Crippled.",
 			
-			"announcementInflict" : "[NAME] became crippled.",
+			"announcementInflict" : "Flynn became crippled.",
 		},
 		"fatigue": {
 			"active" : false,
@@ -165,7 +167,7 @@ var playerData := { # various important player variables stored in a dictionary
 			"announcementCure" : "Flynn's circulation is kicking in.",
 			"resultCure" : "He is no longer Fatigued.",
 			
-			"announcementInflict" : "[NAME] is fatigued.",
+			"announcementInflict" : "Flynn is fatigued.",
 		},
 		"berserk": {
 			"active" : false,
