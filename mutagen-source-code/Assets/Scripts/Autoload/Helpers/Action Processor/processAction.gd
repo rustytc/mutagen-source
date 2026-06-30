@@ -119,6 +119,11 @@ static func execute(data):
 		var radDamage = data["playerStatus"]["radiationInflict"]
 		PlayerDb.playerData["player"]["stats"]["radiation"] = clamp((radiation + radDamage), 0, 100)
 	
+	if BattleSystem.playerAlive and (PlayerDb.playerData["player"]["stats"]["currentHealth"] <= 0 or PlayerDb.playerData["player"]["stats"]["radiation"] >= 100):
+		BattleSystem.PLAYER_MOVES.die()
+		ActionProcessor.processing = false
+		return
+
 	
 	# Advancing/Regressing in Combat
 	if data["general"]["type"] == "advance" and data["general"]["user"] == "Player":
