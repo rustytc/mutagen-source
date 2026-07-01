@@ -100,6 +100,8 @@ static func execute():
 				BattleSystem.ENEMY_MOVES.rest(user)
 				
 		else: # Player
+			if BattleSystem.turnSkips.has("Player"):
+				continue
 			if ActionProcessor.queuedActions.size() > 0:
 				ActionProcessor.queueSpecificAction(ActionProcessor.queuedActions.pop_front())
 			else:

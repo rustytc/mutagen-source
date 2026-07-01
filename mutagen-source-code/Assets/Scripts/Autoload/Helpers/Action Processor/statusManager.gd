@@ -1,6 +1,5 @@
 extends Node
 
-
 static func checkPlayerStatusEffects():
 	print('player check ran')
 	var data : Dictionary = PlayerDb.playerData["player"]["statusEffects"]
@@ -134,3 +133,31 @@ static func applySpecialEffects(effect, target):
 	if data["turnSkip"] == true:
 		ActionProcessor.PROCEDURES.turnSkip(target)
 		print('skipped ' + target)
+
+static func checkSpeedMod(target):
+	var data = null
+	var result = 1
+	if target == "Player":
+		data = PlayerDb.playerData["player"]["statusEffects"]
+	else:
+		data = BattleSystem.enemyDict[target]["statusEffects"]
+	for effect in data:
+		if data[effect].has("speedMod") and data[effect]["active"] == true:
+			result = result * data[effect]["speedMod"]
+	return result
+
+static func checkDefenseMod(target):
+	var data = null
+	var result : float = 1.0
+	var enemy := false
+	if target == "Player":
+		data = PlayerDb.playerData["player"]["statusEffects"]
+	else:
+		data = BattleSystem.enemyDict[target]["statusEffects"]
+		enemy = true
+	for effect in data:
+		if data[effect].has("defenseMod") and data[effect]["active"] == true:
+			result = result * data[effect]["defenseMod"]
+	if enemy and result < 1:
+		result = 1/result
+	return result

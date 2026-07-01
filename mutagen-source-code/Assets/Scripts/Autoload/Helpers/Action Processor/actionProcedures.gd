@@ -9,13 +9,15 @@ static func hitstop(dmg, maxHealth):
 	tree.paused = false
 
 static func turnSkip(target):
+	if target == "Player":
+		BattleSystem.playerDefending = false
 	for i in range(ActionProcessor.queuedActions.size() - 1, -1, -1):
 			var action = ActionProcessor.queuedActions[i]
-			if action["general"]["user"] == target:
+			if action["general"]["user"] == target and action["general"]["priority"] < 3:
 				ActionProcessor.queuedActions.remove_at(i)
 
 	for i in range(ActionProcessor.actions.size() - 1, -1, -1):
 		var action = ActionProcessor.actions[i]
-		if action["general"]["user"] == target:
+		if action["general"]["user"] == target and action["general"]["priority"] < 3:
 			ActionProcessor.actions.remove_at(i)
 	BattleSystem.turnSkips.append(target)

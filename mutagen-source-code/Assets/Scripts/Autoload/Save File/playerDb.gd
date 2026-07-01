@@ -151,9 +151,10 @@ var playerData := { # various important player variables stored in a dictionary
 			"points" : 0,
 			"harming" : false,
 			"turnSkip": false,
+			"speedMod":0.25,
 			
 			"announcementCure" :  "Flynn stopped caring about his injury.",
-			"resultCure" : "He is no longer Crippled.",
+			"resultCure" : "He is no longer crippled.",
 			
 			"announcementInflict" : "Flynn became crippled.",
 		},
@@ -163,9 +164,11 @@ var playerData := { # various important player variables stored in a dictionary
 			"harming" : false,
 			"turnSkip": true,
 			"effectChance":10,
+			"speedMod":0.75,
+			"defenseMod":0.5,
 			
 			"announcementCure" : "Flynn's circulation is kicking in.",
-			"resultCure" : "He is no longer Fatigued.",
+			"resultCure" : "He is no longer fatigued.",
 			
 			"announcementInflict" : "Flynn is fatigued.",
 		},

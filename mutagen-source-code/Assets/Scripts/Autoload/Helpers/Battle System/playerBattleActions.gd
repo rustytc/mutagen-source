@@ -41,7 +41,7 @@ static func attack(targets, limbs, priority = 1):
 	
 	
 	var attack : int = PlayerDb.playerData["player"]["stats"]["attack"]
-	var compoundDmg : int = int((((baseDmg * attack/30) + baseDmg + attack)))
+	var compoundDmg : float = (((baseDmg * attack/30) + baseDmg + attack)) * ActionProcessor.STATUS_MANAGER.checkDefenseMod(targets)
 	if BattleSystem.enemyDict.has(targets) and BattleSystem.enemyDict[targets].has("limbs") and BattleSystem.enemyDict[targets]["limbs"].has(limbs):
 		var limbDamagePercent : float = (BattleSystem.enemyDict[targets]["limbs"][limbs]["damagePercent"]) / 100.0
 		var closenessDamageDiff := 1.0
@@ -84,7 +84,7 @@ static func attack(targets, limbs, priority = 1):
 	action["weaponData"]["singleUse"] = GlobalDb["weaponDatabase"][weapon]["singleUse"]
 	action["general"]["userName"] = "Flynn"
 	if not miss and not BattleSystem.playerDefending:
-		action["combatData"]["damage"] = compoundDmg
+		action["combatData"]["damage"] = int(round(compoundDmg))
 	else:
 		action["combatData"]["damage"] = 0
 	action["combatData"]["limb"] = limbs
@@ -143,12 +143,12 @@ static func flee():
 	action["general"]["announcement"] = "Flynn tried to run."
 	action["general"]["user"] = "Player"
 	action["general"]["userName"] = "Flynn"
-	action["general"]["priority"] = 3
+	action["general"]["priority"] = 2
 	
 	for i in BattleSystem.enemyDict:
 		index += 1
 		var enemy = BattleSystem.enemyDict[i]
-		if (enemy["stats"]["speed"] > (PlayerDb.playerData["player"]["stats"]["speed"] * 1.5)) or (enemy["distance"] == "close") or (enemy["logic"][enemy["phase"]]["canFlee"] == false):
+		if ( enemy["stats"]["speed"] * ActionProcessor.STATUS_MANAGER.checkSpeedMod(i) > (PlayerDb.playerData["player"]["stats"]["speed"] * 1.5 * ActionProcessor.STATUS_MANAGER.checkSpeedMod("Player"))) or (enemy["distance"] == "close") or (enemy["logic"][enemy["phase"]]["canFlee"] == false):
 			action["general"]["result"] = "He could not escape."
 			action["general"]["type"] = "fleeFail"
 			ActionProcessor.queuedActions.append(action)

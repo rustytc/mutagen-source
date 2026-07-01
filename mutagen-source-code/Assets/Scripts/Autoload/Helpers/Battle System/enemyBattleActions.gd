@@ -36,7 +36,7 @@ static func rest(user):
 	action["enemyStatus"]["staminaRegen"] = BattleSystem.enemyDict[user]["stats"]["maxStamina"]/4
 	action["general"]["user"] = user
 	action["general"]["userName"] = userNoID
-	var announcement = EnemyDb["restWarning"].pick_random()
+	var announcement = BattleSystem.enemyDict[user]["restWarning"].pick_random()
 	action["general"]["announcement"] = announcement["text"]
 	action["general"]["announcementSFX"] = announcement["sound"]
 	action["general"]["announcementPause"] = 2
@@ -47,10 +47,10 @@ static func attack(user, attack, priority = 1):
 	var userNoID : String = BattleSystem.removeIdentifier(user)
 	var baseDmg := Global.rng.randi_range(int(attack["minDamage"]), int(attack["maxDamage"]))
 	var radDmg := Global.rng.randi_range(int(attack["minRadDamage"]), int(attack["maxRadDamage"]))
-	var compoundDmg : int = baseDmg * int(BattleSystem.enemyDict[user]["stats"]["attackMultiplier"])
+	var compoundDmg : float = baseDmg * (BattleSystem.enemyDict[user]["stats"]["attackMultiplier"])
 	var staminaCost := int(attack["cost"])
 	var miss := false
-	var playerDefense = PlayerDb.playerData["player"]["stats"]["compoundDefense"]
+	var playerDefense = int(PlayerDb.playerData["player"]["stats"]["compoundDefense"] * ActionProcessor.STATUS_MANAGER.checkDefenseMod("Player"))
 	
 	# Distance
 	if attack.has("distanceChange"):
@@ -72,8 +72,8 @@ static func attack(user, attack, priority = 1):
 		closenessAccuracyDiff = 1.2
 	
 		# Accuracy Calculator
-	var speedDifference := int(EnemyDb.enemies[userNoID]["stats"]["speed"]) - int(PlayerDb.playerData["player"]["stats"]["speed"])
-	var accuracy : int = clamp(60 + speedDifference * 5, 10, 95) * closenessAccuracyDiff
+	var speedDifference := int(BattleSystem.enemyDict[user]["stats"]["speed"] * ActionProcessor.STATUS_MANAGER.checkSpeedMod(user)) - int(PlayerDb.playerData["player"]["stats"]["speed"] * ActionProcessor.STATUS_MANAGER.checkSpeedMod("Player"))
+	var accuracy : int = int(round(clamp(60 + speedDifference * 5, 10, 95) * closenessAccuracyDiff))
 	
 	
 	# Miss roll
@@ -93,9 +93,9 @@ static func attack(user, attack, priority = 1):
 		action["playerStatus"]["radiationInflict"] = 0
 	elif (attack["blockable"] == true and BattleSystem.playerDefending == false) or (attack["blockable"] == false) and not miss:
 		if BattleSystem.playerDefending == false:
-			action["combatData"]["damage"] = clamp((compoundDmg - playerDefense), 0, 10000000000)
+			action["combatData"]["damage"] = int( clamp((compoundDmg - playerDefense), 0, 10000000000))
 		else:
-			action["combatData"]["damage"] = clamp((compoundDmg - (playerDefense*2)), 0, 10000000000)
+			action["combatData"]["damage"] = int( clamp((compoundDmg - (playerDefense*2)), 0, 10000000000))
 	action["enemyStatus"]["staminaCost"] = staminaCost
 	if attack["type"] != "telegraphRadio":
 		action["general"]["announcement"] = attack["announce"]

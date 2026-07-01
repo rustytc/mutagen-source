@@ -108,9 +108,9 @@ func turnOrder():
 			if user == null:
 				continue
 			elif user == "Player":
-				speed = PlayerDb.playerData["player"]["stats"]["speed"]
+				speed = PlayerDb.playerData["player"]["stats"]["speed"] * ActionProcessor.STATUS_MANAGER.checkSpeedMod("Player")
 			else:
-				speed = EnemyDb.enemies[removeIdentifier(user)]["stats"]["speed"]
+				speed = enemyDict[user]["stats"]["speed"] * ActionProcessor.STATUS_MANAGER.checkSpeedMod(user)
 
 			users.append([speed, user])
 
@@ -132,6 +132,7 @@ func sortAscending(a, b):
 		
 func startTurns():
 	ActionProcessor.STATUS_MANAGER.statusEffectPerRound()
+	turnOrderArray = turnOrder()
 	TURN_PICKER.execute()
 	battleAdvance.emit()
 
