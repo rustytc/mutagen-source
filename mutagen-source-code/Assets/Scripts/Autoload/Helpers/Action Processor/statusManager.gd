@@ -34,7 +34,6 @@ static func applyEffect(effect, target):
 	else:
 		data = BattleSystem.enemyDict[target]["statusEffects"][effect]
 		action["general"]["target"] = [target]
-	
 	if chance > data["effectChance"]:
 		return
 			

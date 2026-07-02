@@ -132,12 +132,12 @@ var playerData := { # various important player variables stored in a dictionary
 		},
 		"illness": {
 			"active" : true,
-			"points" : 10,
+			"points" : 0,
 			"harming" : true,
 			"baseDmg" : 5,
 			"appliedDmg" : 5,
 			"turnSkip": true,
-			"effectChance": 50, # 50% chance this effect will do something per turn
+			"effectChance": 25, # 25% chance this effect will do something per turn
 			
 			"announcementCure" : "Flynn started ignoring his illness.",
 			"resultCure" : "He is no longer Ill.",
@@ -159,11 +159,11 @@ var playerData := { # various important player variables stored in a dictionary
 			"announcementInflict" : "Flynn became crippled.",
 		},
 		"fatigue": {
-			"active" : false,
-			"points" : 0,
+			"active" : true,
+			"points" : 10,
 			"harming" : false,
 			"turnSkip": true,
-			"effectChance":10,
+			"effectChance":50,
 			"speedMod":0.75,
 			"defenseMod":0.5,
 			
@@ -171,6 +171,7 @@ var playerData := { # various important player variables stored in a dictionary
 			"resultCure" : "He is no longer fatigued.",
 			
 			"announcementInflict" : "Flynn is fatigued.",
+			"announcementHarm" : ["Flynn blanked out.", "Flynn is staring off.", "Flynn couldn't react in time."],
 		},
 		"berserk": {
 			"active" : false,
