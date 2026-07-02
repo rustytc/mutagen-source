@@ -34,7 +34,7 @@ static func applyEffect(effect, target):
 	else:
 		data = BattleSystem.enemyDict[target]["statusEffects"][effect]
 		action["general"]["target"] = [target]
-	if chance > data["effectChance"]:
+	if chance > data["effectChance"] and data["points"] > 0:
 		return
 			
 	# inflict
@@ -111,10 +111,8 @@ static func showEffectInitiation(effect, target):
 		
 static func calcDamage(effect, target):
 	var data = null
-	if target == "Player":
-		data = PlayerDb.playerData["player"]["statusEffects"][effect]
-	else:
-		data = BattleSystem.enemyDict[target]["statusEffects"][effect]
+	var effects = fetchData(target)
+	data = effects[effect]
 	match effect:
 		"bleeding" :
 			data["appliedDmg"] = data["baseDmg"] + data["appliedDmg"]
@@ -125,10 +123,8 @@ static func calcDamage(effect, target):
 
 static func applySpecialEffects(effect, target):
 	var data = null
-	if target == "Player":
-		data = PlayerDb.playerData["player"]["statusEffects"][effect]
-	else:
-		data = BattleSystem.enemyDict[target]["statusEffects"][effect]
+	var effects = fetchData(target)
+	data = effects[effect]
 	if data["turnSkip"] == true:
 		ActionProcessor.PROCEDURES.turnSkip(target)
 		print('skipped ' + target)
@@ -136,10 +132,7 @@ static func applySpecialEffects(effect, target):
 static func checkSpeedMod(target):
 	var data = null
 	var result = 1
-	if target == "Player":
-		data = PlayerDb.playerData["player"]["statusEffects"]
-	else:
-		data = BattleSystem.enemyDict[target]["statusEffects"]
+	data = fetchData(target)
 	for effect in data:
 		if data[effect].has("speedMod") and data[effect]["active"] == true:
 			result = result * data[effect]["speedMod"]
@@ -149,14 +142,34 @@ static func checkDefenseMod(target):
 	var data = null
 	var result : float = 1.0
 	var enemy := false
-	if target == "Player":
-		data = PlayerDb.playerData["player"]["statusEffects"]
-	else:
-		data = BattleSystem.enemyDict[target]["statusEffects"]
-		enemy = true
+	data = fetchData(target)
+	enemy = isEnemy(target)
 	for effect in data:
 		if data[effect].has("defenseMod") and data[effect]["active"] == true:
 			result = result * data[effect]["defenseMod"]
 	if enemy and result < 1:
 		result = 1/result
 	return result
+
+static func applyBerserk(target):
+	var data = null
+	var enemy := false
+	data = fetchData(target)
+	enemy = isEnemy(target)
+	if enemy:
+		BattleSystem.ENEMY_MOVES.berserk()
+	else:
+		BattleSystem.PLAYER_MOVES.berserk()
+		
+static func isEnemy(target): # KISS
+	if target == "Player":
+		return false
+	else:
+		return true
+		
+static func fetchData(target): # KISS
+	if target == "Player":
+		return(PlayerDb.playerData["player"]["statusEffects"])
+	else:
+		return(BattleSystem.enemyDict[target]["statusEffects"])
+		

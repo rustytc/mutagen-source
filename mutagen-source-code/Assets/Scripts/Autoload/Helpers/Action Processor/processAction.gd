@@ -225,13 +225,17 @@ static func execute(data):
 						BattleSystem.enemyDict[enemy]["statusEffects"][effect]["points"] += list[effect]["points"]
 						ActionProcessor.STATUS_MANAGER.showEffectInitiation(effect, data["general"]["target"])
 	for effect in data["combatData"]["statusEffects"]["cure"]:
-		var list = data["combatData"]["statusEffects"]["cure"]
-		var effectData = PlayerDb.playerData["player"]["statusEffects"][effect]
 		if data["combatData"]["statusEffects"]["cure"][effect] == true:
-			if effectData.has("appliedDmg"):
-				effectData["appliedDmg"] = effectData["baseDmg"]
-			effectData["active"] = false
+			for target in data["general"]["target"]:
+				var effectData = null
+				if target == "Player":
+					effectData = PlayerDb.playerData["player"]["statusEffects"][effect]
+				else:
+					effectData = BattleSystem.enemyDict[target]["statusEffects"][effect]
+
+				if effectData.has("appliedDmg"):
+					effectData["appliedDmg"] = effectData["baseDmg"]
+				effectData["active"] = false
+		
 	ActionProcessor.processing = false
-		
-		
 		

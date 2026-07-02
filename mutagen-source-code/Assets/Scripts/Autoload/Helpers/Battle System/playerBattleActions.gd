@@ -221,3 +221,10 @@ static func reloadWeapon(weaponName, ammoType, reloadType, ammoRefill):
 			action["globalFunction"]["altReload"] = true
 			action["weaponData"]["ammoRefill"] = ammoRefill
 	ActionProcessor.queuedActions.append(action)
+
+static func berserk():
+	var action = ActionProcessor.actionTemplate.duplicate(true)
+	action["general"]["user"] = "Player"
+	action["general"]["type"] = "playerBerserk"
+	action["general"]["announcement"] = PlayerDb.playerData["player"]["statusEffects"]["berserk"]["announcementAttack"].pick_random()
+	action["general"]["result"] = PlayerDb.playerData["player"]["statusEffects"]["berserk"]["resultAttack"]
