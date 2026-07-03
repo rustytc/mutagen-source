@@ -37,7 +37,7 @@ func _process(delta):
 	# Resting
 	if Input.is_action_pressed("Rest") and controllable == true and transition == false:
 		resting = true
-	elif not Input.is_action_pressed("Rest") and resting == true:
+	elif (not Input.is_action_pressed("Rest") or controllable == false) and resting == true:
 		resting = false
 		Engine.time_scale = 1
 	if controllable == false:

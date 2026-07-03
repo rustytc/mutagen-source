@@ -1068,6 +1068,9 @@ func _process(delta):
 	if Input.is_action_just_pressed("Escape") and Global.currentScreen == "world" and $tossSlider.visible == false and $ammoSlider.visible == false and ActionProcessor.processing == false: # the player probably shouldnt be able to unpause if the dial is out otherwise itd still be there when they unpause and the menu would be broken
 		if $actionMenu.visible == false:
 			if get_tree().paused == false and player.controllable == true:
+				if Global.playerCharBody2D.resting == true:
+					Global.playerCharBody2D.resting = false
+					Engine.time_scale = 1
 				get_tree().paused = true
 				panIn() # making the menu visible
 				player.get_child(5).play() # playing pause music
