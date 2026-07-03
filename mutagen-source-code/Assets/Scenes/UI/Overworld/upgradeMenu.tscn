@@ -251,49 +251,14 @@ theme_override_styles/panel = ExtResource("11_5577x")
 theme_override_styles/tab_selected = ExtResource("9_vpmmx")
 theme_override_styles/tab_hovered = ExtResource("10_lge7q")
 theme_override_styles/tab_unselected = ExtResource("10_lge7q")
-current_tab = 1
+current_tab = 0
 clip_tabs = false
 tabs_visible = false
-
-[node name="Description" type="Control" parent="Tabs"]
-visible = false
-layout_mode = 2
-mouse_filter = 2
-metadata/_tab_index = 0
-
-[node name="descriptionName" type="RichTextLabel" parent="Tabs/Description"]
-layout_mode = 2
-offset_left = 14.0
-offset_top = 8.0
-offset_right = 214.0
-offset_bottom = 24.0
-theme_override_fonts/normal_font = ExtResource("12_fkf2c")
-bbcode_enabled = true
-text = "objectname"
-scroll_active = false
-
-[node name="descriptionText" type="RichTextLabel" parent="Tabs/Description"]
-layout_mode = 2
-offset_left = 14.0
-offset_top = 32.0
-offset_right = 580.0
-offset_bottom = 96.0
-theme_override_fonts/normal_font = ExtResource("12_fkf2c")
-bbcode_enabled = true
-text = "[pulse]You. Are. The. Chosen. One."
-scroll_active = false
-
-[node name="underline" type="ColorRect" parent="Tabs/Description"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = 24.0
-offset_right = 590.0
-offset_bottom = 25.0
 
 [node name="upgradePicker" type="Control" parent="Tabs"]
 layout_mode = 2
 mouse_filter = 2
-metadata/_tab_index = 1
+metadata/_tab_index = 0
 
 [node name="upgradeTitle" type="RichTextLabel" parent="Tabs/upgradePicker"]
 texture_filter = 1
@@ -367,6 +332,5 @@ autoplay = "Hidden"
 [connection signal="focus_entered" from="Tabs" to="." method="_on_tabs_focus_entered"]
 [connection signal="tab_changed" from="Tabs" to="." method="_on_tabs_tab_changed"]
 [connection signal="tab_selected" from="Tabs" to="." method="_on_tabs_tab_selected"]
-[connection signal="resized" from="Tabs/Description/descriptionName" to="." method="_on_description_name_resized"]
 [connection signal="item_activated" from="Tabs/upgradePicker/upgradesList" to="." method="_on_upgrades_list_item_activated"]
 [connection signal="visibility_changed" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_visibility_changed"]

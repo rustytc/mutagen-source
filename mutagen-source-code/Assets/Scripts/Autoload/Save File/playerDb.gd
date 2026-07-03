@@ -131,7 +131,7 @@ var playerData := { # various important player variables stored in a dictionary
 			
 		},
 		"illness": {
-			"active" : true,
+			"active" : false,
 			"points" : 0,
 			"harming" : true,
 			"baseDmg" : 5,
@@ -159,8 +159,8 @@ var playerData := { # various important player variables stored in a dictionary
 			"announcementInflict" : "Flynn became crippled.",
 		},
 		"fatigue": {
-			"active" : true,
-			"points" : 10,
+			"active" : false,
+			"points" : 0,
 			"harming" : false,
 			"turnSkip": true,
 			"effectChance":50,

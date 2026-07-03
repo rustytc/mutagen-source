@@ -13,6 +13,7 @@ func _process(delta) -> void:
 	else:
 		$Tabs/upgradePicker/SPLeft.text = "[color=gray]" + "0 Skill Points Left"
 func levelUp():
+	
 	var values = {
 	"strength": {
 		"text": "Strength (Current Level: " + str(PlayerDb.playerData["player"]["stats"]["strength"]) + ")",
