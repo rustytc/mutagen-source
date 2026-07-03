@@ -129,7 +129,7 @@ static func calcAttack(effect, target):
 	data = effects[effect]
 	match effect:
 		"berserk" :
-			data["appliedAtk"] = data["appliedAtk"] * 1.5
+			data["appliedAtk"] = round(data["appliedAtk"] * 1.5)
 			return(data["appliedAtk"])
 			
 static func applySpecialEffects(effect, target):
@@ -139,6 +139,8 @@ static func applySpecialEffects(effect, target):
 	if data["turnSkip"] == true:
 		ActionProcessor.PROCEDURES.turnSkip(target)
 		print('skipped ' + target)
+	if effect == "berserk":
+		applyBerserk(target)
 
 static func checkSpeedMod(target):
 	var data = null
@@ -165,7 +167,7 @@ static func checkDefenseMod(target):
 static func applyBerserk(target):
 	var data = null
 	var enemy := false
-	data = fetchData(target)
+	data = fetchData(target)["berserk"]
 	enemy = isEnemy(target)
 	if enemy:
 		BattleSystem.ENEMY_MOVES.berserk(target, data)

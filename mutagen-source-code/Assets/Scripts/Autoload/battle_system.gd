@@ -212,5 +212,6 @@ func exitBattle(flee = false):
 		Global.helpMenu.updateWeaponDescriptions()
 		Global.helpMenu.updateArmorDescriptions()
 		Global.helpMenu.updateGearDescriptions()
+		
 		enemyIDsKilled.clear()
 	

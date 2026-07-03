@@ -225,8 +225,13 @@ static func reloadWeapon(weaponName, ammoType, reloadType, ammoRefill):
 static func berserk(user, data):
 	var action = ActionProcessor.actionTemplate.duplicate(true)
 	action["general"]["user"] = "Player"
-	action["general"]["type"] = "playerBerserk"
+	action["general"]["type"] = "attack"
+	action["general"]["priority"] = 3
 	action["general"]["announcement"] = PlayerDb.playerData["player"]["statusEffects"]["berserk"]["announcementAttack"].pick_random()
 	action["general"]["result"] = PlayerDb.playerData["player"]["statusEffects"]["berserk"]["resultAttack"]
 	action["combatData"]["damage"] = data["appliedAtk"]
-	action["combatData"]["target"] = BattleSystem.enemyDict.keys().pick_random()
+	if not BattleSystem.enemyDict.keys().is_empty():
+		action["general"]["target"] = [BattleSystem.enemyDict.keys().pick_random()]
+		ActionProcessor.queueSpecificAction(action) # this skips turnskip()
+	else:
+		return

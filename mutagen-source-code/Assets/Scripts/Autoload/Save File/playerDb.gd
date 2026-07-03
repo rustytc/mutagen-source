@@ -175,7 +175,7 @@ var playerData := { # various important player variables stored in a dictionary
 		},
 		"berserk": {
 			"active" : false,
-			"points" : 0,
+			"points" : 10,
 			"harming" : false,
 			"turnSkip": true,
 			"effectChance":100,

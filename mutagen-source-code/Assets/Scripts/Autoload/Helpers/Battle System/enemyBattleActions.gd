@@ -165,3 +165,14 @@ static func die(enemy):
 			ActionProcessor.actions.remove_at(i)
 	ActionProcessor.queueSpecificAction(action)
 	BattleSystem.enemyIDsKilled.append(BattleSystem.enemyDict[enemy]["ID"])
+
+static func berserk(user, data):
+	var action = ActionProcessor.actionTemplate.duplicate(true)
+	action["general"]["user"] = user
+	action["general"]["type"] = "attack"
+	action["general"]["priority"] = 3
+	action["general"]["announcement"] = BattleSystem.enemyDict[user]["statusEffects"]["berserk"]["announcementAttack"].pick_random()
+	action["general"]["result"] =  BattleSystem.enemyDict[user]["statusEffects"]["berserk"]["resultAttack"]
+	action["combatData"]["damage"] = data["appliedAtk"]
+	action["general"]["target"] = ["Player"]
+	ActionProcessor.queuedActions.append(action)

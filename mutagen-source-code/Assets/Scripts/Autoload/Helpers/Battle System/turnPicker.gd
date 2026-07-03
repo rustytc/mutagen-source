@@ -104,5 +104,7 @@ static func execute():
 				continue
 			if ActionProcessor.queuedActions.size() > 0:
 				ActionProcessor.queueSpecificAction(ActionProcessor.queuedActions.pop_front())
-			else:
+			elif BattleSystem.enemyDict.has(BattleSystem.selectedEnemy) and BattleSystem.enemyDict[BattleSystem.selectedEnemy].has("limbs") and BattleSystem.enemyDict[BattleSystem.selectedEnemy]["limbs"].has(BattleSystem.selectedLimb):
 				BattleSystem.PLAYER_MOVES.attack(BattleSystem.selectedEnemy, BattleSystem.selectedLimb)
+			else:
+				print("There's nothing left to do.")

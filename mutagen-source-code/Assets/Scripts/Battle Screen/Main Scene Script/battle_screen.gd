@@ -49,7 +49,7 @@ func _process(delta):
 	$helpMenu/AnimationPlayer.current_animation != "PanIn" and BattleSystem.playerAlive == true
 	and ActionProcessor.processing == false
 	and $battleLog.parsing == false
-	and ActionProcessor.actions.is_empty() and BattleSystem.battleEnded == false):
+	and ActionProcessor.actions.is_empty() and BattleSystem.battleEnded == false) and PlayerDb.playerData["player"]["statusEffects"]["berserk"]["active"] == false:
 		turnMode = turnModes.DECIDE
 		$helpMenu.panIn()
 		$helpMenu/Tabs.current_tab = 1
@@ -59,6 +59,15 @@ func _process(delta):
 		actionList.call_deferred("grab_focus")
 		$battleLog.panOut()
 		canAdvanceFromLog = false
+	elif ($battleLog/Panel/VBoxContainer/HBoxContainer/Text.get_parsed_text().length() > 0 and 
+	$helpMenu/AnimationPlayer.current_animation != "PanIn" and BattleSystem.playerAlive == true
+	and ActionProcessor.processing == false
+	and $battleLog.parsing == false
+	and ActionProcessor.actions.is_empty() and BattleSystem.battleEnded == false and PlayerDb.playerData["player"]["statusEffects"]["berserk"]["active"] == true):
+		canAdvanceFromLog = false
+		turnMode = turnModes.WAIT
+		BattleSystem.startTurns()
+		return
 	
 	
 	# looping music
