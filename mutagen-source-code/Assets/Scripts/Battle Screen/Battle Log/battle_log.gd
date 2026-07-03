@@ -3,6 +3,7 @@ extends Control
 var parsing := false
 var speakingSpeed := 0.03
 var speakingMultiplier := 1
+var speedingUpDialogue := false
 signal finishedTyping
 
 func _ready():
@@ -16,7 +17,7 @@ func _process(delta):
 	if Global.currentScreen == "world":
 		if not visible and ActionProcessor.processing == true and $AnimationPlayer.current_animation != "PanIn":
 			panIn()
-		if visible and ActionProcessor.processing == false and $AnimationPlayer.current_animation != "PanOut" and Input.is_action_just_pressed("Accept") and ActionProcessor.actions.is_empty() and ActionProcessor.queuedActions.is_empty() and  $Panel/VBoxContainer/HBoxContainer/Text.get_parsed_text().length() == $Panel/VBoxContainer/HBoxContainer/Text.visible_characters:
+		if visible and ActionProcessor.processing == false and $AnimationPlayer.current_animation != "PanOut" and (Input.is_action_just_pressed("Accept") or Input.is_action_just_pressed("Escape")) and ActionProcessor.actions.is_empty() and ActionProcessor.queuedActions.is_empty() and  $Panel/VBoxContainer/HBoxContainer/Text.get_parsed_text().length() == $Panel/VBoxContainer/HBoxContainer/Text.visible_characters:
 			panOut()
 			if Global.helpMenu.currentMenu == "items":
 				Global.helpMenu.grab_item_list_focus()
@@ -27,10 +28,12 @@ func _process(delta):
 	
 	
 	# Speeding up dialogue (and everything else)
-	if Input.is_action_pressed("Speed Up Dialogue") and ActionProcessor.processing == true and BattleSystem.battleEnded == false:
+	if Input.is_action_pressed("Speed Up Dialogue") and ActionProcessor.processing == true and BattleSystem.battleEnded == false and Global.playerCharBody2D.controllable == false:
 		Engine.time_scale = 10
-	else:
+		speedingUpDialogue = true
+	elif speedingUpDialogue:
 		Engine.time_scale = 1
+		speedingUpDialogue = false
 	
 	
 	if $Panel/VBoxContainer/HBoxContainer/Text.get_parsed_text().length() > 0:
