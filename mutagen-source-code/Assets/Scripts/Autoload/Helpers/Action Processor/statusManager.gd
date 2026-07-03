@@ -58,6 +58,8 @@ static func applyEffect(effect, target):
 			action["general"]["user"] = target
 			if data["harming"] == true:
 				action["combatData"]["damage"] = calcDamage(effect, target)
+			if data.has("appliedAtk"):
+				action["combatData"]["damage"] = calcAttack(effect, target)
 			if data["turnSkip"] == true:
 				applySpecialEffects(effect, target)
 			if data.has("announcementHarm") or data.has("resultHarm"): # this has to be here to prevent a blank action from queueing if an effect doesnt print anything
@@ -120,7 +122,16 @@ static func calcDamage(effect, target):
 		"illness": # illness is mostly a turn skip punishment and the damage effect is secondary
 			data["appliedDmg"] = data["baseDmg"] - Global.rng.randi_range(0, data["baseDmg"] - (data["baseDmg"] - 1))
 			return(data["appliedDmg"])
-
+			
+static func calcAttack(effect, target):
+	var data = null
+	var effects = fetchData(target)
+	data = effects[effect]
+	match effect:
+		"berserk" :
+			data["appliedAtk"] = data["appliedAtk"] * 1.5
+			return(data["appliedAtk"])
+			
 static func applySpecialEffects(effect, target):
 	var data = null
 	var effects = fetchData(target)
@@ -157,9 +168,9 @@ static func applyBerserk(target):
 	data = fetchData(target)
 	enemy = isEnemy(target)
 	if enemy:
-		BattleSystem.ENEMY_MOVES.berserk()
+		BattleSystem.ENEMY_MOVES.berserk(target, data)
 	else:
-		BattleSystem.PLAYER_MOVES.berserk()
+		BattleSystem.PLAYER_MOVES.berserk(target, data)
 		
 static func isEnemy(target): # KISS
 	if target == "Player":

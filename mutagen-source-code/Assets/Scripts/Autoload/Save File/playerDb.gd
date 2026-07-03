@@ -179,6 +179,8 @@ var playerData := { # various important player variables stored in a dictionary
 			"harming" : false,
 			"turnSkip": true,
 			"effectChance":100,
+			"baseAtk" : 10,
+			"appliedAtk" : 10,
 			
 			"announcementCure" : "!..",
 			"resultCure" : "Flynn is no longer berserk.",

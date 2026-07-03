@@ -235,6 +235,8 @@ static func execute(data):
 
 				if effectData.has("appliedDmg"):
 					effectData["appliedDmg"] = effectData["baseDmg"]
+				if effectData.has("appliedAtk"):
+					effectData["appliedAtk"] = effectData["baseAtk"]
 				effectData["active"] = false
 		
 	ActionProcessor.processing = false
