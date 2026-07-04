@@ -25,11 +25,11 @@ Courtesy of <https://ggbot.itch.io/pixeloid-font>
 
 # Shaders:
 ## CRT Shader
-Creator: Yui Kinomoto / @arlez80
+Creator: c64cosmin
 
-Licensed under MIT License
+Licensed under Creative Commons 0
 
-Courtesy of <https://godotshaders.com/shader/crt-shader/>
+Courtesy of <https://godotshaders.com/shader/realistic-crt-shader/>
 
 ## Glitch Effect Shader
 Creator: Yui Kinomoto / @arlez80
