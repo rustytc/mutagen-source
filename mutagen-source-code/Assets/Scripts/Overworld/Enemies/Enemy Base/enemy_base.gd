@@ -72,6 +72,7 @@ var caughtThePlayer := false
 var battleInitiated := false
 @onready var catchSoundVolume : float = $AudioStreamPlayer2D.volume_db
 
+var markedAsTargetter := false
 signal playerCaught
 
 # Movement
@@ -189,6 +190,14 @@ func _physics_process(delta):
 
 	
 func _process(delta):
+	
+	if canSeePlayer and not markedAsTargetter:
+		markedAsTargetter = true
+		ActorHelper.targetters += 1
+	if not canSeePlayer and markedAsTargetter:
+		markedAsTargetter = false
+		ActorHelper.targetters -= 1
+	
 	if state != "idle":
 		if velocity.length() == 0:
 			if $AnimatedSprite2D.is_playing():
@@ -264,7 +273,6 @@ func _on_collision_body_entered(body): # when another entity collides with this 
 
 func prowl():
 	if state == "chase":
-		ActorHelper.targetters -= 1
 		pauseChaseTheme()
 	
 	
@@ -322,9 +330,6 @@ func prowlLastKnownPlayerPoint():
 	
 	
 func chase():
-	if state != "chase":
-		ActorHelper.targetters += 1
-		
 	if $pathfindingTimer.time_left == 0: # this prevents a lag spike especially when navigating corners. also fixes animation flickering. but be aware. the wait time will probably need to be adjusted for really fast enemies. #TODO: adjust the wait time for really fast enemies
 		agent.target_position = NavigationServer2D.map_get_closest_point(get_world_2d().navigation_map, player.global_position + player.velocity.normalized() * targetDistance)
 		$pathfindingTimer.start()
@@ -338,9 +343,6 @@ func chase():
 
 func idle(): 
 	pauseChaseTheme()
-	if state == "chase":
-		state = "idle"
-		ActorHelper.targetters -= 1
 	if state != "idle":
 		state = "idle"
 	velocity = Vector2.ZERO
@@ -416,16 +418,16 @@ func onBattleInitiated():
 	
 func iHearYou():
 	if not caughtThePlayer and battleInitiated and state != "chase" and state != "wait": # hunting down the player when a battle is about to begin
-		state = "chase"
-		canSeePlayer = true
+		if not canSeePlayer:
+			state = "chase"
+			canSeePlayer = true
 		agent.target_position = player.global_position
 		speed = alertSpeed
 
 func returnToWorldState():
 	for i in BattleSystem.enemyIDsKilled:
 		if ID == i:
-			if canSeePlayer:
-				ActorHelper.targetters -= 1
+			ActorHelper.targetters -= 1
 			queue_free()
 			return
 	if canSeePlayer:
