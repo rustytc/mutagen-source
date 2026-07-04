@@ -30,8 +30,8 @@ func reloadSystem(WEAPONNAME, ammoType = null): # weapon's name must be provided
 	if GlobalDb.weaponDatabase[WEAPONNAME]["ammoAlternation"] == false:
 		if Global.currentScreen == "world":
 			UniversalAudio.playSpecialSound("res://Assets/Sounds/Battle/" + WEAPONNAME + "Reload.mp3")
-		if playerData["player"]["weapons"][WEAPONNAME]["ammo"] != GlobalDb.weaponDatabase[WEAPONNAME]["maxAmmo"] and playerData["player"]["weapons"][WEAPONNAME]["packs"] > 0:
-			playerData["player"]["weapons"][WEAPONNAME]["packs"] -= 1
+		if playerData["player"]["weapons"][WEAPONNAME]["ammo"] != GlobalDb.weaponDatabase[WEAPONNAME]["maxAmmo"] and playerData["player"]["ammo"][WEAPONNAME] > 0:
+			playerData["player"]["ammo"][WEAPONNAME] -= 1
 			playerData["player"]["weapons"][WEAPONNAME]["ammo"] = GlobalDb.weaponDatabase[WEAPONNAME]["maxAmmo"]
 			updateWeaponDatabases()
 		else:
@@ -98,6 +98,26 @@ func tossItem(ITEMNAME):
 			return
 func deleteItem(ITEMNAME):
 	playerData["player"]["inventory"].erase(ITEMNAME)
+func addItem(ITEMNAME, quantity):
+	if playerData["player"]["inventory"].has(ITEMNAME):
+		playerData["player"]["inventory"][ITEMNAME]["quantity"] += quantity
+		helpMenu.updateItemDescriptions()
+	else:
+		var key = {"quantity" : quantity,
+				"bookmarked" : false,	}
+		playerData["player"]["inventory"][ITEMNAME] = key
+		helpMenu.resetItemDescriptions()
+	
+func addArmor(ARMORNAME, type, quantity):
+	if playerData["player"]["armor"][type].has(ARMORNAME):
+		playerData["player"]["armor"][type][ARMORNAME]["quantity"] += quantity
+		helpMenu.updateArmorDescriptions()
+	else:
+		playerData["player"]["armor"][type][ARMORNAME] = {
+			"quantity": quantity,
+			"equipped": false, }
+		helpMenu.resetArmorDescriptions()
+		
 func deleteArmor(ARMORNAME):
 	if ARMORNAME.begins_with("headArmor"):
 		if playerData["player"]["armor"]["head"][ARMORNAME]["equipped"] == true:

@@ -18,6 +18,20 @@ var enemies := {
 			"attackMultiplier" : 1,
 			"speed" : 8,
 			"surgeChance" : 5, # 5% chance of the enemy per turn to randomly regain a huge chunk of stamina
+			"itemDropLikelihood" : 100, # 50% chance to drop any item
+		},
+		"itemDrops" : {
+			"driedMeat" : {
+				"weight" : 1,
+				"quantity" : 1,
+				"type" : "item"
+			},
+			"magnum" : { #lol
+				"weight" : 2,
+				"quantity" : 6,
+				"type" : "ammo"
+			},
+			
 		},
 		
 		"statusEffects": {

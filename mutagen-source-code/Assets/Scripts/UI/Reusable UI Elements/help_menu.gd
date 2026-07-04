@@ -377,7 +377,7 @@ func createWeaponDescriptions(): # cant be made into a cow tool because of speci
 			if GlobalDb.weaponDatabase[i]["type"] == "ranged":
 				if GlobalDb.weaponDatabase[i]["singleUse"] == false:
 					if PlayerDb.playerData["player"]["weapons"][i].has("ammoOrder") == false:
-						row.set_text(1, str(PlayerDb.playerData["player"]["weapons"][i]["ammo"]) + "/" + str(GlobalDb.weaponDatabase[i]["maxAmmo"]) + "    " + str(PlayerDb.playerData["player"]["weapons"][i]["packs"]) + " Packs of Ammo")
+						row.set_text(1, str(PlayerDb.playerData["player"]["weapons"][i]["ammo"]) + "/" + str(GlobalDb.weaponDatabase[i]["maxAmmo"]) + "    " + str(PlayerDb.playerData["player"]["ammo"][i]) + " Packs of Ammo")
 						row.set_icon(1, load("res://Assets/Images/Sprites/UI/Menu/Icons/Armory/" + i + "Ammo.png"))
 					else:
 						# the following line of code is pretty long. also copy pasted from the other function funnily enough. old habits die even harder
@@ -434,7 +434,7 @@ func updateWeaponDescriptions():
 				if GlobalDb.weaponDatabase[i]["type"] == "ranged":
 					if GlobalDb.weaponDatabase[i]["singleUse"] == false:
 						if PlayerDb.playerData["player"]["weapons"][i].has("ammoOrder") == false:
-							row.set_text(1, str(PlayerDb.playerData["player"]["weapons"][i]["ammo"]) + "/" + str(GlobalDb.weaponDatabase[i]["maxAmmo"]) + "    " + str(PlayerDb.playerData["player"]["weapons"][i]["packs"]) + " Packs of Ammo")
+							row.set_text(1, str(PlayerDb.playerData["player"]["weapons"][i]["ammo"]) + "/" + str(GlobalDb.weaponDatabase[i]["maxAmmo"]) + "    " + str(PlayerDb.playerData["player"]["ammo"][i]) + " Packs of Ammo")
 							row.set_icon(1, load("res://Assets/Images/Sprites/UI/Menu/Icons/Armory/" + i + "Ammo.png"))
 						else:
 							# the following line of code is pretty long. my ap csp teacher used to tell me to scrunch my code so it could be readable. old habits die hard
@@ -526,6 +526,10 @@ func resetItemDescriptions(): # necessary for changing item list order for bookm
 	$Tabs/Items/itemsList.clear()
 	createItemDescriptions()
 
+func resetArmorDescriptions():
+	$Tabs/Armor/headArmorList.clear()
+	$Tabs/Armor/bodyArmorList.clear()
+	createArmorDescriptions()
 
 func createArmorDescriptions():
 	var armorList = null

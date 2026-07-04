@@ -28,5 +28,6 @@ stream = ExtResource("3_1lxyw")
 volume_db = -15.097
 
 [node name="crt" parent="." instance=ExtResource("4_rt4p2")]
+visible = false
 
 [connection signal="visibility_changed" from="visibleOnScreenNotifier2d" to="." method="_on_visible_on_screen_notifier_2d_visibility_changed"]

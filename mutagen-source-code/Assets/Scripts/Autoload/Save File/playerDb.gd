@@ -71,7 +71,6 @@ var playerData := { # various important player variables stored in a dictionary
 				"magnum" : {
 				"quantity": 1,
 				"ammo": 4,
-				"packs": 3,
 				"unlocked": true,
 				"equipped":false
 				},
@@ -92,7 +91,7 @@ var playerData := { # various important player variables stored in a dictionary
 				},
 			},
 		"ammo" : {
-			".357 Magnum" : 3, # THESE ARE PACKS
+			"magnum" : 3, # THESE ARE PACKS
 			"buckshot" : 3, # THESE ARE INDIVIDUAL ROUNDS
 			"slug" : 2,
 			
@@ -175,7 +174,7 @@ var playerData := { # various important player variables stored in a dictionary
 		},
 		"berserk": {
 			"active" : false,
-			"points" : 10,
+			"points" : 0,
 			"harming" : false,
 			"turnSkip": true,
 			"effectChance":100,

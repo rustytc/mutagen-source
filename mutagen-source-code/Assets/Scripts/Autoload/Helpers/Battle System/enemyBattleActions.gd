@@ -144,8 +144,46 @@ static func attack(user, attack, priority = 1):
 	
 
 	
-
-
+static func itemDrop(enemy):
+	var action = ActionProcessor.actionTemplate.duplicate(true)
+	var enemyNoID = BattleSystem.removeIdentifier(enemy)
+	var likelihood = EnemyDb.enemies[enemyNoID]["stats"]["itemDropLikelihood"]
+	var chance : int = Global.rng.randi_range(1,100)
+	var success := false
+	var items := []
+	var result = null
+	var quantity := 0
+	var type = null
+	action["general"]["type"] = "itemDrop"
+	
+	
+	if chance <= likelihood:
+		success = true
+	if success == true:
+		for item in EnemyDb.enemies[enemyNoID]["itemDrops"]:
+			for weight in EnemyDb.enemies[enemyNoID]["itemDrops"][item]["weight"]:
+				items.append(item)
+		result = items.pick_random()
+		type = EnemyDb.enemies[enemyNoID]["itemDrops"][result]["type"]
+		quantity = EnemyDb.enemies[enemyNoID]["itemDrops"][result]["quantity"]
+		var trueName = null
+		if type == "item":
+			trueName = GlobalDb.itemDatabase[result]["general"]["name"]
+		elif type == "ammo":
+			trueName = GlobalDb.ammoDatabase[result]["name"]
+		if quantity > 1:
+			action["general"]["announcement"] = enemy + " dropped " + str(quantity) + " " + trueName + "."
+		else:
+			action["general"]["announcement"] = enemy + " dropped " + trueName + "."
+		if type == "item":
+			InventoryHelper.addItem(result, quantity)
+		elif type == "ammo":
+			PlayerDb.playerData["player"]["ammo"][result] += quantity
+			Global.helpMenu.updateWeaponDescriptions()
+		ActionProcessor.queueSpecificAction(action)
+		print('item supposed to be dropped')
+		
+		
 static func die(enemy):
 	var action = ActionProcessor.actionTemplate.duplicate(true)
 	action["general"]["priority"] = 3
@@ -164,6 +202,7 @@ static func die(enemy):
 		if deadAction["general"]["user"] == enemy:
 			ActionProcessor.actions.remove_at(i)
 	ActionProcessor.queueSpecificAction(action)
+	itemDrop(enemy)
 	BattleSystem.enemyIDsKilled.append(BattleSystem.enemyDict[enemy]["ID"])
 
 static func berserk(user, data):

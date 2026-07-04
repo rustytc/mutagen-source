@@ -208,9 +208,9 @@ func exitBattle(flee = false):
 		InventoryHelper.helpMenu = Global.helpMenu
 		ActionProcessor.actionLog = get_tree().get_first_node_in_group("Overworld UI").get_node("actionLog")
 		Global.actionLog = get_tree().get_first_node_in_group("Overworld UI").get_node("actionLog")
-		Global.helpMenu.updateItemDescriptions()
+		Global.helpMenu.resetItemDescriptions()
 		Global.helpMenu.updateWeaponDescriptions()
-		Global.helpMenu.updateArmorDescriptions()
+		Global.helpMenu.resetArmorDescriptions()
 		Global.helpMenu.updateGearDescriptions()
 		
 		enemyIDsKilled.clear()

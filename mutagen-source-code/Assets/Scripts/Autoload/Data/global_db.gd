@@ -171,7 +171,20 @@ var itemDatabase := {
 	},
 
 }
-
+var ammoDatabase = {
+	"magnum" : {
+		"name" : "Magnum Ammo Pack",
+		"weapon" : "magnum"
+		},
+	"buckshot" : {
+		"name" : "Buckshot Shell",
+		"weapon" : "shotgun"
+		},
+	"slug" : {
+		"name" : "Slug Shell",
+		"weapon" : "shotgun"
+		},
+}
 var weaponDatabase = {
 	"woodenBat": {
 		"name": "Wooden Bat",
