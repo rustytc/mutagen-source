@@ -97,7 +97,7 @@ static func attack(user, attack, priority = 1):
 		else:
 			action["combatData"]["damage"] = int( clamp((compoundDmg - (playerDefense*2)), 0, 10000000000))
 	action["enemyStatus"]["staminaCost"] = staminaCost
-	if attack["type"] != "telegraphRadio":
+	if attack["type"] != "telegraphRadio" and attack["type"] != "telegraphStd":
 		action["general"]["announcement"] = attack["announce"]
 	if attack["type"] == "telegraphRadio":
 		action["general"]["type"] = "telegraphRadio"
@@ -107,6 +107,14 @@ static func attack(user, attack, priority = 1):
 		if radioWarning.has("sound"):
 			action["general"]["announcementSFX"] = radioWarning["sound"]
 		action["general"]["type"] = "telegraph"
+	if attack["type"] == "telegraphStd":
+		action["general"]["type"] = "telegraphStd"
+		BattleSystem.enemyDict[user]["telegraph"] = attack["telegraph"]
+		var standardWarning = BattleSystem.enemyDict[user]["standardWarning"].pick_random()
+		action["general"]["announcement"] = standardWarning["text"]
+		if standardWarning.has("sound"):
+			action["general"]["announcementSFX"] = standardWarning["sound"]
+		action["general"]["type"] = "telegraph"
 	action["general"]["priority"] = attack["priority"]
 	if priority != 1:
 		action["general"]["priority"] = priority
@@ -114,7 +122,7 @@ static func attack(user, attack, priority = 1):
 	action["general"]["impactPause"] = attack["impactPause"]
 	action["general"]["resultPause"] = attack["resultPause"]
 	
-	if (not miss) and attack["type"] != "telegraphRadio":
+	if (not miss) and attack["type"] != "telegraphRadio" and attack["type"] != "telegraphStd":
 		action["general"]["type"] = "attack"
 		if attack["blockable"] == true and BattleSystem.playerDefending == true:
 			action["general"]["result"] = attack["blockResult"]
@@ -134,7 +142,7 @@ static func attack(user, attack, priority = 1):
 				action["playerStatus"]["radiationInflict"] = clamp((radDmg - (playerDefense / 2)), 0, 10000000000)
 			else:
 				action["playerStatus"]["radiationInflict"] = clamp((radDmg - playerDefense), 0, 10000000000)
-	if miss and attack["type"] != "telegraphRadio":
+	if miss and attack["type"] != "telegraphRadio" and attack["type"] != "telegraphStd":
 		action["general"]["type"] = "attackMiss"
 		action["general"]["result"] = attack["missResult"]
 		action["general"]["impactSFX"] = null

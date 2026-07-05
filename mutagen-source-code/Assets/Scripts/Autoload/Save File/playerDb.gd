@@ -151,6 +151,7 @@ var playerData := { # various important player variables stored in a dictionary
 			"harming" : false,
 			"turnSkip": false,
 			"speedMod":0.25,
+			"effectChance": 100,
 			
 			"announcementCure" :  "Flynn stopped caring about his injury.",
 			"resultCure" : "He is no longer crippled.",

@@ -554,7 +554,7 @@ var enemies := {
 				"maxStamina": 200,
 				"health" : 200,
 				"maxHealth" : 200,
-				"attacks": ["Slap", "StrangleTelegraph"],
+				"attacks": ["Slap", "StrangleTelegraph", "Grapple", "StabTelegraph"],
 				"behavior" : "random",
 				"canFlee" : true,
 				"turns" : 0,
@@ -584,6 +584,32 @@ var enemies := {
 				"priority" : 1,
 				"blockable" : false,
 				},
+				
+				"Grapple" : {
+					
+				"minDamage": 10,
+				"maxDamage": 12,
+				"minRadDamage": 0,
+				"maxRadDamage": 0,
+				"weight": "Light",
+				"cost": 0,
+				"type": "Normal",
+				"statusEffect": "cripple",
+				"statusEffectPointsMin" : 4,
+				"statusEffectPointsMax" : 8,
+				"statusEffectChance" : 100,
+				"announce": "[NAME] grappled you!",
+				"result": "...that dealt [DAMAGE] to your health!",
+				"sound": "res://Assets/Sounds/Battle/pew.mp3",
+				"missResult": "...Flynn got out of the way.",
+				"missSound": "res://Assets/Sounds/Random/weird.mp3",
+				"announcementPause": 2,
+				"impactPause": 2,
+				"resultPause":2,
+				"priority" : 1,
+				"blockable" : false,
+				},
+				
 			"StrangleTelegraph" : {
 				"minDamage": 0,
 				"maxDamage": 0,
@@ -601,10 +627,28 @@ var enemies := {
 				"blockable" : false,
 			},
 			
+			
+			"StabTelegraph" : {
+				"minDamage": 0,
+				"maxDamage": 0,
+				"minRadDamage": 0,
+				"maxRadDamage": 0,
+				"weight": "Heavy",
+				"cost": 60,
+				"type": "telegraphStd",
+				"telegraph": "Stab",
+				"statusEffect": null,
+				"announcementPause": 2,
+				"impactPause": 2,
+				"resultPause":2,
+				"priority" : 1,
+				"blockable" : false,
+			},
+			
 		},
 				"telegraphAttacks":
 			{
-				 "Strangle" : {
+				"Strangle" : {
 				"minDamage": 23,
 				"maxDamage": 48,
 				"minRadDamage": 32,
@@ -630,6 +674,36 @@ var enemies := {
 				"blockable" : true,
 				"distanceChange" : "close"
 			},
+			"Stab" : {
+				"minDamage": 32,
+				"maxDamage": 72,
+				"minRadDamage": 0,
+				"maxRadDamage": 0,
+				"weight": "Heavy",
+				"cost": 0,
+				"type": "Standard",
+				"statusEffect": "cripple",
+				"statusEffectPointsMin" : 4,
+				"statusEffectPointsMax" : 8,
+				"statusEffectChance" : 20,
+				"announce": "[NAME] stabbed you in the heart!",
+				"result": "...that dealt [DAMAGE] to your health!",
+				"sound": "res://Assets/Sounds/Blood/gib0.mp3",
+				"missResult": "...It didn't hit you.",
+				"blockResult": "...Flynn got out of the way.",
+				"missSound": "res://Assets/Sounds/Random/weird.mp3",
+				"blockSound": "res://Assets/Sounds/Random/weird3.mp3",
+				"announcementPause": 2,
+				"impactPause": 2,
+				"resultPause":2,
+				"priority" : 1,
+				"blockable" : true,
+				"distanceChange" : "close"
+			},
+			
+			
+			
+			
 		},
 		
 		"radioWarning": [
@@ -641,6 +715,17 @@ var enemies := {
 			},
 			{
 				"text" : "[color=lime][!] [NAME] looks ready. Brace for impact.[/color]",
+			},
+		],
+		"standardWarning": [
+			{
+				"text" : "[color=red][!] [NAME] is readying itself for something...[/color]",
+			},
+			{
+				"text" : "[color=red][!] [NAME] looks like it's about to do something.[/color]",
+			},
+			{
+				"text" : "[color=red][!] [NAME] looks ready. Brace for impact.[/color]",
 			},
 		],
 		"surgeWarning": [
