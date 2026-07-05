@@ -170,12 +170,16 @@ safe_margin = 3.0
 script = ExtResource("1_ga1o0")
 chaseSpeed = 200
 prowlSpeed = 50
-state = "prowl"
+state = "follow"
 enemyType = "Flesh Mound"
+useLastKnownPlayerPoint = true
+targetDistance = 0.0
+decisiveness = 999999999999
 maxStamina = 1e+10
 stamina = 1e+10
 staminaDrain = 0.0
 staminaGain = 0.0
+hasChaseMusic = false
 alertSounds = []
 chaseTheme = ""
 screamSound = ""
@@ -195,7 +199,7 @@ position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_eyskf")
 animation = &"Attack"
 autoplay = "Idle"
-frame_progress = 0.879059
+frame_progress = 0.151496
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_j5ocs")

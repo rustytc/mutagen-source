@@ -386,8 +386,9 @@ func catchSound():
 
 func playChaseTheme():
 	if state == "chase" and not $chaseMusic.playing and hasChaseMusic == true and not $chaseMusic.process_mode == $chaseMusic.PROCESS_MODE_DISABLED:
-		$chaseMusic.stream = load(chaseTheme)
-		$chaseMusic.play()
+		if chaseTheme != null:
+			$chaseMusic.stream = load(chaseTheme)
+			$chaseMusic.play()
 	if $chaseMusic.process_mode == $chaseMusic.PROCESS_MODE_DISABLED:
 		$chaseMusic.process_mode = $chaseMusic.PROCESS_MODE_INHERIT
 		

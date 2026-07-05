@@ -22,13 +22,13 @@ var enemies := {
 		},
 		"itemDrops" : {
 			"driedMeat" : {
-				"weight" : 1,
+				"weight" : 10,
 				"quantity" : 1,
 				"type" : "item"
 			},
-			"magnum" : { #lol
-				"weight" : 2,
-				"quantity" : 6,
+			"magnum" : {
+				"weight" : 1,
+				"quantity" : 1,
 				"type" : "ammo"
 			},
 			

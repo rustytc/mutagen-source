@@ -181,6 +181,7 @@ static func execute(data):
 				PlayerDb.playerData["player"]["inventory"][itemName]["quantity"] -= 1
 				if PlayerDb.playerData["player"]["inventory"][itemName]["quantity"] <= 0:
 					PlayerDb.playerData["player"]["inventory"].erase(itemName)
+					Global.helpMenu.resetItemDescriptions()
 			Global.helpMenu.updateItemDescriptions()
 		
 	# Death Action
