@@ -104,7 +104,8 @@ static func attack(user, attack, priority = 1):
 		BattleSystem.enemyDict[user]["telegraph"] = attack["telegraph"]
 		var radioWarning = BattleSystem.enemyDict[user]["radioWarning"].pick_random()
 		action["general"]["announcement"] = radioWarning["text"]
-		action["general"]["announcementSFX"] = radioWarning["sound"]
+		if radioWarning.has("sound"):
+			action["general"]["announcementSFX"] = radioWarning["sound"]
 		action["general"]["type"] = "telegraph"
 	action["general"]["priority"] = attack["priority"]
 	if priority != 1:
@@ -122,13 +123,12 @@ static func attack(user, attack, priority = 1):
 			action["general"]["result"] = attack["result"]
 		if (attack["blockable"] == true and BattleSystem.playerDefending == false) or attack["blockable"] == false:
 			action["general"]["impactSFX"] = attack["sound"]
-		
+		var blocked : bool = (attack["blockable"] == true and BattleSystem.playerDefending == true)
 		# status effect inflict
-		if attack["statusEffect"] != null:
+		if attack["statusEffect"] != null and not miss and not blocked:
 			action["combatData"]["statusEffects"]["inflict"][attack["statusEffect"]]["points"] = Global.rng.randi_range(attack["statusEffectPointsMin"],attack["statusEffectPointsMax"]) 
 			action["combatData"]["statusEffects"]["inflict"][attack["statusEffect"]]["chance"] = attack["statusEffectChance"]
 		
-		var blocked : bool = (attack["blockable"] == true and BattleSystem.playerDefending == true)
 		if not blocked:
 			if BattleSystem.playerDefending == false:
 				action["playerStatus"]["radiationInflict"] = clamp((radDmg - (playerDefense / 2)), 0, 10000000000)
@@ -189,7 +189,8 @@ static func die(enemy):
 	action["general"]["priority"] = 3
 	var announcement = BattleSystem.enemyDict[enemy]["deathMessage"].pick_random()
 	action["general"]["announcement"] = announcement["text"]
-	action["general"]["announcementSFX"] = announcement["sound"]
+	if announcement.has("sound"):
+		action["general"]["announcementSFX"] = announcement["sound"]
 	action["general"]["type"] = "death"
 	action["general"]["user"] = enemy
 	BattleSystem.accumulatedExp += BattleSystem.enemyDict[enemy]["stats"]["experience"]

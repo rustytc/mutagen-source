@@ -105,7 +105,7 @@ static func attack(targets, limbs, priority = 1):
 		action["combatData"]["crit"] = true
 	action["general"]["priority"] = priority
 	
-	if GlobalDb["weaponDatabase"][weapon]["statusEffect"] != null:
+	if GlobalDb["weaponDatabase"][weapon]["statusEffect"] != null  and not miss:
 		action["combatData"]["statusEffects"]["inflict"][GlobalDb["weaponDatabase"][weapon]["statusEffect"]]["points"] = Global.rng.randi_range(GlobalDb["weaponDatabase"][weapon]["statusEffectPointsMin"],GlobalDb["weaponDatabase"][weapon]["statusEffectPointsMax"]) 
 		action["combatData"]["statusEffects"]["inflict"][GlobalDb["weaponDatabase"][weapon]["statusEffect"]]["chance"] = GlobalDb["weaponDatabase"][weapon]["statusEffectChance"]
 	if miss:

@@ -1,0 +1,260 @@
+[gd_scene load_steps=12 format=3 uid="uid://dakkhiip4uh4a"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Overworld/Enemies/Enemy Base/enemy_base.gd" id="1_ga1o0"]
+[ext_resource type="Texture2D" uid="uid://b2xbdag26gp6k" path="res://Assets/Images/Sprites/World Objects/NPCs/Enemies/fleshMound/chaseForwards1.png" id="24_fkh1y"]
+[ext_resource type="Texture2D" uid="uid://cnafeeeuh6ok3" path="res://Assets/Images/Sprites/World Objects/NPCs/Enemies/fleshMound/chaseForwards2.png" id="25_vnigo"]
+[ext_resource type="Texture2D" uid="uid://og7eah3p7v2t" path="res://Assets/Images/Sprites/World Objects/NPCs/Enemies/fleshMound/chaseForwards3.png" id="26_bipop"]
+[ext_resource type="Texture2D" uid="uid://bm31wxayg8f4w" path="res://Assets/Images/Sprites/World Objects/NPCs/Enemies/fleshMound/chaseForwards4.png" id="27_mk7wd"]
+[ext_resource type="Texture2D" uid="uid://bdy4njpyk5vdq" path="res://Assets/Images/Sprites/World Objects/NPCs/Enemies/fleshMound/chaseForwards5.png" id="28_5w2x3"]
+[ext_resource type="Texture2D" uid="uid://blub6vni1p4xn" path="res://Assets/Images/Sprites/World Objects/NPCs/Enemies/fleshMound/chaseForwards6.png" id="29_ajkqn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eyskf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_fkh1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_vnigo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_bipop")
+}],
+"loop": true,
+"name": &"Alert",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_fkh1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_vnigo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_bipop")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_fkh1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_vnigo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_bipop")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_fkh1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_vnigo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_bipop")
+}],
+"loop": true,
+"name": &"Idle Backwards",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_fkh1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_vnigo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_bipop")
+}],
+"loop": true,
+"name": &"Idle Forwards",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_fkh1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_vnigo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_bipop")
+}],
+"loop": true,
+"name": &"Idle Sideways",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_fkh1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_bipop")
+}],
+"loop": true,
+"name": &"Walk Backwards",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_fkh1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_vnigo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_bipop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_mk7wd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_5w2x3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ajkqn")
+}],
+"loop": true,
+"name": &"Walk Forwards",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_fkh1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_vnigo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_bipop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_mk7wd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_5w2x3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ajkqn")
+}],
+"loop": true,
+"name": &"Walk Sideways",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j5ocs"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_og8ri"]
+radius = 72.0069
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjqck"]
+size = Vector2(26, 53)
+
+[node name="fleshMound" type="Node2D"]
+y_sort_enabled = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["Overworld Enemy"]]
+y_sort_enabled = true
+safe_margin = 3.0
+script = ExtResource("1_ga1o0")
+chaseSpeed = 200
+prowlSpeed = 50
+state = "prowl"
+enemyType = "Flesh Mound"
+maxStamina = 1e+10
+stamina = 1e+10
+staminaDrain = 0.0
+staminaGain = 0.0
+alertSounds = []
+chaseTheme = ""
+screamSound = ""
+chatterSound = ""
+caughtSound = ""
+encounterTheme = "res://Assets/Sounds/Music/Oort.mp3"
+
+[node name="chaseMusic" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+process_mode = 1
+position = Vector2(0, 9)
+max_distance = 800.0
+bus = &"Chase Music"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(0, -10)
+sprite_frames = SubResource("SpriteFrames_eyskf")
+animation = &"Attack"
+autoplay = "Idle"
+frame_progress = 0.879059
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_j5ocs")
+disabled = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
+path_max_distance = 2000.0
+path_postprocessing = 1
+simplify_path = true
+simplify_epsilon = 10.0
+avoidance_enabled = true
+radius = 156.46
+neighbor_distance = 100000.0
+max_neighbors = 20
+time_horizon_agents = 2.0
+max_speed = 100000.0
+
+[node name="LineOfSight" type="Area2D" parent="CharacterBody2D"]
+
+[node name="Raycast2D" type="RayCast2D" parent="CharacterBody2D/LineOfSight"]
+visible = false
+position = Vector2(0, 9)
+collide_with_areas = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D/LineOfSight"]
+position = Vector2(-71.44, -9.865)
+rotation = 4.71238
+scale = Vector2(1.575, 6)
+polygon = PackedVector2Array(-6.26083, 11.9072, -145.391, 84.9117, -114.087, 118.291, -6.26043, 129.027, 101.566, 118.291, 132.87, 84.9116)
+
+[node name="Vicinity" type="Area2D" parent="CharacterBody2D"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Vicinity"]
+visible = false
+shape = SubResource("CircleShape2D_og8ri")
+
+[node name="Collision" type="Area2D" parent="CharacterBody2D"]
+
+[node name="hitbox" type="CollisionShape2D" parent="CharacterBody2D/Collision"]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_rjqck")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+process_mode = 3
+visible = false
+position = Vector2(0, 9)
+bus = &"SFX"
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="CharacterBody2D"]
+radius = 48.0
+
+[node name="pathfindingTimer" type="Timer" parent="CharacterBody2D"]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="body_entered" from="CharacterBody2D/LineOfSight" to="CharacterBody2D" method="_on_line_of_sight_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/LineOfSight" to="CharacterBody2D" method="_on_line_of_sight_body_exited"]
+[connection signal="body_entered" from="CharacterBody2D/Vicinity" to="CharacterBody2D" method="_on_vicinity_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/Vicinity" to="CharacterBody2D" method="_on_vicinity_body_exited"]
+[connection signal="area_entered" from="CharacterBody2D/Collision" to="CharacterBody2D" method="_on_collision_area_entered"]
+[connection signal="body_entered" from="CharacterBody2D/Collision" to="CharacterBody2D" method="_on_collision_body_entered"]

@@ -424,5 +424,275 @@ var enemies := {
 				"sound" : "res://Assets/Sounds/World/NPCs/Enemies/True Mutant B/TMB_laugh.mp3",
 			},
 		]
+	},
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	"Flesh Mound": {
+		"battleSprite" : "res://Assets/Scenes/Battle/Battle Sprites/Flesh Mound/Flesh Mound.tscn",
+		"battleSpriteID" : "",
+		"ID" : 0,
+		"phase": "Phase 1",
+		"distance":"close",
+		"telegraph": "",
+		"stats" : {
+			"experience":30,
+			"health": 200,
+			"maxHealth": 200,
+			"stamina":200,
+			"maxStamina" : 200,
+			"minStaminaToAttack" : 0,
+			"attackMultiplier" : 1,
+			"speed" : 2,
+			"surgeChance" : 1, # 5% chance of the enemy per turn to randomly regain a huge chunk of stamina
+			"itemDropLikelihood" : 50, # 50% chance to drop any item
+		},
+		"itemDrops" : {
+			"driedMeat" : {
+				"weight" : 1,
+				"quantity" : 1,
+				"type" : "item"
+			},
+			
+		},
+		
+		"statusEffects": {
+		"bleeding": {
+			"active" : false,
+			"points" : 0,
+			"harming" : true,
+			"baseDmg" : 5,
+			"appliedDmg" : 5,
+			"turnSkip": false,
+			"effectChance": 100,
+			"announcementInflict" : "[NAME] started bleeding.",
+			"announcementCure" : "[NAME]'s wound dried up.",
+			"resultCure" : "[NAME] stopped bleeding.",
+			"announcementHarm" : ["[NAME] suffered blood loss.",],
+			"resultHarm" : "[NAME] took [DAMAGE] HP damage.",
+		},
+		"illness": {
+			"active" : false,
+			"points" : 0,
+			"harming" : true,
+			"baseDmg" : 5,
+			"appliedDmg" : 5,
+			"turnSkip": true,
+			"effectChance":50,
+			"announcementInflict" : "[NAME] got sick.",
+			"announcementCure" : "[NAME] healed from its sickness.",
+			"resultCure" : "[NAME] is no longer sick.",
+			"announcementHarm" : ["[NAME] somehow coughed.","[NAME] spit out blood.",],
+			"resultHarm" : "[NAME] took [DAMAGE] HP damage.",
+		},
+		"cripple": {
+			"active" : false,
+			"points" : 0,
+			"harming" : false,
+			"turnSkip": false,
+			"effectChance": 100,
+			"speedMod":0.25,
+			"announcementInflict" : "[NAME] became crippled.",
+			"announcementCure" : "[NAME] stopped limping.",
+			"resultCure" : "[NAME] is no longer crippled.",
+		},
+		"fatigue": {
+			"active" : false,
+			"points" : 0,
+			"harming" : false,
+			"turnSkip": true,
+			"effectChance":30,
+			"speedMod":0.75,
+			"defenseMod":0.5,
+			"announcementInflict" : "[NAME] is fatigued.",
+			"announcementCure" : "[NAME] snapped out of it!",
+			"resultCure" : "[NAME] is no longer fatigued.",
+		},
+		"berserk": {
+			"active" : false,
+			"points" : 0,
+			"harming" : false,
+			"turnSkip": true,
+			"effectChance": 100,
+			"announcementInflict" : "[color=red][NAME] WENT BERSERK!!![/color]",
+			"announcementCure" : "!..",
+			"resultCure" : "[NAME] is no longer berserk.",
+			"announcementAttack" : ["[color=red][NAME] is strangling [TARGET]![/color]"],
+			"resultAttack" : "[color=red][TARGET] took [DAMAGE] HP damage.[/color]"
+		},
+		},
+		
+		"limbs" : {
+			"Upper Chunk" : {
+				"damagePercent" : 100,
+				"hitRate" : 35,
+				"description" : "UPPER CHUNK\nDamage %: 100\nHit Chance %: 35\nA bit tricky to aim at with all that's going on. Deals quite a bit of damage",
+				
+			},
+			"Mid Section" : {
+				"damagePercent" : 50,
+				"hitRate" : 90, 
+				"description" : "MID SECTION\nDamage %: 50\nHit Chance %: 90\nEasiest to aim at, deals moderate damage."
+				
+			},
+			"Lower Half" : {
+				"damagePercent" : 75,
+				"hitRate" : 65,
+				"description" : "LOWER HALF\nDamage %: 75\nHit Chance %: 65\nSlightly difficult to hit correctly, but staggers the enemy."
+				
+			},
+		},
+		"logic" : {
+			"Phase 1": {
+				"maxStamina": 200,
+				"health" : 200,
+				"maxHealth" : 200,
+				"attacks": ["Slap", "StrangleTelegraph"],
+				"behavior" : "random",
+				"canFlee" : true,
+				"turns" : 0,
+				"canAdvance" : true,
+				}
+			},
+		"attacks":
+			{
+				"Slap" : {
+					
+				"minDamage": 10,
+				"maxDamage": 32,
+				"minRadDamage": 0,
+				"maxRadDamage": 0,
+				"weight": "Light",
+				"cost": 0,
+				"type": "Normal",
+				"statusEffect": null,
+				"announce": "[NAME] slapped you!",
+				"result": "...that dealt [DAMAGE] to your health!",
+				"sound": "res://Assets/Sounds/Battle/pew.mp3",
+				"missResult": "...Flynn got out of the way.",
+				"missSound": "res://Assets/Sounds/Random/weird.mp3",
+				"announcementPause": 2,
+				"impactPause": 2,
+				"resultPause":2,
+				"priority" : 1,
+				"blockable" : false,
+				},
+			"StrangleTelegraph" : {
+				"minDamage": 0,
+				"maxDamage": 0,
+				"minRadDamage": 0,
+				"maxRadDamage": 0,
+				"weight": "Heavy",
+				"cost": 60,
+				"type": "telegraphRadio",
+				"telegraph": "Strangle",
+				"statusEffect": null,
+				"announcementPause": 2,
+				"impactPause": 2,
+				"resultPause":2,
+				"priority" : 1,
+				"blockable" : false,
+			},
+			
+		},
+				"telegraphAttacks":
+			{
+				 "Strangle" : {
+				"minDamage": 23,
+				"maxDamage": 48,
+				"minRadDamage": 32,
+				"maxRadDamage": 42,
+				"weight": "Heavy",
+				"cost": 0,
+				"type": "Radioactive",
+				"statusEffect": "cripple",
+				"statusEffectPointsMin" : 4,
+				"statusEffectPointsMax" : 8,
+				"statusEffectChance" : 100,
+				"announce": "[NAME] strangled you with its various appendages!",
+				"result": "...that dealt [DAMAGE] to your health and gave you +[RADIATION]% radiation!",
+				"sound": "res://Assets/Sounds/Blood/gib0.mp3",
+				"missResult": "...It didn't hit you.",
+				"blockResult": "...Flynn got out of the way.",
+				"missSound": "res://Assets/Sounds/Random/weird.mp3",
+				"blockSound": "res://Assets/Sounds/Random/weird3.mp3",
+				"announcementPause": 2,
+				"impactPause": 2,
+				"resultPause":2,
+				"priority" : 1,
+				"blockable" : true,
+				"distanceChange" : "close"
+			},
+		},
+		
+		"radioWarning": [
+			{
+				"text" : "[color=lime][!] [NAME] is readying itself for something...[/color]",
+			},
+			{
+				"text" : "[color=lime][!] [NAME] looks like it's about to do something.[/color]",
+			},
+			{
+				"text" : "[color=lime][!] [NAME] looks ready. Brace for impact.[/color]",
+			},
+		],
+		"surgeWarning": [
+			{
+				"text" : "[color=yellow][*] [NAME] looks energetic.[/color]",
+			},
+			{
+				"text" : "[color=yellow][*] [NAME] looks motivated.[/color]",
+			},
+			{
+				"text" : "[color=yellow][*] [NAME] is energized.[/color]",
+			},
+		],
+				"restWarning": [
+			{
+				"text" : "[NAME] is hesitating.",
+			},
+			{
+				"text" : "[NAME] looks tired.",
+			},
+			{
+				"text" : "[NAME] is resting.",
+			},
+			{
+				"text" : "[NAME] is taking a break.",
+			}
+		],
+				"deathMessage": [
+			{
+				"text" : "[NAME] was killed.",
+			},
+			{
+				"text" : "[NAME] died.",
+			},
+			{
+				"text" : "[NAME] stopped moving.",
+			},
+		],
+		"initiationText": [
+			{
+				"text" : "[NAME] blocks the way!",
+				"speed" : 2,
+			},
+			{
+				"text" : "You didn't outrun [NAME]!",
+				"speed" : 2,
+			},
+			{
+				"text" : "[NAME] creeps towards you!",
+				"speed" : 2,
+			},
+		]
 	}
+	
 }

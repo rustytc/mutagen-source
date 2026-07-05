@@ -93,7 +93,10 @@ func advanceCheck():
 
 func enemyIntroduction(enemyName):
 	var introduction = EnemyDb.enemies[removeIdentifier(enemyName)]["initiationText"].pick_random()
-	ActionProcessor.queueAnnouncementAction(introduction["text"].replace("[NAME]", enemyName), introduction["speed"], introduction["sound"])
+	if introduction.has("sound"):
+		ActionProcessor.queueAnnouncementAction(introduction["text"].replace("[NAME]", enemyName), introduction["speed"], introduction["sound"])
+	else:
+		ActionProcessor.queueAnnouncementAction(introduction["text"].replace("[NAME]", enemyName), introduction["speed"], null)
 
 func turnOrder():
 	var candidates = enemyDict.keys()

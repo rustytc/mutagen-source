@@ -374,9 +374,10 @@ func chatter():
 func callout():
 	if $AudioStreamPlayer2D.playing:
 		return
-	$AudioStreamPlayer2D.stream = load(alertSounds.pick_random())
-	$AudioStreamPlayer2D.pitch_scale = rng.randf_range(0.8, 1.1)
-	$AudioStreamPlayer2D.play()
+	if alertSounds.size() > 0:
+		$AudioStreamPlayer2D.stream = load(alertSounds.pick_random())
+		$AudioStreamPlayer2D.pitch_scale = rng.randf_range(0.8, 1.1)
+		$AudioStreamPlayer2D.play()
 	
 func catchSound():
 	$AudioStreamPlayer2D.pitch_scale = 1

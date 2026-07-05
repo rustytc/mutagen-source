@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://buamukxvqtnih"]
+[gd_scene load_steps=8 format=3 uid="uid://buamukxvqtnih"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Overworld/Maps/Test Level/testLevel.gd" id="1_k2f67"]
 [ext_resource type="PackedScene" uid="uid://b46pil1mndjda" path="res://Assets/Scenes/World/Objects/Player/player.tscn" id="1_okdcl"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dlmbrnt6h3nxm" path="res://Assets/Scenes/World/Objects/NPCs/Enemies/Common/enemy_base.tscn" id="3_6kjbe"]
 [ext_resource type="PackedScene" uid="uid://cyxt6ioiyej4" path="res://Assets/Scenes/World/Triggers/pathfinding_zone.tscn" id="4_50e7l"]
 [ext_resource type="PackedScene" uid="uid://dtmiaklh4rvt3" path="res://Assets/Scenes/World/Objects/NPCs/Interactable/NPC Base/npc_base.tscn" id="6_kqq7q"]
+[ext_resource type="PackedScene" uid="uid://dakkhiip4uh4a" path="res://Assets/Scenes/World/Objects/NPCs/Enemies/Common/fleshMound.tscn" id="7_bs6x3"]
 
 [node name="the room" type="Node2D"]
 y_sort_enabled = true
@@ -13,7 +14,7 @@ script = ExtResource("1_k2f67")
 metadata/_edit_vertical_guides_ = [-295.0]
 
 [node name="Player" parent="." instance=ExtResource("1_okdcl")]
-position = Vector2(1754, 1230)
+position = Vector2(554, 903)
 
 [node name="Walls" parent="." instance=ExtResource("2_k7vep")]
 y_sort_enabled = true
@@ -94,6 +95,10 @@ position = Vector2(1352, 2216)
 targetZone = 6
 targetZoneRange = [5, 6]
 
+[node name="fleshMound" parent="." instance=ExtResource("7_bs6x3")]
+position = Vector2(86, 1215)
+
 [editable path="the idler"]
 [editable path="EnemyBase"]
 [editable path="EnemyBase2"]
+[editable path="fleshMound"]
