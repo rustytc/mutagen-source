@@ -199,7 +199,7 @@ position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_eyskf")
 animation = &"Attack"
 autoplay = "Idle"
-frame_progress = 0.776155
+frame_progress = 0.443881
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_j5ocs")
