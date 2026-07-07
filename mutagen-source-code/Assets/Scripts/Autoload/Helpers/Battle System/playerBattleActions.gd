@@ -148,7 +148,7 @@ static func flee():
 	for i in BattleSystem.enemyDict:
 		index += 1
 		var enemy = BattleSystem.enemyDict[i]
-		if ( enemy["stats"]["speed"] * ActionProcessor.STATUS_MANAGER.checkSpeedMod(i) > (PlayerDb.playerData["player"]["stats"]["speed"] * 1.5 * ActionProcessor.STATUS_MANAGER.checkSpeedMod("Player"))) or (enemy["distance"] == "close") or (enemy["logic"][enemy["phase"]]["canFlee"] == false):
+		if ( enemy["stats"]["speed"] * ActionProcessor.STATUS_MANAGER.checkSpeedMod(i) > (PlayerDb.playerData["player"]["stats"]["speed"] * 1.5 * ActionProcessor.STATUS_MANAGER.checkSpeedMod("Player"))) or (enemy["distance"] == "close") or (enemy["logic"][enemy["phase"]]["canFlee"] == false) or PlayerDb.playerData["player"]["statusEffects"]["cripple"]["active"] == true:
 			action["general"]["result"] = "He could not escape."
 			action["general"]["type"] = "fleeFail"
 			ActionProcessor.queuedActions.append(action)
