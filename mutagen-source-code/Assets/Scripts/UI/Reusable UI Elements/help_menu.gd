@@ -1023,6 +1023,14 @@ func _process(delta):
 		$Tabs/Stats/statsList.set_item_text(9, "SPEED: " + str(PlayerDb.playerData["player"]["stats"]["speed"]))
 		$Tabs/Stats/statsList.set_item_text(10, "BATTLE IQ: " + str(PlayerDb.playerData["player"]["stats"]["battleIQ"]))
 		$Tabs/Stats/statsList.set_item_text(11, "RUNTIME: " + PlayerDb.playerData["game"]["runTime"])
+		for i in $Tabs/Stats/statsList.item_count:
+			$Tabs/Stats/statsList.set_item_tooltip(i, " ")
+			
+			
+	# Radio Menu
+	for i in $Tabs/Radio/radioList.item_count:
+			$Tabs/Radio/radioList.set_item_tooltip(i, " ")
+	
 
 
 

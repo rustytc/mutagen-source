@@ -153,7 +153,7 @@ var enemies := {
 				"health" : 100,
 				"maxHealth" : 100,
 				"attacks": ["Slash", "Bite", "InjectTelegraph", "Screech"],
-				"behavior" : "cocky",
+				"behavior" : "random",
 				"canFlee" : true,
 				"turns" : 0,
 				"canAdvance" : true,

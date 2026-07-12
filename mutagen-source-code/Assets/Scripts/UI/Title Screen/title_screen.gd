@@ -165,17 +165,17 @@ func _ready():
 		tomcatText = "[center][color=yellow]Happy Hanukkah!"
 	
 	if time.month == 12 and time.day == 25 and not isHanukkah:
-		tomcatText = "[center][color=red]M[/color][color=green]e[/color][color=red]r[/color][color=green]r[/color][color=red]y[/color] [color=green]C[/color][color=red]h[/color][color=green]r[/color][color=red]i[/color][color=green]s[/color][color=red]t[/color][color=green]m[/color][color=red]a[/color][color=green]s[color=red]!"
+		tomcatText = "[pulse][center][color=red]M[/color][color=green]e[/color][color=red]r[/color][color=green]r[/color][color=red]y[/color] [color=green]C[/color][color=red]h[/color][color=green]r[/color][color=red]i[/color][color=green]s[/color][color=red]t[/color][color=green]m[/color][color=red]a[/color][color=green]s[color=red]!"
 		
 	if (time.month == 12 and time.day >= 26) or (time.month == 1 and time.day <= 1):
-		tomcatText = "[center][color=red]H[/color][color=#404040]a[/color][color=green]p[/color][color=red]p[/color][color=#404040]y[/color] [color=green]K[/color][color=red]w[/color][color=#404040]a[/color][color=green]n[/color][color=red]z[/color][color=#404040]a[/color][color=green]a[/color][color=red]![/color]"
+		tomcatText = "[pulse][center][color=red]H[/color][color=#404040]a[/color][color=green]p[/color][color=red]p[/color][color=#404040]y[/color] [color=green]K[/color][color=red]w[/color][color=#404040]a[/color][color=green]n[/color][color=red]z[/color][color=#404040]a[/color][color=green]a[/color][color=red]![/color]"
 	
 	if isHanukkah(time) and time.day >= 25:
-		tomcatText = "[center][color=yellow]Happy Holidays!"
+		tomcatText = "[pulse][center][color=yellow]Happy Holidays!"
 	
 	if time.month == 1 and time.day == 1:
 		tomcatText = [
-		"[center][color=yellow]Happy %s![/color]" % time.year,
+		"[pulse][center][color=yellow]Happy %s![/color]" % time.year,
 		"[center][color=red]H[/color][color=#404040]a[/color][color=green]p[/color][color=red]p[/color][color=#404040]y[/color] [color=green]K[/color][color=red]w[/color][color=#404040]a[/color][color=green]n[/color][color=red]z[/color][color=#404040]a[/color][color=green]a[/color][color=red]![/color]"
 		].pick_random()
 		
