@@ -75,7 +75,10 @@ static func execute(data):
 					if data["combatData"]["crit"] == true:
 						await ActionProcessor.PROCEDURES.hitstop(damage, maxHealth)
 		await ActionProcessor.waitForActionPause(data["general"]["impactPause"], data["general"]["inputDependent"])
-
+	
+	if data["combatData"]["atkBoost"] != 0 and data["general"]["type"] != "attackMiss" and data["general"]["type"] != "attackInterrupted":
+		if BattleSystem.enemyDict.has(data["general"]["user"]):
+			BattleSystem.enemyDict[data["general"]["user"]]["stats"]["attackMultiplier"] *= data["combatData"]["atkBoost"]
 		
 	# "Result" (What gets displayed after a thing changes and its time to tell the player what happened)
 	# Note: ALL of these are optional. They're all gonna be used together very often, though. Almost ALWAYS in combat actions

@@ -93,9 +93,9 @@ static func attack(user, attack, priority = 1):
 		action["playerStatus"]["radiationInflict"] = 0
 	elif (attack["blockable"] == true and BattleSystem.playerDefending == false) or (attack["blockable"] == false) and not miss:
 		if BattleSystem.playerDefending == false:
-			action["combatData"]["damage"] = int( clamp((compoundDmg - playerDefense), 0, 10000000000))
+			action["combatData"]["damage"] = int(round(clamp((compoundDmg - playerDefense), 0, 10000000000)))
 		else:
-			action["combatData"]["damage"] = int( clamp((compoundDmg - (playerDefense*2)), 0, 10000000000))
+			action["combatData"]["damage"] = int(round(clamp((compoundDmg - (playerDefense*2)), 0, 10000000000)))
 	action["enemyStatus"]["staminaCost"] = staminaCost
 	if attack["type"] != "telegraphRadio" and attack["type"] != "telegraphStd":
 		action["general"]["announcement"] = attack["announce"]
@@ -121,6 +121,8 @@ static func attack(user, attack, priority = 1):
 	action["general"]["announcementPause"] = attack["announcementPause"]
 	action["general"]["impactPause"] = attack["impactPause"]
 	action["general"]["resultPause"] = attack["resultPause"]
+	if attack["type"] == "atkBoost":
+		action["combatData"]["atkBoost"] = attack.get("atkBoost", 1.0)
 	
 	if (not miss) and attack["type"] != "telegraphRadio" and attack["type"] != "telegraphStd":
 		action["general"]["type"] = "attack"

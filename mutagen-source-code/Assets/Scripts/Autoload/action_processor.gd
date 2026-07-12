@@ -242,4 +242,8 @@ func formatActionText(txt, data, targetsArray = []):
 	text = text.replace("[DAMAGE]", str(data["combatData"]["damage"]))
 	text = text.replace("[NAME]", str(data["general"]["user"]))
 	text = text.replace("[RADIATION]", str(data["playerStatus"]["radiationInflict"]))
+	if data["general"]["user"] == "Player":
+		text = text.replace("[ATTACK]", str(PlayerDb.playerData["player"]["stats"]["attack"]))
+	elif BattleSystem.enemyDict.has(data["general"]["user"]):
+		text = text.replace("[ATTACK]", str(BattleSystem.enemyDict[data["general"]["user"]]["stats"]["attackMultiplier"]))
 	return(text)
