@@ -427,16 +427,16 @@ func iHearYou():
 		speed = alertSpeed
 
 func returnToWorldState():
+	canSeePlayer = false
 	for i in BattleSystem.enemyIDsKilled:
 		if ID == i:
 			ActorHelper.targetters -= 1
 			queue_free()
 			return
-	if canSeePlayer:
-		state = "wait"
-		$AnimatedSprite2D.play("Alert")
-		await get_tree().create_timer(4, false, true, false).timeout
-		prowl()
+	state = "wait"
+	$AnimatedSprite2D.play("Alert")
+	await get_tree().create_timer(4, false, true, false).timeout
+	prowl()
 	canSeePlayer = false
 	battleInitiated = false
 	caughtThePlayer = false

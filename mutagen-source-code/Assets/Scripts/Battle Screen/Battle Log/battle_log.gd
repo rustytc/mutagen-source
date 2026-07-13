@@ -28,7 +28,7 @@ func _process(delta):
 	
 	
 	# Speeding up dialogue (and everything else)
-	if Input.is_action_pressed("Speed Up Dialogue") and ActionProcessor.processing == true and BattleSystem.battleEnded == false and Global.playerCharBody2D.controllable == false:
+	if Input.is_action_pressed("Speed Up Dialogue") and ActionProcessor.processing == true and BattleSystem.battleEnded == false and (Global.playerCharBody2D.controllable == false or Global.currentScreen == "battle"):
 		Engine.time_scale = 10
 		speedingUpDialogue = true
 	elif speedingUpDialogue:

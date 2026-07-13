@@ -226,11 +226,15 @@ static func execute(data):
 					ActionProcessor.STATUS_MANAGER.showEffectInitiation(effect, data["general"]["target"])
 				else:
 					for enemy in data["general"]["target"]:
+						if not BattleSystem.enemyDict.has(enemy):
+							continue
 						BattleSystem.enemyDict[enemy]["statusEffects"][effect]["points"] += list[effect]["points"]
 						ActionProcessor.STATUS_MANAGER.showEffectInitiation(effect, data["general"]["target"])
 	for effect in data["combatData"]["statusEffects"]["cure"]:
 		if data["combatData"]["statusEffects"]["cure"][effect] == true:
 			for target in data["general"]["target"]:
+				if not BattleSystem.enemyDict.has(target) and target != "Player":
+					continue
 				var effectData = null
 				if target == "Player":
 					effectData = PlayerDb.playerData["player"]["statusEffects"][effect]
