@@ -120,7 +120,7 @@ func _physics_process(delta):
 
 # Sprinting
 
-		if Input.is_action_pressed("Shift"):
+		if Input.is_action_pressed("Shift") and PlayerDb.playerData["player"]["statusEffects"]["cripple"]["active"] == false:
 			speed = 350 + (10*(pow((PlayerDb.playerData["player"]["stats"]["speed"]*ActionProcessor.STATUS_MANAGER.checkSpeedMod("Player")),0.5)))
 			# the player's running speed is 350 pluswD 10 times their speed stat to the power of 0.5
 			if $AnimatedSprite2D.animation in ["Walk Backwards", "Walk Forwards", "Walk Sideways"]:

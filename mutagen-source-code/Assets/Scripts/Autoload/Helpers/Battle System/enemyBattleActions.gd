@@ -10,7 +10,8 @@ static func surge(user):
 	action["general"]["userName"] = userNoID
 	var announcement = BattleSystem.enemyDict[user]["surgeWarning"].pick_random()
 	action["general"]["announcement"] = announcement["text"]
-	action["general"]["announcementSFX"] = announcement["sound"]
+	if announcement.has("sound"):
+		action["general"]["announcementSFX"] = announcement["sound"]
 	action["general"]["announcementPause"] = 2
 	ActionProcessor.queueSpecificAction(action)
 
@@ -24,7 +25,8 @@ static func changePhase(user, phaseName, trigger):
 	action["enemyStatus"]["phaseChange"] = phaseName
 	var announcement = BattleSystem.enemyDict[user]["logic"][phase]["phaseChanges"][trigger]["announcements"].pick_random()
 	action["general"]["announcement"] = announcement["text"]
-	action["general"]["announcementSFX"] = announcement["sound"]
+	if announcement.has("sound"):
+		action["general"]["announcementSFX"] = announcement["sound"]
 	action["general"]["announcementPause"] = 2
 	action["general"]["priority"] = 4
 	ActionProcessor.queueSpecificAction(action)
@@ -38,7 +40,8 @@ static func rest(user):
 	action["general"]["userName"] = userNoID
 	var announcement = BattleSystem.enemyDict[user]["restWarning"].pick_random()
 	action["general"]["announcement"] = announcement["text"]
-	action["general"]["announcementSFX"] = announcement["sound"]
+	if announcement.has("sound"):
+		action["general"]["announcementSFX"] = announcement["sound"]
 	action["general"]["announcementPause"] = 2
 	ActionProcessor.queueSpecificAction(action)
 
