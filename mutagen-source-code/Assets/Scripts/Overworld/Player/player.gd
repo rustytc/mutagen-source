@@ -52,21 +52,22 @@ func _process(delta):
 	
 	
 	# Background Music
-	var musicTweening := false # prevents clipping
-	if Global.musicPlaying == true and $Music.playing == false and Global.musicCanPlay == true and Global.music != "" and Global.music != null: # getting the music to play
-		$Music.stream = load(Global.music)
-		$Music.play()
-		$Music.volume_db = Global.musicVolume
-	if Global.musicPlaying == true and $Music.volume_db < -1 and Global.musicCanPlay and musicTweening == false: # getting the music to unpause
-		var musicTween = create_tween().tween_property($Music, "volume_db", Global.musicVolume, 2)
-		musicTweening = true
-		await musicTween.finished
-		musicTweening = false
+	if Global.cutsceneIsActive == false:
+		var musicTweening := false # prevents clipping
+		if Global.musicPlaying == true and $Music.playing == false and Global.musicCanPlay == true and Global.music != "" and Global.music != null: # getting the music to play
+			$Music.stream = load(Global.music)
+			$Music.play()
+			$Music.volume_db = Global.musicVolume
+		if Global.musicPlaying == true and $Music.volume_db < -1 and Global.musicCanPlay and musicTweening == false: # getting the music to unpause
+			var musicTween = create_tween().tween_property($Music, "volume_db", Global.musicVolume, 2)
+			musicTweening = true
+			await musicTween.finished
+			musicTweening = false
 		
-	if Global.musicPlaying == false and $Music.playing == true: # getting the music to stop playing
-		create_tween().tween_property($Music, "volume_db", -300, 2)
-	if Global.musicCanPlay == false and Global.musicPlaying == true:
-		create_tween().tween_property($Music, "volume_db", -300, 2)
+		if Global.musicPlaying == false and $Music.playing == true: # getting the music to stop playing
+			create_tween().tween_property($Music, "volume_db", -300, 2)
+		if Global.musicCanPlay == false and Global.musicPlaying == true:
+			create_tween().tween_property($Music, "volume_db", -300, 2)
 		
 	#if AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("Chase Music"),0) > -195: # checking if theres any chase music playing
 	# ^proooobably not going to use this, keep in case of change
@@ -153,12 +154,13 @@ func _physics_process(delta):
 		else:
 			$AnimatedSprite2D.flip_h = false
 	else:
-		if $AnimatedSprite2D.animation == "Walk Backwards":
-			$AnimatedSprite2D.play("Idle Backwards")
-		if $AnimatedSprite2D.animation == "Walk Forwards":
-			$AnimatedSprite2D.play("Idle Forwards")
-		if $AnimatedSprite2D.animation == "Walk Sideways":
-			$AnimatedSprite2D.play("Idle Sideways")
+		if controllable:
+			if $AnimatedSprite2D.animation == "Walk Backwards":
+				$AnimatedSprite2D.play("Idle Backwards")
+			if $AnimatedSprite2D.animation == "Walk Forwards":
+				$AnimatedSprite2D.play("Idle Forwards")
+			if $AnimatedSprite2D.animation == "Walk Sideways":
+				$AnimatedSprite2D.play("Idle Sideways")
 			
 			
 			

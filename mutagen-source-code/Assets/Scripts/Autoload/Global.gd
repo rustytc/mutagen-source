@@ -12,6 +12,7 @@ var rng := RandomNumberGenerator.new()
 @export var musicPlaying := true
 @export var musicCanPlay := true # this is an extra variable check to see if other music is playing. if you want a scene to be mute, I recommend not using this but rather using musicPlaying instead
 var currentScreen := "world" # There are types of screens, 'world' screens, and 'battle' screens. These change UI
+@export var cutsceneIsActive := false
 
 # Battles Data
 var enemiesKilled := {}
@@ -27,6 +28,7 @@ var battleJustEnded := false
 @export var actionLog : Control = null
 @export var helpMenu : Control = null
 @export var cutscenePlayer = null
+
 
 # Variables from other autoloads
 var playerData : Dictionary = PlayerDb.playerData
@@ -75,7 +77,7 @@ func _ready():
 	call_deferred("handleFlags") # flags are checked on startup after everything is loaded in and their appropriate functions get executed
 	
 	cutscenePlayer = get_tree().get_first_node_in_group("Cutscene Player")
-	playCutscene("testCutscene")
+	playCutscene("doTheHokeyPokey")
 	
 	
 	
@@ -92,6 +94,8 @@ func _process(delta):
 	var secs : int = seconds % 60
 	playerData["game"]["runTime"] = "%02d:%02d:%02d" % [hours, minutes, secs]
 	cutscenePlayer = get_tree().get_first_node_in_group("Cutscene Player")
+	if cutscenePlayer.is_playing() == false and cutsceneIsActive:
+		endCutscene()
 	
 
 
@@ -113,4 +117,11 @@ func changeMusic(song, volume):
 	musicVolume = volume
 
 func playCutscene(cutscene):
+	await get_tree().process_frame
 	cutscenePlayer.current_animation = cutscene
+	cutsceneIsActive = true
+	
+func endCutscene():
+	await get_tree().process_frame
+	cutsceneIsActive = false
+	

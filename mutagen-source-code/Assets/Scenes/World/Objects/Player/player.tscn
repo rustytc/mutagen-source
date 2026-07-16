@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://b46pil1mndjda"]
+[gd_scene load_steps=38 format=3 uid="uid://b46pil1mndjda"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Overworld/Player/player.gd" id="1_qco1t"]
 [ext_resource type="Texture2D" uid="uid://l3mwc605r01r" path="res://Assets/Images/Sprites/World Objects/Player/Environmental/futureYou.png" id="2_ohpej"]
@@ -251,11 +251,6 @@ _data = {
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_vesi3"]
 
-[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_i6510"]
-format = 1
-mix_rate = 48000
-stereo = true
-
 [node name="Player" type="Node2D" groups=["Overworld Player"]]
 y_sort_enabled = true
 
@@ -267,7 +262,7 @@ y_sort_enabled = true
 texture_filter = 1
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_ac2jo")
-animation = &"Future You"
+animation = &"Idle Sideways"
 autoplay = "Idle Forwards"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" groups=["playerBody"]]
@@ -299,7 +294,6 @@ bus = &"SFX"
 
 [node name="Music" type="AudioStreamPlayer" parent="CharacterBody2D"]
 process_mode = 3
-stream = SubResource("AudioStreamWAV_i6510")
 bus = &"BGM"
 
 [node name="pauseMusic" type="AudioStreamPlayer" parent="CharacterBody2D"]
