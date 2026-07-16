@@ -253,6 +253,7 @@ func resetBattleTransition():
 	$"Camera2D/Overworld Battle Fizz Effect/Noise".material.set_shader_parameter("darkness", 0)
 
 func exitBattle():
+	
 	caught = false
 	Global.currentScreen = "world"
 	iframes = true

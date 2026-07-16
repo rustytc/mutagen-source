@@ -90,6 +90,8 @@ wallObjects="objects that are identifiable as walls"
 "Overworld UI"=""
 "Battle Screen"=""
 "Death Effect"=""
+"Cutscene Player"=""
+"Current Room"=""
 
 [input]
 

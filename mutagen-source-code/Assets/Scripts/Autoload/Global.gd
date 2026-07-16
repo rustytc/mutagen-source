@@ -26,6 +26,7 @@ var battleJustEnded := false
 @export var dialogueBox : Control = null
 @export var actionLog : Control = null
 @export var helpMenu : Control = null
+@export var cutscenePlayer = null
 
 # Variables from other autoloads
 var playerData : Dictionary = PlayerDb.playerData
@@ -62,7 +63,6 @@ var flags := {
 
 
 
-
 	
 
 func _ready():
@@ -74,7 +74,8 @@ func _ready():
 	
 	call_deferred("handleFlags") # flags are checked on startup after everything is loaded in and their appropriate functions get executed
 	
-	
+	cutscenePlayer = get_tree().get_first_node_in_group("Cutscene Player")
+	playCutscene("testCutscene")
 	
 	
 	
@@ -90,6 +91,7 @@ func _process(delta):
 	var minutes : int = (seconds % 3600) / 60
 	var secs : int = seconds % 60
 	playerData["game"]["runTime"] = "%02d:%02d:%02d" % [hours, minutes, secs]
+	cutscenePlayer = get_tree().get_first_node_in_group("Cutscene Player")
 	
 
 
@@ -109,3 +111,6 @@ func handleFlags():
 func changeMusic(song, volume):
 	music = song
 	musicVolume = volume
+
+func playCutscene(cutscene):
+	cutscenePlayer.current_animation = cutscene

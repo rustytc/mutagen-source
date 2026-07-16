@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://buamukxvqtnih"]
+[gd_scene load_steps=11 format=3 uid="uid://buamukxvqtnih"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Overworld/Maps/Test Level/testLevel.gd" id="1_k2f67"]
 [ext_resource type="PackedScene" uid="uid://b46pil1mndjda" path="res://Assets/Scenes/World/Objects/Player/player.tscn" id="1_okdcl"]
@@ -8,13 +8,110 @@
 [ext_resource type="PackedScene" uid="uid://dtmiaklh4rvt3" path="res://Assets/Scenes/World/Objects/NPCs/Interactable/NPC Base/npc_base.tscn" id="6_kqq7q"]
 [ext_resource type="PackedScene" uid="uid://dakkhiip4uh4a" path="res://Assets/Scenes/World/Objects/NPCs/Enemies/Common/fleshMound.tscn" id="7_bs6x3"]
 
-[node name="the room" type="Node2D"]
+[sub_resource type="Animation" id="Animation_v8jqt"]
+resource_name = "testCutscene"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/CharacterBody2D/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.766667, 2.23333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"Idle Forwards", &"Future You", &"Walk Forwards"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player/CharacterBody2D:controllable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 2.86667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player/CharacterBody2D/Camera2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.966667, 1.76667, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(300, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ygstv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/CharacterBody2D:controllable")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Player/CharacterBody2D/Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player/CharacterBody2D/AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Future You"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0bbi6"]
+_data = {
+"RESET": SubResource("Animation_ygstv"),
+"testCutscene": SubResource("Animation_v8jqt")
+}
+
+[node name="the room" type="Node2D" groups=["Current Room"]]
 y_sort_enabled = true
 script = ExtResource("1_k2f67")
 metadata/_edit_vertical_guides_ = [-295.0]
 
 [node name="Player" parent="." instance=ExtResource("1_okdcl")]
-position = Vector2(554, 903)
+position = Vector2(1099, 403)
 
 [node name="Walls" parent="." instance=ExtResource("2_k7vep")]
 y_sort_enabled = true
@@ -101,6 +198,12 @@ position = Vector2(86, 1215)
 [node name="CharacterBody2D" parent="fleshMound" index="0"]
 ID = 4
 
+[node name="cutscene" type="AnimationPlayer" parent="." groups=["Cutscene Player"]]
+libraries = {
+"": SubResource("AnimationLibrary_0bbi6")
+}
+
+[editable path="Player"]
 [editable path="the idler"]
 [editable path="EnemyBase"]
 [editable path="EnemyBase2"]
