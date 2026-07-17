@@ -419,95 +419,81 @@ enabled = false
 position = Vector2(1473, 544)
 
 [node name="PathfindingZone1" parent="." instance=ExtResource("5_g1dty")]
-position = Vector2(1080, 755)
+position = Vector2(601, 602)
 ID = 1
 
 [node name="fleshMound" parent="." instance=ExtResource("5_am6l3")]
 position = Vector2(1446, 648)
 
 [node name="CharacterBody2D" parent="fleshMound" index="0"]
-orderedTargetZones = Array[int]([0, 1])
 zoneCount = 2
-targetZoneRange = Array[int]([0, 1])
+targetZoneRange = [0, 1]
 
 [node name="fleshMound2" parent="." instance=ExtResource("5_am6l3")]
 position = Vector2(613, 789)
 
 [node name="CharacterBody2D" parent="fleshMound2" index="0"]
-orderedTargetZones = Array[int]([0, 1])
 zoneCount = 2
-targetZoneRange = Array[int]([0, 1])
+targetZoneRange = [0, 1]
 
 [node name="fleshMound3" parent="." instance=ExtResource("5_am6l3")]
 position = Vector2(757, 251)
 
 [node name="CharacterBody2D" parent="fleshMound3" index="0"]
-orderedTargetZones = Array[int]([0, 1])
 zoneCount = 2
-targetZoneRange = Array[int]([0, 1])
+targetZoneRange = [0, 1]
 
 [node name="fleshMound4" parent="." instance=ExtResource("5_am6l3")]
 position = Vector2(1404, 413)
 
 [node name="CharacterBody2D" parent="fleshMound4" index="0"]
-orderedTargetZones = Array[int]([0, 1])
 zoneCount = 2
-targetZoneRange = Array[int]([0, 1])
+targetZoneRange = [0, 1]
 
 [node name="fleshMound5" parent="." instance=ExtResource("5_am6l3")]
 position = Vector2(515, 528)
 
 [node name="CharacterBody2D" parent="fleshMound5" index="0"]
-orderedTargetZones = Array[int]([0, 1])
 zoneCount = 2
-targetZoneRange = Array[int]([0, 1])
+targetZoneRange = [0, 1]
 
 [node name="fleshMound6" parent="." instance=ExtResource("5_am6l3")]
 position = Vector2(662, 357)
 
 [node name="CharacterBody2D" parent="fleshMound6" index="0"]
-orderedTargetZones = Array[int]([0, 1])
 zoneCount = 2
-targetZoneRange = Array[int]([0, 1])
+targetZoneRange = [0, 1]
 
 [node name="fleshMound7" parent="." instance=ExtResource("5_am6l3")]
 position = Vector2(1380, 739)
 
 [node name="CharacterBody2D" parent="fleshMound7" index="0"]
-orderedTargetZones = Array[int]([0, 1])
 zoneCount = 2
-targetZoneRange = Array[int]([0, 1])
+targetZoneRange = [0, 1]
 
 [node name="fleshMound8" parent="." instance=ExtResource("5_am6l3")]
 position = Vector2(1214, 846)
 
 [node name="CharacterBody2D" parent="fleshMound8" index="0"]
-orderedTargetZones = Array[int]([0, 1])
 zoneCount = 2
-targetZoneRange = Array[int]([0, 1])
+targetZoneRange = [0, 1]
 
 [node name="fleshMound9" parent="." instance=ExtResource("5_am6l3")]
 position = Vector2(1208, 552)
 
 [node name="CharacterBody2D" parent="fleshMound9" index="0"]
-orderedTargetZones = Array[int]([0, 1])
 zoneCount = 2
-targetZoneRange = Array[int]([0, 1])
+targetZoneRange = [0, 1]
 
 [node name="lighting" type="CanvasModulate" parent="."]
 texture_filter = 1
-color = Color(0.00820202, 0.00820203, 0.00820202, 1)
 
 [node name="EnemyBase" parent="." instance=ExtResource("7_iwsmi")]
 position = Vector2(864, 198)
 
 [node name="CharacterBody2D" parent="EnemyBase" index="0"]
-speed = 200
-chaseSpeed = 200
-alertSpeed = 200
-prowlSpeed = 200
 zoneCount = 2
-targetZoneRange = Array[int]([0, 1])
+targetZoneRange = [0, 1]
 
 [editable path="fleshMound"]
 [editable path="fleshMound2"]

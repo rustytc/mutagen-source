@@ -36,7 +36,7 @@ var lastKnownPlayerPosition := Vector2.ZERO
 @export var zoneCount := 4
 ## Current targeted zone. On startup the enemy will walk to the original value this is set to
 @export var targetZone := 0
-## An array that determines the two numbers which will be used to generate a random zone the enemy will travel to each time prowl() is called. [min, max]. Do NOT put more than two values, otherwise it will break
+## An array that determines the numbers which will be used to pick a random zone the enemy will travel to each time prowl() is called.
 @export var targetZoneRange := [0, 4] # 0,4 is a placeholder value. you will want to change this later on
 ## The angle of which an "idle" mode enemy will set it's raycast to. Usually overridden by the zone it reaches
 @export var targetAngle := 0 # this tells idler enemies what angle to revert their line of sight to upon finishing a job
@@ -291,9 +291,9 @@ func prowl():
 		return
 		
 	
-	newTargetZone = rng.randi_range(targetZoneRange[0], targetZoneRange[1])
+	newTargetZone = targetZoneRange.pick_random()
 	while newTargetZone == targetZone and zoneCount > 1 and canRandomizeZone == true:
-		newTargetZone = rng.randi_range(targetZoneRange[0], targetZoneRange[1])
+		newTargetZone = targetZoneRange.pick_random()
 	if newTargetZone != targetZone and zoneCount > 1 and canRandomizeZone == true:
 		targetZone = newTargetZone
 	if canRandomizeZone:

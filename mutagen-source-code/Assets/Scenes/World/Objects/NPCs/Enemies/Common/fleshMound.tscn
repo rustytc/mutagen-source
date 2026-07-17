@@ -165,7 +165,7 @@ size = Vector2(26, 53)
 y_sort_enabled = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["Overworld Enemy"]]
-y_sort_enabled = true
+position = Vector2(0, -9)
 safe_margin = 3.0
 script = ExtResource("1_ga1o0")
 chaseSpeed = 200
@@ -195,7 +195,7 @@ bus = &"Chase Music"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 texture_filter = 1
-position = Vector2(0, -10)
+position = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_eyskf")
 animation = &"Attack"
 autoplay = "Idle"
@@ -228,7 +228,7 @@ collide_with_areas = true
 position = Vector2(-71.44, -9.865)
 rotation = 4.71238
 scale = Vector2(1.575, 6)
-polygon = PackedVector2Array(-6.26083, 11.9072, -145.391, 84.9117, -114.087, 118.291, -6.26043, 129.027, 101.566, 118.291, 132.87, 84.9116)
+polygon = PackedVector2Array(-161.183, -32.2604, -226.581, 12.5728, -164.996, 56.2396, 2.62287, 73.4067, 146.751, 54.407, 223.577, 13.7405, 143.579, -31.2597, -1.18246, -48.26)
 
 [node name="Vicinity" type="Area2D" parent="CharacterBody2D"]
 visible = false
