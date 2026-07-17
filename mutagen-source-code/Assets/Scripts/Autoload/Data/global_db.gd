@@ -355,5 +355,10 @@ var gearDatabase := {
 		"effects" : {
 			"radReduce" : 10, # 10% radiation reduction
 		},
+		},
+		"flashlight" : {
+		"name": "Flashlight",
+		"description": "Makes a huge difference when it's pitch black outside.",
+		"statDescription": "Illuminates a small radius around your body.",
+		},
 	}
-}

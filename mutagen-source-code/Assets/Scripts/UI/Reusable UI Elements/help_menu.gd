@@ -940,8 +940,6 @@ func equipGear():
 						disable_decisionList()
 						gearList.grab_focus()
 						
-					elif hoveredGear != GlobalDb.gearDatabase[i]["name"] and hoveredGear != (GlobalDb.gearDatabase[i]["name"] + " (Equipped)"):
-						PlayerDb.playerData["player"]["gear"][i]["equipped"] = false
 					
 					elif hoveredGear == GlobalDb.gearDatabase[i]["name"] and PlayerDb.playerData["player"]["gear"][i]["equipped"] == true:
 						UniversalAudio._play_error()
@@ -1085,15 +1083,15 @@ func _process(delta):
 					Engine.time_scale = 1
 				get_tree().paused = true
 				panIn() # making the menu visible
-				player.get_child(5).play() # playing pause music
-				player.get_child(4).process_mode = Node.PROCESS_MODE_DISABLED # pausing the level music
+				player.get_node("pauseMusic").play() # playing pause music
+				player.get_node("Music").process_mode = Node.PROCESS_MODE_DISABLED # pausing the level music
 			elif player.controllable == true and get_tree().paused == true:
 				panOut() #making the menu not visible/invisible
 				$Tabs.current_tab = 5
 				get_tree().paused = false
 				get_viewport().gui_release_focus()
-				player.get_child(5).stop() # stopping pause music
-				player.get_child(4).process_mode = Node.PROCESS_MODE_ALWAYS # unpausing the level music
+				player.get_node("pauseMusic").stop() # stopping pause music
+				player.get_node("Music").process_mode = Node.PROCESS_MODE_ALWAYS # unpausing the level music
 		else:
 			exitActionMenu()
 

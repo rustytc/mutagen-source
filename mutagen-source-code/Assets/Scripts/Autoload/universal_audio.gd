@@ -76,11 +76,11 @@ func _on_gui_focus_changed():
 
 
 # Playing Specified Noises
-func playSpecialSound(x, bus = &"SFX"):
+func playSpecialSound(x, bus = &"SFX", volume = 0):
 	var stream := load(x)  
 	streamNumber += 1
 	audio.bus = bus
-	var streamId = playback.play_stream(stream, 0, 0, 1)
+	var streamId = playback.play_stream(stream, 0, volume, 1)
 	activeStreams.append(streamId)
 	
 func stopAllSpecialSounds():

@@ -49,7 +49,16 @@ func _process(delta):
 	if resting == true:
 		Engine.time_scale = 10
 	
-	
+	# Flashlight
+	if Global.playerCharBody2D.get_node("flashlight") != null:
+		if Input.is_action_just_pressed("Flashlight") and controllable == true and PlayerDb.playerData["player"]["gear"]["flashlight"]["equipped"] == true and Global.playerCharBody2D.get_node("flashlight").visible == false:
+			Global.playerCharBody2D.get_node("flashlight").show()
+			UniversalAudio.playSpecialSound("res://Assets/Sounds/Item/flashlightOn.mp3", &"SFX", 10)
+		elif Input.is_action_just_pressed("Flashlight") and Global.playerCharBody2D.get_node("flashlight").visible == true:
+			UniversalAudio.playSpecialSound("res://Assets/Sounds/Item/flashlightOff.mp3", &"SFX", 10)
+			Global.playerCharBody2D.get_node("flashlight").hide()
+		elif PlayerDb.playerData["player"]["gear"]["flashlight"]["equipped"] == false:
+			Global.playerCharBody2D.get_node("flashlight").hide()
 	
 	# Background Music
 	if Global.cutsceneIsActive == false:

@@ -1,15 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctjhpn24qqa48"]
+[gd_scene load_steps=12 format=3 uid="uid://ctjhpn24qqa48"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Overworld/Maps/Test Level/testLevel.gd" id="1_1kdro"]
 [ext_resource type="PackedScene" uid="uid://b46pil1mndjda" path="res://Assets/Scenes/World/Objects/Player/player.tscn" id="2_0owkg"]
 [ext_resource type="PackedScene" uid="uid://o51yqibpegol" path="res://Assets/Scenes/World/Objects/Rooms/Walls/TestMap/testTileMap.tscn" id="2_4tjqq"]
 [ext_resource type="AudioStream" uid="uid://b87a1ebptievn" path="res://Assets/Sounds/Music/you_do_the_hokey_pokey.ogg" id="3_260iq"]
-[ext_resource type="PackedScene" uid="uid://vlxplwlw7ht0" path="res://Assets/Scenes/World/Objects/NPCs/Interactable/Test NPCs/test_npc.tscn" id="5_rwx8j"]
-
-[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_i6510"]
-format = 1
-mix_rate = 48000
-stereo = true
+[ext_resource type="PackedScene" uid="uid://dakkhiip4uh4a" path="res://Assets/Scenes/World/Objects/NPCs/Enemies/Common/fleshMound.tscn" id="5_am6l3"]
+[ext_resource type="PackedScene" uid="uid://cyxt6ioiyej4" path="res://Assets/Scenes/World/Triggers/pathfinding_zone.tscn" id="5_g1dty"]
+[ext_resource type="PackedScene" uid="uid://dlmbrnt6h3nxm" path="res://Assets/Scenes/World/Objects/NPCs/Enemies/Common/enemy_base.tscn" id="7_iwsmi"]
 
 [sub_resource type="Animation" id="Animation_ygstv"]
 length = 0.001
@@ -39,32 +36,32 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath("Player/CharacterBody2D/Music:stream")
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player/CharacterBody2D/Music:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [SubResource("AudioStreamWAV_i6510")]
+"values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Player/CharacterBody2D/Music:playing")
+tracks/3/path = NodePath("Player/CharacterBody2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Player/CharacterBody2D:position")
+tracks/4/path = NodePath("Player/CharacterBody2D/Camera2D:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -76,46 +73,34 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Player/CharacterBody2D/Camera2D:position")
+tracks/5/path = NodePath("Player/CharacterBody2D/Camera2D:enabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Player/CharacterBody2D/Camera2D:enabled")
+tracks/6/path = NodePath("cutscenes/cutsceneCamera:enabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("cutscenes/cutsceneCamera:enabled")
+tracks/7/path = NodePath("Player/CharacterBody2D/AnimatedSprite2D:flip_h")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Player/CharacterBody2D/AnimatedSprite2D:flip_h")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -430,5 +415,107 @@ libraries = {
 position = Vector2(1099, 402)
 enabled = false
 
-[node name="npc_base" parent="." instance=ExtResource("5_rwx8j")]
-position = Vector2(1418, 524)
+[node name="PathfindingZone0" parent="." instance=ExtResource("5_g1dty")]
+position = Vector2(1473, 544)
+
+[node name="PathfindingZone1" parent="." instance=ExtResource("5_g1dty")]
+position = Vector2(1080, 755)
+ID = 1
+
+[node name="fleshMound" parent="." instance=ExtResource("5_am6l3")]
+position = Vector2(1446, 648)
+
+[node name="CharacterBody2D" parent="fleshMound" index="0"]
+orderedTargetZones = Array[int]([0, 1])
+zoneCount = 2
+targetZoneRange = Array[int]([0, 1])
+
+[node name="fleshMound2" parent="." instance=ExtResource("5_am6l3")]
+position = Vector2(613, 789)
+
+[node name="CharacterBody2D" parent="fleshMound2" index="0"]
+orderedTargetZones = Array[int]([0, 1])
+zoneCount = 2
+targetZoneRange = Array[int]([0, 1])
+
+[node name="fleshMound3" parent="." instance=ExtResource("5_am6l3")]
+position = Vector2(757, 251)
+
+[node name="CharacterBody2D" parent="fleshMound3" index="0"]
+orderedTargetZones = Array[int]([0, 1])
+zoneCount = 2
+targetZoneRange = Array[int]([0, 1])
+
+[node name="fleshMound4" parent="." instance=ExtResource("5_am6l3")]
+position = Vector2(1404, 413)
+
+[node name="CharacterBody2D" parent="fleshMound4" index="0"]
+orderedTargetZones = Array[int]([0, 1])
+zoneCount = 2
+targetZoneRange = Array[int]([0, 1])
+
+[node name="fleshMound5" parent="." instance=ExtResource("5_am6l3")]
+position = Vector2(515, 528)
+
+[node name="CharacterBody2D" parent="fleshMound5" index="0"]
+orderedTargetZones = Array[int]([0, 1])
+zoneCount = 2
+targetZoneRange = Array[int]([0, 1])
+
+[node name="fleshMound6" parent="." instance=ExtResource("5_am6l3")]
+position = Vector2(662, 357)
+
+[node name="CharacterBody2D" parent="fleshMound6" index="0"]
+orderedTargetZones = Array[int]([0, 1])
+zoneCount = 2
+targetZoneRange = Array[int]([0, 1])
+
+[node name="fleshMound7" parent="." instance=ExtResource("5_am6l3")]
+position = Vector2(1380, 739)
+
+[node name="CharacterBody2D" parent="fleshMound7" index="0"]
+orderedTargetZones = Array[int]([0, 1])
+zoneCount = 2
+targetZoneRange = Array[int]([0, 1])
+
+[node name="fleshMound8" parent="." instance=ExtResource("5_am6l3")]
+position = Vector2(1214, 846)
+
+[node name="CharacterBody2D" parent="fleshMound8" index="0"]
+orderedTargetZones = Array[int]([0, 1])
+zoneCount = 2
+targetZoneRange = Array[int]([0, 1])
+
+[node name="fleshMound9" parent="." instance=ExtResource("5_am6l3")]
+position = Vector2(1208, 552)
+
+[node name="CharacterBody2D" parent="fleshMound9" index="0"]
+orderedTargetZones = Array[int]([0, 1])
+zoneCount = 2
+targetZoneRange = Array[int]([0, 1])
+
+[node name="lighting" type="CanvasModulate" parent="."]
+texture_filter = 1
+color = Color(0.00820202, 0.00820203, 0.00820202, 1)
+
+[node name="EnemyBase" parent="." instance=ExtResource("7_iwsmi")]
+position = Vector2(864, 198)
+
+[node name="CharacterBody2D" parent="EnemyBase" index="0"]
+speed = 200
+chaseSpeed = 200
+alertSpeed = 200
+prowlSpeed = 200
+zoneCount = 2
+targetZoneRange = Array[int]([0, 1])
+
+[editable path="fleshMound"]
+[editable path="fleshMound2"]
+[editable path="fleshMound3"]
+[editable path="fleshMound4"]
+[editable path="fleshMound5"]
+[editable path="fleshMound6"]
+[editable path="fleshMound7"]
+[editable path="fleshMound8"]
+[editable path="fleshMound9"]
+[editable path="EnemyBase"]

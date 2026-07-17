@@ -77,7 +77,7 @@ func _ready():
 	call_deferred("handleFlags") # flags are checked on startup after everything is loaded in and their appropriate functions get executed
 	
 	cutscenePlayer = get_tree().get_first_node_in_group("Cutscene Player")
-	playCutscene("doTheHokeyPokey")
+	#playCutscene("doTheHokeyPokey")
 	
 	
 	

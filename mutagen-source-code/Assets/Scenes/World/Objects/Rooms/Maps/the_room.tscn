@@ -420,7 +420,7 @@ metadata/_edit_vertical_guides_ = [-295.0]
 [node name="Player" parent="." instance=ExtResource("1_okdcl")]
 position = Vector2(1099, 403)
 
-[node name="Music" parent="Player/CharacterBody2D" index="4"]
+[node name="Music" parent="Player/CharacterBody2D" index="5"]
 stream = ExtResource("8_sf01q")
 
 [node name="Walls" parent="." instance=ExtResource("2_k7vep")]

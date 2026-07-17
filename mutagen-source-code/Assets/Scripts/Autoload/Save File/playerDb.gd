@@ -39,6 +39,9 @@ var playerData := { # various important player variables stored in a dictionary
 			"gasMask": {
 				"equipped" : true,
 			},
+			"flashlight": {
+				"equipped" : true,
+				},
 		},
 		"position": {
 			"x": 0,
@@ -175,7 +178,7 @@ var playerData := { # various important player variables stored in a dictionary
 		},
 		"berserk": {
 			"active" : false,
-			"points" : 10,
+			"points" : 0,
 			"harming" : false,
 			"turnSkip": true,
 			"effectChance":100,

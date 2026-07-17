@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b46pil1mndjda"]
+[gd_scene load_steps=41 format=3 uid="uid://b46pil1mndjda"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Overworld/Player/player.gd" id="1_qco1t"]
 [ext_resource type="Texture2D" uid="uid://l3mwc605r01r" path="res://Assets/Images/Sprites/World Objects/Player/Environmental/futureYou.png" id="2_ohpej"]
@@ -30,6 +30,9 @@
 [ext_resource type="Texture2D" uid="uid://djb3nliotp4c1" path="res://Assets/Images/Sprites/World Objects/Player/Mask Off/Walk Sideways/walk_sideways_NoMask4.png" id="24_nv6ms"]
 [ext_resource type="Texture2D" uid="uid://cfmu4qwen31kj" path="res://Assets/Images/Sprites/World Objects/Player/Mask Off/Walk Sideways/walk_sideways_NoMask3.png" id="25_hduwg"]
 [ext_resource type="AudioStream" uid="uid://plrovipophj1" path="res://Assets/Sounds/Music/howl.ogg" id="29_y365f"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_05hqk"]
+light_mode = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ac2jo"]
 animations = [{
@@ -195,6 +198,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rbhe2"]
 size = Vector2(29, 10)
 
+[sub_resource type="Gradient" id="Gradient_vuuck"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bhmtn"]
+gradient = SubResource("Gradient_vuuck")
+fill = 1
+fill_from = Vector2(0.509174, 0.5)
+fill_to = Vector2(0.513761, 0)
+
 [sub_resource type="Animation" id="Animation_d77ch"]
 resource_name = "Earthquake"
 length = 0.4
@@ -253,6 +265,7 @@ _data = {
 
 [node name="Player" type="Node2D" groups=["Overworld Player"]]
 y_sort_enabled = true
+material = SubResource("CanvasItemMaterial_05hqk")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["playerBody"]]
 script = ExtResource("1_qco1t")
@@ -268,6 +281,16 @@ autoplay = "Idle Forwards"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" groups=["playerBody"]]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_rbhe2")
+
+[node name="flashlight" type="PointLight2D" parent="CharacterBody2D"]
+visible = false
+texture_filter = 1
+position = Vector2(-1, -15)
+scale = Vector2(2.09375, 2.06641)
+color = Color(0.99882, 0.990776, 0.811458, 1)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.741176)
+texture = SubResource("GradientTexture2D_bhmtn")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" groups=["World Camera", "playerBody"]]
 process_mode = 3
