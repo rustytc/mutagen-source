@@ -23,6 +23,7 @@ animations = [{
 }]
 
 [node name="npc_base" instance=ExtResource("1_k5j3p")]
+characterName = "John Wolfmann"
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_jgkve")

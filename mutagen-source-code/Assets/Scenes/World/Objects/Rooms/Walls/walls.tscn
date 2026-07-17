@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=4 uid="uid://dp2i8n7uoed5d"]
 
-[ext_resource type="Texture2D" uid="uid://pdg28x7npas" path="res://Assets/Images/Sprites/World Objects/Rooms/Walls/The Room's Walls/wall-tiles-autotile.png" id="1_5h5ne"]
+[ext_resource type="Texture2D" uid="uid://pdg28x7npas" path="res://Assets/Images/Sprites/World Objects/Rooms/Tilemaps/The Room's Walls/wall-tiles-autotile.png" id="1_5h5ne"]
 [ext_resource type="Script" path="res://Assets/Scenes/World/Objects/Rooms/Walls/Walls.gd" id="2_oltby"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_r4nk6"]

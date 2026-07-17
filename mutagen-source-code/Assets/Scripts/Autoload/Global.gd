@@ -93,9 +93,10 @@ func _process(delta):
 	var minutes : int = (seconds % 3600) / 60
 	var secs : int = seconds % 60
 	playerData["game"]["runTime"] = "%02d:%02d:%02d" % [hours, minutes, secs]
-	cutscenePlayer = get_tree().get_first_node_in_group("Cutscene Player")
-	if cutscenePlayer.is_playing() == false and cutsceneIsActive:
-		endCutscene()
+	if get_tree().get_first_node_in_group("Cutscene Player") != null:
+		cutscenePlayer = get_tree().get_first_node_in_group("Cutscene Player")
+		if cutscenePlayer.is_playing() == false and cutsceneIsActive:
+			endCutscene()
 	
 
 
@@ -118,10 +119,12 @@ func changeMusic(song, volume):
 
 func playCutscene(cutscene):
 	await get_tree().process_frame
-	cutscenePlayer.current_animation = cutscene
-	cutsceneIsActive = true
+	if cutscenePlayer != null:
+		cutscenePlayer.current_animation = cutscene
+		cutsceneIsActive = true
 	
 func endCutscene():
-	await get_tree().process_frame
-	cutsceneIsActive = false
+	if cutscenePlayer != null:
+		await get_tree().process_frame
+		cutsceneIsActive = false
 	

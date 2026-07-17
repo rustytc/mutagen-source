@@ -10,7 +10,7 @@
 			"options": [],
 			"startCommands": [],
 			"talkCommands": [],
-			"text": "7 million people on Earth.",
+			"text": "That was a really cute dance you just did.",
 			"tone": "neutral",
 			"voice": "test"
 		},
@@ -27,7 +27,7 @@
 					"args": [
 						{
 							"type": "string",
-							"value": "res://Assets/Sounds/Music/Traumatizer.ogg"
+							"value": "res://Assets/Sounds/Music/Slop.ogg"
 						}
 					]
 				},
@@ -46,7 +46,7 @@
 			"options": [],
 			"startCommands": [],
 			"talkCommands": [],
-			"text": "...AND I WILL DEFEND THEM ALL!",
+			"text": "I'm just kidding! I hate you and will destroy you!",
 			"tone": "angry",
 			"voice": "test"
 		}

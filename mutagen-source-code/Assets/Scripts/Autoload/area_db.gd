@@ -10,7 +10,7 @@ var areaDatabase := {
 			},
 		"bgm" : "",
 		"radioConversations" : {
-			"Evelynn" : {
+			"Evelyn" : {
 				
 			},
 		}

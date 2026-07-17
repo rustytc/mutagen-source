@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://dt4e1ihod0rw1"]
 
-[ext_resource type="PackedScene" uid="uid://buamukxvqtnih" path="res://Assets/Scenes/World/Objects/Rooms/Maps/the_room.tscn" id="1_45ysa"]
+[ext_resource type="PackedScene" uid="uid://ctjhpn24qqa48" path="res://Assets/Scenes/World/Objects/Rooms/Maps/la habitación.tscn" id="1_f6oat"]
 [ext_resource type="PackedScene" uid="uid://lfhxtap3m62l" path="res://Assets/Scenes/UI/Game Over/game_over.tscn" id="1_ma4fr"]
 
 [node name="Game" type="Node2D" groups=["Game Scene"]]
 
 [node name="World" type="Node2D" parent="." groups=["World Scene Node Reference"]]
 
-[node name="the room" parent="World" instance=ExtResource("1_45ysa")]
+[node name="the room" parent="World" instance=ExtResource("1_f6oat")]
 
 [node name="Battle Screen" type="Node2D" parent="." groups=["Battle Screen Node Reference"]]
 

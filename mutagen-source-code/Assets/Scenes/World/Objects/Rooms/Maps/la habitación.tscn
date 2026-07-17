@@ -1,13 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://buamukxvqtnih"]
+[gd_scene load_steps=11 format=3 uid="uid://ctjhpn24qqa48"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/Overworld/Maps/Test Level/testLevel.gd" id="1_k2f67"]
-[ext_resource type="PackedScene" uid="uid://b46pil1mndjda" path="res://Assets/Scenes/World/Objects/Player/player.tscn" id="1_okdcl"]
-[ext_resource type="PackedScene" uid="uid://dp2i8n7uoed5d" path="res://Assets/Scenes/World/Objects/Rooms/Walls/walls.tscn" id="2_k7vep"]
-[ext_resource type="PackedScene" uid="uid://dlmbrnt6h3nxm" path="res://Assets/Scenes/World/Objects/NPCs/Enemies/Common/enemy_base.tscn" id="3_6kjbe"]
-[ext_resource type="PackedScene" uid="uid://cyxt6ioiyej4" path="res://Assets/Scenes/World/Triggers/pathfinding_zone.tscn" id="4_50e7l"]
-[ext_resource type="PackedScene" uid="uid://dtmiaklh4rvt3" path="res://Assets/Scenes/World/Objects/NPCs/Interactable/NPC Base/npc_base.tscn" id="6_kqq7q"]
-[ext_resource type="PackedScene" uid="uid://dakkhiip4uh4a" path="res://Assets/Scenes/World/Objects/NPCs/Enemies/Common/fleshMound.tscn" id="7_bs6x3"]
-[ext_resource type="AudioStream" uid="uid://b87a1ebptievn" path="res://Assets/Sounds/Music/you_do_the_hokey_pokey.ogg" id="8_sf01q"]
+[ext_resource type="Script" path="res://Assets/Scripts/Overworld/Maps/Test Level/testLevel.gd" id="1_1kdro"]
+[ext_resource type="PackedScene" uid="uid://b46pil1mndjda" path="res://Assets/Scenes/World/Objects/Player/player.tscn" id="2_0owkg"]
+[ext_resource type="PackedScene" uid="uid://o51yqibpegol" path="res://Assets/Scenes/World/Objects/Rooms/Walls/TestMap/testTileMap.tscn" id="2_4tjqq"]
+[ext_resource type="AudioStream" uid="uid://b87a1ebptievn" path="res://Assets/Sounds/Music/you_do_the_hokey_pokey.ogg" id="3_260iq"]
+[ext_resource type="PackedScene" uid="uid://vlxplwlw7ht0" path="res://Assets/Scenes/World/Objects/NPCs/Interactable/Test NPCs/test_npc.tscn" id="5_rwx8j"]
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_i6510"]
 format = 1
@@ -138,7 +135,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("8_sf01q")]
+"values": [ExtResource("3_260iq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -414,99 +411,15 @@ _data = {
 
 [node name="the room" type="Node2D" groups=["Current Room"]]
 y_sort_enabled = true
-script = ExtResource("1_k2f67")
+script = ExtResource("1_1kdro")
 metadata/_edit_vertical_guides_ = [-295.0]
 
-[node name="Player" parent="." instance=ExtResource("1_okdcl")]
-position = Vector2(1099, 403)
-
-[node name="Music" parent="Player/CharacterBody2D" index="4"]
-stream = ExtResource("8_sf01q")
-
-[node name="Walls" parent="." instance=ExtResource("2_k7vep")]
+[node name="Map" parent="." instance=ExtResource("2_4tjqq")]
 y_sort_enabled = true
-position = Vector2(-3, 0)
+position = Vector2(547, 70)
 
-[node name="PathfindingZone0" parent="." instance=ExtResource("4_50e7l")]
-position = Vector2(908, 1538)
-enemyAngle = 270
-
-[node name="PathfindingZone1" parent="." instance=ExtResource("4_50e7l")]
-position = Vector2(2246, 1052)
-ID = 1
-
-[node name="PathfindingZone2" parent="." instance=ExtResource("4_50e7l")]
-position = Vector2(1076, 1988)
-ID = 2
-
-[node name="PathfindingZone3" parent="." instance=ExtResource("4_50e7l")]
-position = Vector2(2662, 1979)
-ID = 3
-
-[node name="PathfindingZone4" parent="." instance=ExtResource("4_50e7l")]
-position = Vector2(2699, 1074)
-ID = 4
-
-[node name="the idler" parent="." instance=ExtResource("3_6kjbe")]
-position = Vector2(908, 1522)
-
-[node name="CharacterBody2D" parent="the idler" index="0"]
-ID = 3
-enemyBehavior = "idle"
-zoneCount = 1
-targetZoneRange = [0]
-targetAngle = -270
-canRandomizeZone = false
-
-[node name="AnimatedSprite2D" parent="the idler/CharacterBody2D" index="1"]
-autoplay = "Idle Forwards"
-
-[node name="LineOfSight" parent="the idler/CharacterBody2D" index="4"]
-rotation = -4.71239
-
-[node name="CollisionPolygon2D" parent="the idler/CharacterBody2D/LineOfSight" index="1"]
-position = Vector2(-73, -5.00001)
-
-[node name="npc_base" parent="." instance=ExtResource("6_kqq7q")]
-y_sort_enabled = true
-position = Vector2(1827, 328)
-
-[node name="npc_base2" parent="." instance=ExtResource("6_kqq7q")]
-position = Vector2(1931, 568)
-
-[node name="npc_base3" parent="." instance=ExtResource("6_kqq7q")]
-position = Vector2(1778, 542)
-
-[node name="EnemyBase" parent="." instance=ExtResource("3_6kjbe")]
-position = Vector2(985, 1161)
-
-[node name="CharacterBody2D" parent="EnemyBase" index="0"]
-ID = 1
-targetZone = 2
-targetZoneRange = [1, 4]
-
-[node name="PathfindingZone6" parent="." instance=ExtResource("4_50e7l")]
-position = Vector2(1352, 2544)
-ID = 6
-enemyAngle = 90
-
-[node name="PathfindingZone5" parent="." instance=ExtResource("4_50e7l")]
-position = Vector2(1352, 2200)
-ID = 5
-enemyAngle = 270
-
-[node name="EnemyBase2" parent="." instance=ExtResource("3_6kjbe")]
-position = Vector2(1352, 2216)
-
-[node name="CharacterBody2D" parent="EnemyBase2" index="0"]
-targetZone = 6
-targetZoneRange = [5, 6]
-
-[node name="fleshMound" parent="." instance=ExtResource("7_bs6x3")]
-position = Vector2(86, 1215)
-
-[node name="CharacterBody2D" parent="fleshMound" index="0"]
-ID = 4
+[node name="Player" parent="." instance=ExtResource("2_0owkg")]
+position = Vector2(975, 492)
 
 [node name="cutscenes" type="AnimationPlayer" parent="." groups=["Cutscene Player"]]
 libraries = {
@@ -517,8 +430,5 @@ libraries = {
 position = Vector2(1099, 402)
 enabled = false
 
-[editable path="Player"]
-[editable path="the idler"]
-[editable path="EnemyBase"]
-[editable path="EnemyBase2"]
-[editable path="fleshMound"]
+[node name="npc_base" parent="." instance=ExtResource("5_rwx8j")]
+position = Vector2(1418, 524)

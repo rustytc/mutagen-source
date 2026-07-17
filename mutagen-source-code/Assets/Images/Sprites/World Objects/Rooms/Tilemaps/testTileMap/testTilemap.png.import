@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pdg28x7npas"
-path="res://.godot/imported/wall-tiles-autotile.png-3063a4777faf6502d33d755a4d6156f5.ctex"
+uid="uid://im5vv7skyvim"
+path="res://.godot/imported/testTilemap.png-42a45afefa42f331b1b44413a0340d44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Sprites/World Objects/Rooms/Walls/The Room's Walls/wall-tiles-autotile.png"
-dest_files=["res://.godot/imported/wall-tiles-autotile.png-3063a4777faf6502d33d755a4d6156f5.ctex"]
+source_file="res://Assets/Images/Sprites/World Objects/Rooms/Tilemaps/testTileMap/testTilemap.png"
+dest_files=["res://.godot/imported/testTilemap.png-42a45afefa42f331b1b44413a0340d44.ctex"]
 
 [params]
 
