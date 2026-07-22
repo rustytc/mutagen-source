@@ -487,6 +487,7 @@ targetZoneRange = [0, 1]
 
 [node name="lighting" type="CanvasModulate" parent="."]
 texture_filter = 1
+color = Color(0.0266579, 0.00843558, 0.0801267, 1)
 
 [node name="EnemyBase" parent="." instance=ExtResource("7_iwsmi")]
 position = Vector2(864, 198)
