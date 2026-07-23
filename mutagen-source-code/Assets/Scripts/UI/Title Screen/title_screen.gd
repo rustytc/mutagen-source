@@ -75,7 +75,7 @@ func _ready():
 	if engineVersion["major"] != 4 or engineVersion["minor"] != 3:
 		tomcatTexts.append("Do not make a PR.")
 	gameName = ProjectSettings.get_setting_with_override("application/config/name")
-	if gameName != "Mutagen: Lock and Load":
+	if gameName != "Mutagen: Lock N' Load":
 		tomcatTexts.append("Nice fork you got.")
 	
 	
@@ -245,6 +245,7 @@ func _ready():
 	skipped = true # has to be true or else it will loop over again on input
 	$menu/continue.show()
 	$menu/newGame.show()
+	$menu/arcade.show()
 	$background.z_index = -1
 	$background.modulate.a = 1
 	if not sandboxedOS:
@@ -268,6 +269,7 @@ func hurryUp():
 	$Music.volume_db = 0
 	$menu/continue.show()
 	$menu/newGame.show()
+	$menu/arcade.show()
 	$menu/options.show()
 	if Settings.settingsRaw["modsEnabled"] != false:
 		$menu/mods.show()

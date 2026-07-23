@@ -219,7 +219,7 @@ var weaponDatabase = {
 	
 	"fireAxe": {
 		"name": "Fire Axe",
-		"description": "A rickety fire axe. [color=yellow]High risk, high reward. No ammo requirement![/color]",
+		"description": "A rickety fire axe. High risk, high reward. [color=yellow]No ammo requirement![/color]",
 		"statDescription": "x0.75 Hitrate Modifier\n25 Base Damage\n18% Chance of Crippling\n[color=yellow]Needs no ammunition![/color] Great fit for a maniac.",
 		"attackAnnouncement" : "[PLAYERNAME] swung [POSSESSIVE] fire axe at [TARGET]'s [LIMB]!",
 		"attackAnnouncementCritical" : "[PLAYERNAME] chopped [TARGET] up into pieces!",

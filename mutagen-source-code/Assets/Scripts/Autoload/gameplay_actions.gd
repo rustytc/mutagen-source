@@ -25,7 +25,7 @@ func useItem(item):
 	action["general"]["type"] = "useItem"
 	action["general"]["name"] = "Use Item: " + itemData["general"]["name"]
 	action["general"]["user"] = actionData["user"]
-	action["general"]["userName"] = "Flynn"
+	action["general"]["userName"] = PlayerDb.playerData["player"]["name"]
 	action["general"]["target"] = actionData["target"]
 	action["general"]["repeat"] = actionData["repeat"]
 	action["general"]["announcement"] = uiData["announcement"]
@@ -68,7 +68,7 @@ func levelUp():
 		PlayerDb.levelUp()
 		
 		var action = ActionProcessor.actionTemplate.duplicate(true)
-		action["general"]["announcement"] = "Flynn has reached level " + str(player["level"]) + "!"
+		action["general"]["announcement"] = "[PLAYERNAME] has reached level " + str(player["level"]) + "!"
 		action["general"]["announcementSFX"] = "res://Assets/Sounds/UI/level_up.mp3"
 		action["general"]["type"] = "levelUp"
 		action["general"]["inputDependent"] = true
@@ -81,7 +81,7 @@ func haveEpiphany(levelCap):
 	var player = Global.playerData["player"]
 	player["levelCap"] = levelCap
 	player["epiphany"] = player["epiphany"] + 1
-	action["general"]["announcement"] = "Flynn had an epiphany."
+	action["general"]["announcement"] = "[PLAYERNAME] had an epiphany."
 	action["general"]["announcementSFX"] = "res://Assets/Sounds/UI/epiphany.ogg"
 	action["general"]["type"] = "epiphany"
 	ActionProcessor.actions.append(action)

@@ -82,7 +82,7 @@ static func attack(targets, limbs, priority = 1):
 	action["weaponData"]["ammoType"] = ammoType
 	action["weaponData"]["isWeapon"] = true
 	action["weaponData"]["singleUse"] = GlobalDb["weaponDatabase"][weapon]["singleUse"]
-	action["general"]["userName"] = "Flynn"
+	action["general"]["userName"] = PlayerDb.playerData["player"]["name"]
 	if not miss and not BattleSystem.playerDefending:
 		action["combatData"]["damage"] = int(round(compoundDmg))
 	else:
@@ -120,7 +120,7 @@ static func block():
 	BattleSystem.playerDefending = true
 	var action := ActionProcessor.actionTemplate.duplicate(true)
 	action["general"]["priority"] = 2
-	action["general"]["announcement"] = "Flynn is defending."
+	action["general"]["announcement"] = "[PLAYERNAME] is defending."
 	action["general"]["type"] = "block"
 	action["general"]["user"] = "Player"
 	ActionProcessor.queuedActions.append(action)
@@ -129,27 +129,27 @@ static func advance(direction):
 	var action := ActionProcessor.actionTemplate.duplicate(true)
 	action["general"]["type"] = "advance"
 	action["general"]["user"] = "Player"
-	action["general"]["userName"] = "Flynn"
+	action["general"]["userName"] = PlayerDb.playerData["player"]["name"]
 	action["combatData"]["advanceDirection"] = direction
 	if direction == "forwards":
-		action["general"]["announcement"] = "Flynn inches closer."
+		action["general"]["announcement"] = "[PLAYERNAME] inches closer."
 	else:
-		action["general"]["announcement"] = "Flynn is backing away."
+		action["general"]["announcement"] = "[PLAYERNAME] is backing away."
 	ActionProcessor.queuedActions.append(action)
 
 static func flee():
 	var index = 0
 	var action := ActionProcessor.actionTemplate.duplicate(true)
-	action["general"]["announcement"] = "Flynn tried to run."
+	action["general"]["announcement"] = "[PLAYERNAME] tried to run."
 	action["general"]["user"] = "Player"
-	action["general"]["userName"] = "Flynn"
+	action["general"]["userName"] = PlayerDb.playerData["player"]["name"]
 	action["general"]["priority"] = 2
 	
 	for i in BattleSystem.enemyDict:
 		index += 1
 		var enemy = BattleSystem.enemyDict[i]
 		if ( enemy["stats"]["speed"] * ActionProcessor.STATUS_MANAGER.checkSpeedMod(i) > (PlayerDb.playerData["player"]["stats"]["speed"] * 1.5 * ActionProcessor.STATUS_MANAGER.checkSpeedMod("Player"))) or (enemy["distance"] == "close") or (enemy["logic"][enemy["phase"]]["canFlee"] == false) or PlayerDb.playerData["player"]["statusEffects"]["cripple"]["active"] == true:
-			action["general"]["result"] = "He could not escape."
+			action["general"]["result"] = "[PERSONALCAP] could not escape."
 			action["general"]["type"] = "fleeFail"
 			ActionProcessor.queuedActions.append(action)
 			break
@@ -157,14 +157,14 @@ static func flee():
 			var luck = Global.rng.randi_range(1,100)
 			if luck <= 50:
 				if index == BattleSystem.enemyDict.size():
-					action["general"]["result"] = "Flynn successfully fled."
+					action["general"]["result"] = "[PLAYERNAME] successfully fled."
 					action["general"]["type"] = "fleeSuccess"
 					ActionProcessor.queuedActions.append(action)
 					break
 				else:
 					continue
 			if luck > 50:
-				action["general"]["result"] = "He could not escape."
+				action["general"]["result"] = "[PERSONALCAP] could not escape."
 				action["general"]["type"] = "fleeFail"
 				ActionProcessor.queuedActions.append(action)
 				break
@@ -172,14 +172,14 @@ static func flee():
 			var luck = Global.rng.randi_range(1,100)
 			if luck <= 75:
 				if index == BattleSystem.enemyDict.size():
-					action["general"]["result"] = "Flynn successfully fled."
+					action["general"]["result"] = "[PLAYERNAME] successfully fled."
 					action["general"]["type"] = "fleeSuccess"
 					ActionProcessor.queuedActions.append(action)
 					break
 				else:
 					continue
 			if luck > 75:
-				action["general"]["result"] = "He could not escape."
+				action["general"]["result"] = "[PERSONALCAP] could not escape."
 				action["general"]["type"] = "fleeFail"
 				ActionProcessor.queuedActions.append(action)
 				break
@@ -191,7 +191,7 @@ static func die():
 	Global.playerCharBody2D.controllable = false
 	var action = ActionProcessor.actionTemplate.duplicate(true)
 	action["general"]["priority"] = 3
-	action["general"]["announcement"] = "Flynn was killed."
+	action["general"]["announcement"] = "[PLAYERNAME] was killed."
 	action["general"]["type"] = "death"
 	action["general"]["user"] = "Player"
 	ActionProcessor.actions.clear()

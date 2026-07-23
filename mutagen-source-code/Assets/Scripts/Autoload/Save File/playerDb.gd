@@ -3,11 +3,11 @@ extends Node
 
 var playerData := { # various important player variables stored in a dictionary
 	"player": {
-		"name": "Flynn",
+		"name": "Evelyn",
 		"pronouns" : {
-			"personal" : "he",
-			"possessive" : "his",
-			"objective" : "him",
+			"personal" : "she",
+			"possessive" : "her",
+			"objective" : "her",
 			},
 		"level": 1,
 		"levelCap":15, # maximum level until exp stops going up. increases each epiphany
@@ -150,12 +150,12 @@ var playerData := { # various important player variables stored in a dictionary
 			"turnSkip": false,
 			"effectChance": 100,
 			
-			"announcementCure" : "Flynn's wounds dried up.",
-			"resultCure" : "He is no longer Bleeding.",
+			"announcementCure" : "[PLAYERNAME]'s wounds dried up.",
+			"resultCure" : "[PERSONALCAP] is no longer Bleeding.",
 			
-			"announcementInflict" : "Flynn started bleeding.",
-			"announcementHarm" : ["Flynn suffered blood loss.",],
-			"resultHarm" : "Flynn took [DAMAGE] HP damage.",
+			"announcementInflict" : "[PLAYERNAME] started bleeding.",
+			"announcementHarm" : ["[PLAYERNAME] suffered blood loss.",],
+			"resultHarm" : "[PLAYERNAME] took [DAMAGE] HP damage.",
 			
 		},
 		"illness": {
@@ -167,12 +167,12 @@ var playerData := { # various important player variables stored in a dictionary
 			"turnSkip": true,
 			"effectChance": 25, # 25% chance this effect will do something per turn
 			
-			"announcementCure" : "Flynn started ignoring his illness.",
-			"resultCure" : "He is no longer Ill.",
+			"announcementCure" : "[PLAYERNAME] started ignoring [POSSESSIVE] illness.",
+			"resultCure" : "[PERSONALCAP] is no longer Ill.",
 			
-			"announcementInflict" : "Flynn got sick.",
-			"announcementHarm" : ["Flynn coughed.","Flynn vomitted blood.","Flynn is suffering from a headache.",],
-			"resultHarm" : "Flynn took [DAMAGE] HP damage.",
+			"announcementInflict" : "[PLAYERNAME] got sick.",
+			"announcementHarm" : ["[PLAYERNAME] coughed.","[PLAYERNAME] vomitted blood.","[PLAYERNAME] is suffering from a headache.",],
+			"resultHarm" : "[PLAYERNAME] took [DAMAGE] HP damage.",
 		},
 		"cripple": {
 			"active" : false,
@@ -182,10 +182,10 @@ var playerData := { # various important player variables stored in a dictionary
 			"speedMod":0.25,
 			"effectChance": 100,
 			
-			"announcementCure" :  "Flynn stopped caring about his injury.",
-			"resultCure" : "He is no longer crippled.",
+			"announcementCure" :  "[PLAYERNAME] stopped caring about [POSSESSIVE] injury.",
+			"resultCure" : "[PERSONALCAP] is no longer crippled.",
 			
-			"announcementInflict" : "Flynn became crippled.",
+			"announcementInflict" : "[PLAYERNAME] became crippled.",
 		},
 		"fatigue": {
 			"active" : false,
@@ -196,11 +196,11 @@ var playerData := { # various important player variables stored in a dictionary
 			"speedMod":0.75,
 			"defenseMod":0.5,
 			
-			"announcementCure" : "Flynn's circulation is kicking in.",
-			"resultCure" : "He is no longer fatigued.",
+			"announcementCure" : "[PLAYERNAME]'s circulation is kicking in.",
+			"resultCure" : "[PERSONALCAP] is no longer fatigued.",
 			
-			"announcementInflict" : "Flynn is fatigued.",
-			"announcementHarm" : ["Flynn blanked out.", "Flynn is staring off.", "Flynn couldn't react in time."],
+			"announcementInflict" : "[PLAYERNAME] is fatigued.",
+			"announcementHarm" : ["[PLAYERNAME] blanked out.", "[PLAYERNAME] is staring off.", "[PLAYERNAME] couldn't react in time."],
 		},
 		"berserk": {
 			"active" : false,
@@ -212,10 +212,10 @@ var playerData := { # various important player variables stored in a dictionary
 			"appliedAtk" : 10,
 			
 			"announcementCure" : "!..",
-			"resultCure" : "Flynn is no longer berserk.",
+			"resultCure" : "[PLAYERNAME] is no longer berserk.",
 			
-			"announcementInflict" : "[color=red]FLYNN WENT BERSERK!!![/color]",
-			"announcementAttack" : ["[color=red]FLYNN PUNCHED [TARGET]![/color]","[color=red]FLYNN DOVE HEAD FIRST TO BITE [TARGET]![/color]","[color=red]FLYNN STRANGLED [TARGET]![/color]",],
+			"announcementInflict" : "[color=red][PLAYERNAME] WENT BERSERK!!![/color]",
+			"announcementAttack" : ["[color=red][PLAYERNAME] PUNCHED [TARGET]![/color]","[color=red][PLAYERNAME] DOVE HEAD FIRST TO BITE [TARGET]![/color]","[color=red][PLAYERNAME] STRANGLED [TARGET]![/color]",],
 			"resultAttack" : "[color=red][TARGET] took [DAMAGE] HP damage.[/color]"
 		},
 		},
