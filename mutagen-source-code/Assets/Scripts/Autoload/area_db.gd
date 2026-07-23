@@ -1,9 +1,13 @@
 extends Node
 var areaDatabase := {
 	"areaTemplate" : {
+		"areaMetadata" : {
+			},
+			
 		"rooms" : {
 			"roomTemplate" : {
 				"variant" : "normal",
+				"outOrIn" : "indoors",
 		"nodes" :
 			{
 				"normal" : "res://Assets/Scenes/World/Objects/Rooms/Maps/the_room.tscn"
@@ -18,6 +22,8 @@ var areaDatabase := {
 		},
 	},
 }
+
+var backroomsDatabase := {} # backrooms arcade mode where you play as evelyn. futureYou.png
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

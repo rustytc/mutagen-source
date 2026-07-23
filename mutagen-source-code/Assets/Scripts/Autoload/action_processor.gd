@@ -242,6 +242,20 @@ func formatActionText(txt, data, targetsArray = []):
 	text = text.replace("[DAMAGE]", str(data["combatData"]["damage"]))
 	text = text.replace("[NAME]", str(data["general"]["user"]))
 	text = text.replace("[RADIATION]", str(data["playerStatus"]["radiationInflict"]))
+	if text.contains("[PLAYERNAME]"):
+		text = text.replace("[PLAYERNAME]", str(PlayerDb.playerData["player"]["name"]))
+	if text.contains("[POSSESSIVE]"):
+		text = text.replace("[POSSESSIVE]", str(PlayerDb.playerData["player"]["pronouns"]["possessive"]))
+	if text.contains("[POSSESSIVECAP]"):
+		text = text.replace("[POSSESSIVECAP]", str(PlayerDb.playerData["player"]["pronouns"]["possessive"]).capitalize())
+	if text.contains("[PERSONAL]"):
+		text = text.replace("[PERSONAL]", str(PlayerDb.playerData["player"]["pronouns"]["personal"]))
+	if text.contains("[PERSONALCAP]"):
+		text = text.replace("[PERSONALCAP]", str(PlayerDb.playerData["player"]["pronouns"]["personal"]).capitalize())
+	if text.contains("[OBJECTIVE]"):
+		text = text.replace("[OBJECTIVE]", str(PlayerDb.playerData["player"]["pronouns"]["objective"]))
+	if text.contains("[OBJECTIVECAP]"):
+		text = text.replace("[OBJECTIVECAP]", str(PlayerDb.playerData["player"]["pronouns"]["objective"]).capitalize())
 	if data["general"]["user"] == "Player":
 		text = text.replace("[ATTACK]", str(PlayerDb.playerData["player"]["stats"]["attack"]))
 	elif BattleSystem.enemyDict.has(data["general"]["user"]):

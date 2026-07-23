@@ -4,6 +4,11 @@ extends Node
 var playerData := { # various important player variables stored in a dictionary
 	"player": {
 		"name": "Flynn",
+		"pronouns" : {
+			"personal" : "he",
+			"possessive" : "his",
+			"objective" : "him",
+			},
 		"level": 1,
 		"levelCap":15, # maximum level until exp stops going up. increases each epiphany
 		"epiphany":0,
@@ -71,13 +76,33 @@ var playerData := { # various important player variables stored in a dictionary
 				"equipped":true
 				
 				},
+				"fireAxe" : {
+				"quantity": 1,
+				"unlocked": true,
+				"equipped":false
+				},
 				"magnum" : {
 				"quantity": 1,
 				"ammo": 4,
 				"unlocked": true,
 				"equipped":false
 				},
+				"deathcrow" : {
+				"quantity": 1,
+				"ammo": 4,
+				"unlocked": true,
+				"equipped":false
+				},
 				"shotgun" : {
+				"quantity": 1,
+				"ammo": 1,
+				"ammoOrder" : ["S",],
+				"loadOrder" : ["alt"],
+				"unlocked": true,
+				"equipped":false,
+				
+				},
+				"combatShotgun" : {
 				"quantity": 1,
 				"ammo": 1,
 				"ammoOrder" : ["S",],
@@ -97,6 +122,7 @@ var playerData := { # various important player variables stored in a dictionary
 			"magnum" : 3, # THESE ARE PACKS
 			"buckshot" : 3, # THESE ARE INDIVIDUAL ROUNDS
 			"slug" : 2,
+			"deathcrow" : 0,
 			
 		},
 			
