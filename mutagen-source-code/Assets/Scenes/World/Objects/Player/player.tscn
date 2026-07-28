@@ -1,6 +1,7 @@
-[gd_scene load_steps=41 format=3 uid="uid://b46pil1mndjda"]
+[gd_scene load_steps=42 format=3 uid="uid://b46pil1mndjda"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Overworld/Player/player.gd" id="1_qco1t"]
+[ext_resource type="Texture2D" uid="uid://bjgvl18bghdvt" path="res://Assets/Images/Sprites/World Objects/Player/Evelyn/evelyn ref.png" id="2_888b7"]
 [ext_resource type="Texture2D" uid="uid://l3mwc605r01r" path="res://Assets/Images/Sprites/World Objects/Player/Environmental/futureYou.png" id="2_ohpej"]
 [ext_resource type="Texture2D" uid="uid://crowegtc15jt1" path="res://Assets/Images/Sprites/World Objects/Player/Mask On/Walk Backwards/walk_backwards1.png" id="2_x7bc0"]
 [ext_resource type="Texture2D" uid="uid://camm1l8bmn6ju" path="res://Assets/Images/Sprites/World Objects/Player/Mask Off/Walk Backwards/walk_backwards_NoMask1.png" id="3_6lg18"]
@@ -36,6 +37,14 @@ light_mode = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ac2jo"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_888b7")
+}],
+"loop": true,
+"name": &"Evelyn Idle Forwards",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_ohpej")
@@ -275,7 +284,7 @@ y_sort_enabled = true
 texture_filter = 1
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_ac2jo")
-animation = &"Idle Sideways"
+animation = &"Idle Forwards"
 autoplay = "Idle Forwards"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" groups=["playerBody"]]

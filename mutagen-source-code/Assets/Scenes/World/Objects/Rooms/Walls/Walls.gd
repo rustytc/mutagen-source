@@ -14,14 +14,18 @@ func _ready():
 	astar.update()
 	
 	
-	for i in tilemapSize.x:
-		for j in tilemapSize.y:
-			var coords = Vector2i(i,j)
-			var tileData = get_cell_tile_data(coords)
-			if tileData and tileData.get_custom_data("type") == "Wall":
-				astar.set_point_solid(coords)
+	#for i in tilemapSize.x:
+	#	for j in tilemapSize.y:
+	#		var coords = Vector2i(i,j)
+	#		var tileData = get_cell_tile_data(coords)
+	#		if tile_set.get_custom_data_layer_by_name("type") == -1:
+	#			return
+	#		if tileData and tileData.get_custom_data("type") == "Wall":
+	#			astar.set_point_solid(coords)
 				
-	set_meta("astar", astar)
+	#set_meta("astar", astar) Saving all of this in case I use it later. I was originally gonna have
+	# walls set their own pathfinding automatically, but im instead gonna manually draw the pathfinding
+	# using red and green tiles. for now. unless I change my mind.
 
 
 

@@ -92,6 +92,7 @@ wallObjects="objects that are identifiable as walls"
 "Death Effect"=""
 "Cutscene Player"=""
 "Current Room"=""
+tilemap=""
 
 [input]
 

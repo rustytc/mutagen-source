@@ -1,12 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctjhpn24qqa48"]
+[gd_scene load_steps=10 format=3 uid="uid://ctjhpn24qqa48"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Overworld/Maps/Test Level/testLevel.gd" id="1_1kdro"]
 [ext_resource type="PackedScene" uid="uid://b46pil1mndjda" path="res://Assets/Scenes/World/Objects/Player/player.tscn" id="2_0owkg"]
-[ext_resource type="PackedScene" uid="uid://o51yqibpegol" path="res://Assets/Scenes/World/Objects/Rooms/Walls/TestMap/testTileMap.tscn" id="2_4tjqq"]
+[ext_resource type="PackedScene" uid="uid://babnaq5f2pjha" path="res://Assets/Scenes/World/Objects/Rooms/Walls/TestMap/testTileMap.tscn" id="2_xp88b"]
 [ext_resource type="AudioStream" uid="uid://b87a1ebptievn" path="res://Assets/Sounds/Music/you_do_the_hokey_pokey.ogg" id="3_260iq"]
-[ext_resource type="PackedScene" uid="uid://dakkhiip4uh4a" path="res://Assets/Scenes/World/Objects/NPCs/Enemies/Common/fleshMound.tscn" id="5_am6l3"]
 [ext_resource type="PackedScene" uid="uid://cyxt6ioiyej4" path="res://Assets/Scenes/World/Triggers/pathfinding_zone.tscn" id="5_g1dty"]
-[ext_resource type="PackedScene" uid="uid://dlmbrnt6h3nxm" path="res://Assets/Scenes/World/Objects/NPCs/Enemies/Common/enemy_base.tscn" id="7_iwsmi"]
 
 [sub_resource type="Animation" id="Animation_ygstv"]
 length = 0.001
@@ -399,9 +397,8 @@ y_sort_enabled = true
 script = ExtResource("1_1kdro")
 metadata/_edit_vertical_guides_ = [-295.0]
 
-[node name="Map" parent="." instance=ExtResource("2_4tjqq")]
+[node name="Map" parent="." instance=ExtResource("2_xp88b")]
 y_sort_enabled = true
-position = Vector2(547, 70)
 
 [node name="Player" parent="." instance=ExtResource("2_0owkg")]
 position = Vector2(975, 492)
@@ -422,87 +419,7 @@ position = Vector2(1473, 544)
 position = Vector2(601, 602)
 ID = 1
 
-[node name="fleshMound" parent="." instance=ExtResource("5_am6l3")]
-position = Vector2(1446, 648)
-
-[node name="CharacterBody2D" parent="fleshMound" index="0"]
-zoneCount = 2
-targetZoneRange = [0, 1]
-
-[node name="fleshMound2" parent="." instance=ExtResource("5_am6l3")]
-position = Vector2(613, 789)
-
-[node name="CharacterBody2D" parent="fleshMound2" index="0"]
-zoneCount = 2
-targetZoneRange = [0, 1]
-
-[node name="fleshMound3" parent="." instance=ExtResource("5_am6l3")]
-position = Vector2(757, 251)
-
-[node name="CharacterBody2D" parent="fleshMound3" index="0"]
-zoneCount = 2
-targetZoneRange = [0, 1]
-
-[node name="fleshMound4" parent="." instance=ExtResource("5_am6l3")]
-position = Vector2(1404, 413)
-
-[node name="CharacterBody2D" parent="fleshMound4" index="0"]
-zoneCount = 2
-targetZoneRange = [0, 1]
-
-[node name="fleshMound5" parent="." instance=ExtResource("5_am6l3")]
-position = Vector2(515, 528)
-
-[node name="CharacterBody2D" parent="fleshMound5" index="0"]
-zoneCount = 2
-targetZoneRange = [0, 1]
-
-[node name="fleshMound6" parent="." instance=ExtResource("5_am6l3")]
-position = Vector2(662, 357)
-
-[node name="CharacterBody2D" parent="fleshMound6" index="0"]
-zoneCount = 2
-targetZoneRange = [0, 1]
-
-[node name="fleshMound7" parent="." instance=ExtResource("5_am6l3")]
-position = Vector2(1380, 739)
-
-[node name="CharacterBody2D" parent="fleshMound7" index="0"]
-zoneCount = 2
-targetZoneRange = [0, 1]
-
-[node name="fleshMound8" parent="." instance=ExtResource("5_am6l3")]
-position = Vector2(1214, 846)
-
-[node name="CharacterBody2D" parent="fleshMound8" index="0"]
-zoneCount = 2
-targetZoneRange = [0, 1]
-
-[node name="fleshMound9" parent="." instance=ExtResource("5_am6l3")]
-position = Vector2(1208, 552)
-
-[node name="CharacterBody2D" parent="fleshMound9" index="0"]
-zoneCount = 2
-targetZoneRange = [0, 1]
-
 [node name="lighting" type="CanvasModulate" parent="."]
+visible = false
 texture_filter = 1
-color = Color(0.0266579, 0.00843558, 0.0801267, 1)
-
-[node name="EnemyBase" parent="." instance=ExtResource("7_iwsmi")]
-position = Vector2(864, 198)
-
-[node name="CharacterBody2D" parent="EnemyBase" index="0"]
-zoneCount = 2
-targetZoneRange = [0, 1]
-
-[editable path="fleshMound"]
-[editable path="fleshMound2"]
-[editable path="fleshMound3"]
-[editable path="fleshMound4"]
-[editable path="fleshMound5"]
-[editable path="fleshMound6"]
-[editable path="fleshMound7"]
-[editable path="fleshMound8"]
-[editable path="fleshMound9"]
-[editable path="EnemyBase"]
+color = Color(0.583098, 0.27218, 0.107703, 1)

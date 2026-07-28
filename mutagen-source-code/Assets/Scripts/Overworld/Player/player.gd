@@ -14,6 +14,7 @@ var cameraFizzValue : float = 0
 var darkness : float = 0
 var transition := false
 var resting := false
+var climbing := false
 
 signal battleInitiated
 signal walking
@@ -88,6 +89,20 @@ func _process(delta):
 		Global.musicCanPlay = true
 		
 		
+# reading tilemap data
+	climbing = false
+	for i in get_tree().get_nodes_in_group("tilemap"):
+		if i is not TileMapLayer:
+			continue
+		var tilemap : TileMapLayer = i
+		var data := tilemap.get_cell_tile_data(tilemap.local_to_map(tilemap.to_local(global_position)))
+		if data == null:
+			continue
+		if tilemap.tile_set.get_custom_data_layer_by_name("climbing") == -1:
+			continue
+		if data.get_custom_data("climbing") and not climbing:
+			climbing = true
+			$AnimatedSprite2D.play("Walk Backwards")
 
 
 var radiationTimer := 0.0
@@ -105,9 +120,9 @@ func _physics_process(delta):
 			velocity.y -= 1
 		if Input.is_action_pressed("Down"):
 			velocity.y += 1
-		if Input.is_action_pressed("Left"):
+		if Input.is_action_pressed("Left") and not climbing:
 			velocity.x -= 1
-		if Input.is_action_pressed("Right"):
+		if Input.is_action_pressed("Right") and not climbing:
 			velocity.x += 1
 		
 		velocity = velocity.normalized() * speed
@@ -150,15 +165,15 @@ func _physics_process(delta):
 	if (velocity.length() != 0) && controllable:
 		if (Input.is_action_pressed("Up") == true) && (Input.is_action_pressed("Down") == false) && (Input.is_action_pressed("Left") == false) && (Input.is_action_pressed("Right") == false):
 			$AnimatedSprite2D.play("Walk Backwards")
-		if (Input.is_action_pressed("Down") == true) && (Input.is_action_pressed("Up") == false) && (Input.is_action_pressed("Left") == false) && (Input.is_action_pressed("Right") == false):
+		if (Input.is_action_pressed("Down") == true) && (Input.is_action_pressed("Up") == false) && (Input.is_action_pressed("Left") == false) && (Input.is_action_pressed("Right") == false) && not climbing:
 			$AnimatedSprite2D.play("Walk Forwards")
-		if ((Input.is_action_pressed("Left") == true) or (Input.is_action_pressed("Right") == true)) and not ((Input.is_action_pressed("Left") == true) and (Input.is_action_pressed("Right") == true)):
+		if ((Input.is_action_pressed("Left") == true) or (Input.is_action_pressed("Right") == true)) and not ((Input.is_action_pressed("Left") == true) and (Input.is_action_pressed("Right") == true)) && not climbing:
 			$AnimatedSprite2D.play("Walk Sideways")
 		if ((Input.is_action_pressed("Left") == true) and (Input.is_action_pressed("Right") == true) and (Input.is_action_pressed("Up") == true)):
 			$AnimatedSprite2D.play("Walk Backwards") # I erm a genioss
-		if ((Input.is_action_pressed("Left") == true) and (Input.is_action_pressed("Right") == true) and (Input.is_action_pressed("Down") == true)):
+		if ((Input.is_action_pressed("Left") == true) and (Input.is_action_pressed("Right") == true) and (Input.is_action_pressed("Down") == true)) && not climbing:
 			$AnimatedSprite2D.play("Walk Forwards") #fhuifweuihowej9ioufwe9uohjfwe f89uhf89q
-		if (Input.is_action_pressed("Left") == true):
+		if (Input.is_action_pressed("Left") == true) && not climbing:
 			$AnimatedSprite2D.flip_h = true
 		else:
 			$AnimatedSprite2D.flip_h = false

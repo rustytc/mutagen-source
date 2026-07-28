@@ -3,11 +3,11 @@ extends Node
 
 var playerData := { # various important player variables stored in a dictionary
 	"player": {
-		"name": "Evelyn",
+		"name": "Flynn",
 		"pronouns" : {
-			"personal" : "she",
-			"possessive" : "her",
-			"objective" : "her",
+			"personal" : "he",
+			"possessive" : "his",
+			"objective" : "him",
 			},
 		"level": 1,
 		"levelCap":15, # maximum level until exp stops going up. increases each epiphany
