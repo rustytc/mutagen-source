@@ -1363,14 +1363,14 @@ func _on_action_list_item_activated(index):
 		):
 			$Tabs.current_tab = 2
 			CowTools.populateBattleEnemyList($Tabs/attackWho/enemyList, BattleSystem.enemyDict) # populates the enemyList with enemy names
-			$Tabs/attackWho/enemyList.grab_focus()
+			$Tabs/attackWho/enemyList.call_deferred("grab_focus")
 			$Tabs/attackWho/enemyList.select(0) # highlighting the first value automatically
 		else:
 			UniversalAudio._play_error()
 	if index == 1:
 		if BattleSystem.canAdvance:
 			$Tabs.current_tab = 4
-			$Tabs/distancePicker/distanceList.grab_focus()
+			$Tabs/distancePicker/distanceList.call_deferred("grab_focus")
 			$Tabs/distancePicker/distanceList.select(0) # highlighting the first value automatically
 		else:
 			UniversalAudio._play_error()
@@ -1388,7 +1388,7 @@ func _on_enemy_list_item_activated(index):
 		CowTools.clearItemList($Tabs/attackWho/enemyList)
 		CowTools.populateItemListDirect($Tabs/attackWho/enemyList,["< Back"],null,true)
 		$Tabs.current_tab = 1
-		$Tabs/Action/actionList.grab_focus()
+		$Tabs/Action/actionList.call_deferred("grab_focus")
 	else:
 		BattleSystem.selectedEnemy = $Tabs/attackWho/enemyList.get_item_metadata(index)
 		$Tabs/attackWho/enemyList.release_focus()
@@ -1399,7 +1399,7 @@ func _on_enemy_list_item_activated(index):
 		# maybe removeIdentifier should become a cow tool
 		CowTools.populateItemListDirect($Tabs/limbPicker/limbList, EnemyDb.enemies[BattleSystem.removeIdentifier(BattleSystem.selectedEnemy)]["limbs"])
 		$Tabs.current_tab = 3
-		$Tabs/limbPicker/limbList.grab_focus()
+		$Tabs/limbPicker/limbList.call_deferred("grab_focus")
 
 func _on_limb_list_item_selected(index): # limb is selected in limb picker
 	for i in instance_from_id(BattleSystem.enemyDict[BattleSystem.selectedEnemy]["battleSpriteID"]).get_node("Limbs").get_children():
@@ -1421,7 +1421,7 @@ func _on_limb_list_item_activated(index):
 		CowTools.clearItemList($Tabs/limbPicker/limbList)
 		CowTools.populateItemListDirect($Tabs/limbPicker/limbList,["< Back"],null,true)
 		$Tabs.current_tab = 2
-		$Tabs/attackWho/enemyList.grab_focus()
+		$Tabs/attackWho/enemyList.call_deferred("grab_focus")
 		CowTools.populateBattleEnemyList($Tabs/attackWho/enemyList, BattleSystem.enemyDict)
 	else:
 		for i in instance_from_id(BattleSystem.enemyDict[BattleSystem.selectedEnemy]["battleSpriteID"]).get_node("Limbs").get_children():
@@ -1441,7 +1441,7 @@ func _on_distance_list_item_activated(index: int) -> void:
 	if index == 0: # returning
 		$Tabs/distancePicker/distanceList.release_focus()
 		$Tabs.current_tab = 1
-		$Tabs/Action/actionList.grab_focus()
+		$Tabs/Action/actionList.call_deferred("grab_focus")
 	if index == 1: # advance
 		BattleSystem.PLAYER_MOVES.advance("forwards")
 		BattleSystem.startTurns()

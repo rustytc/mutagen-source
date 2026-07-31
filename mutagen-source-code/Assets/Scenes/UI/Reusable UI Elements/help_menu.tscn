@@ -301,7 +301,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_8cej4")
-currentMenu = null
 
 [node name="Pointer" parent="." instance=ExtResource("2_rgwt0")]
 
