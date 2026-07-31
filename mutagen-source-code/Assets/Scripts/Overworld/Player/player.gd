@@ -170,9 +170,9 @@ func _physics_process(delta):
 		if ((Input.is_action_pressed("Left") == true) or (Input.is_action_pressed("Right") == true)) and not ((Input.is_action_pressed("Left") == true) and (Input.is_action_pressed("Right") == true)) && not climbing:
 			$AnimatedSprite2D.play("Walk Sideways")
 		if ((Input.is_action_pressed("Left") == true) and (Input.is_action_pressed("Right") == true) and (Input.is_action_pressed("Up") == true)):
-			$AnimatedSprite2D.play("Walk Backwards") # I erm a genioss
+			$AnimatedSprite2D.play("Walk Backwards")
 		if ((Input.is_action_pressed("Left") == true) and (Input.is_action_pressed("Right") == true) and (Input.is_action_pressed("Down") == true)) && not climbing:
-			$AnimatedSprite2D.play("Walk Forwards") #fhuifweuihowej9ioufwe9uohjfwe f89uhf89q
+			$AnimatedSprite2D.play("Walk Forwards")
 		if (Input.is_action_pressed("Left") == true) && not climbing:
 			$AnimatedSprite2D.flip_h = true
 		else:
@@ -236,8 +236,6 @@ func playerCaught(enemy = null):
 func _on_timer_timeout():
 	
 	if transition == true:
-		# print("gone")
-		#get_tree().change_scene_to_file("res://Assets/Scenes/Battle/Battle Screen/battle_screen.tscn")
 		var gameScene = get_tree().get_first_node_in_group("Game Scene")
 		get_tree().get_first_node_in_group("Battle Screen Node Reference").add_child(load("res://Assets/Scenes/Battle/Battle Screen/battle_screen.tscn").instantiate())
 		# pausing the overworld

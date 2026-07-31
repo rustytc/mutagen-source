@@ -1,0 +1,252 @@
+[gd_scene load_steps=25 format=3 uid="uid://dmwnysfr3nj60"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/UI/World Map/worldMap.gd" id="1_jyajm"]
+[ext_resource type="FontFile" uid="uid://cgksoyoaqim15" path="res://Assets/Fonts/Mx437_IBM_VGA_8x14.ttf" id="1_qccgi"]
+[ext_resource type="Texture2D" uid="uid://bdnxjy8xvw83c" path="res://Assets/Images/Sprites/UI/World Map/tucsonNasa.png" id="2_4wpuy"]
+[ext_resource type="FontFile" uid="uid://dbibrg3b1b5mh" path="res://Assets/Fonts/pixeloid.sans.ttf" id="2_5b6mm"]
+[ext_resource type="FontFile" uid="uid://y21aom2shmhk" path="res://Assets/Fonts/pixeloid.sans-bold.ttf" id="3_t8c80"]
+[ext_resource type="AudioStream" uid="uid://w3x6q7t7gxc3" path="res://Assets/Sounds/Music/Red_Complex.ogg" id="5_mq0a3"]
+[ext_resource type="Texture2D" uid="uid://bt26pldtgp7se" path="res://Assets/Images/Sprites/UI/World Map/Mini Flynn/Walk Backwards1.png" id="7_2tinh"]
+[ext_resource type="Texture2D" uid="uid://c7mdx0qbtwrwa" path="res://Assets/Images/Sprites/UI/World Map/Mini Flynn/Walk Forwards1.png" id="8_rdq3a"]
+[ext_resource type="Texture2D" uid="uid://fo3xtrssw5ji" path="res://Assets/Images/Sprites/UI/World Map/Mini Flynn/Walk Sideways1.png" id="9_n5ktj"]
+[ext_resource type="Texture2D" uid="uid://7etckgl2sivy" path="res://Assets/Images/Sprites/UI/World Map/Mini Flynn/Walk Backwards2.png" id="10_tlk0n"]
+[ext_resource type="Texture2D" uid="uid://bqo8pkrs1c31s" path="res://Assets/Images/Sprites/UI/World Map/Mini Flynn/Walk Backwards3.png" id="11_d57fk"]
+[ext_resource type="Texture2D" uid="uid://ch6cae74svar1" path="res://Assets/Images/Sprites/UI/World Map/Mini Flynn/Walk Backwards4.png" id="12_y1py3"]
+[ext_resource type="Texture2D" uid="uid://bx5lpnah8uv37" path="res://Assets/Images/Sprites/UI/World Map/Mini Flynn/Walk Forwards2.png" id="13_5bg37"]
+[ext_resource type="Texture2D" uid="uid://b2lq2vnig0xsb" path="res://Assets/Images/Sprites/UI/World Map/Mini Flynn/Walk Forwards3.png" id="14_lpbaa"]
+[ext_resource type="Texture2D" uid="uid://g0owc5o88n6a" path="res://Assets/Images/Sprites/UI/World Map/Mini Flynn/Walk Forwards4.png" id="15_0pug6"]
+[ext_resource type="Texture2D" uid="uid://b2n3vd338wcxg" path="res://Assets/Images/Sprites/UI/World Map/Mini Flynn/Walk Sideways2.png" id="16_7kxot"]
+[ext_resource type="Texture2D" uid="uid://k7iyj4g5cfag" path="res://Assets/Images/Sprites/UI/World Map/Mini Flynn/Walk Sideways3.png" id="17_136gs"]
+[ext_resource type="Texture2D" uid="uid://bchdjqxja0mjm" path="res://Assets/Images/Sprites/UI/World Map/Mini Flynn/Walk Sideways4.png" id="18_53edc"]
+[ext_resource type="Texture2D" uid="uid://dgqkotpixut3w" path="res://Assets/Images/Sprites/UI/World Map/Map Icons/mapIcons4.png" id="19_kdcnn"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/World Map/waypoint.gd" id="20_df6a6"]
+
+[sub_resource type="FontVariation" id="FontVariation_6v7ya"]
+base_font = ExtResource("1_qccgi")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kh8jh"]
+radius = 72.4431
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jxjxy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_2tinh")
+}],
+"loop": true,
+"name": &"Idle Backwards",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_rdq3a")
+}],
+"loop": true,
+"name": &"Idle Forwards",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_n5ktj")
+}],
+"loop": true,
+"name": &"Idle Sideways",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_tlk0n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2tinh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_y1py3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_d57fk")
+}],
+"loop": true,
+"name": &"Walk Backwards",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_5bg37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rdq3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0pug6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_lpbaa")
+}],
+"loop": true,
+"name": &"Walk Forwards",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_7kxot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_n5ktj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_53edc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_136gs")
+}],
+"loop": true,
+"name": &"Walk Sideways",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pl3nv"]
+
+[node name="worldMap" type="Node2D"]
+script = ExtResource("1_jyajm")
+
+[node name="canvasLayer" type="CanvasLayer" parent="."]
+
+[node name="WELCOME" type="RichTextLabel" parent="canvasLayer"]
+texture_filter = 1
+offset_top = 16.0
+offset_right = 640.0
+offset_bottom = 40.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_6v7ya")
+theme_override_fonts/mono_font = ExtResource("2_5b6mm")
+theme_override_fonts/bold_font = ExtResource("3_t8c80")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "[center]WELCOME TO PIMA COUNTY, ARIZONA"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="areaName" type="RichTextLabel" parent="canvasLayer"]
+texture_filter = 1
+offset_top = 296.0
+offset_right = 640.0
+offset_bottom = 320.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_6v7ya")
+theme_override_fonts/mono_font = ExtResource("2_5b6mm")
+theme_override_fonts/bold_font = ExtResource("3_t8c80")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="tucsonNasa" type="Sprite2D" parent="."]
+position = Vector2(320, 176)
+texture = ExtResource("2_4wpuy")
+metadata/_edit_lock_ = true
+
+[node name="audioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_mq0a3")
+autoplay = true
+
+[node name="mapIcons" type="Node2D" parent="."]
+
+[node name="Husk Valley" type="Sprite2D" parent="."]
+position = Vector2(1168, -544)
+texture = ExtResource("19_kdcnn")
+script = ExtResource("20_df6a6")
+areaID = "huskValley"
+areaName = "Husk Valley"
+
+[node name="area2d" type="Area2D" parent="Husk Valley"]
+
+[node name="collisionShape2d" type="CollisionShape2D" parent="Husk Valley/area2d"]
+shape = SubResource("CircleShape2D_kh8jh")
+
+[node name="Hospital" type="Sprite2D" parent="."]
+position = Vector2(336, 416)
+texture = ExtResource("19_kdcnn")
+script = ExtResource("20_df6a6")
+areaID = "hospital"
+areaName = "Tucson Family Hospital and Immediate Care Center"
+
+[node name="area2d" type="Area2D" parent="Hospital"]
+
+[node name="collisionShape2d" type="CollisionShape2D" parent="Hospital/area2d"]
+shape = SubResource("CircleShape2D_kh8jh")
+
+[node name="Bunker" type="Sprite2D" parent="."]
+position = Vector2(1336, 944)
+texture = ExtResource("19_kdcnn")
+script = ExtResource("20_df6a6")
+areaID = "bunker"
+areaName = "Locked Bunker"
+
+[node name="area2d" type="Area2D" parent="Bunker"]
+
+[node name="collisionShape2d" type="CollisionShape2D" parent="Bunker/area2d"]
+shape = SubResource("CircleShape2D_kh8jh")
+
+[node name="Slaughterhouse" type="Sprite2D" parent="."]
+position = Vector2(-600, -536)
+texture = ExtResource("19_kdcnn")
+script = ExtResource("20_df6a6")
+areaID = "slaughterhouse"
+areaName = "Slaughterhouse"
+
+[node name="area2d" type="Area2D" parent="Slaughterhouse"]
+
+[node name="collisionShape2d" type="CollisionShape2D" parent="Slaughterhouse/area2d"]
+shape = SubResource("CircleShape2D_kh8jh")
+
+[node name="Facility" type="Sprite2D" parent="."]
+position = Vector2(-696, 744)
+texture = ExtResource("19_kdcnn")
+script = ExtResource("20_df6a6")
+areaID = "facility"
+areaName = "Red Sun Biological Sciences and Technologies"
+
+[node name="area2d" type="Area2D" parent="Facility"]
+
+[node name="collisionShape2d" type="CollisionShape2D" parent="Facility/area2d"]
+shape = SubResource("CircleShape2D_kh8jh")
+
+[node name="mapCursor" type="CharacterBody2D" parent="." groups=["Map Cursor"]]
+position = Vector2(1136, -456)
+
+[node name="camera2d" type="Camera2D" parent="mapCursor"]
+limit_left = -872
+limit_top = -718
+limit_right = 1512
+limit_bottom = 1070
+limit_smoothed = true
+
+[node name="animatedSprite2d" type="AnimatedSprite2D" parent="mapCursor"]
+sprite_frames = SubResource("SpriteFrames_jxjxy")
+animation = &"Walk Backwards"
+autoplay = "Idle Forwards"
+
+[node name="collisionShape2d" type="CollisionShape2D" parent="mapCursor"]
+shape = SubResource("RectangleShape2D_pl3nv")
+
+[connection signal="body_entered" from="Husk Valley/area2d" to="Husk Valley" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Husk Valley/area2d" to="Husk Valley" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Hospital/area2d" to="Hospital" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Hospital/area2d" to="Hospital" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Bunker/area2d" to="Bunker" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Bunker/area2d" to="Bunker" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Slaughterhouse/area2d" to="Slaughterhouse" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Slaughterhouse/area2d" to="Slaughterhouse" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Facility/area2d" to="Facility" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Facility/area2d" to="Facility" method="_on_area_2d_body_exited"]
