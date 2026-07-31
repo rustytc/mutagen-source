@@ -58,6 +58,10 @@ var playerData := { # various important player variables stored in a dictionary
 				"quantity": 1,
 				"bookmarked" : false,
 				},
+				"magnumRound" : {
+				"quantity" : 1,
+				"bookmarked" : false,
+				},
 				"familyPhoto" : {
 				"quantity": 1,
 				"bookmarked" : false,
@@ -65,7 +69,7 @@ var playerData := { # various important player variables stored in a dictionary
 				"driedMeat" : {
 				"quantity" : 5,
 				"bookmarked" : false,
-				}
+				},
 				
 			},
 			

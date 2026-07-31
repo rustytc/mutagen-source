@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://b1dq3c7ss46gy"]
+[gd_scene load_steps=67 format=3 uid="uid://b1dq3c7ss46gy"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/UI/Reusable UI Elements/help_menu.gd" id="1_8cej4"]
 [ext_resource type="PackedScene" uid="uid://ci323t6l7lanx" path="res://Assets/Scenes/UI/Reusable UI Elements/pointer.tscn" id="2_rgwt0"]
@@ -14,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://bndr2qb2kcow1" path="res://Assets/Fonts/Mx437 IBM VGA 8x14 MODIFIED.ttf" id="12_ian20"]
 [ext_resource type="Theme" uid="uid://yl5cepm7d83k" path="res://Assets/Skins/UI/listNoScrollbar.tres" id="13_phsoy"]
 [ext_resource type="PackedScene" uid="uid://br3a6cyvqbono" path="res://Assets/Scenes/UI/Reusable UI Elements/Dial.tscn" id="14_vsvj7"]
+[ext_resource type="Texture2D" uid="uid://b1yvr6lddsxpi" path="res://Assets/Images/Sprites/UI/Menu/Icons/Armory/magnum.png" id="14_w1g8k"]
 [ext_resource type="StyleBox" uid="uid://c7v42b37ndda1" path="res://Assets/Skins/UI/button_selected.tres" id="15_eoey8"]
 [ext_resource type="StyleBox" uid="uid://bmawbl7e0nhtm" path="res://Assets/Skins/UI/button.tres" id="16_s4yqb"]
 
@@ -300,6 +301,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_8cej4")
+currentMenu = null
 
 [node name="Pointer" parent="." instance=ExtResource("2_rgwt0")]
 
@@ -1010,6 +1012,58 @@ item_count = 2
 item_0/text = "Sgt. Tessmann"
 item_1/text = "Evelyn Furrier"
 
+[node name="System" type="Control" parent="Tabs"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+metadata/_tab_index = 11
+
+[node name="systemTitle" type="RichTextLabel" parent="Tabs/System"]
+texture_filter = 1
+custom_minimum_size = Vector2(580, 80)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 594.0
+offset_bottom = 88.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_4pann")
+theme_override_fonts/mono_font = ExtResource("5_7l4xm")
+theme_override_fonts/bold_font = ExtResource("6_qk375")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "System"
+scroll_active = false
+scroll_following = true
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="systemList" type="ItemList" parent="Tabs/System"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 24.0
+offset_right = 582.0
+offset_bottom = 104.0
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hovered_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("12_ian20")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b7plc")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_j3fcu")
+theme_override_styles/hovered = SubResource("StyleBoxEmpty_bs6p8")
+theme_override_styles/selected = SubResource("StyleBoxEmpty_5tc3n")
+theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_i3gro")
+theme_override_styles/cursor_unfocused = SubResource("StyleBoxEmpty_dk8bc")
+theme_override_styles/cursor = SubResource("StyleBoxEmpty_23xis")
+allow_search = false
+item_count = 1
+item_0/text = "Exit to Main Menu"
+item_0/icon = ExtResource("14_w1g8k")
+
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="escapeCooldown" type="Timer" parent="."]
@@ -1221,6 +1275,7 @@ autoplay = "Hidden"
 [connection signal="item_activated" from="Tabs/Gear/gearList" to="." method="_on_gear_list_item_activated"]
 [connection signal="focus_exited" from="Tabs/Stats/statsList" to="." method="hidePointer"]
 [connection signal="focus_exited" from="Tabs/Radio/radioList" to="." method="hidePointer"]
+[connection signal="focus_exited" from="Tabs/System/systemList" to="." method="hidePointer"]
 [connection signal="visibility_changed" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_visibility_changed"]
 [connection signal="pressed" from="tossSlider/tossConfirm" to="." method="_on_toss_confirm_pressed"]
 [connection signal="pressed" from="ammoSlider/reloadConfirm" to="." method="_on_reload_confirm_pressed"]

@@ -78,6 +78,8 @@ func _ready():
 		$Tabs.set_tab_disabled(3, true)
 		$Tabs.set_tab_hidden(3, true)
 		$Tabs.set_tab_hidden(4, true)
+		$Tabs.set_tab_disabled(11, true) #system
+		$Tabs.set_tab_hidden(11, true)
 		$Tabs.current_tab = 1 # sets the tab to "Action"
 	readied = true
 	createWeaponDescriptions()
@@ -115,6 +117,7 @@ func _ready():
 	$Tabs/Armor/headArmorList.add_theme_constant_override("draw_guides", 0)
 	$Tabs/Stats/statsList.add_theme_color_override("guide_color", Color(0, 0, 0, 0))
 	$Tabs/Radio/radioList.add_theme_color_override("guide_color", Color(0, 0, 0, 0))
+	$Tabs/System/systemList.add_theme_color_override("guide_color", Color(0, 0, 0, 0))
 	$Tabs/Action/actionList.add_theme_color_override("guide_color", Color(0, 0, 0, 0))
 	$Tabs/attackWho/enemyList.add_theme_color_override("guide_color", Color(0, 0, 0, 0))
 	$Tabs/limbPicker/limbList.add_theme_color_override("guide_color", Color(0, 0, 0, 0))
@@ -520,7 +523,6 @@ func updateItemDescriptions():
 				
 			
 		row = nextRow		
-
 		
 func resetItemDescriptions(): # necessary for changing item list order for bookmarks
 	$Tabs/Items/itemsList.clear()
@@ -813,21 +815,13 @@ func _on_toss_confirm_pressed():
 		drop_toss_dial_focus()
 		gain_tab_focus()
 		$Tabs/Items/itemsList.grab_focus()
-	elif int($tossSlider/Dial.currentTick) < PlayerDb.playerData["player"]["inventory"][itemIDHolder]["quantity"]:
-		PlayerDb.playerData["player"]["inventory"][itemIDHolder]["quantity"] -= int($tossSlider/Dial.currentTick)
-		UniversalAudio.playSpecialSound("res://Assets/Sounds/Item/toss.mp3")
-		updateItemDescriptions()
-		drop_toss_dial_focus()
-		gain_tab_focus()
-		$Tabs/Items/itemsList.grab_focus()
 	else:
-		InventoryHelper.deleteItem(itemIDHolder)
-		$Tabs/Items/itemsList.get_selected().free()
+		InventoryHelper.tossItem(itemIDHolder, $tossSlider/Dial.currentTick)
 		UniversalAudio.playSpecialSound("res://Assets/Sounds/Item/toss.mp3")
-		updateItemDescriptions()
 		drop_toss_dial_focus()
 		gain_tab_focus()
 		$Tabs/Items/itemsList.grab_focus()
+		resetItemDescriptions()
 		
 		
 func equipWeapon():

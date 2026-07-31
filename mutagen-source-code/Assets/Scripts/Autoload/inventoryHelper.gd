@@ -89,24 +89,32 @@ func ammoEject(WEAPONNAME, amount = 1, sound = true):
 	helpMenu.updateWeaponDescriptions()
 
 		
-func tossItem(ITEMNAME):
-	if GlobalDb.itemDatabase[ITEMNAME]["general"]["disposable"] == true and  playerData["player"]["inventory"][ITEMNAME]["key"] == false:
-		if playerData["player"]["inventory"][ITEMNAME]["quantity"] < 2:
+func tossItem(ITEMNAME, amount):
+	if GlobalDb.itemDatabase[ITEMNAME]["general"]["disposable"] == true and  GlobalDb.itemDatabase[ITEMNAME]["general"]["key"] == false:
+		if (playerData["player"]["inventory"][ITEMNAME]["quantity"] - amount) <= 0:
 			deleteItem(ITEMNAME)
-			UniversalAudio.playSpecialSound("res://Assets/Sounds/Item/toss.mp3")
 		else:
-			return
+			playerData["player"]["inventory"][ITEMNAME]["quantity"] -= amount
+	
+	
 func deleteItem(ITEMNAME):
 	playerData["player"]["inventory"].erase(ITEMNAME)
+	putBulletAtBottom()
+	helpMenu.resetItemDescriptions()
+		
 func addItem(ITEMNAME, quantity):
 	if playerData["player"]["inventory"].has(ITEMNAME):
 		playerData["player"]["inventory"][ITEMNAME]["quantity"] += quantity
+		putBulletAtBottom()
 		helpMenu.updateItemDescriptions()
 	else:
 		var key = {"quantity" : quantity,
 				"bookmarked" : false,	}
 		playerData["player"]["inventory"][ITEMNAME] = key
+		putBulletAtBottom()
 		helpMenu.resetItemDescriptions()
+	
+	
 	
 func addArmor(ARMORNAME, type, quantity):
 	if playerData["player"]["armor"][type].has(ARMORNAME):
@@ -149,3 +157,13 @@ func findEquippedWeaponAmmo():
 				return playerData["player"]["weapons"][i]["ammo"]
 			else:
 				return playerData["player"]["weapons"][i]["quantity"]
+
+func putBulletAtBottom(): # this has nothing to do with actual ammo values, as ammo does not get stored in the player's
+	# item inventory. rather, this is just flavor for a specific "single magnum round" item that exists
+	# in flynns inventory
+	if playerData["player"]["name"] == "Flynn" and playerData["player"]["inventory"].has("magnumRound"):
+		var key = playerData["player"]["inventory"]["magnumRound"].duplicate(true)
+		playerData["player"]["inventory"].erase("magnumRound")
+		playerData["player"]["inventory"]["magnumRound"] = key
+		
+	print(playerData["player"]["inventory"].keys())
