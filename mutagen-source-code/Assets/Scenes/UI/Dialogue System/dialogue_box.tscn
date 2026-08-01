@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://xwp1k61fdj12"]
+[gd_scene load_steps=13 format=3 uid="uid://xwp1k61fdj12"]
 
 [ext_resource type="FontFile" uid="uid://dbibrg3b1b5mh" path="res://Assets/Fonts/pixeloid.sans.ttf" id="1_hss2k"]
 [ext_resource type="Script" path="res://Assets/Scripts/UI/Dialogue System/dialogue_box.gd" id="1_t0t6r"]
@@ -12,6 +12,18 @@ base_font = ExtResource("4_e3olp")
 
 [sub_resource type="Animation" id="Animation_x7l6k"]
 resource_name = "Normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(624, 232)]
+}
 
 [sub_resource type="Animation" id="Animation_64fme"]
 length = 0.001
@@ -44,8 +56,24 @@ tracks/0/keys = {
 "values": [Vector2(624, 376), Vector2(624, 344), Vector2(624, 232)]
 }
 
+[sub_resource type="Animation" id="Animation_aogle"]
+resource_name = "Hidden"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(624, 376)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fm56p"]
 _data = {
+"Hidden": SubResource("Animation_aogle"),
 "Normal": SubResource("Animation_x7l6k"),
 "RESET": SubResource("Animation_64fme"),
 "Slide_In": SubResource("Animation_kbqxf")
@@ -210,6 +238,6 @@ one_shot = true
 libraries = {
 "": SubResource("AnimationLibrary_fm56p")
 }
-autoplay = "Normal"
+autoplay = "Hidden"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

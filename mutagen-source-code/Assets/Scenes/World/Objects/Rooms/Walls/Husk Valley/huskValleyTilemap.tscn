@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://i0q0mv6o5wpp"]
+[gd_scene load_steps=13 format=4 uid="uid://i0q0mv6o5wpp"]
 
 [ext_resource type="Texture2D" uid="uid://im5vv7skyvim" path="res://Assets/Images/Sprites/World Objects/Rooms/Tilemaps/testTileMap/testTilemap.png" id="1_mh1jd"]
 [ext_resource type="Script" path="res://Assets/Scenes/World/Objects/Rooms/Walls/Walls.gd" id="2_j46e6"]
 [ext_resource type="Texture2D" uid="uid://mh7jkekdlkae" path="res://Assets/Images/Sprites/World Objects/Rooms/Tilemaps/Pathfinding/pathfinding.png" id="3_punkj"]
+[ext_resource type="Script" path="res://Assets/Scripts/Overworld/Triggers/camera_bounds.gd" id="4_poy0r"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2qf5x"]
 
@@ -1638,7 +1639,11 @@ tile_set = SubResource("TileSet_4j7ha")
 navigation_polygon = SubResource("NavigationPolygon_8ybm7")
 
 [node name="cameraBounds" type="Area2D" parent="."]
+script = ExtResource("4_poy0r")
 
 [node name="collisionShape2d" type="CollisionShape2D" parent="cameraBounds" groups=["Camera Bounds"]]
 position = Vector2(-16, -1608)
 shape = SubResource("RectangleShape2D_nrsyy")
+
+[connection signal="body_entered" from="cameraBounds" to="cameraBounds" method="_on_body_entered"]
+[connection signal="body_exited" from="cameraBounds" to="cameraBounds" method="_on_body_exited"]

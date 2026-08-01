@@ -144,3 +144,15 @@ func goToArea(areaID, room, variant = LevelDb.areaDatabase[areaID]["rooms"][room
 	music = LevelDb.areaDatabase[areaID]["rooms"][room]["bgm"][variant]
 	musicPlaying = true
 	
+func goToMap():
+	var world = get_tree().get_nodes_in_group("World Scene Node Reference")[0]
+	var map = get_tree().get_nodes_in_group("World Map Scene Node Reference")[0]
+	for i in world.get_children():
+		i.queue_free()
+	world.process_mode = Node.PROCESS_MODE_DISABLED
+	world.hide()
+	map.process_mode = Node.PROCESS_MODE_PAUSABLE
+	map.show()
+	map.get_node("canvasLayer").show()
+	map.get_node("mapCursor").get_node("camera2d").enabled = true
+	musicPlaying = false

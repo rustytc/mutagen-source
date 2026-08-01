@@ -15,6 +15,7 @@ follow_viewport_enabled = true
 [node name="deathEffect" parent="." instance=ExtResource("1_rjyi2")]
 
 [node name="radiationEffect" parent="." instance=ExtResource("2_h4noc")]
+visible = false
 
 [node name="dialogueBox" parent="." instance=ExtResource("1_celbx")]
 
