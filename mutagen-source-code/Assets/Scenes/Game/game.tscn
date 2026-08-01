@@ -1,13 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://dt4e1ihod0rw1"]
 
+[ext_resource type="PackedScene" uid="uid://dmwnysfr3nj60" path="res://Assets/Scenes/UI/World Map/world_map.tscn" id="1_e10ui"]
 [ext_resource type="PackedScene" uid="uid://lfhxtap3m62l" path="res://Assets/Scenes/UI/Game Over/game_over.tscn" id="1_ma4fr"]
-[ext_resource type="PackedScene" uid="uid://buamukxvqtnih" path="res://Assets/Scenes/World/Objects/Rooms/Maps/the_room.tscn" id="1_nnmnj"]
 
 [node name="Game" type="Node2D" groups=["Game Scene"]]
 
-[node name="World" type="Node2D" parent="." groups=["World Scene Node Reference"]]
+[node name="worldMap" parent="." groups=["World Map Scene Node Reference"] instance=ExtResource("1_e10ui")]
+process_mode = 1
 
-[node name="the room" parent="World" instance=ExtResource("1_nnmnj")]
+[node name="World" type="Node2D" parent="." groups=["World Scene Node Reference"]]
+process_mode = 4
+visible = false
 
 [node name="Battle Screen" type="Node2D" parent="." groups=["Battle Screen Node Reference"]]
 

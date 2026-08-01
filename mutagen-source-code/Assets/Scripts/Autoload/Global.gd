@@ -128,3 +128,19 @@ func endCutscene():
 		await get_tree().process_frame
 		cutsceneIsActive = false
 	
+func goToArea(areaID, room, variant = LevelDb.areaDatabase[areaID]["rooms"][room]["variant"]):
+	var world = get_tree().get_nodes_in_group("World Scene Node Reference")[0]
+	var map = get_tree().get_nodes_in_group("World Map Scene Node Reference")[0]
+	var loadedArea = load(LevelDb.areaDatabase[areaID]["rooms"][room]["nodes"][variant]).instantiate()
+	for i in world.get_children():
+		i.queue_free()
+	world.add_child(loadedArea)
+	world.process_mode = Node.PROCESS_MODE_PAUSABLE
+	world.show()
+	map.process_mode = Node.PROCESS_MODE_DISABLED
+	map.hide()
+	map.get_node("canvasLayer").hide()
+	map.get_node("mapCursor").get_node("camera2d").enabled = false
+	music = LevelDb.areaDatabase[areaID]["rooms"][room]["bgm"][variant]
+	musicPlaying = true
+	

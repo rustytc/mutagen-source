@@ -93,6 +93,8 @@ wallObjects="objects that are identifiable as walls"
 "Cutscene Player"=""
 "Current Room"=""
 tilemap=""
+"Camera Bounds"="A boundary that prevents the player and camera from going out of bounds"
+"World Map Scene Node Reference"=""
 
 [input]
 

@@ -1,6 +1,8 @@
 extends Node2D
 var hoveredSpotID := ""
 var hoveredSpotName := ""
+var hoveredSpotKey := ""
+var hoveredSpotRoomID := ""
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.currentScreen = "world"
@@ -51,3 +53,9 @@ func _process(delta):
 			$mapCursor/animatedSprite2d.play("Idle Forwards")
 		if $mapCursor/animatedSprite2d.animation == "Walk Sideways":
 			$mapCursor/animatedSprite2d.play("Idle Sideways")
+
+	if Input.is_action_just_pressed("Accept") and hoveredSpotID != "" and hoveredSpotID != "null":
+		if ((PlayerDb.playerData["player"]["inventory"].has(hoveredSpotKey) or hoveredSpotKey == "" or hoveredSpotKey == "null") and LevelDb.areaDatabase.has(hoveredSpotID)):
+			Global.goToArea(hoveredSpotID,hoveredSpotRoomID)
+		if hoveredSpotID != null and not PlayerDb.playerData["player"]["inventory"].has(hoveredSpotKey) and not hoveredSpotKey == "null" and not hoveredSpotKey == "":
+			UniversalAudio._play_error()

@@ -1,0 +1,424 @@
+[gd_scene load_steps=10 format=3 uid="uid://bulcrolw0j3t3"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Overworld/Maps/Test Level/testLevel.gd" id="1_grfmr"]
+[ext_resource type="PackedScene" uid="uid://i0q0mv6o5wpp" path="res://Assets/Scenes/World/Objects/Rooms/Walls/Husk Valley/huskValleyTilemap.tscn" id="2_x2gu0"]
+[ext_resource type="PackedScene" uid="uid://b46pil1mndjda" path="res://Assets/Scenes/World/Objects/Player/player.tscn" id="3_uk2ws"]
+[ext_resource type="AudioStream" uid="uid://b87a1ebptievn" path="res://Assets/Sounds/Music/you_do_the_hokey_pokey.ogg" id="4_57l51"]
+[ext_resource type="PackedScene" uid="uid://cyxt6ioiyej4" path="res://Assets/Scenes/World/Triggers/pathfinding_zone.tscn" id="5_8pilt"]
+
+[sub_resource type="Animation" id="Animation_ygstv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/CharacterBody2D:controllable")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Player/CharacterBody2D/AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Future You"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player/CharacterBody2D/Music:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player/CharacterBody2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player/CharacterBody2D/Camera2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Player/CharacterBody2D/Camera2D:enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("cutscenes/cutsceneCamera:enabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Player/CharacterBody2D/AnimatedSprite2D:flip_h")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_bgyeu"]
+resource_name = "doTheHokeyPokey"
+length = 11.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/CharacterBody2D/Music:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_57l51")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player/CharacterBody2D/Music:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player/CharacterBody2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.16667, 1.73333, 2.73333, 3.33333, 4.13333, 10.6036, 11.0776, 11.3625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(100, 0), Vector2(100, 0), Vector2(0, 0), Vector2(0, 0), Vector2(100, 0), Vector2(100, 0), Vector2(100, -600), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player/CharacterBody2D:controllable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 11.3711),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player/CharacterBody2D/Camera2D:enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 11.3598),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("cutscenes/cutsceneCamera:enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 11.357),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Player/CharacterBody2D/AnimatedSprite2D:animation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.1, 1.73333, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"Idle Sideways", &"Walk Sideways", &"Idle Sideways"]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Player/CharacterBody2D/AnimatedSprite2D:flip_h")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.43333, 2.7, 4.99292, 5.27408, 5.55246, 6.42629, 6.60212, 6.78846, 6.98606, 7.17145, 7.35132, 7.52338, 7.69921, 7.88555, 8.08315),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Player/CharacterBody2D/AnimatedSprite2D")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.7, 2.7, 3.26667, 4.13333, 4.84995, 5.00004, 5.14155, 5.28116, 5.40845, 5.55855, 6.42803, 6.50928, 6.60212, 6.69354, 6.7902, 6.89315, 6.99192, 7.08045, 7.17523, 7.26006, 7.35107, 7.43552, 7.52512, 7.60637, 7.69921, 7.79062, 7.88729, 7.99024, 8.08901, 8.17754, 8.77897, 9.02222, 9.3616, 9.47231, 9.81096, 10.1679, 10.6195),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [&"Walk Sideways", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Sideways", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Walk Sideways", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Sideways", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Walk Sideways", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Forwards", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Backwards", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Sideways", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Forwards", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Sideways", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Backwards", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Sideways", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Sideways", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Backwards", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Sideways", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Forwards", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Sideways", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Backwards", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Sideways", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Forwards", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Sideways", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Backwards", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Sideways", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Forwards", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Sideways", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Backwards", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Sideways", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Forwards", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Sideways", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Backwards", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Sideways", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Forwards", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Future You", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Forwards Unmask", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Future You", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Forwards Unmask", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Future You", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Forwards Unmask", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"Idle Forwards", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_v8jqt"]
+resource_name = "testCutscene"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/CharacterBody2D/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.766667, 2.23333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"Idle Forwards", &"Future You", &"Walk Forwards"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player/CharacterBody2D:controllable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 2.86667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player/CharacterBody2D/Camera2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.966667, 1.76667, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(300, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0bbi6"]
+_data = {
+"RESET": SubResource("Animation_ygstv"),
+"doTheHokeyPokey": SubResource("Animation_bgyeu"),
+"testCutscene": SubResource("Animation_v8jqt")
+}
+
+[node name="the room" type="Node2D" groups=["Current Room"]]
+y_sort_enabled = true
+script = ExtResource("1_grfmr")
+metadata/_edit_vertical_guides_ = [-295.0]
+
+[node name="Map" parent="." instance=ExtResource("2_x2gu0")]
+
+[node name="cutscenes" type="AnimationPlayer" parent="." groups=["Cutscene Player"]]
+libraries = {
+"": SubResource("AnimationLibrary_0bbi6")
+}
+
+[node name="cutsceneCamera" type="Camera2D" parent="cutscenes"]
+position = Vector2(1099, 402)
+enabled = false
+
+[node name="PathfindingZone0" parent="." instance=ExtResource("5_8pilt")]
+position = Vector2(1473, 544)
+
+[node name="PathfindingZone1" parent="." instance=ExtResource("5_8pilt")]
+position = Vector2(601, 602)
+ID = 1
+
+[node name="Player" parent="." instance=ExtResource("3_uk2ws")]
+position = Vector2(-134, -1533)
+
+[node name="lighting" type="CanvasModulate" parent="."]
+visible = false
+texture_filter = 1
+color = Color(0.583098, 0.27218, 0.107703, 1)

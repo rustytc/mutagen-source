@@ -1,26 +1,35 @@
 extends Node
 var areaDatabase := {
-	"areaTemplate" : {
+	
+	
+	
+		"huskValley" : { # Area ID
 		"areaMetadata" : {
 			},
 			
 		"rooms" : {
-			"roomTemplate" : {
+			"town" : {
 				"variant" : "normal",
-				"outOrIn" : "indoors",
-		"nodes" :
+				"outOrIn" : "outdoors",
+				"nodes" :
 			{
-				"normal" : "res://Assets/Scenes/World/Objects/Rooms/Maps/the_room.tscn"
+				"normal" : "res://Assets/Scenes/World/Objects/Rooms/Maps/Husk Valley/huskValleyTown.tscn"
 			},
-		"bgm" : "",
-		"radioConversations" : {
-			"Evelyn" : {
+				"bgm" : {
+					"normal" : "res://Assets/Sounds/Music/Evelyn.ogg",
+				},
+				"radioConversations" : {
+				"Evelyn" : {
+				
+				},
+				},
+				},
 				
 			},
-		}
 			},
-		},
-	},
+	
+	
+	
 }
 
 var backroomsDatabase := {} # backrooms arcade mode where you play as evelyn. futureYou.png

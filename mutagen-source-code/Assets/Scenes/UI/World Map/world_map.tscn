@@ -167,6 +167,7 @@ position = Vector2(1168, -544)
 texture = ExtResource("19_kdcnn")
 script = ExtResource("20_df6a6")
 areaID = "huskValley"
+roomID = "town"
 areaName = "Husk Valley"
 
 [node name="area2d" type="Area2D" parent="Husk Valley"]
