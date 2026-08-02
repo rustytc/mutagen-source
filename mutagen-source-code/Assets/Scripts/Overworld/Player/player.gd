@@ -23,6 +23,7 @@ func _init():
 	Global.currentScreen = "world" # The player's existence tells the game that the player is moving around in the world
 
 func _ready():
+	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	Global.player = self.get_parent()
 	Global.playerCharBody2D = self
 	BattleSystem.connect('transition', exitBattle)

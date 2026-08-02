@@ -419,6 +419,5 @@ ID = 1
 position = Vector2(-134, -1533)
 
 [node name="lighting" type="CanvasModulate" parent="."]
-visible = false
 texture_filter = 1
-color = Color(0.583098, 0.27218, 0.107703, 1)
+color = Color(0.959616, 0.613398, 0.381225, 1)

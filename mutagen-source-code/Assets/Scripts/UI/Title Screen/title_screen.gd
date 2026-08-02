@@ -65,6 +65,7 @@ func _ready():
 	"[color=white]Don't get comfortable.[/color]",
 	"Hey, you!",
 	"Hope you're having a good day.",
+	"[color=purple]Phew! Good thing I'm purple![/color]",
 	]
 	
 	for i in range(50):
