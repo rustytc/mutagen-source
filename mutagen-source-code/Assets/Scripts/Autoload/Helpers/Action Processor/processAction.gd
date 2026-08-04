@@ -104,12 +104,15 @@ static func execute(data):
 				var health = PlayerDb.playerData["player"]["stats"]["currentHealth"]
 				var maxHealth = PlayerDb.playerData["player"]["stats"]["maxHealth"]
 				var damage = data["combatData"]["damage"]
-				PlayerDb.playerData["player"]["stats"]["currentHealth"] = clamp((health - damage), 0, maxHealth)
+				if PlayerDb.playerData["player"]["statusEffects"]["lastStand"]["active"] == false:
+					PlayerDb.playerData["player"]["stats"]["currentHealth"] = clamp((health - damage), 0, maxHealth)
+				else:
+					PlayerDb.playerData["player"]["stats"]["currentHealth"] = clamp((health - damage), 1, maxHealth)
 				var playerHealth = PlayerDb.playerData["player"]["stats"]["currentHealth"]
 				var radiation = PlayerDb.playerData["player"]["stats"]["radiation"]
 				if (playerHealth <= 0 or radiation >= 100) and BattleSystem.playerAlive == true and PlayerDb.playerData["player"]["statusEffects"]["lastStand"]["active"] == false:
 					var lastStand = Global.rng.randi_range(1,1000)
-					if lastStand == 123:
+					if lastStand == 941:
 						BattleSystem.PLAYER_MOVES.lastStand()
 					else:
 						BattleSystem.PLAYER_MOVES.die()
@@ -128,7 +131,10 @@ static func execute(data):
 	if data["playerStatus"]["radiationInflict"] > 0:
 		var radiation = PlayerDb.playerData["player"]["stats"]["radiation"]
 		var radDamage = data["playerStatus"]["radiationInflict"]
-		PlayerDb.playerData["player"]["stats"]["radiation"] = clamp((radiation + radDamage), 0, 100)
+		if PlayerDb.playerData["player"]["statusEffects"]["lastStand"]["active"] == false:
+			PlayerDb.playerData["player"]["stats"]["radiation"] = clamp((radiation + radDamage), 0, 100)
+		else:
+			PlayerDb.playerData["player"]["stats"]["radiation"] = clamp((radiation + radDamage), 0, 99)
 	
 
 
