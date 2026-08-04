@@ -106,5 +106,7 @@ static func execute():
 				ActionProcessor.queueSpecificAction(ActionProcessor.queuedActions.pop_front())
 			elif BattleSystem.enemyDict.has(BattleSystem.selectedEnemy) and BattleSystem.enemyDict[BattleSystem.selectedEnemy].has("limbs") and BattleSystem.enemyDict[BattleSystem.selectedEnemy]["limbs"].has(BattleSystem.selectedLimb):
 				BattleSystem.PLAYER_MOVES.attack(BattleSystem.selectedEnemy, BattleSystem.selectedLimb)
+				BattleSystem.selectedEnemy = ""
+				BattleSystem.selectedLimb = "" # clearing these out so they dont stick around and mess up berserk by leaving an attack queued after it ends
 			else:
 				print("There's nothing left to do.")

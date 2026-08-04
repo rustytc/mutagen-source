@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://babnaq5f2pjha"]
 
-[ext_resource type="Texture2D" uid="uid://im5vv7skyvim" path="res://Assets/Images/Sprites/World Objects/Rooms/Tilemaps/testTileMap/testTilemap.png" id="1_8joig"]
+[ext_resource type="Texture2D" uid="uid://im5vv7skyvim" path="res://Assets/Images/Sprites/World Objects/Rooms/Tilemaps/Desert/desertTiles.png" id="1_8joig"]
 [ext_resource type="Script" path="res://Assets/Scenes/World/Objects/Rooms/Walls/Walls.gd" id="2_tjqvl"]
 [ext_resource type="Texture2D" uid="uid://mh7jkekdlkae" path="res://Assets/Images/Sprites/World Objects/Rooms/Tilemaps/Pathfinding/pathfinding.png" id="3_naldj"]
 

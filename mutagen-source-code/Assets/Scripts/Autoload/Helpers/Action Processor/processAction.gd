@@ -23,7 +23,7 @@ static func execute(data):
 
 	# Skipping turns
 	for loser in BattleSystem.turnSkips:
-		if loser == data["general"]["user"] and not data["general"]["type"] == "statusEffectInflict" and not data["general"]["type"] == "statusEffectClear" and not data["general"]["type"] == "statusEffectHarm" and not data["general"]["priority"] >= 3:
+		if loser == data["general"]["user"] and ActionProcessor.PROCEDURES.isTurnAction(data):
 			ActionProcessor.processing = false
 			return
 	

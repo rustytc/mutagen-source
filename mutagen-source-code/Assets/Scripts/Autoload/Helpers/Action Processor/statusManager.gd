@@ -43,11 +43,14 @@ static func applyEffect(effect, target):
 			data["points"] -= 1
 		if data["active"] == false:
 			if data.has("announcementInflict"):
+				action["general"]["priority"] = 3
 				action["general"]["announcement"] = data["announcementInflict"]
 			action["general"]["type"] = "statusEffectInflict"
 			action["general"]["user"] = target
 			ActionProcessor.queueSpecificAction(action)
 			data["active"] = true
+			if data["turnSkip"] == true:
+				applySpecialEffects(effect, target)
 			print('inflicted')
 		else:
 			if data.has("announcementHarm"):
@@ -107,6 +110,7 @@ static func showEffectInitiation(effect, target):
 			action["general"]["announcement"] = data["announcementInflict"]
 		action["general"]["type"] = "statusEffectInflict"
 		action["general"]["user"] = target
+		action["general"]["priority"] = 3
 		ActionProcessor.queueSpecificAction(action)
 		data["active"] = true
 		print('inflicted')

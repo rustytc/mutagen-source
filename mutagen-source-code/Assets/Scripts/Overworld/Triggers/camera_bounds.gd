@@ -15,5 +15,5 @@ func _on_body_entered(body):
 		camera.force_update_scroll()
 
 func _on_body_exited(body):
-	if body.is_in_group("playerBody"):
+	if body.is_in_group("playerBody") and Global.currentScreen == "world" and body.controllable:
 		Global.goToMap()

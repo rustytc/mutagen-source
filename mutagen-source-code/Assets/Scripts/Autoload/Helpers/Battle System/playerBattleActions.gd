@@ -190,7 +190,7 @@ static func die():
 	BattleSystem.get_viewport().gui_release_focus()
 	Global.playerCharBody2D.controllable = false
 	var action = ActionProcessor.actionTemplate.duplicate(true)
-	action["general"]["priority"] = 3
+	action["general"]["priority"] = 2
 	action["general"]["announcement"] = "[PLAYERNAME] was killed."
 	action["general"]["type"] = "death"
 	action["general"]["user"] = "Player"
@@ -226,7 +226,7 @@ static func berserk(user, data):
 	var action = ActionProcessor.actionTemplate.duplicate(true)
 	action["general"]["user"] = "Player"
 	action["general"]["type"] = "attack"
-	action["general"]["priority"] = 3
+	action["general"]["priority"] = 2
 	action["general"]["announcement"] = PlayerDb.playerData["player"]["statusEffects"]["berserk"]["announcementAttack"].pick_random()
 	action["general"]["result"] = PlayerDb.playerData["player"]["statusEffects"]["berserk"]["resultAttack"]
 	action["combatData"]["damage"] = data["appliedAtk"]

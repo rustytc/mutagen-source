@@ -11,6 +11,7 @@ process_mode = 1
 [node name="World" type="Node2D" parent="." groups=["World Scene Node Reference"]]
 process_mode = 4
 visible = false
+y_sort_enabled = true
 
 [node name="Battle Screen" type="Node2D" parent="." groups=["Battle Screen Node Reference"]]
 

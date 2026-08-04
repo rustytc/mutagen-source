@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csatjuu13duj1"
-path="res://.godot/imported/cover art alpha.png-9143646de59a962c52b050f8a1777daf.ctex"
+uid="uid://3hpxjq6sw4a7"
+path="res://.godot/imported/steel walls back.png-cf28b7ee6c536f552b7d36818937eb0d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Branding/cover art alpha.png"
-dest_files=["res://.godot/imported/cover art alpha.png-9143646de59a962c52b050f8a1777daf.ctex"]
+source_file="res://Assets/Images/Sprites/World Objects/Rooms/Tilemaps/Desert/steel walls back.png"
+dest_files=["res://.godot/imported/steel walls back.png-cf28b7ee6c536f552b7d36818937eb0d.ctex"]
 
 [params]
 

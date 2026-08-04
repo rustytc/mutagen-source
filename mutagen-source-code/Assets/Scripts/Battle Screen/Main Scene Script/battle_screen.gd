@@ -98,7 +98,25 @@ func _process(delta):
 
 		$Music.volume_db = lerp(0.0, -50.0, t)
 	pass
-
+	
+	
+	# berserk music
+	if PlayerDb.playerData["player"]["statusEffects"]["berserk"]["active"] == true:
+		AudioServer.set_bus_mute(4, true)
+		AudioServer.set_bus_mute(1, true)
+		AudioServer.set_bus_mute(5, false)
+		if $BerserkMusic.playing == false:
+			$BerserkMusic.play()
+		$berserkEffect.show()
+	else:
+		if $BerserkMusic.playing == true:
+			$BerserkMusic.stop()
+		AudioServer.set_bus_mute(4, false)
+		AudioServer.set_bus_mute(1, false)
+		AudioServer.set_bus_mute(5, true)	
+		$berserkEffect.hide()
+	
+	
 func populateBattleSprites():
 	for i in BattleSystem.enemyDict:
 		var node = load(BattleSystem.enemyDict[i]["battleSprite"]).instantiate() # instantiates a .tscn file for each enemy's battle sprite

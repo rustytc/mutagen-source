@@ -208,7 +208,7 @@ var playerData := { # various important player variables stored in a dictionary
 		},
 		"berserk": {
 			"active" : false,
-			"points" : 0,
+			"points" : 2,
 			"harming" : false,
 			"turnSkip": true,
 			"effectChance":100,
@@ -218,8 +218,8 @@ var playerData := { # various important player variables stored in a dictionary
 			"announcementCure" : "!..",
 			"resultCure" : "[PLAYERNAME] is no longer berserk.",
 			
-			"announcementInflict" : "[color=red][PLAYERNAME] WENT BERSERK!!![/color]",
-			"announcementAttack" : ["[color=red][PLAYERNAME] PUNCHED [TARGET]![/color]","[color=red][PLAYERNAME] DOVE HEAD FIRST TO BITE [TARGET]![/color]","[color=red][PLAYERNAME] STRANGLED [TARGET]![/color]",],
+			"announcementInflict" : "[color=red][PLAYERNAME] went berserk.[/color]",
+			"announcementAttack" : ["[color=red][PLAYERNAME] punched [TARGET]![/color]","[color=red][PLAYERNAME] bit [TARGET]![/color]","[color=red][PLAYERNAME] throttled [TARGET]![/color]",],
 			"resultAttack" : "[color=red][TARGET] took [DAMAGE] HP damage.[/color]"
 		},
 		},
