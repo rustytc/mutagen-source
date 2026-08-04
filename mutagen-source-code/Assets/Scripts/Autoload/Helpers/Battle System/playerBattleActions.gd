@@ -186,7 +186,10 @@ static func flee():
 				break
 	
 static func lastStand():
-	PlayerDb.playerData["player"]["stats"]["currentHealth"] = 1
+	if PlayerDb.playerData["player"]["stats"]["currentHealth"] <= 0:
+		PlayerDb.playerData["player"]["stats"]["currentHealth"] = 1
+	if PlayerDb.playerData["player"]["stats"]["radiation"] >= PlayerDb.playerData["player"]["stats"]["maxRadiation"]:
+		PlayerDb.playerData["player"]["stats"]["radiation"] = PlayerDb.playerData["player"]["stats"]["maxRadiation"] - 1
 	PlayerDb.playerData["player"]["statusEffects"]["lastStand"]["points"] += 1
 	ActionProcessor.STATUS_MANAGER.showEffectInitiation("lastStand",["Player"])
 	
