@@ -64,6 +64,13 @@ Based on u/golddotasksquestions's Tutorial Code
 
 Courtesy of <https://www.reddit.com/r/godot/comments/14m8d03/how_to_chroma_key_a_green_screen_video_with_godot/>
 
+## HSV and Brightness + Contrast Control
+Creator: buddhanomad
+
+Licensed under Creative Commons 0
+
+Courtesy of <https://godotshaders.com/shader/sprites-hsv-and-brightness-contrast-controll/>
+
 
 
 # Plugins / External Code:
