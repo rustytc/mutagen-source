@@ -1,6 +1,9 @@
 # mutagen-source
 The public source code of the Mutagen: Lock and Load RPG game.
 
+<img width="3840" height="2160" alt="cover art" src="https://github.com/user-attachments/assets/15e2d17c-757d-47a7-84d2-6c9b933d9755" />
+
+
 Copyright (C) Rusty Tincan 2026
 
 ## Introduction:
