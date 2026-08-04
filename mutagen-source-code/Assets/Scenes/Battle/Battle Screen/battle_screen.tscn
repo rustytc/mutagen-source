@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://fs1ahfltlwur"]
+[gd_scene load_steps=24 format=3 uid="uid://fs1ahfltlwur"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Battle Screen/Main Scene Script/battle_screen.gd" id="1_ywgsd"]
 [ext_resource type="PackedScene" uid="uid://b1dq3c7ss46gy" path="res://Assets/Scenes/UI/Reusable UI Elements/help_menu.tscn" id="2_sqka1"]
@@ -13,7 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bocqps2rdajfn" path="res://Assets/Scenes/Battle/Battle Screen/UI/statDisplay.tscn" id="7_g4krt"]
 [ext_resource type="PackedScene" uid="uid://d2uqlpkdkop6b" path="res://Assets/Scenes/UI/Effects/radiation_effect.tscn" id="8_t5cep"]
 [ext_resource type="PackedScene" uid="uid://8x6kiywcva5o" path="res://Assets/Scenes/UI/Overworld/upgradeMenu.tscn" id="10_qci0r"]
-[ext_resource type="Shader" path="res://Assets/Shaders/AdjustHSL.gdshader" id="13_2m7b2"]
+[ext_resource type="Shader" path="res://Assets/Shaders/berserk.gdshader" id="13_2m7b2"]
+[ext_resource type="Shader" path="res://Assets/Shaders/lastStand.gdshader" id="15_08fub"]
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_706yu"]
 format = 1
@@ -75,8 +76,16 @@ _data = {
 "transparent": SubResource("Animation_xs5sp")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ui3pb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2apgq"]
 shader = ExtResource("13_2m7b2")
+shader_parameter/hue_shift = 0.0
+shader_parameter/saturation_mult = 3.0
+shader_parameter/value_mult = 3.0
+shader_parameter/brightness_add = 0.0
+shader_parameter/contrast_mult = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ui3pb"]
+shader = ExtResource("15_08fub")
 shader_parameter/hue_shift = 0.0
 shader_parameter/saturation_mult = 0.0
 shader_parameter/value_mult = 3.0
@@ -177,12 +186,13 @@ visible = false
 position = Vector2(-96, -72)
 
 [node name="adjustHSL" type="ColorRect" parent="berserkEffect"]
-material = SubResource("ShaderMaterial_ui3pb")
+material = SubResource("ShaderMaterial_2apgq")
 offset_right = 888.0
 offset_bottom = 496.0
 color = Color(1, 1, 1, 0)
 
 [node name="lastStandEffect" type="Node2D" parent="."]
+visible = false
 position = Vector2(-96, -72)
 
 [node name="adjustHSL" type="ColorRect" parent="lastStandEffect"]

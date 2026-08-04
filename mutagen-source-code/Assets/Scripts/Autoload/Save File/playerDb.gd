@@ -21,7 +21,7 @@ var playerData := { # various important player variables stored in a dictionary
 			"strength":1,
 			"intelligence":1,
 			"survival":1,
-			"currentHealth": 5,
+			"currentHealth": 100,
 			"maxHealth": 100,
 			"battleIQ" : 1, # increases your accuracy
 			"speed": 5,
@@ -208,7 +208,7 @@ var playerData := { # various important player variables stored in a dictionary
 		},
 		"berserk": {
 			"active" : false,
-			"points" : 0,
+			"points" : 3,
 			"harming" : false,
 			"turnSkip": true,
 			"effectChance":100,
