@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://fs1ahfltlwur"]
+[gd_scene load_steps=22 format=3 uid="uid://fs1ahfltlwur"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Battle Screen/Main Scene Script/battle_screen.gd" id="1_ywgsd"]
 [ext_resource type="PackedScene" uid="uid://b1dq3c7ss46gy" path="res://Assets/Scenes/UI/Reusable UI Elements/help_menu.tscn" id="2_sqka1"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bjq8lcxbirke3" path="res://Assets/Scenes/Battle/Battle Screen/UI/actionLog.tscn" id="3_p80tw"]
 [ext_resource type="PackedScene" uid="uid://ckqpgjf0mv18m" path="res://Assets/Scenes/UI/Effects/static_effect.tscn" id="4_8m1v7"]
 [ext_resource type="PackedScene" uid="uid://divx66usm4iyr" path="res://Assets/Scenes/UI/Overworld/healthHeart.tscn" id="4_347u6"]
+[ext_resource type="AudioStream" uid="uid://btm1fgb5mkoe6" path="res://Assets/Sounds/Music/Lazarus.ogg" id="4_bee0w"]
 [ext_resource type="PackedScene" uid="uid://ci6s1ji3n3f84" path="res://Assets/Scenes/UI/Overworld/radiationMeter.tscn" id="5_3crxo"]
 [ext_resource type="PackedScene" uid="uid://bd8hfepjfwvfi" path="res://Assets/Scenes/UI/Effects/death_effect.tscn" id="6_64bbp"]
 [ext_resource type="PackedScene" uid="uid://bocqps2rdajfn" path="res://Assets/Scenes/Battle/Battle Screen/UI/statDisplay.tscn" id="7_g4krt"]
@@ -77,9 +78,9 @@ _data = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ui3pb"]
 shader = ExtResource("13_2m7b2")
 shader_parameter/hue_shift = 0.0
-shader_parameter/saturation_mult = 3.0
+shader_parameter/saturation_mult = 0.0
 shader_parameter/value_mult = 3.0
-shader_parameter/brightness_add = 0.0
+shader_parameter/brightness_add = -0.629
 shader_parameter/contrast_mult = 3.0
 
 [node name="battle screen" type="Node2D" groups=["Battle Screen"]]
@@ -97,6 +98,10 @@ bus = &"LHMusic"
 [node name="BerserkMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_m0qle")
 bus = &"Berserk Music"
+
+[node name="LastStandMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bee0w")
+bus = &"Last Stand Music"
 
 [node name="helpMenu" parent="." instance=ExtResource("2_sqka1")]
 
@@ -168,9 +173,19 @@ libraries = {
 autoplay = "transparent"
 
 [node name="berserkEffect" type="Node2D" parent="."]
+visible = false
 position = Vector2(-96, -72)
 
 [node name="adjustHSL" type="ColorRect" parent="berserkEffect"]
+material = SubResource("ShaderMaterial_ui3pb")
+offset_right = 888.0
+offset_bottom = 496.0
+color = Color(1, 1, 1, 0)
+
+[node name="lastStandEffect" type="Node2D" parent="."]
+position = Vector2(-96, -72)
+
+[node name="adjustHSL" type="ColorRect" parent="lastStandEffect"]
 material = SubResource("ShaderMaterial_ui3pb")
 offset_right = 888.0
 offset_bottom = 496.0

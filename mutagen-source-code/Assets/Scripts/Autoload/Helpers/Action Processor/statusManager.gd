@@ -95,6 +95,7 @@ static func statusEffectPerRound():
 
 static func showEffectInitiation(effect, target):
 	var action = ActionProcessor.actionTemplate.duplicate(true)
+	action["general"]["priority"] = 3
 	var data = null
 	if target.size() == 1:
 		target = str(target[0])
@@ -110,7 +111,6 @@ static func showEffectInitiation(effect, target):
 			action["general"]["announcement"] = data["announcementInflict"]
 		action["general"]["type"] = "statusEffectInflict"
 		action["general"]["user"] = target
-		action["general"]["priority"] = 3
 		ActionProcessor.queueSpecificAction(action)
 		data["active"] = true
 		print('inflicted')

@@ -47,13 +47,6 @@ func battleInitiation():
 	battleConfig()
 			
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	playerHealth = PlayerDb.playerData["player"]["stats"]["currentHealth"]
-	radiation = PlayerDb.playerData["player"]["stats"]["radiation"]
-	# Losing a battle
-	if (playerHealth <= 0 or radiation >= 100) and playerAlive == true:
-		PLAYER_MOVES.die()
 
 
 func loadEnemies():

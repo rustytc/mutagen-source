@@ -131,6 +131,7 @@ static func advance(direction):
 	action["general"]["user"] = "Player"
 	action["general"]["userName"] = PlayerDb.playerData["player"]["name"]
 	action["combatData"]["advanceDirection"] = direction
+	action["general"]["priority"] = 1
 	if direction == "forwards":
 		action["general"]["announcement"] = "[PLAYERNAME] inches closer."
 	else:
@@ -184,6 +185,10 @@ static func flee():
 				ActionProcessor.queuedActions.append(action)
 				break
 	
+static func lastStand():
+	PlayerDb.playerData["player"]["stats"]["currentHealth"] = 1
+	PlayerDb.playerData["player"]["statusEffects"]["lastStand"]["points"] += 1
+	ActionProcessor.STATUS_MANAGER.showEffectInitiation("lastStand",["Player"])
 	
 static func die():
 	BattleSystem.playerAlive = false

@@ -101,22 +101,36 @@ func _process(delta):
 	
 	
 	# berserk music
-	if PlayerDb.playerData["player"]["statusEffects"]["berserk"]["active"] == true:
+	if PlayerDb.playerData["player"]["statusEffects"]["berserk"]["active"] == true and not PlayerDb.playerData["player"]["statusEffects"]["lastStand"]["active"] == true:
+		$LastStandMusic.stop()
 		AudioServer.set_bus_mute(4, true)
 		AudioServer.set_bus_mute(1, true)
 		AudioServer.set_bus_mute(5, false)
+		AudioServer.set_bus_mute(6, true)
 		if $BerserkMusic.playing == false:
 			$BerserkMusic.play()
 		$berserkEffect.show()
-	else:
+		$lastStandEffect.hide()
+	elif PlayerDb.playerData["player"]["statusEffects"]["berserk"]["active"] == false and PlayerDb.playerData["player"]["statusEffects"]["lastStand"]["active"] == false:
+		$LastStandMusic.stop()
 		if $BerserkMusic.playing == true:
 			$BerserkMusic.stop()
 		AudioServer.set_bus_mute(4, false)
 		AudioServer.set_bus_mute(1, false)
 		AudioServer.set_bus_mute(5, true)	
+		AudioServer.set_bus_mute(6, true)
 		$berserkEffect.hide()
-	
-	
+		$lastStandEffect.hide()
+	else:
+		if $LastStandMusic.playing == false:
+			$LastStandMusic.play()
+		$BerserkMusic.stop()
+		AudioServer.set_bus_mute(4, true)
+		AudioServer.set_bus_mute(1, true)
+		AudioServer.set_bus_mute(5, true)
+		AudioServer.set_bus_mute(6, false)
+		$berserkEffect.hide()
+		$lastStandEffect.show()
 func populateBattleSprites():
 	for i in BattleSystem.enemyDict:
 		var node = load(BattleSystem.enemyDict[i]["battleSprite"]).instantiate() # instantiates a .tscn file for each enemy's battle sprite

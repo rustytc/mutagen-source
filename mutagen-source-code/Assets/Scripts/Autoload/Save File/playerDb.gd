@@ -21,7 +21,7 @@ var playerData := { # various important player variables stored in a dictionary
 			"strength":1,
 			"intelligence":1,
 			"survival":1,
-			"currentHealth": 100,
+			"currentHealth": 5,
 			"maxHealth": 100,
 			"battleIQ" : 1, # increases your accuracy
 			"speed": 5,
@@ -208,7 +208,7 @@ var playerData := { # various important player variables stored in a dictionary
 		},
 		"berserk": {
 			"active" : false,
-			"points" : 2,
+			"points" : 0,
 			"harming" : false,
 			"turnSkip": true,
 			"effectChance":100,
@@ -221,6 +221,18 @@ var playerData := { # various important player variables stored in a dictionary
 			"announcementInflict" : "[color=red][PLAYERNAME] went berserk.[/color]",
 			"announcementAttack" : ["[color=red][PLAYERNAME] punched [TARGET]![/color]","[color=red][PLAYERNAME] bit [TARGET]![/color]","[color=red][PLAYERNAME] throttled [TARGET]![/color]",],
 			"resultAttack" : "[color=red][TARGET] took [DAMAGE] HP damage.[/color]"
+		},
+			"lastStand": {
+			"active" : false,
+			"points" : 0,
+			"harming" : false,
+			"turnSkip": false,
+			"effectChance":100,
+			
+			"announcementCure" : "(Breathe in...)",
+			"resultCure" : "(Breathe out...)",
+			
+			"announcementInflict" : "[color=gray][PLAYERNAME] survived.[/color]",
 		},
 		},
 		"flags": {
