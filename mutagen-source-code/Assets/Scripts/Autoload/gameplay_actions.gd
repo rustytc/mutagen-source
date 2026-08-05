@@ -32,7 +32,8 @@ func useItem(item):
 	action["general"]["announcementSFX"] = uiData["announcementSFX"]
 	action["general"]["impactSFX"] = uiData["impactSFX"]
 	action["general"]["impactTXT"] = uiData["impactTXT"]
-	action["general"]["result"] = uiData["result"]
+	if uiData.has("result"):
+		action["general"]["result"] = uiData["result"]
 	action["general"]["announcementPause"] = uiData["announcementPause"]
 	action["general"]["impactPause"] = uiData["impactPause"]
 	action["general"]["resultPause"] = uiData["resultPause"]
@@ -43,12 +44,19 @@ func useItem(item):
 	action["combatData"]["atkBoost"] = combatData["atkBoost"]
 	action["combatData"]["damage"] = combatData["damage"]
 	action["combatData"]["limb"] = combatData["limb"]
-	action["combatData"]["statusEffect"] = combatData["statusEffect"]
 	action["combatData"]["telegraph"] = combatData["telegraph"]
 	action["playerStatus"]["radiationInflict"] = statusData["radiationInflict"]
 	action["playerStatus"]["radiationReduce"] = statusData["radiationReduce"]
 	action["sharedData"]["healMin"] = statusData["healMin"]
 	action["sharedData"]["healMax"] = statusData["healMax"]
+	
+	if statusData["statusEffectInflict"] != "" and statusData["statusEffectInflict"] != null:
+		var points = Global.rng.randi_range(statusData["effectPointsMin"], statusData["effectPointsMax"])
+		action["combatData"]["statusEffects"]["inflict"][statusData["statusEffectInflict"]]["points"] = points
+		action["combatData"]["statusEffects"]["inflict"][statusData["statusEffectInflict"]]["chance"] = 100
+	if statusData["statusEffectCure"] != "" and statusData["statusEffectCure"] != null:
+		action["combatData"]["statusEffects"]["cure"][statusData["statusEffectCure"]] = true
+		
 
 	
 	match Global.currentScreen:

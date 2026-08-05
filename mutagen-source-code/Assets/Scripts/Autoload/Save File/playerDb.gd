@@ -70,6 +70,10 @@ var playerData := { # various important player variables stored in a dictionary
 				"quantity" : 5,
 				"bookmarked" : false,
 				},
+				"combatStimulant" : {
+				"quantity" : 5,
+				"bookmarked" : false,
+				},
 				
 			},
 			
@@ -208,7 +212,7 @@ var playerData := { # various important player variables stored in a dictionary
 		},
 		"berserk": {
 			"active" : false,
-			"points" : 3,
+			"points" : 0,
 			"harming" : false,
 			"turnSkip": true,
 			"effectChance":100,
@@ -219,7 +223,7 @@ var playerData := { # various important player variables stored in a dictionary
 			"resultCure" : "[PLAYERNAME] is no longer berserk.",
 			
 			"announcementInflict" : "[color=red][PLAYERNAME] went berserk.[/color]",
-			"announcementAttack" : ["[color=red][PLAYERNAME] punched [TARGET]![/color]","[color=red][PLAYERNAME] bit [TARGET]![/color]","[color=red][PLAYERNAME] throttled [TARGET]![/color]",],
+			"announcementAttack" : ["[color=red][PLAYERNAME] punched [TARGET]![/color]","[color=red][PLAYERNAME] bit [TARGET]![/color]","[color=red][PLAYERNAME] throttled [TARGET]![/color]", "[color=red][PLAYERNAME] kicked [TARGET]![/color]", "[color=red][PLAYERNAME] threw a haymaker at [TARGET]![/color]", "[color=red][PLAYERNAME] threw a cross at [TARGET]![/color]", "[color=red][PLAYERNAME] jabbed [TARGET]![/color]", "[color=red][PLAYERNAME] shoved [TARGET]![/color]",],
 			"resultAttack" : "[color=red][TARGET] took [DAMAGE] HP damage.[/color]"
 		},
 			"lastStand": {

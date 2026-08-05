@@ -78,6 +78,9 @@ func _process(delta):
 	if (BattleSystem.playerAlive == false or BattleSystem.battleEnded == true) and $Music.playing:
 		$Music.stop()
 		$LHMusic.stop()
+		$BerserkMusic.stop()
+		$berserkEffect.hide()
+		
 		get_viewport().gui_release_focus()
 
 
@@ -101,7 +104,7 @@ func _process(delta):
 	
 	
 	# berserk music
-	if PlayerDb.playerData["player"]["statusEffects"]["berserk"]["active"] == true and not PlayerDb.playerData["player"]["statusEffects"]["lastStand"]["active"] == true:
+	if PlayerDb.playerData["player"]["statusEffects"]["berserk"]["active"] == true and not PlayerDb.playerData["player"]["statusEffects"]["lastStand"]["active"] == true and not BattleSystem.playerAlive == false and not BattleSystem.battleEnded == true:
 		$LastStandMusic.stop()
 		AudioServer.set_bus_mute(4, true)
 		AudioServer.set_bus_mute(1, true)
@@ -111,7 +114,7 @@ func _process(delta):
 			$BerserkMusic.play()
 		$berserkEffect.show()
 		$lastStandEffect.hide()
-	elif PlayerDb.playerData["player"]["statusEffects"]["berserk"]["active"] == false and PlayerDb.playerData["player"]["statusEffects"]["lastStand"]["active"] == false:
+	elif PlayerDb.playerData["player"]["statusEffects"]["berserk"]["active"] == false and PlayerDb.playerData["player"]["statusEffects"]["lastStand"]["active"] == false and not BattleSystem.playerAlive == false and not BattleSystem.battleEnded == true:
 		$LastStandMusic.stop()
 		if $BerserkMusic.playing == true:
 			$BerserkMusic.stop()
@@ -122,15 +125,16 @@ func _process(delta):
 		$berserkEffect.hide()
 		$lastStandEffect.hide()
 	else:
-		if $LastStandMusic.playing == false:
-			$LastStandMusic.play()
-		$BerserkMusic.stop()
-		AudioServer.set_bus_mute(4, true)
-		AudioServer.set_bus_mute(1, true)
-		AudioServer.set_bus_mute(5, true)
-		AudioServer.set_bus_mute(6, false)
-		$berserkEffect.hide()
-		$lastStandEffect.show()
+		if not BattleSystem.playerAlive == false and not BattleSystem.battleEnded == true:
+			if $LastStandMusic.playing == false:
+				$LastStandMusic.play()
+			$BerserkMusic.stop()
+			AudioServer.set_bus_mute(4, true)
+			AudioServer.set_bus_mute(1, true)
+			AudioServer.set_bus_mute(5, true)
+			AudioServer.set_bus_mute(6, false)
+			$berserkEffect.hide()
+			$lastStandEffect.show()
 func populateBattleSprites():
 	for i in BattleSystem.enemyDict:
 		var node = load(BattleSystem.enemyDict[i]["battleSprite"]).instantiate() # instantiates a .tscn file for each enemy's battle sprite
