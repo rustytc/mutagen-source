@@ -81,6 +81,7 @@ _data = {
 
 [node name="dialogueBox" type="Control" groups=["Dialogue Box"]]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 624.0

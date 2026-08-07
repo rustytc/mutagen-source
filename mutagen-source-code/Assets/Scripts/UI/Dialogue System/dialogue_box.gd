@@ -110,3 +110,17 @@ func changeSpeakingSpeed(speed):
 	
 func resetSpeakingSpeed():
 	baseSpeakingSpeed = defaultSpeakingSpeed
+
+func cycle():
+	show()
+	$Panel/VBoxContainer/HBoxContainer/Text.visible_characters = 0
+	if $animationPlayer.assigned_animation == "Hidden":
+		$animationPlayer.play("Slide_In")
+		$animationPlayer.queue("Normal")
+	
+func end():
+	$Panel/VBoxContainer/HBoxContainer/Text.text = ""
+	$decisionMaker.visible = false
+	hide()
+	if $animationPlayer.assigned_animation == "Slide_In" or $animationPlayer.assigned_animation == "Normal":
+		$animationPlayer.play("Hidden")

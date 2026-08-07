@@ -143,6 +143,7 @@ func goToArea(areaID, room, variant = LevelDb.areaDatabase[areaID]["rooms"][room
 	map.get_node("mapCursor").get_node("camera2d").enabled = false
 	music = LevelDb.areaDatabase[areaID]["rooms"][room]["bgm"][variant]
 	musicPlaying = true
+	Global.currentScreen = "world"
 	
 func goToMap():
 	var world = get_tree().get_nodes_in_group("World Scene Node Reference")[0]
@@ -156,3 +157,4 @@ func goToMap():
 	map.get_node("canvasLayer").show()
 	map.get_node("mapCursor").get_node("camera2d").enabled = true
 	musicPlaying = false
+	Global.currentScreen = "map"

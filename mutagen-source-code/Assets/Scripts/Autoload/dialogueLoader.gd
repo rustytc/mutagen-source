@@ -82,9 +82,8 @@ func parseArguments(args):
 	return(parsedArgs)
 
 func dialogueCycle():
-	Global.dialogueBox.show()
+	Global.dialogueBox.cycle()
 	Engine.time_scale = 1
-	Global.dialogueBox.get_node("Panel/VBoxContainer/HBoxContainer/Text").visible_characters = 0
 	Global.player.get_node("CharacterBody2D").controllable = false
 	if conversing == true and Global.dialogueBox.parsing == false:
 		for node in loadedDialogue["nodes"]:
@@ -162,9 +161,6 @@ func endDialogue():
 	decision = false
 	conversing = false
 	nextConversationID = "0"
-	Global.dialogueBox.get_node("Panel/VBoxContainer/HBoxContainer/Text").text = ""
-	Global.dialogueBox.get_node("decisionMaker").visible = false
-	Global.dialogueBox.visible = false
 	Global.player.get_node("CharacterBody2D").controllable = true
 	if get_tree().paused == true: # unpauses the game is the npc's dialogue paused it
 		get_tree().paused = false

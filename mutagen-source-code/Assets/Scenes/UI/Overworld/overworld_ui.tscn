@@ -20,6 +20,7 @@ visible = false
 [node name="dialogueBox" parent="." instance=ExtResource("1_celbx")]
 
 [node name="helpMenu" parent="." instance=ExtResource("2_vop60")]
+metadata/_edit_lock_ = true
 
 [node name="HealthHeart" parent="." instance=ExtResource("3_ne8aa")]
 offset_left = 598.0
@@ -34,3 +35,6 @@ offset_right = 56.0
 offset_bottom = 48.0
 
 [node name="actionLog" parent="." instance=ExtResource("5_3fuq4")]
+offset_top = -8.0
+offset_bottom = -8.0
+metadata/_edit_lock_ = true

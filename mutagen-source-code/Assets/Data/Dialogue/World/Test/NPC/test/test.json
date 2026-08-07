@@ -12,7 +12,7 @@
 			"talkCommands": [],
 			"text": "That was a really cute dance you just did.",
 			"tone": "neutral",
-			"voice": "test"
+			"voice": "voice1"
 		},
 		{
 			"editor_name": "Node_1",
@@ -48,7 +48,7 @@
 			"talkCommands": [],
 			"text": "I'm just kidding! I hate you and will destroy you!",
 			"tone": "angry",
-			"voice": "test"
+			"voice": "voice1"
 		}
 	],
 	"npc": "test",
