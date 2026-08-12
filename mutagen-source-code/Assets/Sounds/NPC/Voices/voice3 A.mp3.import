@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1rltcmfvoik5"
+path="res://.godot/imported/voice3 A.mp3-c7e3f33d0b2d4ae64eb56e18d5d5810d.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/NPC/Voices/voice3 A.mp3"
+dest_files=["res://.godot/imported/voice3 A.mp3-c7e3f33d0b2d4ae64eb56e18d5d5810d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

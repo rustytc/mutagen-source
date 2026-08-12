@@ -23,7 +23,8 @@ animations = [{
 }]
 
 [node name="npc_base" instance=ExtResource("1_k5j3p")]
-characterName = "John Wolfmann"
+dialogueJsonPath = "res://Assets/Data/Dialogue/World/Test/NPC/Reindeer/captainalexson000.json"
+characterName = "Captain Rudolph \"Reindeer\" Alexson"
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_jgkve")

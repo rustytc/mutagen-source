@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dii5dtbehvwqs"
-path="res://.godot/imported/deathcrowAmmo.png-2183fceba25b8c683cef4b5baf7b17df.ctex"
+path="res://.godot/imported/blackbirdAmmo.png-121f73b74c73f302cd67a2add73ef782.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Sprites/UI/Menu/Icons/Armory/deathcrowAmmo.png"
-dest_files=["res://.godot/imported/deathcrowAmmo.png-2183fceba25b8c683cef4b5baf7b17df.ctex"]
+source_file="res://Assets/Images/Sprites/UI/Menu/Icons/Armory/blackbirdAmmo.png"
+dest_files=["res://.godot/imported/blackbirdAmmo.png-121f73b74c73f302cd67a2add73ef782.ctex"]
 
 [params]
 

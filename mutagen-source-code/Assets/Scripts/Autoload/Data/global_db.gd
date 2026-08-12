@@ -404,15 +404,15 @@ var weaponDatabase = {
 		"aimAnnouncement" : "[PLAYERNAME] is aiming [POSSESSIVE] revolver at [ENEMY]'s [LIMB]."
 	},
 	
-		"deathcrow": {
-		"name": ".50 \"Deathcrow\"",
+		"blackbird": {
+		"name": ".50 \"Blackbird\"",
 		"description": "A total headsplitter. Fat recoil, fat burst.",
 		"statDescriptionPlaceholder": "x1 Hitrate Modifier\n20 Base Damage\n[color=yellow][AMMOVALUE]" + "/7 rounds[/color]",
 		"statDescription": "x1 Hitrate Modifier\n20 Base Damage\n30% Chance of Inflicting Bleeding\n[color=yellow][AMMOVALUE]" + "/7 rounds[/color]",
-		"reloadAnnouncement": "[PLAYERNAME] reloads the Deathcrow's chamber...",
+		"reloadAnnouncement": "[PLAYERNAME] reloads the Blackbird's chamber...",
 		"reloadAnnouncementSFX": "res://Assets/Sounds/Battle/magnumReload.mp3",
-		"attackAnnouncement" : "[PLAYERNAME] aims [POSSESSIVE] Deathcrow at [TARGET]'s [LIMB]!",
-		"attackAnnouncementCritical" : "The Deathcrow's screech bounces off the walls...",
+		"attackAnnouncement" : "[PLAYERNAME] aims [POSSESSIVE] Blackbird at [TARGET]'s [LIMB]!",
+		"attackAnnouncementCritical" : "The Blackbird's screech bounces off the walls...",
 		"attackResult" : "[TARGET] took [DAMAGE] HP from that shot.",
 		"attackMissResult" : "...[PERSONALCAP] missed.",
 		"type": "ranged",
@@ -438,7 +438,7 @@ var weaponDatabase = {
 		"announcementPause" : 2,
 		"impactPause" : 2,
 		"resultPause" : 2,
-		"aimAnnouncement" : "[PLAYERNAME] is aiming [POSSESSIVE] Deathcrow at [ENEMY]'s [LIMB]."
+		"aimAnnouncement" : "[PLAYERNAME] is aiming [POSSESSIVE] Blackbird at [ENEMY]'s [LIMB]."
 	},
 	
 	"shotgun": {

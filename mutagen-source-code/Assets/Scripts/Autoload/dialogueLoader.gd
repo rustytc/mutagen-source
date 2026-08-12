@@ -143,7 +143,7 @@ func runCommands(commands):
 			callv(functionName, parsedArgs)
 		#TODO: make sure nothing can be executed through the commands in this whitelist
 		# NOTE: Function whitelist
-		elif functionName in ["print", "UniversalAudio.playSpecialSound", "ActorHelper.animate", "animate", "sound", "initiateBattle", "hideBox", "showBox", "setEncounterTheme"]: # NOTE whenever you want a global function to be loaded, put it in this array
+		elif functionName in ["print", "UniversalAudio.playSpecialSound", "ActorHelper.animate", "ActorHelper.nextConversation", "stopMusic", "Global.stopMusic", "animate", "sound", "initiateBattle", "hideBox", "showBox", "setEncounterTheme"]: # NOTE whenever you want a global function to be loaded, put it in this array
 			var parts = functionName.split(".")
 			var target: Object
 			var method: String
@@ -174,9 +174,17 @@ func endDialogue():
 
 # Quick Function Shortcuts
 
-# Animate
-func animate(actor, animation, player = currentSpeaker):
+func animate(actor, animation):
 	ActorHelper.animate(actor, animation)
+	
+func nextConversation(actor, conversation):
+	ActorHelper.nextConversation(actor, conversation)
+	
+func die():
+	ActorHelper.die()
+	
+func stopMusic():
+	Global.stopMusic()
 	
 func sound(sound):
 	UniversalAudio.playSpecialSound(sound)

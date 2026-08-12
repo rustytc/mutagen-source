@@ -1,0 +1,172 @@
+{
+	"nodes": [
+		{
+			"editor_name": "Node_1",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "ActorHelper.animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "0",
+			"next": "1",
+			"npc": "Pamella \"Pop-Eye Pam\" Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "ActorHelper.animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "Hey Flynn.",
+			"tone": "neutral",
+			"voice": "voice3"
+		},
+		{
+			"editor_name": "Node_2",
+			"end": false,
+			"endCommands": [],
+			"id": "1",
+			"next": "2",
+			"npc": "Flynn",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "Hey, Pam.",
+			"tone": "neutral",
+			"voice": "voice4"
+		},
+		{
+			"editor_name": "Node_3",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "ActorHelper.animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "2",
+			"next": "3",
+			"npc": "Pamella \"Pop-Eye Pam\" Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "ActorHelper.animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "Sounds like you're completely boned, huh?",
+			"tone": "neutral",
+			"voice": "voice3"
+		},
+		{
+			"editor_name": "Node_4",
+			"end": false,
+			"endCommands": [],
+			"id": "3",
+			"next": "4",
+			"npc": "Flynn",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "Yes.",
+			"tone": "neutral",
+			"voice": "voice4"
+		},
+		{
+			"editor_name": "Node_5",
+			"end": true,
+			"endCommands": [
+				{
+					"action": "ActorHelper.animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "4",
+			"npc": "Pamella \"Pop-Eye Pam\" Alexson",
+			"options": [],
+			"startCommands": [
+				{
+					"action": "ActorHelper.animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Wink"
+						}
+					]
+				},
+				{
+					"action": "ActorHelper.nextConversation",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "res://Assets/Data/Dialogue/World/Test/NPC/Popeye/popeyepam01.json"
+						}
+					]
+				}
+			],
+			"talkCommands": [],
+			"text": "Sucks. I hope you don't die.",
+			"tone": "neutral",
+			"voice": "voice3"
+		}
+	],
+	"npc": "Pamella \"Pop-Eye Pam\" Alexson",
+	"start_node": "0"
+}

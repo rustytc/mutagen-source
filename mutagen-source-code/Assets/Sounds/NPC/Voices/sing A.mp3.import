@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cid6j87vbksmw"
+path="res://.godot/imported/sing A.mp3-54741f2bd9b3fefd87375cb4ef6058b3.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/NPC/Voices/sing A.mp3"
+dest_files=["res://.godot/imported/sing A.mp3-54741f2bd9b3fefd87375cb4ef6058b3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

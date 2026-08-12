@@ -1,0 +1,117 @@
+{
+	"nodes": [
+		{
+			"editor_name": "Node_1",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "ActorHelper.animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "0",
+			"next": "1",
+			"npc": "Pamella \"Pop-Eye Pam\" Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "ActorHelper.animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "Miss me already?",
+			"tone": "neutral",
+			"voice": "voice3"
+		},
+		{
+			"editor_name": "Node_2",
+			"end": false,
+			"endCommands": [],
+			"id": "1",
+			"next": "2",
+			"npc": "Flynn",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "Maybe.",
+			"tone": "neutral",
+			"voice": "voice4"
+		},
+		{
+			"editor_name": "Node_3",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "ActorHelper.animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "2",
+			"next": "3",
+			"npc": "Pamella \"Pop-Eye Pam\" Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "ActorHelper.animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Wink"
+						}
+					]
+				}
+			],
+			"text": "I'll be here when you get back. Don't worry.",
+			"tone": "neutral",
+			"voice": "voice3"
+		},
+		{
+			"editor_name": "Node_4",
+			"end": true,
+			"endCommands": [],
+			"id": "3",
+			"npc": "Flynn",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "I'm looking forward to that.",
+			"tone": "excited",
+			"voice": "voice4"
+		}
+	],
+	"npc": "Pamella \"Pop-Eye Pam\" Alexson",
+	"start_node": "0"
+}

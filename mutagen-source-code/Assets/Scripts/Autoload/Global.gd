@@ -158,3 +158,9 @@ func goToMap():
 	map.get_node("mapCursor").get_node("camera2d").enabled = true
 	musicPlaying = false
 	Global.currentScreen = "map"
+
+func stopMusic():
+	print('music stopped')
+	musicPlaying = false
+	musicCanPlay = false
+	playerCharBody2D.get_node("Music").stop()

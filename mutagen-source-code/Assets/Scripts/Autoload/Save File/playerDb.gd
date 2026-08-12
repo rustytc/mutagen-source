@@ -95,7 +95,7 @@ var playerData := { # various important player variables stored in a dictionary
 				"unlocked": true,
 				"equipped":false
 				},
-				"deathcrow" : {
+				"blackbird" : {
 				"quantity": 1,
 				"ammo": 4,
 				"unlocked": true,
@@ -130,7 +130,7 @@ var playerData := { # various important player variables stored in a dictionary
 			"magnum" : 3, # THESE ARE PACKS
 			"buckshot" : 3, # THESE ARE INDIVIDUAL ROUNDS
 			"slug" : 2,
-			"deathcrow" : 0,
+			"blackbird" : 0,
 			
 		},
 			

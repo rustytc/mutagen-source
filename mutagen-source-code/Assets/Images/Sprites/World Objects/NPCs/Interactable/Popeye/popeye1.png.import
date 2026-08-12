@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r3ul7llg54ns"
-path="res://.godot/imported/deathcrow.png-d04bc338971db8f2496ed710122582ad.ctex"
+uid="uid://bj5ogq7s6see6"
+path="res://.godot/imported/popeye1.png-e3b5027c900cc0cc52aecdad4ac4fa03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Sprites/UI/Menu/Icons/Armory/deathcrow.png"
-dest_files=["res://.godot/imported/deathcrow.png-d04bc338971db8f2496ed710122582ad.ctex"]
+source_file="res://Assets/Images/Sprites/World Objects/NPCs/Interactable/Popeye/popeye1.png"
+dest_files=["res://.godot/imported/popeye1.png-e3b5027c900cc0cc52aecdad4ac4fa03.ctex"]
 
 [params]
 

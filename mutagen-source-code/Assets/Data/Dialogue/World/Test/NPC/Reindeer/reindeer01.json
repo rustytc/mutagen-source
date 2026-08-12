@@ -1,0 +1,361 @@
+{
+	"nodes": [
+		{
+			"editor_name": "Node_1",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "0",
+			"npc": "Captain Alexson",
+			"options": [
+				{
+					"next": "7",
+					"text": "I'll find the cure."
+				},
+				{
+					"next": "1",
+					"text": "Sacrifice Evelyn."
+				},
+				{
+					"next": "14",
+					"text": "Let me think this through."
+				}
+			],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "Well, son. What'll it be?",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_3",
+			"end": false,
+			"endCommands": [],
+			"id": "1",
+			"next": "2",
+			"npc": "Flynn",
+			"options": [],
+			"startCommands": [
+				{
+					"action": "Global.stopMusic",
+					"args": []
+				}
+			],
+			"talkCommands": [],
+			"text": "W-well. This is. Uh. Not what I wanted. But.",
+			"tone": "fearful",
+			"voice": "voice4"
+		},
+		{
+			"editor_name": "Node_4",
+			"end": false,
+			"endCommands": [],
+			"id": "2",
+			"next": "3",
+			"npc": "Flynn",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "It's... It's w-what must be done.",
+			"tone": "fearful",
+			"voice": "voice4"
+		},
+		{
+			"editor_name": "Node_5",
+			"end": false,
+			"endCommands": [],
+			"id": "3",
+			"next": "4",
+			"npc": "Flynn",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "I m-made up my mind... Evelyn isn't going to survive. We have to let her die.",
+			"tone": "fearful",
+			"voice": "voice4"
+		},
+		{
+			"editor_name": "Node_6",
+			"end": false,
+			"endCommands": [],
+			"id": "4",
+			"next": "5",
+			"npc": "Flynn",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "But before we do this. Let me have a moment with her. Maybe even a day.",
+			"tone": "fearful",
+			"voice": "voice4"
+		},
+		{
+			"editor_name": "Node_2",
+			"end": false,
+			"endCommands": [],
+			"id": "7",
+			"next": "8",
+			"npc": "Flynn",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "...I'll do it. If it's a cure you want, it's a cure you'll get.",
+			"tone": "angry",
+			"voice": "voice4"
+		},
+		{
+			"editor_name": "Node_7",
+			"end": false,
+			"endCommands": [],
+			"id": "5",
+			"next": "6",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Annoyed"
+						}
+					]
+				}
+			],
+			"text": "Wh... Yeah. That's fine by me. One last day. But, by sundown, I want to see you both.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_8",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "die",
+					"args": []
+				}
+			],
+			"id": "6",
+			"npc": "Flynn",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "Yeah... After sundown.",
+			"tone": "fearful",
+			"voice": "voice4"
+		},
+		{
+			"editor_name": "Node_9",
+			"end": true,
+			"endCommands": [],
+			"id": "14",
+			"npc": "Flynn",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "Ah... Wait just a second.",
+			"tone": "neutral",
+			"voice": "voice4"
+		},
+		{
+			"editor_name": "Node_10",
+			"end": false,
+			"endCommands": [],
+			"id": "8",
+			"next": "9",
+			"npc": "Flynn",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "Just tell me where to go. And lend me your offroader and machine gun.",
+			"tone": "angry",
+			"voice": "voice4"
+		},
+		{
+			"editor_name": "Node_11",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "9",
+			"next": "10",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Eyebrow"
+						}
+					]
+				}
+			],
+			"text": "No offroader or machine gun. We're almost completely out of gas, and I already gave my machine gun to... Someone who's dead.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_12",
+			"end": false,
+			"endCommands": [],
+			"id": "10",
+			"next": "11",
+			"npc": "Flynn",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "Wow. Just fucking wow.",
+			"tone": "angry",
+			"voice": "voice4"
+		},
+		{
+			"editor_name": "Node_13",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "11",
+			"next": "12",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Annoyed"
+						}
+					]
+				}
+			],
+			"text": "Well we could always just shoot your sister, Corporal. I told you this shit is suicidal.",
+			"tone": "angry",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_14",
+			"end": false,
+			"endCommands": [],
+			"id": "12",
+			"next": "13",
+			"npc": "Flynn",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "I'll go by foot. With a revolver. I'll go fucking die out there. Just don't fuck with Evelyn anymore. She's been through enough already. I owe her this.",
+			"tone": "angry",
+			"voice": "voice4"
+		},
+		{
+			"editor_name": "Node_15",
+			"end": true,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "13",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "Right. I'll give you your briefing then. Come to HQ.",
+			"tone": "neutral",
+			"voice": "voice2"
+		}
+	],
+	"npc": "Captain Alexson",
+	"start_node": "0"
+}

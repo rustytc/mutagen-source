@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://o51yqibpegol"]
+[gd_scene load_steps=12 format=4 uid="uid://o51yqibpegol"]
 
 [ext_resource type="Texture2D" uid="uid://b3yrp18txnbme" path="res://Assets/Images/Sprites/World Objects/Rooms/Tilemaps/Backrooms/b_rooms_tilemap.png" id="1_ineex"]
 [ext_resource type="Script" path="res://Assets/Scenes/World/Objects/Rooms/Walls/Walls.gd" id="2_3dt45"]
 [ext_resource type="Texture2D" uid="uid://mh7jkekdlkae" path="res://Assets/Images/Sprites/World Objects/Rooms/Tilemaps/Pathfinding/pathfinding.png" id="3_1hxcs"]
 [ext_resource type="PackedScene" uid="uid://b46pil1mndjda" path="res://Assets/Scenes/World/Objects/Player/player.tscn" id="4_epxkp"]
+[ext_resource type="Texture2D" uid="uid://vm4mkvyda4ha" path="res://Assets/Images/Sprites/World Objects/NPCs/Interactable/Phil/idle forwards.png" id="5_7w0er"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ngh3c"]
 texture = ExtResource("1_ineex")
@@ -369,3 +370,7 @@ position = Vector2(512, 208)
 [node name="lighting" type="CanvasModulate" parent="."]
 texture_filter = 1
 color = Color(1, 0.933539, 0.331099, 1)
+
+[node name="idleForwards" type="Sprite2D" parent="."]
+position = Vector2(560, 184)
+texture = ExtResource("5_7w0er")

@@ -10,9 +10,13 @@ func _process(delta):
 
 func _on_visible_on_screen_notifier_2d_visibility_changed():
 	if self.visible == true:
-		await get_tree().create_timer(2).timeout
-		fadeIn = true
-		await get_tree().create_timer(2).timeout
-		$Music.play()
-		var tween = create_tween()
-		tween.tween_property($Music, "volume_db", 5, 4.0)
+		fadeItIn()
+		
+		
+func fadeItIn():
+	await get_tree().create_timer(2).timeout
+	fadeIn = true
+	await get_tree().create_timer(2).timeout
+	$Music.play()
+	var tween = create_tween()
+	tween.tween_property($Music, "volume_db", 5, 4.0)
