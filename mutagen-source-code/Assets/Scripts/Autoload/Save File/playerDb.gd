@@ -16,6 +16,11 @@ var playerData := { # various important player variables stored in a dictionary
 			"current": 0,
 			"needed": 10
 		},
+		
+		"currentArea" : "huskValley",
+		"currentRoom" : "town",
+		
+		
 		"skillPoints":0,
 		"stats": { # TODO: you were making enemydb globals match player globals to calculate battle states like speed to determine turn order
 			"strength":1,

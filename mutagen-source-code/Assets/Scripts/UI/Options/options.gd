@@ -36,6 +36,8 @@ func _on_cancel_pressed():
 	$mainOptions/modsEnabled.button_pressed = false
 	$mainOptions/renderer.grab_focus()
 
+
+
 func _on_confirm_pressed():
 	UniversalAudio.playSpecialSound("res://Assets/Sounds/UI/blip.mp3")
 	$modsWarning.hide()
@@ -43,7 +45,15 @@ func _on_confirm_pressed():
 	$restartPrompt/No.grab_focus()
 	Settings.settingsRaw["modsEnabled"] = true
 	Settings.saveSettings()
+	
+func _on_reset_all_settings_pressed():
+	UniversalAudio.playSpecialSound("res://Assets/Sounds/UI/blip.mp3")
+	$resetAllSettingsPrompt.show()
+	$resetAllSettingsPrompt/No.grab_focus()
+	$mainOptions.hide()
+	
 
+	
 func _on_mods_enabled_toggled(toggled_on):
 	if self.visible == true and get_viewport().gui_get_focus_owner() == $mainOptions/modsEnabled:
 		if toggled_on == true:
@@ -59,7 +69,12 @@ func _on_mods_enabled_toggled(toggled_on):
 			$restartPrompt/No.grab_focus()
 		
 	
-
+func _on_resetSettings_yes_pressed():
+	$resetAllSettingsPrompt.hide()
+	DirAccess.remove_absolute("user://settings.cfg")
+	$restartPrompt.show()
+	$restartPrompt/No.grab_focus()
+	
 # Restarting
 func _on_yes_pressed():
 	print("SYSTEM: The game is now restarting to apply settings changes.")
@@ -68,6 +83,7 @@ func _on_yes_pressed():
 
 func _on_no_pressed():
 	$restartPrompt.hide()
+	$resetAllSettingsPrompt.hide()
 	$mainOptions.show()
 	$mainOptions/renderer.grab_focus()
 

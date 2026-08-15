@@ -52,7 +52,6 @@ func _process(delta):
 		# Grab focus
 		Global.dialogueBox.get_node("decisionMaker/Choices/HBoxContainer/VBoxContainer2/Option1").grab_focus()
 		
-	#elif Global.dialogueBox != null:
 	if Global.dialogueBox.get_node("decisionMaker").visible == true and (Global.dialogueBox.get_node("Panel/VBoxContainer/HBoxContainer/Text").get_parsed_text().length() > Global.dialogueBox.get_node("Panel/VBoxContainer/HBoxContainer/Text").visible_characters):
 		Global.dialogueBox.get_node("decisionMaker").visible = false
 
@@ -96,7 +95,7 @@ func dialogueCycle():
 	
 	# Functions
 	
-	# Running dialogue block intiialization commands (such as setting a talking animation)
+	# Running dialogue block initialization commands (such as setting a talking animation)
 	if loadedDialogueBlock["startCommands"] != null and loadedDialogueBlock["startCommands"] != []:
 		runCommands(loadedDialogueBlock["startCommands"])
 	
@@ -177,8 +176,8 @@ func endDialogue():
 func animate(actor, animation):
 	ActorHelper.animate(actor, animation)
 	
-func nextConversation(actor, conversation):
-	ActorHelper.nextConversation(actor, conversation)
+func nextConversation(actor, conversation, initialID):
+	ActorHelper.nextConversation(actor, conversation, str(initialID))
 	
 func die():
 	ActorHelper.die()

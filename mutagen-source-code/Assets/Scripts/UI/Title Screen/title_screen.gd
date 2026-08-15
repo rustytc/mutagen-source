@@ -1,11 +1,13 @@
 extends Node2D
 var skipped := false
+var disclaimer := true
 var fadeInMusic = null
 var renderer = null
 var sandboxedOS := false
 var time = Time.get_datetime_dict_from_system()
 var engineVersion : Dictionary = {}
 var gameName : String = ""
+var transitioned := false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	renderer = RenderingServer.get_video_adapter_vendor()
@@ -206,6 +208,20 @@ func _ready():
 	
 	
 	# Transition
+	var disclaimerShown = Settings.settingsRaw["disclaimerShown"]
+	if disclaimerShown == true:
+		disclaimer = false
+		transition()
+	else:
+		showDisclaimer()
+		disclaimer = true
+		Settings.settingsRaw["disclaimerShown"] = true
+		Settings.saveSettings()
+	
+func transition():
+	if transitioned:
+		return
+	transitioned = true
 	
 	var fadeInCredit = create_tween()
 	fadeInCredit.tween_property($agamebytomcat, "modulate:a", 1, 0.5).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_IN)
@@ -256,7 +272,15 @@ func _ready():
 		$menu/mods.show()
 	$menu/continue.grab_focus() # this has to be before anything is shown otherwise signals break and sounds wont play
 	
-
+func showDisclaimer():
+	var fadeInDisclaimer = create_tween()
+	fadeInDisclaimer.tween_property($disclaimer, "modulate:a", 1, 0.5).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_IN)
+func hideDisclaimer():
+	var fadeOutDisclaimer = create_tween()
+	fadeOutDisclaimer.tween_property($disclaimer, "modulate:a", 0, 0.5).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_IN)
+	await get_tree().create_timer(2.0).timeout
+	transition()
+	
 func hurryUp():
 	skipped = true
 	$background.z_index = -1
@@ -278,10 +302,11 @@ func hurryUp():
 	$menu/continue.grab_focus() # this has to be before anything is shown otherwise signals break and sounds wont play
 
 func _process(delta):
-	if Input.is_action_just_pressed("Accept") and not skipped and $timer.is_stopped():
+	if Input.is_action_just_pressed("Accept") and not skipped and $timer.is_stopped() and not disclaimer:
 		hurryUp()
-		
-
+	if Input.is_action_just_pressed("Accept") and disclaimer:
+		disclaimer = false
+		hideDisclaimer()
 
 
 # Menu Functions

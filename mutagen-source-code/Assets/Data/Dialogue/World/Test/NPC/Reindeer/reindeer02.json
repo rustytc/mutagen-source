@@ -1,0 +1,1349 @@
+{
+	"nodes": [
+		{
+			"editor_name": "Node_28",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "27",
+			"npc": "Captain Alexson",
+			"options": [
+				{
+					"next": "28",
+					"text": "Can you rebrief me?"
+				},
+				{
+					"next": "30",
+					"text": "Is it fine if I take your shotgun?"
+				},
+				{
+					"next": "33",
+					"text": "Nevermind."
+				}
+			],
+			"startCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Annoyed"
+						}
+					]
+				}
+			],
+			"talkCommands": [],
+			"text": "What is it?",
+			"tone": "angry",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_26",
+			"end": true,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "26",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [
+				{
+					"action": "nextConversation",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "res://Assets/Data/Dialogue/World/Test/NPC/Reindeer/reindeer02.json"
+						},
+						{
+							"type": "string",
+							"value": "27"
+						}
+					]
+				}
+			],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "We already have the ladder up to the north of this building. Climb it, and get going. If you need to come back here, just holler and unless we're all dead someone will let you in. Good luck.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_30",
+			"end": false,
+			"endCommands": [],
+			"id": "28",
+			"next": "29",
+			"npc": "Flynn Ludzko",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "Can we go over everything again? I forgot.",
+			"tone": "fearful",
+			"voice": "voice4"
+		},
+		{
+			"editor_name": "Node_0",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "0",
+			"next": "1",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Eyebrow"
+						}
+					]
+				}
+			],
+			"talkCommands": [],
+			"text": "Son, I can't say I'm disappointed in your choice. But I will say it's not the smartest.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_1",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "1",
+			"next": "2",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "Regardless, it isn't all too bad for the settlement, if you make it, that is.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_6",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "6",
+			"next": "7",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "First is Strength. As you carry out your missions, you need to work out your Strength to be able to overpower your enemies. Naturally, it increases over time so long as you decide it's what you are investing in.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_7",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "7",
+			"next": "8",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "The more strength you have, the heavier you hit. If you're working out strength early on, be ready to pack a punch, or else you'll be made quick work by your enemies.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_2",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "2",
+			"npc": "Captain Alexson",
+			"options": [
+				{
+					"next": "3",
+					"text": "Run me through it again."
+				},
+				{
+					"next": "19",
+					"text": "I don't need a tutorial."
+				}
+			],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "I take it you remember your SSI, correct?",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_5",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "5",
+			"next": "6",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "SSI... Strength, Survival, and Intelligence, are the three key skills you will need to survive the desert. It's unfortunate you didn't already know this, especially now, but you should be paying attention to each of these... stats?.. as you are dealing with new challenges. Pick and choose which one to focus on at a time.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_3",
+			"end": false,
+			"endCommands": [],
+			"id": "3",
+			"next": "4",
+			"npc": "Flynn Ludzko",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "Uhhhhhm... I hate to... Well... No.",
+			"tone": "neutral",
+			"voice": "voice4"
+		},
+		{
+			"editor_name": "Node_8",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "8",
+			"next": "9",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "Next is Survival. Not just your survival skills, but your adaptability to a harsh and changing environment. You should be constantly alert to your surroundings, and prepared for what ever may possibly get in your way.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_9",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "9",
+			"next": "10",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "If you keep yourself in good health, exercise cardio, and know how to hunt food, you'll have an advantage over weak and starved scavengers. Your metabolism will heal your injuries faster, and your cardio will keep you away from bigger threats.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_10",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "10",
+			"next": "11",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "Last is Intelligence. Stay alert, stay focused, and know your enemy. Probably not as important as being healthy, but will certainly make a difference if your enemy is untrained. You have the gift of combat experience, so use it accordingly.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_11",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "11",
+			"next": "12",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "Honestly, son, don't worry about Intelligence too hard. In my opinion, what's important is that you can take on threats and survive them. The dumbest guy you know is probably fucking your wife.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_12",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "12",
+			"next": "13",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "That said, Intelligence does make learning things easier, and makes battles a more... what's the word? Instinctual thing. You'll have better aim if you remember how to use the gun. Just don't be a dork and read all day long.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_15",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "15",
+			"next": "13",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "The more strength you have, the heavier you hit. If you're working out strength early on, be ready to pack a punch, or else you'll be made quick work by your enemies.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_16",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "16",
+			"next": "13",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "If you keep yourself in good health, exercise cardio, and know how to hunt food, you'll have an advantage over weak and starved scavengers. Your metabolism will heal your injuries faster, and your cardio will keep you away from bigger threats.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_17",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "17",
+			"next": "18",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Annoyed"
+						}
+					]
+				}
+			],
+			"talkCommands": [],
+			"text": " Stay alert, stay focused, and know your enemy. Not as important as healthiness, but makes a difference if your enemy is untrained. You might have the gift of combat experience, so use it accordingly.",
+			"tone": "angry",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_19",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "19",
+			"next": "21",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "Good man. I was hoping you'd say that.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_18",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "18",
+			"next": "20",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Annoyed"
+						}
+					]
+				}
+			],
+			"talkCommands": [],
+			"text": "Christ almighty. Pay attention, okay?",
+			"tone": "angry",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_13",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "13",
+			"npc": "Captain Alexson",
+			"options": [
+				{
+					"next": "20",
+					"text": "No, sir."
+				},
+				{
+					"next": "14",
+					"text": "Yes, sir."
+				}
+			],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "Need me to repeat anything?",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_20",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "20",
+			"next": "21",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "That should be about it for your readiness briefing.",
+			"tone": "fearful",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_21",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "21",
+			"next": "22",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "As for your mission, there's three major points I want you to investigate. These came up a lot during interceptions.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_22",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "22",
+			"next": "23",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "First, I want you to check out a hospital in Tucson. It's on this map here directly southwest of our settlement. \"Tucson Family Center\" or something like that. They were pretty well funded, and chances are they probably would've had the cure for clinical trials.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_25",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "25",
+			"next": "26",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "All that being said, I hope the best for you and your sister, Corporal. I have nothing left to say, except that if you find anything of use in here that isn't mine, that you are free to take it with you. Also, you can always radio in the Sergant if you have any questions.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_24",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "24",
+			"next": "25",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "Lastly, there's the most obvious spot on the map. It's pretty far away, and getting in will be a pain in the ass. You know what Red Sun is? The pharmaceutical company? They have a building far to the southwest. I'd recommend going there last, since it's a long way and you probably won't be able to get in anyways.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_23",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "23",
+			"next": "24",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "Next, we found out that there's a left behind bunker for elites to the south of us. Well, we think it's emptied, but maybe it isn't. If not, just come back and let us know, unless they're okay with you going in.",
+			"tone": "neutral",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_4",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "4",
+			"next": "5",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Annoyed"
+						}
+					]
+				}
+			],
+			"talkCommands": [],
+			"text": "G... oh. Flynn, you should remember this!.. I've been drilling it into your head since you came here! Alright, in case you're really nervous, I'll brief you again. Don't forget it this time! It's life or death!",
+			"tone": "angry",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_14",
+			"end": false,
+			"endCommands": [],
+			"id": "14",
+			"npc": "Flynn Ludzko",
+			"options": [
+				{
+					"next": "15",
+					"text": "Strength"
+				},
+				{
+					"next": "16",
+					"text": "Survival"
+				},
+				{
+					"next": "17",
+					"text": "Intelligence"
+				}
+			],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "Yes, sir. Can you go over...",
+			"tone": "neutral",
+			"voice": "voice4"
+		},
+		{
+			"editor_name": "Node_31",
+			"end": false,
+			"endCommands": [],
+			"id": "30",
+			"next": "31",
+			"npc": "Flynn Ludzko",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "Is it fine if I take your shotgun? I need something better than my revolver.",
+			"tone": "neutral",
+			"voice": "voice4"
+		},
+		{
+			"editor_name": "Node_32",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "31",
+			"next": "32",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Annoyed"
+						}
+					]
+				}
+			],
+			"talkCommands": [],
+			"text": "Wha... No! I already told you! You can have anything here that isn't mine! Are you fucking serious?",
+			"tone": "angry",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_29",
+			"end": true,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "29",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Annoyed"
+						}
+					]
+				}
+			],
+			"talkCommands": [],
+			"text": "Corporal. I swear to God. You were supposed to pay attention... No. I won't. You're on your own.",
+			"tone": "angry",
+			"voice": "voice2"
+		},
+		{
+			"editor_name": "Node_34",
+			"end": true,
+			"endCommands": [],
+			"id": "33",
+			"npc": "Flynn Ludzko",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [],
+			"text": "I'll go.",
+			"tone": "fearful",
+			"voice": "voice4"
+		},
+		{
+			"editor_name": "Node_33",
+			"end": false,
+			"endCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Idle"
+						}
+					]
+				}
+			],
+			"id": "32",
+			"next": "33",
+			"npc": "Captain Alexson",
+			"options": [],
+			"startCommands": [],
+			"talkCommands": [
+				{
+					"action": "animate",
+					"args": [
+						{
+							"type": "identifier",
+							"value": "currentSpeaker"
+						},
+						{
+							"type": "string",
+							"value": "Talking"
+						}
+					]
+				}
+			],
+			"text": "Do you want to go or not? You can stay here if you want and we can just do what we have to do.",
+			"tone": "angry",
+			"voice": "voice2"
+		}
+	],
+	"npc": "Captain Alexson",
+	"start_node": "27"
+}

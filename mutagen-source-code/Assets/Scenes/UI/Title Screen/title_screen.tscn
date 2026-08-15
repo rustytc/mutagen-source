@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ha72g734gld0"]
+[gd_scene load_steps=25 format=3 uid="uid://ha72g734gld0"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/UI/Title Screen/title_screen.gd" id="1_6aywb"]
 [ext_resource type="Texture2D" uid="uid://dxdxfkxo28su1" path="res://Assets/Images/Branding/goodbye.png" id="2_1cefv"]
@@ -16,6 +16,8 @@
 [ext_resource type="StyleBox" uid="uid://3rkmav1h7ok3" path="res://Assets/Skins/UI/button2.tres" id="11_ad40v"]
 [ext_resource type="PackedScene" uid="uid://bd8hfepjfwvfi" path="res://Assets/Scenes/UI/Effects/death_effect.tscn" id="12_j3jeb"]
 [ext_resource type="PackedScene" uid="uid://c1rd7o7u2x8me" path="res://Assets/Scenes/UI/Options/options.tscn" id="14_2lsb0"]
+
+[sub_resource type="Theme" id="Theme_u5xfg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qf3vq"]
 shader = ExtResource("3_5lk5v")
@@ -59,6 +61,29 @@ default_font = ExtResource("4_lm03k")
 
 [node name="Title Screen" type="Node2D"]
 script = ExtResource("1_6aywb")
+
+[node name="disclaimer" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 168.0
+offset_right = 616.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_u5xfg")
+theme_override_fonts/normal_font = ExtResource("4_lm03k")
+bbcode_enabled = true
+text = "[center]The following video game is intended for mature audiences only, and may be triggering to those who are sensitive to mature themes.
+
+It also contains flashing lights and loud sounds which may induce seizures in those with photosensitivity.
+
+If you are prone to shock induced by flashing imagery or loud sounds, or are otherwise triggered by disturbing themes, please exit the game."
+fit_content = true
+scroll_active = false
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 material = SubResource("ShaderMaterial_qf3vq")

@@ -19,6 +19,9 @@ var settingsRaw := {
 	"modsEnabled" : false,
 	"modsDetected" : false,
 	
+	# User Interface Flags
+	"disclaimerShown" : false,
+	
 }
 
 
@@ -31,7 +34,8 @@ func saveSettings():
 	config.set_value("settings", "musicVolume", settingsRaw["musicVolume"])
 	config.set_value("settings", "sfxVolume", settingsRaw["sfxVolume"])
 	config.set_value("settings", "modsEnabled", settingsRaw["modsEnabled"])
-
+	config.set_value("settings", "disclaimerShown", settingsRaw["disclaimerShown"])
+	
 	config.save("user://settings.cfg")
 
 
@@ -51,6 +55,7 @@ func _init():
 			settingsRaw["sfxVolume"] = config.get_value(settings, "sfxVolume")
 			settingsRaw["textSpeed"] = config.get_value(settings, "textSpeed")
 			settingsRaw["modsEnabled"] = config.get_value(settings, "modsEnabled")
+			settingsRaw["disclaimerShown"] = config.get_value(settings, "disclaimerShown")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

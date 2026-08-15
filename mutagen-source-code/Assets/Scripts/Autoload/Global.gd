@@ -7,7 +7,7 @@ var waitTimer := 0 # this variable exists as a buffer to execute code after ever
 var rng := RandomNumberGenerator.new()
 
 # Area Data
-@export var music := "res://Assets/Sounds/Music/Survival_of_the_Fittest.ogg"
+@export var music := ""
 @export var musicVolume : float = 0
 @export var musicPlaying := true
 @export var musicCanPlay := true # this is an extra variable check to see if other music is playing. if you want a scene to be mute, I recommend not using this but rather using musicPlaying instead
@@ -144,6 +144,8 @@ func goToArea(areaID, room, variant = LevelDb.areaDatabase[areaID]["rooms"][room
 	music = LevelDb.areaDatabase[areaID]["rooms"][room]["bgm"][variant]
 	musicPlaying = true
 	Global.currentScreen = "world"
+	PlayerDb.playerData["player"]["currentArea"] = areaID
+	PlayerDb.playerData["player"]["currentRoom"] = room
 	
 func goToMap():
 	var world = get_tree().get_nodes_in_group("World Scene Node Reference")[0]
