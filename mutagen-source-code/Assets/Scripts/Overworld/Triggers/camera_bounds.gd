@@ -1,6 +1,7 @@
 extends Area2D
-
-
+func _ready():
+	await get_tree().create_timer(2).timeout
+	Global.canGoToMap = true
 func _on_body_entered(body):
 	if body.is_in_group("playerBody"):
 		var camera = body.get_node("Camera2D")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlp2cbmbf2pqn"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Overworld/Triggers/door.gd" id="1_ybyj3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7bgx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wm7im"]
+
+[node name="door" type="Node2D"]
+script = ExtResource("1_ybyj3")
+
+[node name="area2d" type="Area2D" parent="."]
+
+[node name="collisionShape2d" type="CollisionShape2D" parent="area2d"]
+shape = SubResource("RectangleShape2D_s7bgx")
+
+[node name="animatedSprite2d" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wm7im")
+
+[node name="animationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="body_entered" from="area2d" to="." method="_on_area_2d_body_entered"]

@@ -305,7 +305,11 @@
 						{
 							"type": "string",
 							"value": "res://Assets/Data/Dialogue/World/Test/NPC/Reindeer/reindeer01.json"
-						}
+						},
+						{
+							"type": "string",
+							"value": "0"
+						},
 					]
 				}
 			],

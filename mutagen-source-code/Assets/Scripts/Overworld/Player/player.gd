@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 
 @export var speed : float = 200
+
 @export var controllable := true
 @onready var iframes := true
 @onready var pauseMenu : Control = get_node("Camera2D/Overworld UI/helpMenu")
@@ -23,6 +24,7 @@ func _init():
 	Global.currentScreen = "world" # The player's existence tells the game that the player is moving around in the world
 
 func _ready():
+	get_parent().position = Global.spawnpoint
 	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	Global.player = self.get_parent()
 	Global.playerCharBody2D = self

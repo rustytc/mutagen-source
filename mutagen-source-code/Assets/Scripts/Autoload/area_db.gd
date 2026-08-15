@@ -24,7 +24,26 @@ var areaDatabase := {
 				},
 				},
 				},
+			
+			"HQ" : {
+				"variant" : "normal",
+				"outOrIn" : "indoors",
+				"nodes" :
+			{
+				"normal" : "res://Assets/Scenes/World/Objects/Rooms/Walls/Husk Valley/HQ.tscn"
+			},
+				"bgm" : {
+					"normal" : "res://Assets/Sounds/Music/Ah.ogg",
+				},
+				"radioConversations" : {
+				"Evelyn" : {
 				
+				},
+				},
+				},
+			
+			
+			
 			},
 			},
 	

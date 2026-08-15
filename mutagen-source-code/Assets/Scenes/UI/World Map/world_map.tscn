@@ -169,6 +169,7 @@ script = ExtResource("20_df6a6")
 areaID = "huskValley"
 roomID = "town"
 areaName = "Husk Valley"
+spawnpoint = Vector2i(-104, -1480)
 
 [node name="area2d" type="Area2D" parent="Husk Valley"]
 

@@ -18,7 +18,7 @@ vec3 rgb2hsv(vec3 c) {
     float cMax = max(max(c.r, c.g), c.b);
     float cMin = min(min(c.r, c.g), c.b);
     float delta = cMax - cMin;
-    
+
     float h = 0.0;
     if(delta < 0.00001) {
         h = 0.0;
@@ -31,7 +31,7 @@ vec3 rgb2hsv(vec3 c) {
     }
     h /= 6.0;
     if(h < 0.0) h += 1.0;
-    
+
     float s = (cMax <= 0.0) ? 0.0 : (delta / cMax);
     float v = cMax;
     return vec3(h, s, v);
@@ -42,11 +42,11 @@ vec3 hsv2rgb(vec3 c) {
     float h = c.x * 6.0;
     float s = c.y;
     float v = c.z;
-    
+
     float c_val = v * s;
     float x = c_val * (1.0 - abs(mod(h, 2.0) - 1.0));
     vec3 rgb;
-    
+
     if (0.0 <= h && h < 1.0) {
         rgb = vec3(c_val, x, 0.0);
     } else if (1.0 <= h && h < 2.0) {
@@ -70,24 +70,24 @@ void fragment() {
     // Get the original texture color.
     vec4 tex_color = texture(screen_texture, SCREEN_UV);
     vec3 col = tex_color.rgb;
-    
+
     // Adjust brightness and contrast in RGB space.
     // The contrast formula shifts the color around mid-gray (0.5).
     col = (col - 0.5) * contrast_mult + 0.5 + brightness_add;
-    
+
     // Convert to HSV to adjust hue, saturation, and value.
     vec3 hsv = rgb2hsv(col);
-    
+
     // Apply hue shift and wrap the value [0,1].
     hsv.x = mod(hsv.x + hue_shift, 1.0);
-    
+
     // Adjust saturation and value multipliers.
     hsv.y *= saturation_mult;
     hsv.z *= value_mult;
-    
+
     // Convert back to RGB.
     col = hsv2rgb(hsv);
-    
+
     // Output the final color while preserving the original alpha.
     COLOR = vec4(col, tex_color.a);
 }

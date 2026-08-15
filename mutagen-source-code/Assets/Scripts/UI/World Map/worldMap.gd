@@ -3,6 +3,7 @@ var hoveredSpotID := ""
 var hoveredSpotName := ""
 var hoveredSpotKey := ""
 var hoveredSpotRoomID := ""
+var hoveredSpotSpawnpoint := Vector2i(0,0)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.currentScreen = "world"
@@ -56,6 +57,7 @@ func _process(delta):
 
 	if Input.is_action_just_pressed("Accept") and hoveredSpotID != "" and hoveredSpotID != "null":
 		if ((PlayerDb.playerData["player"]["inventory"].has(hoveredSpotKey) or hoveredSpotKey == "" or hoveredSpotKey == "null") and LevelDb.areaDatabase.has(hoveredSpotID)):
+			Global.spawnpoint = hoveredSpotSpawnpoint
 			Global.goToArea(hoveredSpotID,hoveredSpotRoomID)
 		if hoveredSpotID != null and not PlayerDb.playerData["player"]["inventory"].has(hoveredSpotKey) and not hoveredSpotKey == "null" and not hoveredSpotKey == "":
 			UniversalAudio._play_error()

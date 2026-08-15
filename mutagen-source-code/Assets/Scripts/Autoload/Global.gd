@@ -13,7 +13,8 @@ var rng := RandomNumberGenerator.new()
 @export var musicCanPlay := true # this is an extra variable check to see if other music is playing. if you want a scene to be mute, I recommend not using this but rather using musicPlaying instead
 var currentScreen := "world" # There are types of screens, 'world' screens, and 'battle' screens. These change UI
 @export var cutsceneIsActive := false
-
+@export var spawnpoint := Vector2i(0,0)
+var canGoToMap := false
 # Battles Data
 var enemiesKilled := {}
 var playerJustFled := false
@@ -28,7 +29,6 @@ var battleJustEnded := false
 @export var actionLog : Control = null
 @export var helpMenu : Control = null
 @export var cutscenePlayer = null
-
 
 # Variables from other autoloads
 var playerData : Dictionary = PlayerDb.playerData
@@ -129,6 +129,7 @@ func endCutscene():
 		cutsceneIsActive = false
 	
 func goToArea(areaID, room, variant = LevelDb.areaDatabase[areaID]["rooms"][room]["variant"]):
+	Global.canGoToMap = false
 	var world = get_tree().get_nodes_in_group("World Scene Node Reference")[0]
 	var map = get_tree().get_nodes_in_group("World Map Scene Node Reference")[0]
 	var loadedArea = load(LevelDb.areaDatabase[areaID]["rooms"][room]["nodes"][variant]).instantiate()
@@ -148,18 +149,19 @@ func goToArea(areaID, room, variant = LevelDb.areaDatabase[areaID]["rooms"][room
 	PlayerDb.playerData["player"]["currentRoom"] = room
 	
 func goToMap():
-	var world = get_tree().get_nodes_in_group("World Scene Node Reference")[0]
-	var map = get_tree().get_nodes_in_group("World Map Scene Node Reference")[0]
-	for i in world.get_children():
-		i.queue_free()
-	world.process_mode = Node.PROCESS_MODE_DISABLED
-	world.hide()
-	map.process_mode = Node.PROCESS_MODE_PAUSABLE
-	map.show()
-	map.get_node("canvasLayer").show()
-	map.get_node("mapCursor").get_node("camera2d").enabled = true
-	musicPlaying = false
-	Global.currentScreen = "map"
+	if Global.canGoToMap == true:
+		var world = get_tree().get_nodes_in_group("World Scene Node Reference")[0]
+		var map = get_tree().get_nodes_in_group("World Map Scene Node Reference")[0]
+		for i in world.get_children():
+			i.queue_free()
+		world.process_mode = Node.PROCESS_MODE_DISABLED
+		world.hide()
+		map.process_mode = Node.PROCESS_MODE_PAUSABLE
+		map.show()
+		map.get_node("canvasLayer").show()
+		map.get_node("mapCursor").get_node("camera2d").enabled = true
+		musicPlaying = false
+		Global.currentScreen = "map"
 
 func stopMusic():
 	print('music stopped')

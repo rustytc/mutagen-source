@@ -14,7 +14,9 @@ var readied := false
 var selectedAmmo = null
 var selectedAmmoType := ""
 
-@onready var player := get_tree().get_nodes_in_group("playerBody")[0]
+var player:
+	get:
+		return Global.playerCharBody2D
 
 var weaponIDHolder := ""
 var itemIDHolder := ""

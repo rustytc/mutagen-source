@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bulcrolw0j3t3"]
+[gd_scene load_steps=14 format=3 uid="uid://bulcrolw0j3t3"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Overworld/Maps/Test Level/testLevel.gd" id="1_grfmr"]
 [ext_resource type="PackedScene" uid="uid://i0q0mv6o5wpp" path="res://Assets/Scenes/World/Objects/Rooms/Walls/Husk Valley/huskValleyTilemap.tscn" id="2_x2gu0"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dlmbrnt6h3nxm" path="res://Assets/Scenes/World/Objects/NPCs/Enemies/Common/enemy_base.tscn" id="6_il3u5"]
 [ext_resource type="PackedScene" uid="uid://0taftihkxi2g" path="res://Assets/Scenes/World/Objects/NPCs/Interactable/Reindeer/reindeer.tscn" id="7_p7cg4"]
 [ext_resource type="PackedScene" uid="uid://cxd7ubf7m0b17" path="res://Assets/Scenes/World/Objects/NPCs/Interactable/Popeye/popeye.tscn" id="8_fn58h"]
+[ext_resource type="PackedScene" uid="uid://dlp2cbmbf2pqn" path="res://Assets/Scenes/World/Triggers/door.tscn" id="9_fyxev"]
 
 [sub_resource type="Animation" id="Animation_ygstv"]
 length = 0.001
@@ -451,7 +452,7 @@ targetZoneRange = [0, 1]
 position = Vector2(640, -1232)
 
 [node name="Player" parent="." instance=ExtResource("3_uk2ws")]
-position = Vector2(-134, -1533)
+position = Vector2(-104, -1480)
 
 [node name="Reindeer" parent="." instance=ExtResource("7_p7cg4")]
 position = Vector2(96, -1656)
@@ -459,6 +460,12 @@ position = Vector2(96, -1656)
 [node name="Popeye" parent="." instance=ExtResource("8_fn58h")]
 position = Vector2(-1040, -1560)
 dialogueJsonPath = "res://Assets/Data/Dialogue/World/Test/NPC/Popeye/popeyepam00.json"
+
+[node name="door" parent="." instance=ExtResource("9_fyxev")]
+position = Vector2(-48, -2160)
+area = "huskValley"
+room = "HQ"
+pos = Vector2i(347, 298)
 
 [editable path="EnemyBase"]
 [editable path="EnemyBase2"]

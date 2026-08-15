@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=4 uid="uid://llbjbgx0fv7e"]
+[gd_scene load_steps=15 format=4 uid="uid://llbjbgx0fv7e"]
 
 [ext_resource type="Texture2D" uid="uid://bp7m1t4ptm6a8" path="res://Assets/Images/Sprites/World Objects/Rooms/Tilemaps/Desert/huskValleyInteriors.png" id="1_qbhcv"]
 [ext_resource type="Script" path="res://Assets/Scenes/World/Objects/Rooms/Walls/Walls.gd" id="2_vncji"]
 [ext_resource type="Texture2D" uid="uid://mh7jkekdlkae" path="res://Assets/Images/Sprites/World Objects/Rooms/Tilemaps/Pathfinding/pathfinding.png" id="3_ij3ue"]
 [ext_resource type="PackedScene" uid="uid://b46pil1mndjda" path="res://Assets/Scenes/World/Objects/Player/player.tscn" id="4_71eqn"]
 [ext_resource type="PackedScene" uid="uid://0taftihkxi2g" path="res://Assets/Scenes/World/Objects/NPCs/Interactable/Reindeer/reindeer.tscn" id="5_tbu67"]
+[ext_resource type="Script" path="res://Assets/Scripts/Overworld/Triggers/camera_bounds.gd" id="6_3nfh3"]
+[ext_resource type="PackedScene" uid="uid://dlp2cbmbf2pqn" path="res://Assets/Scenes/World/Triggers/door.tscn" id="7_r3ede"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tmbao"]
 texture = ExtResource("1_qbhcv")
@@ -1311,6 +1313,9 @@ sources/0 = SubResource("TileSetAtlasSource_o22eb")
 border_size = 128.0
 agent_radius = 128.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omwto"]
+size = Vector2(880, 464)
+
 [node name="Map" type="Node2D" groups=["wallObjects"]]
 y_sort_enabled = true
 
@@ -1335,7 +1340,7 @@ tile_set = SubResource("TileSet_4j7ha")
 navigation_polygon = SubResource("NavigationPolygon_8ybm7")
 
 [node name="Player" parent="." instance=ExtResource("4_71eqn")]
-position = Vector2(512, 208)
+position = Vector2(347, 298)
 
 [node name="lighting" type="CanvasModulate" parent="."]
 texture_filter = 1
@@ -1345,3 +1350,19 @@ color = Color(0.688527, 0.612112, 0.468509, 1)
 z_as_relative = false
 position = Vector2(368, 63)
 dialogueJsonPath = "res://Assets/Data/Dialogue/World/Test/NPC/Reindeer/reindeer02.json"
+
+[node name="cameraBounds" type="Area2D" parent="."]
+script = ExtResource("6_3nfh3")
+
+[node name="collisionShape2d" type="CollisionShape2D" parent="cameraBounds" groups=["Camera Bounds"]]
+position = Vector2(337, 130)
+shape = SubResource("RectangleShape2D_omwto")
+
+[node name="door" parent="." instance=ExtResource("7_r3ede")]
+position = Vector2(347, 339)
+area = "huskValley"
+room = "town"
+pos = Vector2i(-48, -2120)
+
+[connection signal="body_entered" from="cameraBounds" to="cameraBounds" method="_on_body_entered"]
+[connection signal="body_exited" from="cameraBounds" to="cameraBounds" method="_on_body_exited"]
