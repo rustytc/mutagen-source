@@ -5,7 +5,6 @@ var streamNumber := 0
 var audio: AudioStreamPlayer
 var playback:AudioStreamPlaybackPolyphonic
 var activeStreams := []
-var canPlay := false
 # Universal Sound Effects
 
 
@@ -45,18 +44,11 @@ func _on_node_added(node:Node) -> void:
 
 		node.focus_entered.connect(_play_hover)
 
-func _input(event):
-	if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_down") or event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right"):
-		if not event.is_echo():
-			canPlay = true
-		else:
-			canPlay = false
 			
 func _play_hover() -> void:
 	# this extra if event is here so that the sound doesnt immediately play once a button becomes visible and focused on
-	if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right")) and get_viewport().gui_get_focus_owner() is Control and get_viewport().gui_get_focus_owner().visible == true and canPlay:
+	if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right")) and get_viewport().gui_get_focus_owner() is Control and get_viewport().gui_get_focus_owner().visible == true:
 		#playback.stop_stream(streamNumber):
-		canPlay = false
 		streamNumber += 1
 		audio.bus = &"SFX"
 		playback.play_stream(preload("res://Assets/Sounds/UI/select.mp3"), 0, 0, 1)
@@ -118,7 +110,7 @@ func _process(delta):
 	
 	# if it's a button, for left clicks, it checks if it has focus, isnt null and is being hovered over. otherwise, godot handles this automatically
 	if get_viewport().gui_get_focus_owner() is Button:
-		if (Input.is_action_just_pressed("ui_accept") or (Input.is_action_just_pressed("Left Click") and get_viewport().gui_get_focus_owner() != null and get_viewport().gui_get_focus_owner().is_hovered()) and get_viewport().gui_get_focus_owner().visible == true):
+		if (Input.is_action_just_pressed("ui_accept") or (Input.is_action_just_pressed("Left Click") and get_viewport().gui_get_focus_owner() == Control and get_viewport().gui_get_focus_owner().is_hovered()) and get_viewport().gui_get_focus_owner().visible == true):
 			_play_accept()
 	
 	

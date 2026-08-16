@@ -1,10 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://0taftihkxi2g"]
+[gd_scene load_steps=11 format=3 uid="uid://0taftihkxi2g"]
 
 [ext_resource type="PackedScene" uid="uid://dtmiaklh4rvt3" path="res://Assets/Scenes/World/Objects/NPCs/Interactable/NPC Base/npc_base.tscn" id="1_pupmd"]
 [ext_resource type="Texture2D" uid="uid://cgk2s035yinvd" path="res://Assets/Images/Sprites/World Objects/NPCs/Interactable/Reindeer/alexson3.png" id="2_vhkjo"]
 [ext_resource type="Texture2D" uid="uid://c6v4b3khl6aua" path="res://Assets/Images/Sprites/World Objects/NPCs/Interactable/Reindeer/alexson4.png" id="3_i1rjq"]
 [ext_resource type="Texture2D" uid="uid://ch1sa8fgxp0xj" path="res://Assets/Images/Sprites/World Objects/NPCs/Interactable/Reindeer/alexson1.png" id="4_nmsys"]
 [ext_resource type="Texture2D" uid="uid://dnu0u7qa88uqc" path="res://Assets/Images/Sprites/World Objects/NPCs/Interactable/Reindeer/alexson2.png" id="5_2bwis"]
+[ext_resource type="Texture2D" uid="uid://q3el8hsx2chn" path="res://Assets/Images/Sprites/World Objects/NPCs/Interactable/Reindeer/walk backwards1.png" id="6_kvvmu"]
+[ext_resource type="Texture2D" uid="uid://bp3cgk0cj2867" path="res://Assets/Images/Sprites/World Objects/NPCs/Interactable/Reindeer/walk backwards2.png" id="7_k10vx"]
+[ext_resource type="Texture2D" uid="uid://dg7v62k4jsa73" path="res://Assets/Images/Sprites/World Objects/NPCs/Interactable/Reindeer/walk backwards4.png" id="8_hxfm3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kefpb"]
+load_path = "res://.godot/imported/walk backwards3.png-fd5c327378e96281ffd423d018ac2e61.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jgkve"]
 animations = [{
@@ -42,12 +48,30 @@ animations = [{
 "loop": true,
 "name": &"Talking",
 "speed": 8.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kvvmu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_k10vx")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_kefpb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hxfm3")
+}],
+"loop": true,
+"name": &"Walk Backwards",
+"speed": 3.0
 }]
 
 [node name="npc_base" instance=ExtResource("1_pupmd")]
 dialogueJsonPath = "res://Assets/Data/Dialogue/World/Test/NPC/Reindeer/reindeer00.json"
-characterName = "Captain Rudolph \"Reindeer\" Alexson"
+characterName = "Captain Alexson"
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_jgkve")
-animation = &"Annoyed"
+animation = &"Walk Backwards"
+frame_progress = 0.607773

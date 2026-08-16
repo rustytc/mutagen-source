@@ -330,7 +330,66 @@
 							"value": "Idle"
 						}
 					]
-				}
+				},
+				{
+					"action": "Global.playCutscene",
+					"args": [
+						{
+							"type": "string",
+							"value": "reindeerWalkAway"
+						},
+					]
+				},
+				{
+					"action": "ActorHelper.changeNPCProperty",
+					"args": [
+						{
+							"type": "string",
+							"value": "Captain Alexson"
+						},
+						{
+							"type": "string",
+							"value": "huskValley"
+						},
+						{
+							"type": "string",
+							"value": "town"
+						},
+						{
+							"type": "string",
+							"value": "present"
+						},
+						{
+							"type": "boolean",
+							"value": false
+						},
+					]
+				},
+					{
+					"action": "ActorHelper.changeNPCProperty",
+					"args": [
+						{
+							"type": "string",
+							"value": "Captain Alexson"
+						},
+						{
+							"type": "string",
+							"value": "huskValley"
+						},
+						{
+							"type": "string",
+							"value": "HQ"
+						},
+						{
+							"type": "string",
+							"value": "present"
+						},
+						{
+							"type": "boolean",
+							"value": true
+						},
+					]
+				},
 			],
 			"id": "13",
 			"npc": "Captain Alexson",

@@ -5,7 +5,34 @@ extends Node
 # NPC Actors
 
 var npcDatabase = {
+	"huskValley" : {
+		"HQ" : {
+			"Captain Alexson" : {
+				"present" : false
+			}
+		}
+		}
 }
+
+func _process(delta):
+	var area = PlayerDb.playerData["player"]["currentArea"]
+	var room = PlayerDb.playerData["player"]["currentRoom"]
+
+	for i in get_tree().get_nodes_in_group("Talkative NPC"):
+		var characterName = i.characterName
+		if Global.cutsceneIsActive:
+			continue
+		if not npcDatabase.has(area):
+			continue
+		if not npcDatabase[area].has(room):
+			continue
+		if not npcDatabase[area][room].has(characterName):
+			continue
+		if npcDatabase[area][room][characterName].has("present") and npcDatabase[area][room][characterName]["present"] == false:
+			i.queue_free()
+			
+func changeNPCProperty(characterName, area, room, property, value):
+	npcDatabase[area][room][characterName][property] = value
 
 # Animation Switching from Triggers
 func animate(object : Node, animationName : String, animationNode : String = "AnimatedSprite2D"):

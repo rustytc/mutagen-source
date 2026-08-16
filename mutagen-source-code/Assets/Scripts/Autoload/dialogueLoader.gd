@@ -66,7 +66,7 @@ func parseArguments(args):
 			"float":
 				parsedArgs.append(float(i["value"]))
 			"boolean":
-				parsedArgs.append(bool(i["value"]))
+				parsedArgs.append(i["value"])
 			"identifier": # because get() doesnt infer autoloads and must
 				# be variables directly from self, it first checks if it is referencing
 				# a known autoload, and only if not does it check self.
@@ -142,7 +142,7 @@ func runCommands(commands):
 			callv(functionName, parsedArgs)
 		#TODO: make sure nothing can be executed through the commands in this whitelist
 		# NOTE: Function whitelist
-		elif functionName in ["print", "UniversalAudio.playSpecialSound", "ActorHelper.animate", "ActorHelper.nextConversation", "stopMusic", "Global.stopMusic", "animate", "sound", "initiateBattle", "hideBox", "showBox", "setEncounterTheme"]: # NOTE whenever you want a global function to be loaded, put it in this array
+		elif functionName in ["print", "UniversalAudio.playSpecialSound", "ActorHelper.animate", "ActorHelper.nextConversation", "stopMusic", "Global.stopMusic", "animate", "sound", "initiateBattle", "hideBox", "showBox", "setEncounterTheme", "Global.playCutscene", "Global.endCutscene", "ActorHelper.changeNPCProperty"]: # NOTE whenever you want a global function to be loaded, put it in this array
 			var parts = functionName.split(".")
 			var target: Object
 			var method: String

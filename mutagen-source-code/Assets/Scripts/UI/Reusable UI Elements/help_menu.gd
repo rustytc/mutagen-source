@@ -1092,17 +1092,15 @@ func _process(delta):
 			exitActionMenu()
 
 func _on_tabs_tab_changed(tab):
-	if $AnimationPlayer.current_animation == "PanOut" or $AnimationPlayer.current_animation == "Hidden":
-		return # this hack prevents the tab bar from regaining focus when it shouldnt and then becoming visible when the game is unpaused
-	if Input.is_action_just_pressed("ui_left") or Input.is_action_pressed("ui_left"):
-		$AnimationPlayer.play("SwitchLeft")
-	if Input.is_action_just_pressed("ui_right") or Input.is_action_pressed("ui_right"):
-		$AnimationPlayer.play("SwitchRight")
-	$Pointer.visible = false
-	# Tab switch sound
-	if self.visible == true and (Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right")): # extra conditions for input were added so that it doesnt play the click sound when the tabs are initialized or reordered
-		UniversalAudio.playSpecialSound("res://Assets/Sounds/UI/bleep.mp3")
-
+	if self.visible:
+		if Input.is_action_just_pressed("ui_left") or Input.is_action_pressed("ui_left"):
+			$AnimationPlayer.play("SwitchLeft")
+		if Input.is_action_just_pressed("ui_right") or Input.is_action_pressed("ui_right"):
+			$AnimationPlayer.play("SwitchRight")
+		$Pointer.visible = false
+		# Tab switch sound
+		if (Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right")): # extra conditions for input were added so that it doesnt play the click sound when the tabs are initialized or reordered
+			UniversalAudio.playSpecialSound("res://Assets/Sounds/UI/bleep.mp3")
 
 
 func hidePointer():

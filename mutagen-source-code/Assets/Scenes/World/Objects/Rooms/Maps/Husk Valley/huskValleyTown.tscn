@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bulcrolw0j3t3"]
+[gd_scene load_steps=15 format=3 uid="uid://bulcrolw0j3t3"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Overworld/Maps/Test Level/testLevel.gd" id="1_grfmr"]
 [ext_resource type="PackedScene" uid="uid://i0q0mv6o5wpp" path="res://Assets/Scenes/World/Objects/Rooms/Walls/Husk Valley/huskValleyTilemap.tscn" id="2_x2gu0"]
@@ -107,6 +107,30 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = false
+tracks/8/path = NodePath("Reindeer/AnimatedSprite2D:animation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Reindeer:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(96, -1656)]
 }
 
 [sub_resource type="Animation" id="Animation_bgyeu"]
@@ -389,10 +413,65 @@ tracks/3/keys = {
 "values": [Vector2(0, 0), Vector2(300, 0), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_k13as"]
+resource_name = "reindeerWalkAway"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Reindeer/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk Backwards"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Reindeer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(96, -1656), Vector2(96, -2100)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Reindeer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.96667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player/CharacterBody2D:controllable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0bbi6"]
 _data = {
 "RESET": SubResource("Animation_ygstv"),
 "doTheHokeyPokey": SubResource("Animation_bgyeu"),
+"reindeerWalkAway": SubResource("Animation_k13as"),
 "testCutscene": SubResource("Animation_v8jqt")
 }
 
@@ -471,3 +550,5 @@ pos = Vector2i(347, 298)
 [editable path="EnemyBase2"]
 [editable path="EnemyBase3"]
 [editable path="EnemyBase4"]
+[editable path="Player"]
+[editable path="Reindeer"]

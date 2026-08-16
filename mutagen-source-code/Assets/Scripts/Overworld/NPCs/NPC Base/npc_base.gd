@@ -23,6 +23,7 @@ func _process(delta):
 			ActorHelper.npcDatabase.has(PlayerDb.playerData["player"]["currentArea"])
 			and ActorHelper.npcDatabase[PlayerDb.playerData["player"]["currentArea"]].has(PlayerDb.playerData["player"]["currentRoom"])
 			and ActorHelper.npcDatabase[PlayerDb.playerData["player"]["currentArea"]][PlayerDb.playerData["player"]["currentRoom"]].has(characterName)
+			and ActorHelper.npcDatabase[PlayerDb.playerData["player"]["currentArea"]][PlayerDb.playerData["player"]["currentRoom"]][characterName].has("initialConversationID")
 			):
 				var data = ActorHelper.npcDatabase[PlayerDb.playerData["player"]["currentArea"]][PlayerDb.playerData["player"]["currentRoom"]][characterName]
 				DialogueLoader.dialogueStringID = data["initialConversationID"]
