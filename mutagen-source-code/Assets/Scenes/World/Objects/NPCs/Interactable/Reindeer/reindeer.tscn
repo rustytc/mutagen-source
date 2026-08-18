@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dg7v62k4jsa73" path="res://Assets/Images/Sprites/World Objects/NPCs/Interactable/Reindeer/walk backwards4.png" id="8_hxfm3"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kefpb"]
-load_path = "res://.godot/imported/walk backwards3.png-fd5c327378e96281ffd423d018ac2e61.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jgkve"]
 animations = [{
