@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpylfmg0jngxn"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Overworld/Objects/pocketable_item.gd" id="1_2w84o"]
+[ext_resource type="Texture2D" uid="uid://ketliqbx6crx" path="res://Assets/Images/Sprites/World Objects/Items/Crates/openedCrate.png" id="2_5b5tv"]
+[ext_resource type="Texture2D" uid="uid://bu16okfjvevrt" path="res://Assets/Images/Sprites/World Objects/Items/Crates/closedCrate.png" id="3_ucskh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m6m20"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5b5tv")
+}],
+"loop": true,
+"name": &"taken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ucskh")
+}],
+"loop": true,
+"name": &"untouched",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_onjnl"]
+radius = 32.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8ct14"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysjp7"]
+size = Vector2(57.5, 10)
+
+[node name="pocketableItem" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_2w84o")
+
+[node name="animatedSprite2d" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m6m20")
+animation = &"untouched"
+autoplay = "untouched"
+
+[node name="area2d" type="Area2D" parent="."]
+
+[node name="collisionShape2d" type="CollisionShape2D" parent="area2d"]
+shape = SubResource("CircleShape2D_onjnl")
+
+[node name="staticBody2d" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_8ct14")
+
+[node name="collisionShape2d" type="CollisionShape2D" parent="staticBody2d"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_ysjp7")
+
+[connection signal="body_entered" from="area2d" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="area2d" to="." method="_on_area_2d_body_exited"]

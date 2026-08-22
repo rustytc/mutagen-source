@@ -4,7 +4,7 @@ extends Node
 
 # NPC Actors
 
-var npcDatabase = {
+var npcDatabase : Dictionary = {
 	"huskValley" : {
 		"HQ" : {
 			"Captain Alexson" : {
@@ -13,6 +13,44 @@ var npcDatabase = {
 		}
 		}
 }
+var objectDatabase : Dictionary = {
+}
+
+func pickUpItem(ID):
+	var key = objectDatabase[PlayerDb.playerData["player"]["currentArea"]][PlayerDb.playerData["player"]["currentRoom"]][ID]
+	var action = ActionProcessor.actionTemplate.duplicate(true)
+	action["general"]["announcement"] = key["announcement"]
+	action["general"]["result"] = key["result"]
+	action["general"]["resultSFX"] = key["resultSFX"]
+	action["general"]["announcementSFX"] = key["announcementSFX"]
+	
+	if key["ammo"] == false and key["armor"] == false:
+		InventoryHelper.addItem(key["item"],key["quantity"])
+	elif key["ammo"] == true:
+		PlayerDb.playerData["player"]["ammo"][key["item"]] += key["quantity"]
+		Global.helpMenu.updateWeaponDescriptions()
+	elif key["armor"] == true:
+		InventoryHelper.addArmor("item", "armorType", "quantity")
+			
+	action["general"]["announcement"] = key["announcement"].replace("[QUANTITY]",str(key["quantity"]))
+	if key["quantity"] > 1:
+		action["general"]["announcement"] = action["general"]["announcement"].replace("[PLURALIZER]","s")
+	else:
+		action["general"]["announcement"] = action["general"]["announcement"].replace("[PLURALIZER]","")
+		
+	ActionProcessor.queueSpecificAction(action)
+	
+func interact(announcement, result, announcementSFX, resultSFX): # for interacting with objects that arent items
+	var action = ActionProcessor.actionTemplate.duplicate(true)
+	if announcement != null:
+		action["general"]["announcement"] = announcement
+	if announcementSFX != null:
+		action["general"]["announcementSFX"] = announcementSFX
+	if result != null:
+		action["general"]["result"] = result
+	if resultSFX != null:
+		action["general"]["resultSFX"] = resultSFX
+	ActionProcessor.queueSpecificAction(action)
 
 func _process(delta):
 	var area = PlayerDb.playerData["player"]["currentArea"]

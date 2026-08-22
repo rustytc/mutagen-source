@@ -132,6 +132,8 @@ func goToArea(areaID, room, variant = LevelDb.areaDatabase[areaID]["rooms"][room
 	Global.canGoToMap = false
 	var world = get_tree().get_nodes_in_group("World Scene Node Reference")[0]
 	var map = get_tree().get_nodes_in_group("World Map Scene Node Reference")[0]
+	PlayerDb.playerData["player"]["currentArea"] = areaID
+	PlayerDb.playerData["player"]["currentRoom"] = room
 	var loadedArea = load(LevelDb.areaDatabase[areaID]["rooms"][room]["nodes"][variant]).instantiate()
 	for i in world.get_children():
 		i.queue_free()
@@ -145,8 +147,7 @@ func goToArea(areaID, room, variant = LevelDb.areaDatabase[areaID]["rooms"][room
 	music = LevelDb.areaDatabase[areaID]["rooms"][room]["bgm"][variant]
 	musicPlaying = true
 	Global.currentScreen = "world"
-	PlayerDb.playerData["player"]["currentArea"] = areaID
-	PlayerDb.playerData["player"]["currentRoom"] = room
+	
 	
 func goToMap():
 	if Global.canGoToMap == true:
