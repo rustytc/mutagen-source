@@ -33,8 +33,8 @@ var battleJustEnded := false
 # Variables from other autoloads
 var playerData : Dictionary = PlayerDb.playerData
 	
-
-
+# Save File
+var slot := 0
 
 
 
@@ -129,6 +129,7 @@ func endCutscene():
 		cutsceneIsActive = false
 	
 func goToArea(areaID, room, variant = LevelDb.areaDatabase[areaID]["rooms"][room]["variant"]):
+	ActorHelper.targetters = 0
 	Global.canGoToMap = false
 	var world = get_tree().get_nodes_in_group("World Scene Node Reference")[0]
 	var map = get_tree().get_nodes_in_group("World Map Scene Node Reference")[0]
@@ -150,6 +151,7 @@ func goToArea(areaID, room, variant = LevelDb.areaDatabase[areaID]["rooms"][room
 	
 	
 func goToMap():
+	ActorHelper.targetters = 0
 	if Global.canGoToMap == true:
 		var world = get_tree().get_nodes_in_group("World Scene Node Reference")[0]
 		var map = get_tree().get_nodes_in_group("World Map Scene Node Reference")[0]

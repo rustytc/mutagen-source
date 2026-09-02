@@ -1,0 +1,253 @@
+[gd_scene load_steps=19 format=3 uid="uid://blc75w76vp3r4"]
+
+[ext_resource type="FontFile" uid="uid://cgksoyoaqim15" path="res://Assets/Fonts/Mx437_IBM_VGA_8x14.ttf" id="1_gvtsa"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/Reusable UI Elements/save_menu.gd" id="1_pvaqj"]
+[ext_resource type="FontFile" uid="uid://dbibrg3b1b5mh" path="res://Assets/Fonts/pixeloid.sans.ttf" id="2_mpda4"]
+[ext_resource type="FontFile" uid="uid://y21aom2shmhk" path="res://Assets/Fonts/pixeloid.sans-bold.ttf" id="3_fcjnf"]
+[ext_resource type="FontFile" uid="uid://bndr2qb2kcow1" path="res://Assets/Fonts/Mx437 IBM VGA 8x14 MODIFIED.ttf" id="5_qqm7h"]
+[ext_resource type="StyleBox" uid="uid://c7v42b37ndda1" path="res://Assets/Skins/UI/button_selected.tres" id="6_etoi0"]
+[ext_resource type="StyleBox" uid="uid://3rkmav1h7ok3" path="res://Assets/Skins/UI/button2.tres" id="7_kxlts"]
+
+[sub_resource type="FontVariation" id="FontVariation_d610k"]
+base_font = ExtResource("1_gvtsa")
+
+[sub_resource type="Theme" id="Theme_npjoi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y3gse"]
+
+[sub_resource type="Theme" id="Theme_6wxmw"]
+
+[sub_resource type="Theme" id="Theme_yjun5"]
+
+[sub_resource type="Animation" id="Animation_036lg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-320, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e2ng7"]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1.31951, 1.31951),
+"update": 0,
+"values": [Vector2(-320, 104), Vector2(-320, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4rx2c"]
+resource_name = "hidden"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-320, 104)]
+}
+
+[sub_resource type="Animation" id="Animation_e3fuu"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(0.31864, 0.31864),
+"update": 0,
+"values": [Vector2(-320, 0), Vector2(-320, 104)]
+}
+
+[sub_resource type="Animation" id="Animation_4ekat"]
+resource_name = "shown"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-320, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_270sr"]
+_data = {
+"RESET": SubResource("Animation_036lg"),
+"appear": SubResource("Animation_e2ng7"),
+"hidden": SubResource("Animation_4rx2c"),
+"hide": SubResource("Animation_e3fuu"),
+"shown": SubResource("Animation_4ekat")
+}
+
+[node name="Save Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+script = ExtResource("1_pvaqj")
+
+[node name="loadtext" type="RichTextLabel" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = -320.0
+offset_top = 8.0
+offset_right = 320.0
+offset_bottom = 32.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_d610k")
+theme_override_fonts/mono_font = ExtResource("2_mpda4")
+theme_override_fonts/bold_font = ExtResource("3_fcjnf")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "[center]LOAD SAVE GAME
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="savetext" type="RichTextLabel" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = -320.0
+offset_top = 8.0
+offset_right = 320.0
+offset_bottom = 32.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_d610k")
+theme_override_fonts/mono_font = ExtResource("2_mpda4")
+theme_override_fonts/bold_font = ExtResource("3_fcjnf")
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "[center]SAVE GAME TO DISK
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+tab_size = 2
+shortcut_keys_enabled = false
+
+[node name="scrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = -152.0
+offset_right = 248.0
+offset_bottom = 360.0
+theme = SubResource("Theme_npjoi")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_y3gse")
+follow_focus = true
+
+[node name="vBoxContainer" type="VBoxContainer" parent="scrollContainer"]
+layout_mode = 2
+theme = SubResource("Theme_6wxmw")
+
+[node name="menuOptions" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -320.0
+offset_right = 320.0
+offset_bottom = 360.0
+
+[node name="back" type="Button" parent="menuOptions"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 192.0
+offset_bottom = 320.0
+focus_neighbor_right = NodePath("../saveload")
+theme = SubResource("Theme_yjun5")
+theme_override_fonts/font = ExtResource("5_qqm7h")
+theme_override_styles/focus = ExtResource("6_etoi0")
+theme_override_styles/disabled_mirrored = ExtResource("7_kxlts")
+theme_override_styles/disabled = ExtResource("7_kxlts")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_kxlts")
+theme_override_styles/hover_pressed = ExtResource("7_kxlts")
+theme_override_styles/hover_mirrored = ExtResource("7_kxlts")
+theme_override_styles/hover = ExtResource("7_kxlts")
+theme_override_styles/pressed_mirrored = ExtResource("7_kxlts")
+theme_override_styles/pressed = ExtResource("7_kxlts")
+theme_override_styles/normal_mirrored = ExtResource("7_kxlts")
+theme_override_styles/normal = ExtResource("7_kxlts")
+text = "BACK"
+
+[node name="saveload" type="Button" parent="menuOptions"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 256.0
+offset_right = 384.0
+offset_bottom = 320.0
+focus_neighbor_left = NodePath("../back")
+focus_neighbor_right = NodePath("../delete")
+theme = SubResource("Theme_yjun5")
+theme_override_fonts/font = ExtResource("5_qqm7h")
+theme_override_styles/focus = ExtResource("6_etoi0")
+theme_override_styles/disabled_mirrored = ExtResource("7_kxlts")
+theme_override_styles/disabled = ExtResource("7_kxlts")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_kxlts")
+theme_override_styles/hover_pressed = ExtResource("7_kxlts")
+theme_override_styles/hover_mirrored = ExtResource("7_kxlts")
+theme_override_styles/hover = ExtResource("7_kxlts")
+theme_override_styles/pressed_mirrored = ExtResource("7_kxlts")
+theme_override_styles/pressed = ExtResource("7_kxlts")
+theme_override_styles/normal_mirrored = ExtResource("7_kxlts")
+theme_override_styles/normal = ExtResource("7_kxlts")
+text = "LOAD"
+
+[node name="delete" type="Button" parent="menuOptions"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 256.0
+offset_right = 576.0
+offset_bottom = 320.0
+focus_neighbor_left = NodePath("../saveload")
+theme = SubResource("Theme_yjun5")
+theme_override_fonts/font = ExtResource("5_qqm7h")
+theme_override_styles/focus = ExtResource("6_etoi0")
+theme_override_styles/disabled_mirrored = ExtResource("7_kxlts")
+theme_override_styles/disabled = ExtResource("7_kxlts")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_kxlts")
+theme_override_styles/hover_pressed = ExtResource("7_kxlts")
+theme_override_styles/hover_mirrored = ExtResource("7_kxlts")
+theme_override_styles/hover = ExtResource("7_kxlts")
+theme_override_styles/pressed_mirrored = ExtResource("7_kxlts")
+theme_override_styles/pressed = ExtResource("7_kxlts")
+theme_override_styles/normal_mirrored = ExtResource("7_kxlts")
+theme_override_styles/normal = ExtResource("7_kxlts")
+text = "DELETE
+"
+
+[node name="animationPlayer" type="AnimationPlayer" parent="menuOptions"]
+libraries = {
+"": SubResource("AnimationLibrary_270sr")
+}
+autoplay = "hidden"

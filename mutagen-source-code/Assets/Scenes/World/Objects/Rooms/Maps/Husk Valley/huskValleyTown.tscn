@@ -515,23 +515,17 @@ position = Vector2(456, -1400)
 [node name="CharacterBody2D" parent="EnemyBase2" index="0"]
 targetZoneRange = [0, 1]
 
-[node name="EnemyBase3" parent="." instance=ExtResource("6_il3u5")]
-position = Vector2(456, -1400)
-
-[node name="CharacterBody2D" parent="EnemyBase3" index="0"]
-targetZoneRange = [0, 1]
-
-[node name="EnemyBase4" parent="." instance=ExtResource("6_il3u5")]
-position = Vector2(456, -1400)
-
-[node name="CharacterBody2D" parent="EnemyBase4" index="0"]
-targetZoneRange = [0, 1]
-
 [node name="PathfindingZone2" parent="." instance=ExtResource("5_8pilt")]
 position = Vector2(640, -1232)
 
 [node name="Player" parent="." instance=ExtResource("3_uk2ws")]
 position = Vector2(-104, -1480)
+
+[node name="AnimatedSprite2D" parent="Player/CharacterBody2D" index="0"]
+animation = &"Idle Sideways"
+
+[node name="Music" parent="Player/CharacterBody2D" index="5"]
+stream = ExtResource("4_57l51")
 
 [node name="Reindeer" parent="." instance=ExtResource("7_p7cg4")]
 position = Vector2(96, -1656)
@@ -548,7 +542,5 @@ pos = Vector2i(347, 298)
 
 [editable path="EnemyBase"]
 [editable path="EnemyBase2"]
-[editable path="EnemyBase3"]
-[editable path="EnemyBase4"]
 [editable path="Player"]
 [editable path="Reindeer"]
