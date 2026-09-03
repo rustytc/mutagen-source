@@ -2,13 +2,19 @@ extends Node
 var areaDatabase := {
 	
 	
-	
+		"" : {
+			"areaMetadata" : {
+				"prettyName" : "Meat Factory"
+			},
+		},
 		"huskValley" : { # Area ID
 		"areaMetadata" : {
+			"prettyName" : "Husk Valley",
 			},
 			
 		"rooms" : {
 			"town" : {
+				"prettyName" : "Town",
 				"variant" : "normal",
 				"outOrIn" : "outdoors",
 				"nodes" :
@@ -26,6 +32,7 @@ var areaDatabase := {
 				},
 			
 			"HQ" : {
+				"prettyName" : "Headquarters",
 				"variant" : "normal",
 				"outOrIn" : "indoors",
 				"nodes" :

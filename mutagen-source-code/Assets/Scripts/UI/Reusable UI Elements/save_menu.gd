@@ -30,9 +30,11 @@ func setUpSaveScreen():
 	for i in range(saves.size(), 0, -1):
 		var indexedSlot = saveSlot.instantiate()
 		var save = saves[i - 1]
+		var playerDataJson = JSON.parse_string(FileAccess.open("user://saves/" + save + "/playerData.json", FileAccess.READ).get_as_text())
+		print(save)
 		indexedSlot.slotClicked.connect(saveSlotClicked)
 		indexedSlot.saveFile = save
-		indexedSlot.text = save.replace("T", " ").replace("_",":")
+		indexedSlot.text = "LEVEL " + str(playerDataJson["player"]["level"]) + "\n" + LevelDb.areaDatabase[playerDataJson["player"]["currentArea"]]["areaMetadata"]["prettyName"] + "\n" + save.replace("T", " ").replace("_",":") + "\n" + playerDataJson["game"]["runTime"]
 		indexedSlot.createFile = false
 		$scrollContainer/vBoxContainer.add_child(indexedSlot)
 	for i in get_tree().get_nodes_in_group("saveSlot"):
