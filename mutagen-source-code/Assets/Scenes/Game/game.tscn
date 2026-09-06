@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt4e1ihod0rw1"]
+[gd_scene load_steps=4 format=3 uid="uid://dt4e1ihod0rw1"]
 
 [ext_resource type="PackedScene" uid="uid://dmwnysfr3nj60" path="res://Assets/Scenes/UI/World Map/world_map.tscn" id="1_e10ui"]
 [ext_resource type="PackedScene" uid="uid://lfhxtap3m62l" path="res://Assets/Scenes/UI/Game Over/game_over.tscn" id="1_ma4fr"]
+[ext_resource type="PackedScene" uid="uid://ha72g734gld0" path="res://Assets/Scenes/UI/Title Screen/title_screen.tscn" id="3_oggwa"]
 
 [node name="Game" type="Node2D" groups=["Game Scene"]]
 
+[node name="Title Screen" parent="." groups=["Title Screen"] instance=ExtResource("3_oggwa")]
+
 [node name="worldMap" parent="." groups=["World Map Scene Node Reference"] instance=ExtResource("1_e10ui")]
 process_mode = 1
+visible = false
 
 [node name="World" type="Node2D" parent="." groups=["World Scene Node Reference"]]
 process_mode = 4

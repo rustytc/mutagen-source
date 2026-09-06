@@ -131,8 +131,11 @@ func endCutscene():
 func goToArea(areaID, room, variant = LevelDb.areaDatabase[areaID]["rooms"][room]["variant"]):
 	ActorHelper.targetters = 0
 	Global.canGoToMap = false
-	var world = get_tree().get_nodes_in_group("World Scene Node Reference")[0]
-	var map = get_tree().get_nodes_in_group("World Map Scene Node Reference")[0]
+	var world = null
+	var map = null
+	if get_tree().has_group("World Scene Node Reference"):
+		world = get_tree().get_nodes_in_group("World Scene Node Reference")[0]
+		map = get_tree().get_nodes_in_group("World Map Scene Node Reference")[0]
 	PlayerDb.playerData["player"]["currentArea"] = areaID
 	PlayerDb.playerData["player"]["currentRoom"] = room
 	var loadedArea = load(LevelDb.areaDatabase[areaID]["rooms"][room]["nodes"][variant]).instantiate()
@@ -165,6 +168,7 @@ func goToMap():
 		map.get_node("mapCursor").get_node("camera2d").enabled = true
 		musicPlaying = false
 		Global.currentScreen = "map"
+		map.get_node("audioStreamPlayer").play()
 
 func stopMusic():
 	print('music stopped')

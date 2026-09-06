@@ -44,6 +44,8 @@ func _ready():
 		# THE MOBILE PORTS. THAT WILL GET YOU BANNED REAAAAL QUICK
 	
 	
+	# Setting up focus
+	$"Save Menu".focus_mode = Control.FOCUS_NONE
 	
 	# These are pretty trendy
 	var tomcatTexts = [
@@ -312,12 +314,15 @@ func _process(delta):
 # Menu Functions
 
 func _on_continue_pressed():
-	if FileAccess.file_exists("user://saveFilesIndex.json"):
-		loadSaveFiles()
+	if DirAccess.dir_exists_absolute("user://saves"):
+		$"Save Menu".mode = "load"
+		$"Save Menu".show()
+		$"Save Menu".focus_mode = Control.FOCUS_ALL
+		$"Save Menu".setUpSaveScreen()
+		$"Save Menu/animationPlayer".play("slideIn")
 	else:
 		UniversalAudio.playSpecialSound("res://Assets/Sounds/UI/error.mp3")
-func loadSaveFiles():
-	print('done')
+		print("No saves")
 
 
 

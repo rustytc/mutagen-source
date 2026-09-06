@@ -2,6 +2,7 @@ extends Button
 @export var saveFile := ""
 @export var autosave := false
 @export var createFile := true
+@export var backButton := false
 signal slotClicked(saveFile, createFile)
 
 func _on_pressed():

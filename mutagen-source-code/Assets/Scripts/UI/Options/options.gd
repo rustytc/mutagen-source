@@ -141,6 +141,7 @@ func _on_battle_log_speed_item_selected(index):
 	Settings.saveSettings()
 
 func _on_back_pressed():
+	UniversalAudio._play_back()
 	self.hide()
 	get_parent().get_node("menu").show()
 	get_parent().get_node("Logo").show()

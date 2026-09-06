@@ -102,3 +102,9 @@ func dial(max, dialNode):
 	dialNode.get_child(1).rotation = 0
 	dialNode.ticks = max
 	
+func loadDictionary(target, json):
+	for i in json:
+		if (target.has(i)	and target[i] is Dictionary	and json[i] is Dictionary):
+			loadDictionary(target[i], json[i])
+		else:
+			target[i] = json[i]

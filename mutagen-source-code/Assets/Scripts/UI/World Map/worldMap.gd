@@ -6,13 +6,16 @@ var hoveredSpotRoomID := ""
 var hoveredSpotSpawnpoint := Vector2i(0,0)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.currentScreen = "world"
 	Global.musicCanPlay = false
 	Global.musicPlaying = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if self.visible == false:
+		$canvasLayer.hide()
+	else:
+		$canvasLayer.show()
 	$canvasLayer/areaName.text = "[center][color=green]" + hoveredSpotName
 	
 	var minX = $mapCursor/camera2d.limit_left

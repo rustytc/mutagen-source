@@ -56,7 +56,6 @@ var playerData := { # various important player variables stored in a dictionary
 		"position": {
 			"x": 0,
 			"y": 0,
-			"zone": "Desert_00"
 		},
 		"inventory": {
 				"radio" : {

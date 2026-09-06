@@ -58,7 +58,10 @@ func _play_accept() -> void:
 	audio.bus = &"SFX"
 	playback.play_stream(preload("res://Assets/Sounds/UI/click.mp3"), 0, 0, 1)
 
-
+func _play_back() -> void:
+	streamNumber += 1
+	audio.bus = &"SFX"
+	playback.play_stream(preload("res://Assets/Sounds/UI/back.mp3"), 0, 0, 1)
 
 func _play_error():
 	streamNumber += 1

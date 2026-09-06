@@ -95,6 +95,7 @@ wallObjects="objects that are identifiable as walls"
 tilemap=""
 "Camera Bounds"="A boundary that prevents the player and camera from going out of bounds"
 "World Map Scene Node Reference"=""
+"Title Screen"=""
 
 [input]
 

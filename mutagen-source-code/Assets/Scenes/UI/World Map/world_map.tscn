@@ -111,6 +111,7 @@ animations = [{
 script = ExtResource("1_jyajm")
 
 [node name="canvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="WELCOME" type="RichTextLabel" parent="canvasLayer"]
 texture_filter = 1
@@ -158,7 +159,6 @@ metadata/_edit_lock_ = true
 
 [node name="audioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_mq0a3")
-autoplay = true
 
 [node name="mapIcons" type="Node2D" parent="."]
 
@@ -228,6 +228,7 @@ shape = SubResource("CircleShape2D_kh8jh")
 position = Vector2(1136, -456)
 
 [node name="camera2d" type="Camera2D" parent="mapCursor"]
+enabled = false
 limit_left = -872
 limit_top = -718
 limit_right = 1512

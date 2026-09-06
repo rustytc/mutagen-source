@@ -308,6 +308,7 @@ position_smoothing_speed = 10.0
 script = ExtResource("14_6ltr4")
 
 [node name="Overworld Battle Fizz Effect" parent="CharacterBody2D/Camera2D" instance=ExtResource("15_bevj5")]
+visible = false
 position = Vector2(-417, -208)
 
 [node name="Overworld UI" parent="CharacterBody2D/Camera2D" instance=ExtResource("16_cwft2")]

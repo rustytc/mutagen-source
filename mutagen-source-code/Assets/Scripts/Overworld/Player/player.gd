@@ -197,6 +197,7 @@ func _physics_process(delta):
 			
 		# Camera Fizz Effect
 	if cameraFizz == true:
+		$"Camera2D/Overworld Battle Fizz Effect".show()
 		cameraFizzValue = (cameraFizzValue + (1 * delta))*1.02
 		# print(cameraFizzValue)
 		$"Camera2D/Overworld Battle Fizz Effect/Noise".material.set_shader_parameter("intensity", cameraFizzValue)
